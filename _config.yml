@@ -7,7 +7,7 @@
 # dc: Data Carpentry
 # lc: Library Carpentry
 # cp: Carpentries (to use for instructor traning for instance)
-carpentry: "swc"
+carpentry: "incubator"
 
 # Overall title for pages.
 title: "Reproducible computational environments using containers"
@@ -15,6 +15,7 @@ title: "Reproducible computational environments using containers"
 # Life cycle stage of the lesson
 # possible values: "pre-alpha", "alpha", "beta", "stable"
 life_cycle: "alpha"
+
 
 #------------------------------------------------------------
 # Generic settings (should not need to change).
@@ -99,3 +100,5 @@ exclude:
 
 # Turn on built-in syntax highlighting.
 highlighter: rouge
+
+remote_theme: carpentries/carpentries-theme
