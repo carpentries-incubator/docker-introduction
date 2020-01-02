@@ -132,6 +132,11 @@ can access and run from your computer, the **container image** is like a templat
 for that container. The container image has all the needed information to start 
 up a running copy of the container. A running container tends to be transient 
 and can be started and shut down. The image is more long-lived, as a source file for the container. 
+You could think of the container image like a cookie cutter -- it 
+can be used to create multiple copies of the same shape (or container) 
+and is relatively unchanging, where cookies come and go. If you want a 
+different type of container (cookie) you need a different image (cookie cutter).
+
 
 ### Putting the Pieces Together
 
