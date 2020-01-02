@@ -115,15 +115,16 @@ the packaging of a complete software system:
  you can drop a container into a computer with the container software installed
  (also called a container host), and it should "just work".
 
-> ## Virtual Machines
+> ## Virtualization
 > 
-> For those who have heard of "virtual machines", or VMs, these are another 
-> example of what's called virtualization -- having a "second" computer 
-> running and accessible from your main, or host, computer. 
-> A container is considered a lightweight version of a virtual machine. 
-> A virtual machine typically contains a whole copy of an operating system in 
+> Containers are an example of what's called **virtualization** -- having a 
+> second "virtual" computing running and accessible from a main or **host**
+> computer. Another example of virtualization are **virtual machines** or 
+> VMs. A virtual machine typically contains a whole copy of an operating system in 
 > addition to its own file system and has to get booted up in the same way 
-> a computer would; a container (underneath) is using the Linux 
+> a computer would. 
+> A container is considered a lightweight version of a virtual machine; 
+> underneath, the container is using the Linux 
 > kernel and simply has some flavor of Linux + the file system inside. 
 {: .callout}
 
