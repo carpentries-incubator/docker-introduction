@@ -103,7 +103,7 @@ drive of your computer.
 NOW, imagine you wanted to have a second computer. You don't want to buy a 
 whole new computer because it's too expensive. What if, instead, you could have 
 another filesystem that you could store and access from your main computer, 
-but that is self-container? 
+but that is self-contained? 
 
  A container system (like Docker) is a special program 
 on your computer that does this. 
@@ -118,7 +118,7 @@ the packaging of a complete software system:
 > ## Virtualization
 > 
 > Containers are an example of what's called **virtualization** -- having a 
-> second "virtual" computing running and accessible from a main or **host**
+> second "virtual" computer running and accessible from a main or **host**
 > computer. Another example of virtualization are **virtual machines** or 
 > VMs. A virtual machine typically contains a whole copy of an operating system in 
 > addition to its own file system and has to get booted up in the same way 
