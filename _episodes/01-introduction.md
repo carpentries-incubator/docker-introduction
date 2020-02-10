@@ -1,14 +1,13 @@
 ---
-title: "Introducing containers"
+title: "Introducing Containers"
 teaching: 20
 exercises: 0
 questions:
 - "What are containers, and why might they be useful to me?"
 objectives:
 - "Show how software depending on other software leads to configuration management problems."
-- "Explain the notion of virtualisation in computing."
-- "Explain the ways in which virtualisation may be useful."
-- "Explain how containers streamline virtualisation."
+- "Identify the problems that software installation problems can pose for research."
+- "Give two examples of how containers can solve software configuration problems." 
 keypoints:
 - "Almost all software depends on other software components to function, but these components have independent evolutionary paths."
 - "Projects involving many software components can rapidly run into a combinatoric explosion in the number of software version configurations available, yet only a subset of possible configurations actually works as desired."
@@ -28,74 +27,138 @@ This lesson comes with a whole set of disclaimers; my apologies for needing them
 
 4. Containers are a topic that requires significant amounts of technical background to understand in detail. Most of the time containers, particularly as wrapped up by Docker, do not require you to have a deep technical understanding of container technology, but when things go wrong, the diagnostic messages may turn opaque rather quickly.
 
-### The fundamental problem: software has dependencies that are difficult to manage
 
-Consider Microsoft Excel: a typical workplace productivity tool. Most Excel users probably give little thought to the underlying software dependencies allowing them to open a given XLSX file on their computer. Indeed, in an ideal world none of us would need to think about fixing software dependencies, but we are far from that world. For example:
-- Excel isn't directly available for computers running Linux at all. So clearly Linux, as operating system software, is different from the Windows and macOS operating systems that do have Excel versions.
-- Although XLSX is notionally standardised, Excel on macOS and Excel on Windows can interpret files differently. Clearly, despite looking similar, these two "Excel"s are clearly not precisely the same software.
-  - Note that this macOS/Windows Excel situation is *much*  better now than a few years ago: Microsoft had previously chosen to separately develop both of macOS Excel and Windows Excel, however when they also started releasing Office for iOS and Android, and providing web-based versions through Office 365, there was too much potential for divergence and compatibility chaos, so my understanding is that the core "engine" was standardised better across all the Office platforms. There still needs to be different software on each operating system that Excel supports to get that core "engine" up and running.
-  - It is extremely unlikely that a current-day version of Excel would run on the Windows 2000 operating system. (A separate point is that it is also highly unlikely that it is a good idea to run Windows 2000 at all, given Microsoft has long stopped fixing its critical security flaws!) There are many other versions of Excel that either will or won't run on all the other versions of Windows... and all of them may read and write XLS(X) files slightly differently, and potentially, incompatibly.
 
-All of the above discussion is *just* about one piece of software: Microsoft Excel. Excel mostly just depends on the version of the operating system you're running. However the situation gets far worse when building software in programming environments like R or Python. Those languages change over time, and depend on an enormous set of software libraries written by unrelated software development teams.
+### Scientific Software Challenges
 
-What if you wanted to distribute a software tool that automated interaction between R and Python. *Both* of these language environments have independent version and software dependency lineages. As the number of software components such as R and Python increases, this can rapidly lead to a combinatoric explosion in the number of possible configurations, only some of which will work as intended. This situation is sometimes informally termed "dependency hell".
+> ## What's Your Experience?
+> 
+> Take a minute to think about challenges that you have experienced in using 
+> scientific software (or software in general!) for your research. Then, 
+> share with your neighbors and try to come up with a list of common gripes or 
+> challenges. 
+{: .challenge}
 
-The situation is often mitigated in part by factors such as:
-- an acceptance of inherent software and hardware obsolesce (let's destroy the planet faster) so it's not expected that *all* versions of software need to be supported forever;
-- some inherent synchronisation in the reasons for making software changes (e.g., the shift from 32-bit to 64-bit software), so not all versions will be expected to interact with all other versions.
+You may have come up with some of the following: 
+- software that doesn't exist for the operating system (Mac, Windows, Linux) you use or want to use. 
+- software that is hard to install because you have to install a bunch of other things first 
+(and those installations required *other* installations...). 
+- you're not actually sure what software you're using because the install process was 
+so circuitous. 
+- you and a colleague are using the "same" software but have installed different versions. 
+- you installed everything correctly on your computer, once, but now need to 
+install it on your colleague's computer, or on the campus computing cluster. 
+- you're writing a package for other people to use, but you get a lot of emails 
+from people who can't install it. 
 
-It's not very practical to have every version of every piece of software installed on any computer that might need to resolve dependencies, as the mostly-redundant space used by the different versions will continue to mount.
+Etc. 
 
-Thankfully there are ways to get underneath (a lot of) this mess: containers to the rescue! Containers provide a way to package up software dependencies and access to resources such as files and communications networks in a uniform manner.
+A lot of these characteristics boil down to one fact: the main program you want 
+to use likely depends on many, many, different other programs (including the 
+operating system!), creating a very complex, and often fragile system. One change 
+or missing piece may stop the whole thing from working or break something that was 
+already running. It's no surprise that this situation is sometimes 
+informally termed "dependency hell".
 
-### Background: virtualisation in computing
+> ## Software and Science
+> 
+> Again, take a minute to think about how the software challenges we've discussed 
+> could impact (or have impacted!) the quality of your work. 
+> Share your thoughts with your neighbors. What can go wrong if our software 
+> doesnt work? 
+{: .challenge}
 
-Some uses of computers and the software they run should be deterministic, particularly when building reproducible computational environments. The meaning of "deterministic" is: if you feed in the same input, to the same computer, then the same output will appear.
+Unsurprisingly, software installation and configuration challenges can have 
+negative consequences for research: 
+- you can't use a specific tool at all, because it's not available or installable. 
+- you can't reproduce your results because you're not sure what tools you're actually using. 
+- you can't access extra resources because you're not able to replicate your software set up. 
 
-However a computer running deterministic software, let's call it the "guest", should *itself* be able to be simulated as a deterministic computational process running on a computer we will call the "host". The guest computer can be said to have been virtualised: it is no longer a physical computer. Note that "virtual machine" is frequently referred to using the abbreviation "VM".
+Thankfully there are ways to get underneath (a lot of) this mess: containers 
+to the rescue! Containers provide a way to package up software dependencies 
+and access to resources such as files and communications networks in a uniform manner.
 
-We have avoided the software dependency issue by looking for the lowest common factor across all software systems, which is the computer itself, beneath even the operating system software.
+### What is a Container? 
 
-> ## Omitting details and avoiding complexities...
-> Note that this description omits many details and avoids discussing complexities that are not particularly relevant to this introduction session, for example:
-> - Thinking with analogy to movies such as Inception, The Matrix, etc., can the guest computer figure out that it's not actually a physical computer, and that it's running as software inside a host physical computer? Yes, it probably can... but let's not go there within this episode: we can talk later.
-> - Can you run a host as a guest itself within another host? Sometimes... but let's not go there, either, and again, we can talk later if you are interested in further details.
+Docker is a tool that allows you to build what are called "containers." It's 
+not the only tool that can create containers, but is the one we've chosen for 
+this workshop. But what *is* a container? 
+
+To understand containers, let's first talk briefly about your computer. 
+
+Your computer has some standard pieces that allow it to work - often what's 
+called the hardware. One of these pieces is the CPU or processor; another is 
+the amount of memory or RAM that your computer can use to store information 
+temporarily while running programs; another is the hard drive, which can store 
+information over the long-term. All these pieces work together to do the 
+"computing" of a computer, but we don't see them, because they're hidden away. 
+
+Instead, what we see is our desktop, program windows, different folders, and 
+files. These all 
+live in what's called the file system. Everything on your computer - programs, 
+pictures, documents - lives somewhere in the file system. One way to think of 
+the file system is the layer of stuff that can be activated to use use the CPU, memory and hard 
+drive of your computer. 
+
+NOW, imagine you wanted to have a second computer. You don't want to buy a 
+whole new computer because it's too expensive. What if, instead, you could have 
+another filesystem that you could store and access from your main computer, 
+but that is self-contained? 
+
+ A container system (like Docker) is a special program 
+on your computer that does this. 
+The term "container" can be usefully considered with reference to shipping 
+containers. Before shipping containers were developed, packing and unpacking 
+cargo ships was time consuming, and error prone, with high potential for 
+different clients' goods to become mixed up. Software containers standardise 
+the packaging of a complete software system:
+ you can drop a container into a computer with the container software installed
+ (also called a container host), and it should "just work".
+
+> ## Virtualization
+> 
+> Containers are an example of what's called **virtualization** -- having a 
+> second "virtual" computer running and accessible from a main or **host**
+> computer. Another example of virtualization are **virtual machines** or 
+> VMs. A virtual machine typically contains a whole copy of an operating system in 
+> addition to its own file system and has to get booted up in the same way 
+> a computer would. 
+> A container is considered a lightweight version of a virtual machine; 
+> underneath, the container is using the Linux 
+> kernel and simply has some flavor of Linux + the file system inside. 
 {: .callout}
 
-### Motivation for virtualisation
+One final term: if the container is an alternative file system layer that you 
+can access and run from your computer, the **container image** is like a template 
+for that container. The container image has all the needed information to start 
+up a running copy of the container. A running container tends to be transient 
+and can be started and shut down. The image is more long-lived, as a source file for the container. 
+You could think of the container image like a cookie cutter -- it 
+can be used to create multiple copies of the same shape (or container) 
+and is relatively unchanging, where cookies come and go. If you want a 
+different type of container (cookie) you need a different image (cookie cutter).
 
-What features does virtualisation offer?
-- Isolation: the VM is self-contained, so you can create and destroy it without affecting the host computer.
-- Reproducibility: the VM can be "wound-back" to a known-good situation, much as you might revert a document you are editing to the last saved state.
-- Manageability: the VM is software, so can be saved and restored as you might a document file (albeit a *much* larger file than a typical XLSX document!).
-- Migration: the VM is just data, so can be transmitted to another physical host and run in the same way from there.
 
-Downsides of "full" virtualisation:
-- The file describing a VM has to contain its entire simulated hard-disk, so this leads to very large files.
-- The guest computer wastes a lot of time managing "hardware" that's not actually real, e.g., VMs need to boot up in the same way that your laptop does.
-- A host needs *lots* of RAM to run large numbers of virtual machines, as the strong isolation means that the VMs do not share any resources.
+### Putting the Pieces Together
 
-### Containers are a type of lightweight virtualisation
+Think back to some of the challenges we described at the beginning. The many layers 
+of scientific software installations make it hard to install and re-install 
+scientific software -- which ultimately, hinders reliability and reproducibility. 
 
-Containers are cut-down virtual machines. Containers sacrifice the strong isolation that full virtualisation provides in order to vastly reduce the resource requirements on the virtualisation host.
+But now, think about what a container is - a self-contained, complete, separate 
+computer file system. What if you put your scientific software tools into a 
+container? 
 
-The term "container" can be usefully considered with reference to shipping containers. Before shipping containers were developed, packing and unpacking cargo ships was time consuming, and error prone, with high potential for different clients' goods to become mixed up. Software containers standardise the packaging of a complete software system (the lightweight virtual machine): you can drop a container into a container host, and it should "just work".
+This solves several of our problems: 
+- There is a clear record of what software and software dependencies were used, 
+from bottom to top. 
+- The container can be used on any computer that has Docker installed -- it 
+doesn't matter whether the computer is Mac, Windows or Linux-based. 
+- The container ensures that you can use the exact same software and environment 
+on your computer and on other resources (like a large-scale computing cluster). 
 
-Hopefully this lesson will demonstrate the portability aspect of containers, showing the *same* containers running on:
-- macOS;
-- Microsoft Windows;
-- (any Linux users out there?); and
-- in the cloud.
-
-### Docker is a popular container platform
-
-Docker is software that manages containers and the resources that containers need. While Docker is a clear leader in the container space, there are many similar technologies available... we just need to pick one to use for this workshop.
-
-### Docker's terminology
-
-- **Image**: this is the term that Docker uses to describe the template from which live instances of containers will be created. The term "container image" may sometimes be used to emphasise that the "image" relates to software containers and not, say, the sense of an "image" when discussing cute kitten pictures (without loss of generality).
-- **Container**: this is an instance of a lightweight virtual machine created by Docker from a (container) image.
-- **Hub**: the Docker hub is a storage resource and associated website where a vast collection of preexisting container images are documented, and are made available for your use.
+The rest of this workshop will show you how to download and run pre-existing containers 
+on your own computer, and how to create and share your own containers. 
 
 {% include links.md %}
 
