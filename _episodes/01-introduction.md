@@ -15,19 +15,11 @@ keypoints:
 - "Virtualisation is an old technology that container technology makes more practical."
 - "Docker is just one software platform that can create containers and the resources they use."
 ---
-### Disclaimers / apologies
+### Disclaimers
 
-This lesson comes with a whole set of disclaimers; my apologies for needing them!
+1. Docker is complex software used for many different purposes. We are unlikely to give examples that suit all of your potential ideal use-cases, but would be delighted to at least open up discussion of what those use-cases might be.
 
-1. You are the first learners to have engaged with this material. Various wheels are likely to fall off during parts of the session. Thankfully we have excellent helpers on hand. There are also separate episodes that do not depend on each other, so if you have to give up on one episode, you should be able to return later in the session.
-
-2. This looks like the Carpentries' formatting of lessons because it is using their stylesheet (which is openly available for such purposes). However the similarity is visual-only: so far I have developed this lesson myself, which means that it does not have the quality-assurance or quality of the official Carpentries' lessons.
-
-3. Docker is complex software used for many different purposes. We are unlikely to give examples that suit all of your potential ideal use-cases, but would be delighted to at least open up discussion of what those use-cases might be.
-
-4. Containers are a topic that requires significant amounts of technical background to understand in detail. Most of the time containers, particularly as wrapped up by Docker, do not require you to have a deep technical understanding of container technology, but when things go wrong, the diagnostic messages may turn opaque rather quickly.
-
-
+2. Containers are a topic that requires significant amounts of technical background to understand in detail. Most of the time containers, particularly as wrapped up by Docker, do not require you to have a deep technical understanding of container technology, but when things go wrong, the diagnostic messages may turn opaque rather quickly.
 
 ### Scientific Software Challenges
 
