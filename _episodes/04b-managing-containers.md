@@ -1,9 +1,9 @@
 ---
-title: "Creating containers"
+title: "Exploring and Running Containers"
 teaching: 10
 exercises: 0
 questions:
-- "How do I get Docker to perform computation?"
+- "How do I interact with a Docker container on my computer?"
 objectives:
 - "Demonstrate how to create an instance of a container from an image."
 - "Explain how to list (container) images on your laptop."
@@ -15,85 +15,6 @@ keypoints:
 - "The `docker container` command lists containers that have been created."
 ---
 
-### Creating a "hello world" container
-
-> ## Reminder of terminology: images and containers
-> - Recall that a container "image" is the template from which particular instances of containers will be created.
-{: .callout}
-
-One of the simplest Docker container images just allows you to create containers that print a welcome message.
-
-To create and run containers from named Docker images you use the `docker run` command. Open a shell window if you do not already have one open and try the following `docker run` invocation. Note that it does not matter what your current working directory is.
-~~~
-$ docker run hello-world
-~~~
-{: .language-bash}
-~~~
-Unable to find image 'hello-world:latest' locally
-latest: Pulling from library/hello-world
-1b930d010525: Pull complete
-Digest: sha256:2557e3c07ed1e38f26e389462d03ed943586f744621577a99efb77324b0fe535
-Status: Downloaded newer image for hello-world:latest
-
-Hello from Docker!
-This message shows that your installation appears to be working correctly.
-
-To generate this message, Docker took the following steps:
- 1. The Docker client contacted the Docker daemon.
- 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
-    (amd64)
- 3. The Docker daemon created a new container from that image which runs the
-    executable that produces the output you are currently reading.
- 4. The Docker daemon streamed that output to the Docker client, which sent it
-    to your terminal.
-
-To try something more ambitious, you can run an Ubuntu container with:
- $ docker run -it ubuntu bash
-
-Share images, automate workflows, and more with a free Docker ID:
- https://hub.docker.com/
-
-For more examples and ideas, visit:
- https://docs.docker.com/get-started/
-~~~
-{: .output}
-
-Now try to run the above command again, and observe the difference in the output.
-
-The message from "Hello from Docker!" is what's produced by instances of the hello-world container. It should be identical every time you make an instance of the hello-world container and run it.
-
- The first time you saw some initial output from the Docker command itself:
-~~~
-Unable to find image 'hello-world:latest' locally
-latest: Pulling from library/hello-world
-1b930d010525: Pull complete
-Digest: sha256:2557e3c07ed1e38f26e389462d03ed943586f744621577a99efb77324b0fe535
-Status: Downloaded newer image for hello-world:latest
-~~~
-{: .output}
-
-What this says is that your laptop didn't have its own local copy of the hello-world container's image.
-
-Docker then connected to the Docker Hub to find and download the (container) image with that name.
-
-The message notes information about the Docker Hub website, but we'll return to that in the next episode.
-
-The "digest" is a secure fingerprint (a "hash") of the particular version of the container image that you now have... (Although of course the usefulness of that hash is minimal if you don't know what to compare it to!)
-
-### Where did that "hello-world" container image get stored?
-
-The `docker image` command is used to list and modify Docker images.
-You can find out what container images you have local copies of using the following command ("ls" is short for "list"):
-~~~
-$ docker image ls
-~~~
-{: .language-bash}
-~~~
-REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
-hello-world            latest              fce289e99eb9        4 weeks ago         1.84kB
-~~~
-{: .output}
-(Actually, I had some additional images on my laptop that I've removed from the above, and in live demo I'm likely to end up displaying a great many more lines!)
 
 If you need to reclaim space, you will need to remove image files.
 On macOS and Windows, when you uninstall the overall Docker software, it should have the effect of removing all of your image files, although I have not explicitly tested this.
@@ -271,7 +192,6 @@ and have created a Docker container from it.
 While this already effects a reproducible computational environment,
 the image contents are not under your control, so we look at this topic,
 after a quick discussion about the Docker Hub.
-
 
 {% include links.md %}
 
