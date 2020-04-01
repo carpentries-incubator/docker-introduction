@@ -1,20 +1,17 @@
 ---
 title: "Exploring and Running Containers"
-teaching: 10
-exercises: 0
+teaching: 20
+exercises: 10
 questions:
 - "How do I interact with a Docker container on my computer?"
 objectives:
-- "Demonstrate how to create an instance of a container from an image."
+- "Demonstrate how to start an instance of a container from an image."
 - "Explain how to list (container) images on your laptop."
-- "Explain how to list running and completed containers."
 keypoints:
-- "Containers are usually created using command line invocations."
-- "The `docker run` command creates containers from images."
+- "Containers are usually started using command line invocations."
+- "The `docker run` command creates containers from images and can run commands inside them."
 - "The `docker image` command lists images that are (now) on your computer."
-- "The `docker container` command lists containers that have been created."
 ---
-
 
 > ## Reminder of terminology: images and containers
 > - Recall that a container "image" is the template from which particular instances of containers will be created.
@@ -84,6 +81,7 @@ computer.
 ## Running the `hello-world` container
 
 To create and run containers from named Docker images you use the `docker run` command. Try the following `docker run` invocation. Note that it does not matter what your current working directory is.
+
 ~~~
 $ docker run hello-world
 ~~~
@@ -112,8 +110,7 @@ For more examples and ideas, visit:
 ~~~
 {: .output}
 
-What just happened? The `hello-world` container is set up to run an action by default -
-namely to print this message. When we use the `docker run` command, Docker:
+What just happened? When we use the `docker run` command, Docker:
 
 | 1. Starts a Running Container | 2. Performs Default Action | 3. Shuts Down the Container
 | --------------------|-----------------|----------------|
@@ -121,7 +118,10 @@ namely to print this message. When we use the `docker run` command, Docker:
 "inflated" version of the container -- it's actually doing something | If the container has a default action set, it will perform that default action. This could be as simple as printing a message (as above) or running a whole analysis pipeline! | Once the default action is complete, the container stops running (or exits). The image
 is still there, but nothing is actively running. |
 
-> ## docker run
+The `hello-world` container is set up to run an action by default -
+namely to print this message.
+
+> ## Using `docker run` to get the image
 >
 > Technically, we could have skipped the `docker pull` step; if you use the `docker run`
 > command and you don't already have a copy of the Docker image, Docker will
@@ -130,7 +130,7 @@ is still there, but nothing is actively running. |
 
 ## Running a container with a chosen command
 
-But what if we wanted to do something different? The output
+But what if we wanted to do something different with the container? The output
 just gave us a suggestion of what to do -- let's use the `ubuntu` Docker image
 to explore what else we can do with the `docker run` command.
 
@@ -148,20 +148,27 @@ $ docker run ubuntu
 {: .language-bash}
 
 Probably nothing! That's because this particular container is designed for you to
-provide commands. Try running this instead:
+provide commands yourself. Try running this instead:
 
 ~~~
 $ docker run ubuntu cat /etc/os_release
 ~~~
 {: .language-bash}
 
-## Exercise
-Can you run the container and make it print a "hello world" message.
-
-~~~
-$ docker run ubuntu echo 'Hello World'
-~~~
-{: .language-bash}
+> ## Exercise
+> Can you run the container and make it print a "hello world" message?
+>
+> Give it a try before checking the solution.
+>
+> > ## Solution
+> >
+> > To see if the `hello-world` image is now on your computer, run:
+> > ~~~
+> > $ docker run ubuntu echo 'Hello World'
+> > ~~~
+> > {: .language-bash}
+> {: .solution}
+{: .challenge}
 
 So here, we see another option -- we can provide commands at the end of the `docker run`
 command and they will execute inside the running container.
