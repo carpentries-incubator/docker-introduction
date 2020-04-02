@@ -126,7 +126,7 @@ Deleted Containers:
 
 ## Removing images, for real this time
 
-Now that we've removed any potentially running containers, we can try again to
+Now that we've removed any potentially running or stopped containers, we can try again to
 delete the `hello-world` **image**.
 
 ~~~
