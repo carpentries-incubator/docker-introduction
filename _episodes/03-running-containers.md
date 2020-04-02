@@ -118,9 +118,7 @@ What just happened? When we use the `docker run` command, Docker does three thin
 
 | 1. Starts a Running Container | 2. Performs Default Action | 3. Shuts Down the Container
 | --------------------|-----------------|----------------|
-| starts a running container, based on the image. Think of this as the "alive" or
-"inflated" version of the container -- it's actually doing something | If the container has a default action set, it will perform that default action. This could be as simple as printing a message (as above) or running a whole analysis pipeline! | Once the default action is complete, the container stops running (or exits). The image
-is still there, but nothing is actively running. |
+| starts a running container, based on the image. Think of this as the "alive" or"inflated" version of the container -- it's actually doing something | If the container has a default action set, it will perform that default action. This could be as simple as printing a message (as above) or running a whole analysis pipeline! | Once the default action is complete, the container stops running (or exits). The image is still there, but nothing is actively running. |
 
 The `hello-world` container is set up to run an action by default -
 namely to print this message.
