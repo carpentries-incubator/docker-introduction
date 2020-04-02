@@ -5,16 +5,20 @@ exercises: 10
 questions:
 - "How do I interact with a Docker container on my computer?"
 objectives:
+- "Use the correct command to see which Docker images are on your computer."
+- "Download new Docker images."
 - "Demonstrate how to start an instance of a container from an image."
-- "Explain how to list (container) images on your laptop."
+- "Describe at least two ways to run commands inside a running Docker container."
 keypoints:
-- "Containers are usually started using command line invocations."
-- "The `docker run` command creates containers from images and can run commands inside them."
-- "The `docker image` command lists images that are (now) on your computer."
+- "The `docker pull` command downloads Docker images from the internet."
+- "The `docker image` command lists Docker images that are (now) on your computer."
+- "The `docker run` command creates running containers from images and can run commands inside them."
+- "When using the `docker run` command, a container can run a default action (if it
+has one), a user specified action, or a shell to be used interactively."
 ---
 
 > ## Reminder of terminology: images and containers
-> - Recall that a container "image" is the template from which particular instances of containers will be created.
+> Recall that a container "image" is the template from which particular instances of containers will be created.
 {: .callout}
 
 Let's explore our first Docker container. The Docker team provides a simple container
@@ -110,7 +114,7 @@ For more examples and ideas, visit:
 ~~~
 {: .output}
 
-What just happened? When we use the `docker run` command, Docker:
+What just happened? When we use the `docker run` command, Docker does three things:
 
 | 1. Starts a Running Container | 2. Performs Default Action | 3. Shuts Down the Container
 | --------------------|-----------------|----------------|
@@ -131,19 +135,21 @@ namely to print this message.
 ## Running a container with a chosen command
 
 But what if we wanted to do something different with the container? The output
-just gave us a suggestion of what to do -- let's use the `ubuntu` Docker image
-to explore what else we can do with the `docker run` command.
+just gave us a suggestion of what to do -- let's use a different Docker image
+to explore what else we can do with the `docker run` command. The suggestion above
+is to use `ubuntu`, but we're going to run a different type of Linux, `alpine`
+instead because it's quicker to download.
 
-> ## Run the Ubuntu Docker container
+> ## Run the Alpine Docker container
 >
-> Try downloading and running the `ubuntu` Docker container. You can do it in
+> Try downloading and running the `alpine` Docker container. You can do it in
 > two steps, or one. What are they?
 {: .callout}
 
 What happened when you ran the Ubuntu Docker container?
 
 ~~~
-$ docker run ubuntu
+$ docker run alpine
 ~~~
 {: .language-bash}
 
@@ -151,9 +157,12 @@ Probably nothing! That's because this particular container is designed for you t
 provide commands yourself. Try running this instead:
 
 ~~~
-$ docker run ubuntu cat /etc/os_release
+$ docker run alpine cat /proc/version
 ~~~
 {: .language-bash}
+
+You should see the output of the `cat /proc/version` command, which prints out
+the version of Linux that this container is using.
 
 > ## Exercise
 > Can you run the container and make it print a "hello world" message?
@@ -162,9 +171,9 @@ $ docker run ubuntu cat /etc/os_release
 >
 > > ## Solution
 > >
-> > To see if the `hello-world` image is now on your computer, run:
+> > Use the same command as above, but with the `echo` command to print a message.
 > > ~~~
-> > $ docker run ubuntu echo 'Hello World'
+> > $ docker run alpine echo 'Hello World'
 > > ~~~
 > > {: .language-bash}
 > {: .solution}
@@ -177,18 +186,18 @@ command and they will execute inside the running container.
 
 In all the examples above, Docker has started the container, run a command, and then
 immediately shut down the container. But what if we wanted to keep the container
-running for awhile so we could log into it and test drive more commands? The way to
+running so we could log into it and test drive more commands? The way to
 do this is by adding the interactive flag `-it` to the `docker run` command and
-by providing a shell (usually `bash`) as our command.
+by providing a shell (usually `bash` or `sh`) as our command.
 
 ~~~
-$ docker run -it ubuntu bash
+$ docker run -it alpine sh
 ~~~
 {: .language-bash}
 
 Your prompt should change significantly to look like this:
 ~~~
-root@2d8d37405cc1:/#
+/ #
 ~~~
 {: .language-bash}
 
@@ -198,13 +207,14 @@ That's because you're now inside the running container! Try these commands:
 * `ls`
 * `whoami`
 * `echo $PATH`
-* `cat /etc/os_release`
+* `cat /proc/version`
 
 All of these are being run from inside the running container, so you'll get information
-about the container itself, instead of your computer.
+about the container itself, instead of your computer. To finish using the container,
+just type `exit`.
 
 ~~~
-lkdjf;alskdfj;lak? exit
+/ # exit
 ~~~
 {: .language-bash}
 
