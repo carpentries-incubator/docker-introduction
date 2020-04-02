@@ -55,7 +55,7 @@ docker.io/library/hello-world:latest
 
 > ## DockerHub
 >
-> Where did the `hello-world` image come from? Technically, it came from the DockerHub
+> Where did the `hello-world` image come from? It came from the DockerHub
 > website, which is a place to share Docker images with other people. More on that
 > in a later episode.
 {: .callout}
@@ -125,7 +125,7 @@ namely to print this message.
 
 > ## Using `docker run` to get the image
 >
-> Technically, we could have skipped the `docker pull` step; if you use the `docker run`
+> We could have skipped the `docker pull` step; if you use the `docker run`
 > command and you don't already have a copy of the Docker image, Docker will
 > automatically pull the image first and then run it.
 {: .callout}
@@ -142,7 +142,7 @@ instead because it's quicker to download.
 >
 > Try downloading and running the `alpine` Docker container. You can do it in
 > two steps, or one. What are they?
-{: .callout}
+{: .challenge}
 
 What happened when you ran the Ubuntu Docker container?
 
@@ -162,7 +162,7 @@ $ docker run alpine cat /proc/version
 You should see the output of the `cat /proc/version` command, which prints out
 the version of Linux that this container is using.
 
-> ## Exercise
+> ## Hello World, Part 2
 > Can you run the container and make it print a "hello world" message?
 >
 > Give it a try before checking the solution.
@@ -193,6 +193,15 @@ $ docker run -it alpine sh
 ~~~
 {: .language-bash}
 
+> ## Technically...
+>
+> Technically, the interactive flag is just `-i`, the extra `-t` (combined
+> as `-it` above) is an option that allows you to connect to a shell like
+> bash. But since usually you want to have a command line when run interactively,
+> it always makes sense to use the two together.
+{: .callout}
+
+
 Your prompt should change significantly to look like this:
 ~~~
 / #
@@ -215,6 +224,51 @@ just type `exit`.
 / # exit
 ~~~
 {: .language-bash}
+
+> ## Practice Makes Perfect
+> Can you find out the version of Linux installed on the `busybox` container?
+> Can you find the `busybox` program? What does it do? (Hint: passing `--help`
+> to almost any command will give you more information.)
+>
+> > ## Solution 1 - Interactive
+> >
+> > Run the busybox container interactively -- you can use `docker pull` first, or just
+> > run it with this command:
+> > ~~~
+> > $ docker run -it busybox sh
+> > ~~~
+> > {: .language-bash}
+> >
+> > Then try, running these commands
+> >
+> > ~~~
+> > /# cat /proc/version
+> > /# busybox --help
+> > ~~~
+> > {: .language-bash}
+> >
+> > Exit when you're done.
+> > ~~~
+> > /# exit
+> > ~~~
+> > {: .language-bash}
+> {: .solution}
+>
+> > ## Solution 2 - Run commands
+> >
+> > Run the busybox container, first with a command to read out the Linux version:
+> > ~~~
+> > $ docker run busybox cat /proc/version
+> > ~~~
+> > {: .language-bash}
+> >
+> > Then run the container again with a command to print out the busybox help:
+> > ~~~
+> > $ docker run busybox busybox --help
+> > ~~~
+> > {: .language-bash}
+> {: .solution}
+{: .challenge}
 
 ## Conclusion
 
