@@ -144,7 +144,7 @@ instead because it's quicker to download.
 > two steps, or one. What are they?
 {: .challenge}
 
-What happened when you ran the Ubuntu Docker container?
+What happened when you ran the Alpine Docker container?
 
 ~~~
 $ docker run alpine
