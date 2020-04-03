@@ -17,7 +17,41 @@ keypoints:
 - You can include files from your Docker host into your Docker images by using the `COPY` instruction in your `Dockerfile`.
 - Docker allows containers to read and write files from the Docker host.
 ---
-### Introduction to Dockerfiles
+
+There are lots of reasons why you might want to create your **own** Docker image.
+- You can't find a container with all the tools you need on Docker Hub.
+- You want to have a container to "archive" all the specific software versions you ran for a project
+- You want to share your workflow with someone else.
+
+## Interactive Installation
+
+Before creating a reproducible installation, let's experiment with installing
+software inside a container. Start the `alpine` container from before, interactively:
+
+~~~
+$ docker run -it alpine sh
+~~~
+{: .bash}
+
+Because this is a basic container, there's a lot of things not installed -- for
+example, `bash`!
+
+~~~
+/# bash
+~~~
+{: .bash}
+
+How to install
+
+We can also download and install Python packages.
+
+
+Once we exit - these changes are not saved to a new container unless we run
+another command. Instead of doing that, we are going to create a text file
+with our list of changes and build the container from that text file. This is
+more reproducible and creates more portable Docker images.
+
+## Introduction to Dockerfiles
 
 We have seen use of others' Docker container images. Now we move on to describe how you can create your own images.
 
@@ -36,7 +70,7 @@ RUN /bin/echo "Greetings from my newly minted container." > /root/my_message
 CMD [ "/bin/cat", "/root/my_message" ]
 ~~~
 
-### Building your Docker image
+## Building your Docker image
 
 Run the following command to build your Docker image, noting that the period at the end of the line is important (it means "this directory"), and has a space before it.
 ~~~
@@ -47,7 +81,7 @@ $ docker build -t my-container .
 Sending build context to Docker daemon  2.048kB
 Step 1/3 : FROM alpine
 latest: Pulling from library/alpine
-6c40cc604d8e: Pull complete 
+6c40cc604d8e: Pull complete
 Digest: sha256:b3dbf31b77fd99d9c08f780ce6f5282aba076d70a513a8be859d8d3a4d0c92b8
 Status: Downloaded newer image for alpine:latest
  ---> caf27325b298
@@ -97,7 +131,7 @@ $ docker push dme26/my-container
 {: .language-bash}
 ~~~
 The push refers to repository [docker.io/dme26/my-container]
-503e53e365f3: Mounted from library/alpine 
+503e53e365f3: Mounted from library/alpine
 latest: digest: sha256:1d599b3e195e282648a30719f159422165656781de420ccb6173465ac29d2b7a size: 528
 ~~~
 {: .output}
@@ -130,11 +164,11 @@ $ docker build -t another-greeting .
 Sending build context to Docker daemon  2.048kB
 Step 1/4 : FROM python:3-slim
 3-slim: Pulling from library/python
-743f2d6c1f65: Pull complete 
-977e13fc7449: Pull complete 
-de5f9e5af26b: Pull complete 
-0d27ddbe8383: Pull complete 
-228d55eb5a23: Pull complete 
+743f2d6c1f65: Pull complete
+977e13fc7449: Pull complete
+de5f9e5af26b: Pull complete
+0d27ddbe8383: Pull complete
+228d55eb5a23: Pull complete
 Digest: sha256:589527a734f2a9e48b23cc4687848cb9503d0f8569fad68c3ad8b2ee9d1c50ff
 Status: Downloaded newer image for python:3-slim
  ---> ca7f9e245002
