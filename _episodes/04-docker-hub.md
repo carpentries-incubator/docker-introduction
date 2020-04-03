@@ -63,21 +63,25 @@ So if I wanted to download the `python` container, with Python 3.8, I would use 
 ```
 $ docker pull python:3.8
 ```
-{: .bash}
+{: .language-bash}
 
 But if I wanted to download a Python 3.6 container, I would use this name:
 
 ```
 $ docker pull python:3.6
 ```
-{: .bash}
+{: .language-bash}
 
 The default tag (which is used if you don't specify one) is called `latest`.
 
 So far, we've only seen containers that are maintained by the Docker team. However,
 it's equally common to use containers that have been produced by individual owners
-or organizations. The most useful R containers are developed by an organization called
-`rocker`. The name for these containers have this format:
+or organizations. Containers that you create and upload to Docker Hub would fall
+into this category, as would the containers maintained by organizations like
+[ContinuumIO](https://hub.docker.com/u/continuumio) (the folks who develop the Anaconda Python environment) or community
+groups like [rocker](https://hub.docker.com/u/rocker), a group that builds community R containers.
+
+The name for these group- or individually-managed containers have this format:
 
 ```
 OWNER/CONTAINERNAME:TAG
@@ -109,7 +113,7 @@ OWNER/CONTAINERNAME:TAG
 > > ~~~
 > > $ docker pull rocker/tidyverse:3.6.1
 > > ~~~
-> > {: .bash}
+> > {: .language-bash}
 > {: .solution}
 {: .challenge}
 
