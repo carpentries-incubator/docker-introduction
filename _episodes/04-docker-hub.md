@@ -49,9 +49,9 @@ At least in my experience, the "Examples of how to use the image" section of mos
 
 ## Exploring Image Versions
 
-One of the features of the Docker Hub mentioned above is "tags". A single "container"
-can have different versions, based on the version of the software inside and these
-versions are indicated by tags. When referring to the specific version of a container
+A single Docker Hub page can have many different versions of container images,
+based on the version of the software inside.  These
+versions are indicated by "tags". When referring to the specific version of a container
 by its tag, you use a colon, `:`, like this:
 
 ```
@@ -82,6 +82,18 @@ or organizations. The most useful R containers are developed by an organization 
 ```
 OWNER/CONTAINERNAME:TAG
 ```
+
+> ## Repositories
+>
+> The technical name for the contents of a Docker Hub page is a "repository."
+> The tag indicates the specific version of the container image that you'd like
+> to use from a particular repository. So a slightly more accurate version of
+> the above example is:
+>
+> ```
+> OWNER/REPOSITORY:TAG
+> ```
+{: .callout}
 
 > ## What's in a name?
 >
