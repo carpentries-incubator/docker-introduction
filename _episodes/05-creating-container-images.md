@@ -7,7 +7,10 @@ questions:
 objectives:
 - "Explain the purpose of a `Dockerfile` and show some simple examples."
 - "Demonstrate how to build a Docker image from a `Dockerfile`."
+- "Compare the steps of creating a container interactively versus a `Dockerfile`."
+- "Create an installation strategy for a container"
 - "Demonstrate how to upload ('push') your container images to the Docker Hub."
+- "Describe the significance of the Docker Hub naming scheme."
 keypoints:
 - "`Dockerfiles` specify what is within Docker images."
 - "The `docker build` command is used to build an image from a `Dockerfile`"
@@ -30,7 +33,7 @@ $ docker run -it alpine sh
 {: .language-bash}
 
 Because this is a basic container, there's a lot of things not installed -- for
-example, `python`!
+example, `python`.
 
 ~~~
 /# python
@@ -41,7 +44,7 @@ sh: python: not found
 ~~~
 {: .output}
 
-Inside the container, we can run commands to install Python. The "alpine" version of
+Inside the container, we can run commands to install Python. The Alpine version of
 Linux has a installation tool called `apk` that we can use to install Python.
 
 ~~~
@@ -75,26 +78,34 @@ pip install cython
 > {: .solution}
 {: .challenge}
 
-Once we exit - these changes are not saved to a new container by default. In order
-to build a new container, we are going to create a text file
-with our list of installation instructions and build the container from that text file. This is
-more reproducible and creates more portable Docker images.
+Once we exit, these changes are not saved to a new container by default. There is
+a command that will "snapshot" our changes, but building containers this way is
+not very reproducible. Instead, we're going to take what we've learned from this
+interactive installation and create our container from a reproducible recipe,
+known as a `Dockerfile`.
+
+If you haven't already, exit out of the interactively running container.
 
 ## Put installation instructions in a `Dockerfile`
 
-In a shell window:
-- `cd` to your `container-playground`;
-- create a new directory named `my-container-spec` within `container-playground`;
-- `cd` into your `my-container-spec` directory.
+A `Dockerfile` is a plain text file with keywords and commands that
+can be used to create a new container.
 
-Within the new `my-container-spec` directory, use your favourite editor to create a file named `Dockerfile` that contains the following:
+From your shell, go to the folder you downloaded at the start of the lesson
+and print out the Dockerfile inside:
 
+~~~
+$ cd ~/Desktop/docker-intro
+$ cat Dockerfile
+~~~
+{: .language-bash}
 ~~~
 FROM alpine
 RUN apk add --update python py-pip python-dev
 RUN pip install cython
 CMD cat /proc/version && python --version
 ~~~
+{: .output}
 
 Let's break this file down:
 - The first line, `FROM`, indicates which container we're starting with.
@@ -103,12 +114,17 @@ are the same commands that we used interactively above.
 - The last line, `CMD` indicates the default command we want the container to run,
 if no other command is provided.
 
+The recipe provided by this Dockerfile will use Alpine Linux as the base container,
+add Python and the Cython library, and set a default print command.
+
 ## Create a new Docker image
 
-So far, we've just created a file. We want Docker to take this file,
+So far, we just have a file. We want Docker to take this file,
 run the install commands inside, and then save the
 resulting container as a new container image. To do this we will use the
-`docker build` command. We have to provide `docker build` with two pieces of information:
+`docker build` command.
+
+We have to provide `docker build` with two pieces of information:
 - the location of the `Dockerfile`
 - the name of the new image. Remember the naming scheme from before? You should name
 your new image with your Docker Hub username and a name for the container, like this:
@@ -125,8 +141,8 @@ $ docker build -t USERNAME/CONTAINERNAME .
 The `-t` option names the container; the final dot indicates that the `Dockerfile` is in
 our current directory.
 
-If my user name was `alice` and I wanted to call my image `alpine-python`, I would use
-this command:
+For example, if my user name was `alice` and I wanted to call my
+image `alpine-python`, I would use this command:
 ~~~
 $ docker build -t alice/alpine-python .
 ~~~
@@ -135,9 +151,9 @@ $ docker build -t alice/alpine-python .
 > ## Review!
 >
 > 1. Think back to earlier. What command can you run to check if your image was created
-> successfully? (Hint: what command  shows the images on your computer?)
+> successfully? (Hint: what command shows the images on your computer?)
 >
-> 2. We didn't specific a tag for our image name. What did Docker automatically use?
+> 2. We didn't specify a tag for our image name. What did Docker automatically use?
 >
 > 3. What command will run the container you've created? What should happen by default
 > if you run the container? Can you make it do something different, like print
@@ -152,12 +168,14 @@ $ docker build -t alice/alpine-python .
 > > used the `latest` tag for our new image.
 > >
 > > 3. We want to use `docker run` to run the container.
+> >
 > > ~~~
 > > $ docker run alice/alpine-python
 > > ~~~
 > > {: .language-bash}
 > > should run the container and print out our default message, including the version
 > > of Linux and Python.
+> >
 > > ~~~
 > > $ docker run alice/alpine-python echo "Hello World"
 > > ~~~
@@ -168,11 +186,51 @@ $ docker build -t alice/alpine-python .
 
 While it may not look like you have achieved much, you have already effected the combination of a lightweight Linux operating system with your specification to run a given command that can operate reliably on macOS, Microsoft Windows, Linux and on the cloud!
 
+## Boring but important notes about installation
+
+There are a lot of choices when it comes to installing software - sometimes too many!
+Here are some things to consider when creating your own container:
+
+- **Start Smart**, or, don't install everything from scratch! If you're using Python
+as your main tool, start with a [Python container](https://hub.docker.com/_/python). Same with [R](https://hub.docker.com/r/rocker/r-ver/). We've used Alpine Linux as an example
+in this lesson, but it's generally not a good container to start with because it is
+a less common version of Linux; using [Ubunutu](), [Debian]() and [CentOS]() are all
+good options for scientific software installations. The program you're using might
+recommend a particular version of Linux; if this happens, start with that particular
+Linux container.
+- **Know (or Google) your Linux**. Each version of Linux has a special set of tools specifically for installing software. The `apk` command we used above is the installer for Alpine Linux. The installers for various common Linux versions are listed below:
+    - Ubuntu: `apt` or `apt-get`
+    - Debian: `deb`
+    - CentOS: `yum`
+  Most common software installations are available to be installed via these tools.
+  Searching for "install X on Y Linux" is always a good start for common software
+  installations; if something isn't available via the Linux distributions installation
+  tools, try the options below.
+- **Use what you know**. You've probably used commands like `pip` or `install.packages()`
+before on your own computer -- these will also work to install things in containers (if the basic scripting
+language is installed).
+- **README**. Many scientific software tools have a README or installation instructions
+that lay out how to install software. You want to look for instructions for Linux. If
+the install instructions include options like those suggested above, try those first.
+
+In general, a good strategy for installing software is:
+- Make a list of what you want to install.
+- Look for pre-existing containers.
+- Read through instructions for software you'll need to install.
+- Try installing everything interactively in your base container - take notes!
+- From your interactive installation, create a Dockerfile and then try to build
+the container again from that.
+
+> ## TODO: Exercises
+>
+> Have a set of "choose your own adventure" software installation examples
+{: challenge}
+
 ## Share your new container on Docker Hub
 
 Images that you release publicly can be stored on the Docker Hub for free.  If you
 name your image as described above, with your Docker Hub username, all you need to do
-is run the opposite of `docker pull` -- `docker push`
+is run the opposite of `docker pull` -- `docker push`.
 
 ~~~
 $ docker push alice/alpine-python
@@ -191,27 +249,24 @@ In a web browser, open <https://hub.docker.com>, and on your user page you shoul
 > try `docker push` again.
 {: .callout}
 
-> ## What's in a name? (again)
->
-> You don't *have* to name your containers using the `USERNAME/CONTAINER:TAG` naming
-> scheme. On your own computer, you can call containers whatever you want and refer to
-> them by the names you choose. It's only when you want to share a container that it
-> needs the correct naming format.
->
-> You can rename images using the `docker tag` command. For example, imagine someone
-> named Alice has been working on a workflow container and called it `workflow-test`
-> on her own computer. She now wants to share it in her `alice` Docker Hub account
-> with the name `workflow-complete` and a tag of `v1`. Her `docker tag` command
-> would look like this:
-> ~~~
-> $ docker tag workflow-test alice/workflow-complete:v1
-> ~~~
-> {: .language-bash}
->
-> She could then push the re-named container to Docker Hub,
-> using `docker push alice/workflow-complete:v1`
->
-{: .callout}
+## What's in a name? (again)
+
+You don't *have* to name your containers using the `USERNAME/CONTAINER:TAG` naming> scheme. On your own computer, you can call containers whatever you want and refer to
+them by the names you choose. It's only when you want to share a container that it
+needs the correct naming format.
+
+You can rename images using the `docker tag` command. For example, imagine someone
+named Alice has been working on a workflow container and called it `workflow-test`
+on her own computer. She now wants to share it in her `alice` Docker Hub account
+with the name `workflow-complete` and a tag of `v1`. Her `docker tag` command
+would look like this:
+~~~
+$ docker tag workflow-test alice/workflow-complete:v1
+~~~
+{: .language-bash}
+
+She could then push the re-named container to Docker Hub,
+using `docker push alice/workflow-complete:v1`
 
 {% include links.md %}
 
