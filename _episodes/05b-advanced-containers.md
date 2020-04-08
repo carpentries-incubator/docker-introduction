@@ -21,9 +21,11 @@ using the first 1-2 sections on this page.
 
 ## Using scripts and files from outside the container
 
-In your shell, change to the `sum` folder in the `docker-intro` folder.
+In your shell, change to the `sum` folder in the `docker-intro` folder and look at
+the files inside.
 ~~~
 $ cd ~/Desktop/docker-intro/sum
+$ ls
 ~~~
 {: .language-bash}
 
@@ -57,16 +59,20 @@ The problem here is that the container and its file system is separate from our
 host computer's file system. When the container runs, it can't see anything outside
 itself, including any of the files on our computer. In order to use Python
 (inside the container) and our script (outside the container, on our computer),
-we need to create a link between the folder on our computer and the container.
+we need to create a link between the directory on our computer and the container.
 
-This link is called a "mount" and we can create it using an additional
+This link is called a "mount" and is what happens automatically when a USB drive
+or other external hard drive gets connected to a computer - you can see the
+contents appear as if they were on your computer.
+
+We can create a mount between our computer and the running container by using an additional
 option to `docker run`. We'll also use the variable `$PWD` which will substitute
 in our current working directory. The option will look like this
 
 `-v $PWD:/temp`
 
-What this means is -- link my current folder with the container, and inside the
-container, name the folder `/temp`
+What this means is -- link my current directory with the container, and inside the
+container, name the directory `/temp`
 
 Let's try running the command now:
 ~~~
@@ -81,18 +87,29 @@ python: can't open file 'sum.py': [Errno 2] No such file or directory
 {: .output}
 
 This final piece is a bit tricky -- we really have to remember to put ourselves
-inside the container. Where is the `sum.py` file? It's in the folder that's been
+inside the container. Where is the `sum.py` file? It's in the directory that's been
 mapped to `/temp` -- so we need to include that in the path to the script. This
 command should give us what we need:
+
 ~~~
 $ docker run -v $PWD:/temp alice/alpine-python python /temp/sum.py
 ~~~
 {: .language-bash}
 
+Note that if we create any files in the `/temp` directory while the container is
+running, these files will appear on our host filesystem in the original directory
+and will stay there even when the container stops.
+
 > ## Exercise: Explore the script
 >
 > What happens if you use the `docker run` command above
 > and put numbers after the script name?
+>
+> > ## Solution
+> >
+> > This script comes from [the Python Wiki](https://wiki.python.org/moin/SimplePrograms) > > and is set to add all numbers
+> > that are passed to it as arguments.
+> {: .solution}
 {: .challenge}
 
 > ## Exercise: Checking the options
@@ -228,7 +245,7 @@ the screen. The bigger your image becomes, the harder it will be to easily downl
 >
 {: callout}
 
-## More fancy `Dockerfile` options
+## More fancy `Dockerfile` options (optional, for presentation or as exercises)
 
 We can expand on the example above to make our container even more "automatic".
 Here are some ideas:
