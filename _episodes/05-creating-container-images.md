@@ -48,23 +48,23 @@ Inside the container, we can run commands to install Python. The Alpine version 
 Linux has a installation tool called `apk` that we can use to install Python.
 
 ~~~
-apk add --update python py-pip python-dev
+/# apk add --update python py-pip python-dev
 ~~~
 {: .language-bash}
 
 We can test our installation by running a Python command:
 ~~~
-python --version
+/# python --version
 ~~~
 {: .language-bash}
 
 Once Python is installed, we can add Python packages using the pip package installer:
 ~~~
-pip install cython
+/# pip install cython
 ~~~
 {: .language-bash}
 
-> ## Searching for Help
+> ## Exercise: Searching for Help
 >
 > Can you find instructions for installing R on Alpine Linux? Do they work?
 >
@@ -86,6 +86,12 @@ known as a `Dockerfile`.
 
 If you haven't already, exit out of the interactively running container.
 
+~~~
+/# exit
+~~~
+{: .language-bash}
+
+
 ## Put installation instructions in a `Dockerfile`
 
 A `Dockerfile` is a plain text file with keywords and commands that
@@ -95,24 +101,40 @@ From your shell, go to the folder you downloaded at the start of the lesson
 and print out the Dockerfile inside:
 
 ~~~
-$ cd ~/Desktop/docker-intro
+$ cd ~/Desktop/docker-intro/basic
 $ cat Dockerfile
 ~~~
 {: .language-bash}
+~~~
+FROM <EXISTING IMAGE>
+RUN <INSTALL CMDS FROM SHELL>
+RUN <INSTALL CMDS FROM SHELL>
+CMD <CMD TO RUN BY DEFUALT>
+~~~
+{: .output}
+
+Let's break this file down:
+- The first line, `FROM`, indicates which container we're starting with.
+- The next two lines `RUN`, will indicate installation commands we want to run. These
+are the same commands that we used interactively above.
+- The last line, `CMD` indicates the default command we want the container to run,
+if no other command is provided.
+
+> ## Exercise: Take a Guess
+>
+> Do you have any ideas about what we should use to fill in the sample Dockerfile
+> to replicate the installation we did above?
+{: .challenge}
+
+Based on our experience above, edit the `Dockerfile` (in your text editor of choice)
+to look like this:
+
 ~~~
 FROM alpine
 RUN apk add --update python py-pip python-dev
 RUN pip install cython
 CMD cat /proc/version && python --version
 ~~~
-{: .output}
-
-Let's break this file down:
-- The first line, `FROM`, indicates which container we're starting with.
-- The next two lines `RUN`, indicate installation commands we want to run. These
-are the same commands that we used interactively above.
-- The last line, `CMD` indicates the default command we want the container to run,
-if no other command is provided.
 
 The recipe provided by this Dockerfile will use Alpine Linux as the base container,
 add Python and the Cython library, and set a default print command.
@@ -148,7 +170,7 @@ $ docker build -t alice/alpine-python .
 ~~~
 {: .language-bash}
 
-> ## Review!
+> ## Exercise: Review!
 >
 > 1. Think back to earlier. What command can you run to check if your image was created
 > successfully? (Hint: what command shows the images on your computer?)
