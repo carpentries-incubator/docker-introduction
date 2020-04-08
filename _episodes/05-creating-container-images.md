@@ -89,7 +89,7 @@ If you haven't already, exit out of the interactively running container.
 ## Put installation instructions in a `Dockerfile`
 
 A `Dockerfile` is a plain text file with keywords and commands that
-can be used to create a new container.
+can be used to create a new container image.
 
 From your shell, go to the folder you downloaded at the start of the lesson
 and print out the Dockerfile inside:
@@ -191,7 +191,7 @@ While it may not look like you have achieved much, you have already effected the
 There are a lot of choices when it comes to installing software - sometimes too many!
 Here are some things to consider when creating your own container:
 
-- **Start Smart**, or, don't install everything from scratch! If you're using Python
+- **Start smart**, or, don't install everything from scratch! If you're using Python
 as your main tool, start with a [Python container](https://hub.docker.com/_/python). Same with [R](https://hub.docker.com/r/rocker/r-ver/). We've used Alpine Linux as an example
 in this lesson, but it's generally not a good container to start with because it is
 a less common version of Linux; using [Ubuntu](https://hub.docker.com/_/ubuntu), [Debian](https://hub.docker.com/_/debian) and [CentOS](https://hub.docker.com/_/centos) are all

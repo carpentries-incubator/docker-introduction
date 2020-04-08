@@ -157,7 +157,8 @@ and will stay there even when the container stops.
 > {: .solution}
 {: .challenge}
 
-Being able to use files outside the container is very useful when you want to isolate
+Mounting a folder can be very useful when you want to run the software inside your container on many different input files.
+In other situations, you may want to save or archive an authoritative version of your data by adding it to the container permanently.  That's what we will cover next.
 your software in a container, but use it with many different inputs or scripts.
 If you have a "final" version of your data, or want to create an authoritative version
 of your work, you might want to put files into the container permanently. That's
@@ -167,7 +168,7 @@ what we'll cover next.
 
 Our next project will be to add our own files to a container - something you
 might want to do if you're sharing a finished analysis or just want to have
-an archived copy of everything. Let's assume that we've finished with our `sum.py`
+an archived copy of your entire analysis including the data. Let's assume that we've finished with our `sum.py`
 script and want to add it to the container itself.
 
 In your shell, you should still be in the `sum` folder in the `docker-intro` folder.
