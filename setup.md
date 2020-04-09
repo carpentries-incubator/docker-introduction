@@ -7,7 +7,10 @@ Please seek help at the start of the lesson if you have not been able to establi
 
 ### Files to download
 
-TBD
+Download the `docker-intro.zip` file from the main GitHub repository page: 
+[Docker Introduction Github](https://github.com/carpentries-incubator/docker-introduction/). 
+
+Move the downloaded file to your Desktop and unzip it. It should unzip to a folder called `docker-intro`. 
 
 ### Software to install
 Unfortunately, in many common situations installing Docker on your laptop will not straightforward if you do not have a large amount of technical experience. We have helpers on hand that have worked their way through the install process but be prepared for some troubleshooting.
