@@ -124,17 +124,18 @@ if no other command is provided.
 >
 > Do you have any ideas about what we should use to fill in the sample Dockerfile
 > to replicate the installation we did above?
+>
+> > ## Solution:
+> > Based on our experience above, edit the `Dockerfile` (in your text editor of choice)
+> > to look like this:
+> > ~~~
+> > FROM alpine
+> > RUN apk add --update python py-pip python-dev
+> > RUN pip install cython
+> > CMD cat /proc/version && python --version
+> > ~~~
+> {: .solution}
 {: .challenge}
-
-Based on our experience above, edit the `Dockerfile` (in your text editor of choice)
-to look like this:
-
-~~~
-FROM alpine
-RUN apk add --update python py-pip python-dev
-RUN pip install cython
-CMD cat /proc/version && python --version
-~~~
 
 The recipe provided by this Dockerfile will use Alpine Linux as the base container,
 add Python and the Cython library, and set a default print command.

@@ -159,10 +159,6 @@ and will stay there even when the container stops.
 
 Mounting a folder can be very useful when you want to run the software inside your container on many different input files.
 In other situations, you may want to save or archive an authoritative version of your data by adding it to the container permanently.  That's what we will cover next.
-your software in a container, but use it with many different inputs or scripts.
-If you have a "final" version of your data, or want to create an authoritative version
-of your work, you might want to put files into the container permanently. That's
-what we'll cover next.
 
 ## Including personal scripts and data in a container
 
