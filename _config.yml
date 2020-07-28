@@ -14,7 +14,7 @@ title: "Reproducible Computational Environments using Containers"
 
 # Life cycle stage of the lesson
 # possible values: "pre-alpha", "alpha", "beta", "stable"
-life_cycle: "alpha"
+life_cycle: "beta"
 
 
 #------------------------------------------------------------
