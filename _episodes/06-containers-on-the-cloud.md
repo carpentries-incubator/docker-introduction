@@ -47,9 +47,9 @@ You should be looking at a web-based text editor that is headed "bitbucket-pipel
 
 Bitbucket Pipelines allow you to specify software tools to run, for example, in response to files being changed in your Bitbucket projects. The Bitbucket servers run your software tools within Docker containers, and thus Bitbucket Pipelines can specify Docker images to fetch from the Docker Hub.
 
-Change your repository's `bitbucket-pipelines.yml` file to be similar to the following example, but note that you need to replace my Docker Hub user ID (dme26) with yours. Also, ensure that your indentation steps in line-by-line, the language being used (YAML) gives significance to the indentation of the lines.
+Change your repository's `bitbucket-pipelines.yml` file to be similar to the following example, but note that you need to replace the Docker Hub user ID (alice in example) with yours. Also, ensure that your indentation steps in line-by-line, the language being used (YAML) gives significance to the indentation of the lines.
 ~~~
-image: dme26/my-container
+image: alice/my-container
 
 pipelines:
   default:

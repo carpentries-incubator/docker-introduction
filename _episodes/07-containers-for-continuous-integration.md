@@ -14,7 +14,7 @@ The website for this lesson is generated mechanically, based on a set of files t
 In your shell window, in your `container-playground` create a new directory `copy-of-docker-intro` and `cd` into it. We will later be expanding a ZIP file into this directory later.
 
 Now open a web browser window and:
-1. Navigate to the GitHub repository that contains the files for this session, at <https://github.com/dme26/docker-introduction/>;
+1. Navigate to the GitHub repository that contains the files for this session, at <https://github.com/carpentries-incubator/docker-introduction/>;
 2. Click the green "Clone or download" button on the right-hand side of the page;
 3. Click "Download ZIP".
 4. The downloaded ZIP file should contain one directory named `docker-introduction-gh-pages`.
@@ -63,11 +63,11 @@ When I ran the macOS command, the output was as follows:
 ~~~
 Unable to find image 'jekyll/jekyll:3.7.3' locally
 3.7.3: Pulling from jekyll/jekyll
-ff3a5c916c92: Pull complete 
-8e2da6035957: Pull complete 
-42e99ed6de92: Pull complete 
-70c638bbd0d9: Pull complete 
-8f8df9937b34: Pull complete 
+ff3a5c916c92: Pull complete
+8e2da6035957: Pull complete
+42e99ed6de92: Pull complete
+70c638bbd0d9: Pull complete
+8f8df9937b34: Pull complete
 Digest: sha256:2b907c5f836ee66d6dde39aa021eebadcadd59dffab693ceecb73be7cfa2808b
 Status: Downloaded newer image for jekyll/jekyll:3.7.3
 jekyll serve
@@ -76,7 +76,7 @@ Configuration file: /srv/jekyll/_config.yml
             Source: /srv/jekyll
        Destination: /srv/jekyll/_site
  Incremental build: disabled. Enable with --incremental
-      Generating... 
+      Generating...
                     done in 2.647 seconds.
  Auto-regeneration: enabled for '/srv/jekyll'
     Server address: http://0.0.0.0:4000
@@ -91,7 +91,7 @@ Configuration file: /srv/jekyll/_config.yml
 
 In the preceding output, you see Docker downloading the image for Jekyll, which is a tool for building websites from specification files such as those used for this lesson. The line `jekyll serve` indicates a command that runs within the Docker container instance. The output below that is from the Jekyll tool itself, highlighting that the website has been built, and indicating that there is a server running.
 
-Open a web browser window and visit the address <http://localhost:4000/>. You should see a site that looks very similar to that at <https://dme26.github.io/docker-introduction/>.
+Open a web browser window and visit the address <http://localhost:4000/>. You should see a site that looks very similar to that at <https://carpentries-incubator.github.io/docker-introduction/>.
 
 Using a new shell window, or using your laptop's GUI, locate the file `index.md` within the `docker-introduction-gh-pages` directory, and open it in your preferred editor program.
 
