@@ -48,6 +48,13 @@ Login Succeeded
 
 The `Login Succeeded` message means that your `docker` command line tool is ready to access the Docker Hub. We will return to discussion of the Docker Hub soon...
 
+> ## A note about security
+>
+> On most systems `docker login` stores your credentials in plain-text in a text file in your computer.
+> If you use a shared computer or you'd rather not store your credentials in plain-text, you might want to consider using a [docker credential helper](https://github.com/docker/docker-credential-helpersworry).
+> These will connect docker with password or keychain managers that will allow you to store your credentials securely.
+{: .callout}
+
 {% include links.md %}
 
 {% comment %}
