@@ -151,7 +151,8 @@ $ docker run alpine
 ~~~
 {: .language-bash}
 
-Probably nothing! That's because this particular container is designed for you to
+If you never used the *alpine* docker image on your computer, docker told you that it couldn't find the image and had to download it fresh.
+If you did the download before, the command will probably show no output. That's because this particular container is designed for you to
 provide commands yourself. Try running this instead:
 
 ~~~
@@ -187,6 +188,7 @@ immediately shut down the container. But what if we wanted to keep the container
 running so we could log into it and test drive more commands? The way to
 do this is by adding the interactive flag `-it` to the `docker run` command and
 by providing a shell (usually `bash` or `sh`) as our command.
+The alpine docker image doesn't include `bash` so we need to use `sh`.
 
 ~~~
 $ docker run -it alpine sh
