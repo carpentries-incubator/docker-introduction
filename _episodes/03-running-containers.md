@@ -155,12 +155,12 @@ Probably nothing! That's because this particular container is designed for you t
 provide commands yourself. Try running this instead:
 
 ~~~
-$ docker run alpine cat /proc/version
+$ docker run alpine cat /etc/os-release
 ~~~
 {: .language-bash}
 
-You should see the output of the `cat /proc/version` command, which prints out
-the version of Linux that this container is using.
+You should see the output of the `cat /etc/os-release` command, which prints out
+the version of Alpine Linux that this container is using and a few additional bits of information.
 
 > ## Hello World, Part 2
 > Can you run the container and make it print a "hello world" message?
@@ -214,7 +214,7 @@ That's because you're now inside the running container! Try these commands:
 * `ls`
 * `whoami`
 * `echo $PATH`
-* `cat /proc/version`
+* `cat /etc/os-release`
 
 All of these are being run from inside the running container, so you'll get information
 about the container itself, instead of your computer. To finish using the container,
