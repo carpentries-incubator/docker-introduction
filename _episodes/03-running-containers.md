@@ -151,7 +151,7 @@ $ docker run alpine
 ~~~
 {: .language-bash}
 
-If you never used the *alpine* docker image on your computer, docker told you that it couldn't find the image and had to download it fresh.
+If you never used the *alpine* docker image on your computer, docker probably printed a message that it couldn't find the image and had to download it.
 If you did the download before, the command will probably show no output. That's because this particular container is designed for you to
 provide commands yourself. Try running this instead:
 
