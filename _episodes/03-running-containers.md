@@ -151,16 +151,17 @@ $ docker run alpine
 ~~~
 {: .language-bash}
 
-Probably nothing! That's because this particular container is designed for you to
+If you never used the *alpine* docker image on your computer, docker probably printed a message that it couldn't find the image and had to download it.
+If you used the alpine image before, the command will probably show no output. That's because this particular container is designed for you to
 provide commands yourself. Try running this instead:
 
 ~~~
-$ docker run alpine cat /proc/version
+$ docker run alpine cat /etc/os-release
 ~~~
 {: .language-bash}
 
-You should see the output of the `cat /proc/version` command, which prints out
-the version of Linux that this container is using.
+You should see the output of the `cat /etc/os-release` command, which prints out
+the version of Alpine Linux that this container is using and a few additional bits of information.
 
 > ## Hello World, Part 2
 > Can you run the container and make it print a "hello world" message?
@@ -187,6 +188,7 @@ immediately shut down the container. But what if we wanted to keep the container
 running so we could log into it and test drive more commands? The way to
 do this is by adding the interactive flag `-it` to the `docker run` command and
 by providing a shell (usually `bash` or `sh`) as our command.
+The alpine docker image doesn't include `bash` so we need to use `sh`.
 
 ~~~
 $ docker run -it alpine sh
@@ -214,7 +216,7 @@ That's because you're now inside the running container! Try these commands:
 * `ls`
 * `whoami`
 * `echo $PATH`
-* `cat /proc/version`
+* `cat /etc/os-release`
 
 All of these are being run from inside the running container, so you'll get information
 about the container itself, instead of your computer. To finish using the container,
