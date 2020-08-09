@@ -24,7 +24,7 @@ Look for the tag ![good_first_issue](https://img.shields.io/badge/-good%20first%
 
 Current maintainers of this lesson are 
 
-* David Eyers
+* [David Eyers](https://github.com/dme26/)
 * [Sarah Stevens](https://github.com/sstevens2/)
 
 
