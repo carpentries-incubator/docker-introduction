@@ -1,7 +1,7 @@
 ---
 title: "Introducing the Docker command line"
 teaching: 10
-exercises: 5
+exercises: 0
 questions:
 - "How do I interact with Docker?"
 objectives:
