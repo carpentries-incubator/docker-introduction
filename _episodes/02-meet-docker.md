@@ -56,7 +56,7 @@ $ docker container ls
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 ~~~
 {: .output}
-(The command `docker info` will achieve a similar end. but produces a larger amount of output.)
+(The command `docker info` will achieve a similar end but produces a larger amount of output.)
 
 However, if you instead get a message similar to the following
 ~~~
