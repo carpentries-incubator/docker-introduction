@@ -15,8 +15,8 @@ keypoints:
 
 Start the Docker application that you installed in working through the setup instructions for this session. Note that this might not be necessary if your laptop is running Linux or if the installation added the Docker application to your startup process. 
 
-> ## You may need to login to Dockerhub
-> The Docker application will usually provide a way for you to log in to the Dockerhub using the application's menu (macOS) or systray
+> ## You may need to login to Docker Hub
+> The Docker application will usually provide a way for you to log in to the Docker Hub using the application's menu (macOS) or systray
 > icon (Windows) and it is usually convenient to do this when the application starts. This will require you to use your Docker Hub
 > username and your password. We will not actually require access to Dockerhub until later in the course but if you can login now,
 > you should do so.
@@ -42,7 +42,10 @@ Docker version 19.03.5, build 633a0ea
 ~~~
 {: .output}
 
-The above command has not actually relied on the part of Docker that runs lightweight virtual machines being operational. Somewhat stretching a physical analogy, you can think of the above Docker command having been instructions to the cranes on a hypothetical shipping dock, but we haven't actually checked if the container ship we want to interact with is present yet. A command that checks that the virtual machine host is running is the Docker container list command (we cover this command in more detail later in the course).
+The above command has not actually relied on the part of Docker that runs containers, just that Docker
+is installed and you can access it correctly from the command line.
+
+A command that checks that Docker is working correctly is the `docker container list` command (we cover this command in more detail later in the course).
 
 Without explaining the details, output on a newly installed system would likely be:
 ~~~
@@ -53,7 +56,7 @@ $ docker container ls
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 ~~~
 {: .output}
-(The command `docker info` will achieve a similar end. but produces potentially daunting volumes of output.)
+(The command `docker info` will achieve a similar end. but produces a larger amount of output.)
 
 However, if you instead get a message similar to the following
 ~~~
