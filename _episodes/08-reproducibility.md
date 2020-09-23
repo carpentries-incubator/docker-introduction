@@ -29,7 +29,7 @@ the reproducibility aspects. In this section, we discuss these aspects in more d
 
 By *reproducibility* here we mean the ability of someone else (or your future self) being able to reproduce
 what you did computationally at a particular time (be this in research, analysis or something else)
-as closely as possible even if you do not have access to exactly the same hardware resources #
+as closely as possible even if they do not have access to exactly the same hardware resources #
 that you had when you did the original work.
 
 Some examples of why containers are an attractive technology to help with reproducibility include:
@@ -171,5 +171,4 @@ system or run your workflow in the cloud to access more resources. Docker Swarm 
 a manager container and worker containers to implement this distribution.
 
   - [Docker Swarm Overview](https://docs.docker.com/engine/swarm/)
-
 
