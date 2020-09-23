@@ -17,7 +17,9 @@ keypoints:
 - "Tools such as Docker Compose, Docker Swarm and Kubernetes allow us to describe how multiple containers work together."
 ---
 
-Although this workshop is titled "Reproducible computational environments using containers", so far we have mostly covered the mechanics of using Docker with only passing reference the the reproducibility aspects. In this section, we discuss these aspects in more detail.
+Although this workshop is titled "Reproducible computational environments using containers",
+so far we have mostly covered the mechanics of using Docker with only passing reference to
+the reproducibility aspects. In this section, we discuss these aspects in more detail.
 
 > ## Work in progress...
 > Note that reproducibility aspects of software and containers are an active area of research, discussion and development so are subject to many changes. We will present some ideas and approaches here but best practices will likely evolve in the near future.
@@ -25,14 +27,18 @@ Although this workshop is titled "Reproducible computational environments using 
 
 ## Reproducibility
 
-By *reproducibility* here we mean the ability of someone else (or your future self) being able to reproduce what you did computationally at a particular time (be this in research, analysis or something else) as closely as possible even if you do not have access to exactly the same hardware resources that you had when you did the original work.
+By *reproducibility* here we mean the ability of someone else (or your future self) being able to reproduce
+what you did computationally at a particular time (be this in research, analysis or something else)
+as closely as possible even if you do not have access to exactly the same hardware resources #
+that you had when you did the original work.
 
-Hopefully it is reasonably self-evident why containers are an attractive technology to help with reproducibility:
+Some examples of why containers are an attractive technology to help with reproducibility include:
 
   - The same computational work can be run across multiple different technologies seamlessly (e.g. Windows, macOS, Linux).
   - You can save the exact process that you used for your computational work (rather than relying on potentially incomplete notes).
   - You can save the exact versions of software and their dependencies in the image.
   - You can access legacy versions of software and underlying dependencies which may not be generally available any more.
+  - Depending on their size, you can also potentially store a copy of key data within the image.
   - You can archive and share the image as well as associating a persistent identifier with an image to allow other researchers to reproduce and build on your work.
 
 ## Sharing images
@@ -49,17 +55,18 @@ This is fine for working collaboratively with images on a day-to-day basis but t
 
 When you publish your work or make it publicly available in some way it is good practice to make images that you used for computational work available in an immutable, persistent way and to have an identifier that allows people to cite and give you credit for the work you have done. [Zenodo](https://zenodo.org/) provides this functionality.
 
-Zenodo supports the archiving of *tar* archives and we can capture our Docker images as tar archives using the `docker save` command:
+Zenodo supports the archiving of *tar* archives and we can capture our Docker images as tar archives using the `docker save` command.
+For example, to export the image we created earlier in this lesson:
 
 ~~~
-docker save image/name:tag -o image-archive.tar
+docker save alice/alpine-python:v1 -o alpine-python.tar
 ~~~
 {: .bash}
 
 These tar images can become quite large and Zenodo supports uploads up to 50GB so you may need to compress your archive to make it fit on Zenodo using a tool such as gzip (or zip):
 
 ~~~
-gzip image-archive.tar
+gzip alpine-python.tar
 ~~~
 {: .bash}
 
@@ -76,7 +83,7 @@ Note that Zenodo is not the only option for archiving and generating persistent 
 
    - Make use of images to capture the computational environment required for your work.
    - Decide on the appropriate granularity for the images you will use for your computational work - this will be different for each project/area. Take note of accepted practice from contemporary work in the same area. What are the right building blocks for individual images in your work?
-   - Document what you have done and why - this can be put in comments in the Dockerfile and the use of the image desccribed in associated documentation and/or publications. Make sure that references are made in both directions so that the image and the documentation are appropriately linked.
+   - Document what you have done and why - this can be put in comments in the Dockerfile and the use of the image described in associated documentation and/or publications. Make sure that references are made in both directions so that the image and the documentation are appropriately linked.
    - When you publish work (in whatever way) use an archiving and DOI service such as Zenodo to make sure your image is captured as it was used for the work and that is obtains a persistent DOI to allow it to be cited and referenced properly.
 
 ## Container Granularity
@@ -95,15 +102,39 @@ Of course, many real applications will sit somewhere between these two extremes.
 > What are the advantages and disadvantages of the two approaches to container granularity for research
 > workflows described above? Think about this
 > and write a few bullet points for advantages and disadvantages for each approach in the course Etherpad.
+> > ## Solution
+> > This is not an exhaustive list but some of the advantages and disadvantages could be:
+> > Single large container:
+> > - Advantages:
+> >   + Simpler to document
+> >   + Full set of requirements packaged in one place
+> >   + Potentially easier to maintain (though could be opposite if working with large, distributed group)
+> > - Disadvantages:
+> >   + Could get very large in size, making it more difficult to distribute
+> >     + Could use Docker multi-stage build docs.docker.com/develop/develop-images/multistage-build to reduce size
+> >     + Singularity also has a multistage build feature: sylabs.io/guides/3.2/user-guide/definition_files.html#multi-stage-builds
+> >   + May end up with same dependency issues within the container from different software requirements
+> >   + Potentially more complex to test
+> >   + Less re-useable for different, but related, work
+> > Multiple smaller containers
+> > - Advantages:
+> >   + Individual components can be re-used for different, but related, work
+> >   + Individual parts are smaller in size making them easier to distribute
+> >   + Avoid dependency issues between different softwares
+> >   + Easier to test
+> > - Disadvantage:
+> >   + More difficult to document
+> >   + Potentially more difficult to maintain (though could be easier if working with large, distributed group)
+> >   + May end up with dependency issues between component containers if they get out of sync
+> {: .solution}
 {: .challenge}
 
 ### Container Orchestration
 
 Although you can certainly manage research workflows that use multiple containers manually, there are a number of 
 container orchestration tools that you may find useful when managing workflows that use multiple containers. 
-Introducing the use of these orchestration tools is beyond the scope of this lesson so we briefly describe 
-a few options and point to useful resources on using these tools to allow you to explore them yourself. We
-cover:
+We won't go in depth on using these tools in this lesson but instead briefly describe 
+a few options and point to useful resources on using these tools to allow you to explore them yourself.
 
   - Docker Compose
   - Kubernetes
