@@ -10,7 +10,7 @@
 carpentry: "incubator"
 
 # Overall title for pages.
-title: "Reproducible Computational Environments using Containers"
+title: "Reproducible Computational Environments Using Containers: Introduction to Docker"
 
 # Life cycle stage of the lesson
 # possible values: "pre-alpha", "alpha", "beta", "stable"
