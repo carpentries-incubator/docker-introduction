@@ -4,6 +4,9 @@
 
 This repository generates the corresponding lesson website from [The Carpentries](https://carpentries.org/) repertoire of lessons. 
 
+If you are interested in Singularity as opposed to Docker, see the Singularity lesson in the Carpentries Incubator: 
+* [Reproducible Computational Environments Using Containers: Introduction to Singularity](https://github.com/carpentries-incubator/singularity-introduction)
+
 ## Contributing
 
 We welcome all contributions to improve the lesson! Maintainers will do their best to help you if you have any

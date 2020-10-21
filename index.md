@@ -14,6 +14,9 @@ This session aims to introduce the use of Docker containers with the goal of usi
 > - The lessons will sometimes request that you use a text editor to create or edit files in particular directories. It is assumed that you either have an editor that you know how to use that runs within the working directory of your shell window (e.g. `nano`), or that if you use a graphical editor, that you can use it to read and write files into the working directory of your shell.
 {: .prereq}
 
+> If you are looking for a lesson on using *singularity* containers (instead of Docker), see this lesson: 
+> * [Reproducible Computational Environments Using Containers: Introduction to Singularity](https://carpentries-incubator.github.io/singularity-introduction/)
+
 {% include links.md %}
 
 {% comment %}
