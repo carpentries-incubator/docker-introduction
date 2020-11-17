@@ -33,28 +33,28 @@ $ docker run -it alpine sh
 {: .language-bash}
 
 Because this is a basic container, there's a lot of things not installed -- for
-example, `python`.
+example, `python3`.
 
 ~~~
-/# python
+/# python3
 ~~~
 {: .language-bash}
 ~~~
-sh: python: not found
+sh: python3: not found
 ~~~
 {: .output}
 
-Inside the container, we can run commands to install Python. The Alpine version of
-Linux has a installation tool called `apk` that we can use to install Python.
+Inside the container, we can run commands to install Python3. The Alpine version of
+Linux has a installation tool called `apk` that we can use to install Python3.
 
 ~~~
-/# apk add --update python py-pip python-dev
+/# apk add --update python3 py3-pip python3-dev
 ~~~
 {: .language-bash}
 
 We can test our installation by running a Python command:
 ~~~
-/# python --version
+/# python3 --version
 ~~~
 {: .language-bash}
 
@@ -130,9 +130,9 @@ if no other command is provided.
 > > to look like this:
 > > ~~~
 > > FROM alpine
-> > RUN apk add --update python py-pip python-dev
+> > RUN apk add --update python3 py3-pip python3-dev
 > > RUN pip install cython
-> > CMD cat /proc/version && python --version
+> > CMD cat /proc/version && python3 --version
 > > ~~~
 > {: .solution}
 {: .challenge}
