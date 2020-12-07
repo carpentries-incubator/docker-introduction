@@ -240,7 +240,7 @@ the screen. The bigger your image becomes, the harder it will be to easily downl
 > RUN wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.10.0/ncbi-blast-2.10.0+-x64-linux.tar.gz
 > ~~~
 >
-{: callout}
+{: .callout}
 
 ## More fancy `Dockerfile` options (optional, for presentation or as exercises)
 
