@@ -53,7 +53,7 @@ python: can't open file 'sum.py': [Errno 2] No such file or directory
 > What does the error message mean? Why might the Python inside the container
 > not be able to find or open our script?
 >
-{: challenge}
+{: .challenge}
 
 The problem here is that the container and its file system is separate from our
 host computer's file system. When the container runs, it can't see anything outside
