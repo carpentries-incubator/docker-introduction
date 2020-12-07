@@ -104,7 +104,7 @@ Of course, many real applications will sit somewhere between these two extremes.
 > and write a few bullet points for advantages and disadvantages for each approach in the course Etherpad.
 > > ## Solution
 > > This is not an exhaustive list but some of the advantages and disadvantages could be:
-> > Single large container:
+> > ### Single large container
 > > - Advantages:
 > >   + Simpler to document
 > >   + Full set of requirements packaged in one place
@@ -116,7 +116,8 @@ Of course, many real applications will sit somewhere between these two extremes.
 > >   + May end up with same dependency issues within the container from different software requirements
 > >   + Potentially more complex to test
 > >   + Less re-useable for different, but related, work
-> > Multiple smaller containers
+> >
+> > ### Multiple smaller containers
 > > - Advantages:
 > >   + Individual components can be re-used for different, but related, work
 > >   + Individual parts are smaller in size making them easier to distribute
