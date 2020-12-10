@@ -19,7 +19,10 @@ consider demonstrating what this might look like by having two shells (or shell 
 open, one on your host computer and one into a container you started before the
 workshop. Then you can demonstrate in a simple way that from the same (host) computer,
 you can access two different types of environments -- one via the shell on your
-host computer and one via the shell into a running container.
+host computer and one via the shell into a running container. Sample commands could include: 
+    * `whoami`
+    * `pwd` and `ls`
+    * something that shows the OS. On mac, this could be `sw_vers`, on linux `cat /etc/os-release`
 * **Reflection Exercise**: At the beginning and end of the workshop, give participants time to
 reflect on what they want to get out of the workshop (at the beginning) and what they
 can apply to their work (at the end). Using the shared notes doc is a great way to
