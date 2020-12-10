@@ -2,6 +2,8 @@
 title: "Instructor Notes"
 ---
 
+## Miscellaneous Tips
+
 * **Timing**: As written, there's way more than 3 hours of material in this lesson.
 Focusing on the earlier episodes (Introduction through the first half
 of Creating Container Images) will take just about three hours if you
@@ -24,5 +26,9 @@ can apply to their work (at the end). Using the shared notes doc is a great way 
 do this and a good way to make sure that you've addressed specific concerns or goals
 of the participants.
 
+## Common Points of Confusion
+
+* difference between a container and container image
+* what it means for a container to be stopped (but not removed)
 
 {% include links.md %}
