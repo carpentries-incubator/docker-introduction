@@ -11,14 +11,14 @@ keypoints:
 ---
 The website for this lesson is generated mechanically, based on a set of files that specify the configuration of the site, its presentation template, and the content to go on this page. This is far more manageable than editing each webpage of the lesson separately, for example, if the page header needs to change, this change can be made in one place, and all the pages regenerated. The alternative would be needing to edit each page to repeat the change: this is not productive or suitable work for humans to do!
 
-In your shell window, in your `container-playground` create a new directory `copy-of-docker-intro` and `cd` into it. We will later be expanding a ZIP file into this directory later.
+In your shell window, in your `docker-intro` create a new directory `build-website` and `cd` into it. We will later be expanding a ZIP file into this directory later.
 
 Now open a web browser window and:
 1. Navigate to the GitHub repository that contains the files for this session, at <https://github.com/carpentries-incubator/docker-introduction/>;
 2. Click the green "Clone or download" button on the right-hand side of the page;
 3. Click "Download ZIP".
 4. The downloaded ZIP file should contain one directory named `docker-introduction-gh-pages`.
-5. Move the `docker-introduction-gh-pages` folder into the `copy-of-docker-intro` folder you created above.
+5. Move the `docker-introduction-gh-pages` folder into the `build-website` folder you created above.
 
 > ## There are many ways to work with ZIP files
 > Note that the last two steps can be achieved using a Mac or Windows graphical user interface. There are also ways to effect expanding the ZIP archive on the command line, for example, on my Mac I can achieve the effect of those last two steps through running the command `unzip ~/Downloads/docker-introduction-gh-pages.zip`.
