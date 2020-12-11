@@ -20,9 +20,7 @@ Please try to install the appropriate software from the list below depending on 
 #### **Microsoft Windows**
 **You must have admin rights to run docker!** Some parts of the lesson will work without running as admin but if you are unable to `Run as administrator` on your machine some elements of this workshop might not work as described.
 
-On Windows 10, you will need to install [Docker Desktop for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows). 
-
-_Previously Windows 10 Home users needed to install an alternative version of Docker - [Docker Toolbox](https://docs.docker.com/docker-for-windows/docker-toolbox/) - however, this is now deprecated. Docker Desktop for Windows can now also be installed on Windows 10 Home Edition_
+On Windows 10, you will need to install [Docker Desktop for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows).
 
 **If you have Windows 10 Pro Edition (or Windows 10 Enterprise or Education):** 
 
