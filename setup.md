@@ -13,7 +13,7 @@ Move the downloaded file to your Desktop and unzip it. It should unzip to a fold
 
 ### Software to install: Docker
 
-Docker can be installed on Windows 10, macOS and Linux. However, in some cases, installing Docker on your laptop may, unfortunately, not be completely straightforward if you do not have significant technical experience. We have helpers on hand that have worked their way through the install process but be prepared for some troubleshooting.
+Docker can be installed on Windows 10, macOS and Linux. However, in some cases, installing Docker on your laptop may, unfortunately, not be completely straightforward. We have helpers on hand during the workshop that have worked their way through the install process but be prepared for some troubleshooting.
 
 Please try to install the appropriate software from the list below depending on the operating system that your laptop is running:
 
@@ -80,4 +80,3 @@ Let's say you want to copy text off the lesson website and paste it into a file 
 <!--  LocalWords:  myfile kbd links.md md endcomment
 -->
 {% endcomment %}
-
