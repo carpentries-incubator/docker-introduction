@@ -117,8 +117,22 @@ Let's break this file down:
 - The first line, `FROM`, indicates which container we're starting with.
 - The next two lines `RUN`, will indicate installation commands we want to run. These
 are the same commands that we used interactively above.
-- The last line, `CMD` indicates the default command we want the container to run,
-if no other command is provided.
+- The last line, `CMD`, indicates the default command we want the
+container to run, if no other command is provided. It is recommended
+to provide `CMD` in *exec-form*, that is a JSON-array which contains
+as first element the executable, optionally followed by its
+arguments. For example: `CMD ["ls", "-lF", "--color", "/etc"]`
+
+> ## *shell-form* and *exec-form* for CMD
+> Another way to specify the `CMD` is the *shell-form*. Her you just
+> type the command as you would call it from the command line. Docker
+> then silently runs this command in the image's standard shell.  `CMD
+> cat /etc/passwd` is equivalent to `CMD
+> ["/bin/sh", "-c", "cat /etc/passwd"]`. We recommend to prefer the
+> more explicit *exec-form* to avoid hard to interpret behavior in
+> more complex settings.
+{: .callout}
+
 
 > ## Exercise: Take a Guess
 >
@@ -132,7 +146,7 @@ if no other command is provided.
 > > FROM alpine
 > > RUN apk add --update python3 py3-pip python3-dev
 > > RUN pip install cython
-> > CMD cat /proc/version && python3 --version
+> > CMD ["python3", "--version"]
 > > ~~~
 > {: .solution}
 {: .challenge}
@@ -196,8 +210,8 @@ $ docker build -t alice/alpine-python .
 > > $ docker run alice/alpine-python
 > > ~~~
 > > {: .language-bash}
-> > should run the container and print out our default message, including the version
-> > of Linux and Python.
+> > should run the container and print out our default message, the version
+> > of Python.
 > >
 > > ~~~
 > > $ docker run alice/alpine-python echo "Hello World"
