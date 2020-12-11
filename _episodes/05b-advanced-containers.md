@@ -314,6 +314,27 @@ $ docker run alpine-sum:v2 12 13 14
 ~~~
 {: .language-bash}
 
+> ## Overriding the ENTRYPOINT
+> Sometimes you don't want to run the
+> image's `ENTRYPOINT`. For example if you have a specialized image
+> that does only sums, but you need an interactive shell to examine
+> the container:
+> ~~~
+> $ docker run -ti alpine-sum:v2 /bin/sh
+> ~~~
+> {: .language-bash}
+> will yield
+> ~~~
+> Please supply integer arguments
+> ~~~
+> {: .output}
+> You need to override the `ENTRYPOINT`-statement in the image like so:
+> ~~~
+> $ docker run -ti --entrypoint /bin/sh alpine-sum:v2
+> ~~~
+> {: .language-bash}
+{: .callout}
+
 ### Add the `sum.py` script to the `PATH` so you can run it directly:
 
 ~~~
@@ -334,6 +355,7 @@ $ docker build -t alpine-sum:v3 .
 $ docker run alpine-sum:v3 sum.py 1 2 3 4
 ~~~
 {: .language-bash}
+
 
 {% include links.md %}
 
