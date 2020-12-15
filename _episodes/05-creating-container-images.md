@@ -119,20 +119,26 @@ Let's break this file down:
 are the same commands that we used interactively above.
 - The last line, `CMD`, indicates the default command we want the
 container to run, if no other command is provided. It is recommended
-to provide `CMD` in *exec-form*, that is a JSON-array which contains
-as first element the executable, optionally followed by its
-arguments. For example: `CMD ["ls", "-lF", "--color", "/etc"]`
+to provide `CMD` in *exec-form* (see the
+[`CMD` section](https://docs.docker.com/engine/reference/builder/#cmd)
+of the Dockerfile documentation for more details). It is written as a
+list which contains the executable to run as its first element,
+optionally followed by any arguments as subsequent elements. The list
+is enclosed in square brackets (`[]`) and its elements are
+double-quoted (`"`) strings which are separated by commas. For
+example: `CMD ["ls", "-lF", "--color", "/etc"]`
 
-> ## *shell-form* and *exec-form* for CMD
-> Another way to specify the `CMD` is the *shell-form*. Her you just
-> type the command as you would call it from the command line. Docker
-> then silently runs this command in the image's standard shell.  `CMD
-> cat /etc/passwd` is equivalent to `CMD
+> ## *shell-form* and *exec-form* for CMD Another way to specify the
+> parameter for the
+> [`CMD` instruction](https://docs.docker.com/engine/reference/builder/#cmd)
+> is the *shell-form*. Here you type the command as you would call it
+> from the command line. Docker then silently runs this command in the
+> image's standard shell.  `CMD cat /etc/passwd` is equivalent to `CMD
 > ["/bin/sh", "-c", "cat /etc/passwd"]`. We recommend to prefer the
-> more explicit *exec-form* to avoid hard to interpret behavior in
-> more complex settings.
+> more explicit *exec-form* because we will be able to create more
+> flexible container command options and make sure complex commands
+> are unambiguous in this format.
 {: .callout}
-
 
 > ## Exercise: Take a Guess
 >

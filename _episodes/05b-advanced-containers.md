@@ -266,11 +266,11 @@ $ docker run alpine-sum:v1
 ~~~
 {: .language-bash}
 
-You notice that you can run the container without arguments just fine,
-resulting in `sum = 0`, but this is boring. Supplying argumens however
+You'll notice that you can run the container without arguments just fine,
+resulting in `sum = 0`, but this is boring. Supplying arguments however
 doesn't work:
 ~~~
-docker run  alpine-sum:v1 10 11 12
+docker run alpine-sum:v1 10 11 12
 ~~~
 {: .language-bash}
 results in
@@ -286,8 +286,8 @@ This is because the arguments `10 11 12` are interpreted as a
 ["python3", "/home/sum.py"]` in the image.
 
 To achieve the goal of having a command that *always* runs when the
-container is run *and* can be amended with arguments given on the
-command-line, use the keyword `ENTRYPOINT` in the `Dockerfile`.
+container is run *and* can be passed the arguments given on the
+command line, use the keyword `ENTRYPOINT` in the `Dockerfile`.
 
 ~~~
 FROM alpine
@@ -307,7 +307,7 @@ CMD ["10", "11"]
 Build and test it:
 ~~~
 $ docker build -t alpine-sum:v2 .
-# Most of the time you are interested in sum of 10 and 11:
+# Most of the time you are interested in the sum of 10 and 11:
 $ docker run alpine-sum:v2
 # Sometimes you have more challenging calculations to do:
 $ docker run alpine-sum:v2 12 13 14
