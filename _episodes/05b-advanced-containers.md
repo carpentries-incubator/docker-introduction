@@ -40,11 +40,11 @@ container.
 
 If we try running the container and Python script, what happens?
 ~~~
-$ docker run alice/alpine-python python sum.py
+$ docker run alice/alpine-python python3 sum.py
 ~~~
 {: .language-bash}
 ~~~
-python: can't open file 'sum.py': [Errno 2] No such file or directory
+python3: can't open file 'sum.py': [Errno 2] No such file or directory
 ~~~
 {: .output}
 
@@ -76,13 +76,13 @@ container, name the directory `/temp`
 
 Let's try running the command now:
 ~~~
-$ docker run -v $PWD:/temp alice/alpine-python python sum.py
+$ docker run -v $PWD:/temp alice/alpine-python python3 sum.py
 ~~~
 {: .language-bash}
 
 But we get the same error!
 ~~~
-python: can't open file 'sum.py': [Errno 2] No such file or directory
+python3: can't open file 'sum.py': [Errno 2] No such file or directory
 ~~~
 {: .output}
 
@@ -92,7 +92,7 @@ mapped to `/temp` -- so we need to include that in the path to the script. This
 command should give us what we need:
 
 ~~~
-$ docker run -v $PWD:/temp alice/alpine-python python /temp/sum.py
+$ docker run -v $PWD:/temp alice/alpine-python python3 /temp/sum.py
 ~~~
 {: .language-bash}
 
@@ -126,7 +126,7 @@ and will stay there even when the container stops.
 > > - `-v $PWD:/temp`: connect my current working directory (`$PWD`) as a folder
 > > inside the container called `/temp`
 > > - `alice/alpine-python`: name of the container to run
-> > - `python /temp/sum.py`: what commands to run in the container
+> > - `python3 /temp/sum.py`: what commands to run in the container
 > >
 > > More generally, every Docker command will have the form:
 > > `docker [action] [docker options] [docker image] [command to run inside]
@@ -207,7 +207,7 @@ $ docker build -t alice/alpine-sum .
 > >
 > > You should be able to run the python command inside the container like this:
 > > ~~~
-> > /# python /home/sum.py
+> > /# python3 /home/sum.py
 > > ~~~
 > > {: .language-bash}
 > >
@@ -247,18 +247,16 @@ the screen. The bigger your image becomes, the harder it will be to easily downl
 We can expand on the example above to make our container even more "automatic".
 Here are some ideas:
 
-- Make the `sum.py` script run automatically:
+### Make the `sum.py` script run automatically
 
 ~~~
 FROM alpine
 
 COPY sum.py /home
-RUN apk add --update python py-pip python-dev
+RUN apk add --update python3 py3-pip python3-dev
 
 # Run the sum.py script as the default command
-CMD python /home/sum.py
-# OR
-# CMD ["python", "/home/sum.py"]
+CMD ["python3", "/home/sum.py"]
 ~~~
 
 Build and test it:
@@ -268,27 +266,76 @@ $ docker run alpine-sum:v1
 ~~~
 {: .language-bash}
 
-- Make the `sum.py` script run automatically with arguments from the command line:
+You'll notice that you can run the container without arguments just fine,
+resulting in `sum = 0`, but this is boring. Supplying arguments however
+doesn't work:
+~~~
+docker run alpine-sum:v1 10 11 12
+~~~
+{: .language-bash}
+results in
+~~~
+docker: Error response from daemon: OCI runtime create failed:
+container_linux.go:349: starting container process caused "exec:
+\"10\": executable file not found in $PATH": unknown.
+~~~
+{: .output}
+
+This is because the arguments `10 11 12` are interpreted as a
+*command* that replaces the default command given by `CMD
+["python3", "/home/sum.py"]` in the image.
+
+To achieve the goal of having a command that *always* runs when the
+container is run *and* can be passed the arguments given on the
+command line, use the keyword `ENTRYPOINT` in the `Dockerfile`.
 
 ~~~
 FROM alpine
 
 COPY sum.py /home
-RUN apk add --update python py-pip python-dev
+RUN apk add --update python3 py3-pip python3-dev
 
 # Run the sum.py script as the default command and
 # allow people to enter arguments for it
-ENTRYPOINT ["python", "/home/sum.py"]
+ENTRYPOINT ["python3", "/home/sum.py"]
+
+# Give default arguments, in case none are supplied on
+# the command-line
+CMD ["10", "11"]
 ~~~
 
 Build and test it:
 ~~~
 $ docker build -t alpine-sum:v2 .
-$ docker run alpine-sum:v2 1 2 3 4
+# Most of the time you are interested in the sum of 10 and 11:
+$ docker run alpine-sum:v2
+# Sometimes you have more challenging calculations to do:
+$ docker run alpine-sum:v2 12 13 14
 ~~~
 {: .language-bash}
 
-- Add the `sum.py` script to the `PATH` so you can run it directly:
+> ## Overriding the ENTRYPOINT
+> Sometimes you don't want to run the
+> image's `ENTRYPOINT`. For example if you have a specialized image
+> that does only sums, but you need an interactive shell to examine
+> the container:
+> ~~~
+> $ docker run -ti alpine-sum:v2 /bin/sh
+> ~~~
+> {: .language-bash}
+> will yield
+> ~~~
+> Please supply integer arguments
+> ~~~
+> {: .output}
+> You need to override the `ENTRYPOINT`-statement in the image like so:
+> ~~~
+> $ docker run -ti --entrypoint /bin/sh alpine-sum:v2
+> ~~~
+> {: .language-bash}
+{: .callout}
+
+### Add the `sum.py` script to the `PATH` so you can run it directly:
 
 ~~~
 FROM alpine
@@ -299,7 +346,7 @@ RUN chmod +x /home/sum.py
 # add /home folder to the PATH
 ENV PATH /home:$PATH
 
-RUN apk add --update python py-pip python-dev
+RUN apk add --update python3 py3-pip python3-dev
 ~~~
 
 Build and test it:
@@ -308,6 +355,7 @@ $ docker build -t alpine-sum:v3 .
 $ docker run alpine-sum:v3 sum.py 1 2 3 4
 ~~~
 {: .language-bash}
+
 
 {% include links.md %}
 
