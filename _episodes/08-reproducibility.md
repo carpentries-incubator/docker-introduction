@@ -104,7 +104,7 @@ Of course, many real applications will sit somewhere between these two extremes.
 > and write a few bullet points for advantages and disadvantages for each approach in the course Etherpad.
 > > ## Solution
 > > This is not an exhaustive list but some of the advantages and disadvantages could be:
-> > Single large container:
+> > ### Single large container
 > > - Advantages:
 > >   + Simpler to document
 > >   + Full set of requirements packaged in one place
@@ -116,7 +116,8 @@ Of course, many real applications will sit somewhere between these two extremes.
 > >   + May end up with same dependency issues within the container from different software requirements
 > >   + Potentially more complex to test
 > >   + Less re-useable for different, but related, work
-> > Multiple smaller containers
+> >
+> > ### Multiple smaller containers
 > > - Advantages:
 > >   + Individual components can be re-used for different, but related, work
 > >   + Individual parts are smaller in size making them easier to distribute
@@ -129,11 +130,24 @@ Of course, many real applications will sit somewhere between these two extremes.
 > {: .solution}
 {: .challenge}
 
+> ## Next Steps With Containers
+>
+> Now that we're at the end of the lesson material, take a moment to reflect on
+> what you've learned, how it applies to you, and what to do next.
+>
+> 1. In your own notes, write down or diagram your understanding of Docker Containers:
+> concepts, commands, and how they work.
+> 2. In the workshop's shared notes document, write down how you think you might
+> use containers in your daily work. If there's something you want to try doing with
+> containers right away, what is a next step after this workshop to make that happen?
+>
+{: .challenge}
+
 ### Container Orchestration
 
-Although you can certainly manage research workflows that use multiple containers manually, there are a number of 
-container orchestration tools that you may find useful when managing workflows that use multiple containers. 
-We won't go in depth on using these tools in this lesson but instead briefly describe 
+Although you can certainly manage research workflows that use multiple containers manually, there are a number of
+container orchestration tools that you may find useful when managing workflows that use multiple containers.
+We won't go in depth on using these tools in this lesson but instead briefly describe
 a few options and point to useful resources on using these tools to allow you to explore them yourself.
 
   - Docker Compose
@@ -147,7 +161,7 @@ a few options and point to useful resources on using these tools to allow you to
 > [friendly neighbourhood RSE](https://society-rse.org/community/rse-groups/) to discuss what you want to do.
 {: .callout}
 
-**Docker Compose** provides a way of constructing a unified workflow (or service) made up of multiple 
+**Docker Compose** provides a way of constructing a unified workflow (or service) made up of multiple
 individual Docker containers. In addition to the individual Dockerfiles for each container, you provide
 a higher-level configuration file which describes the different containers and how they link together
 along with shared storage definitions between the containers. Once this high-level configuration has been
@@ -156,8 +170,8 @@ defined, you can use single commands to start and stop the orchestrated set of c
   - [Using Docker Compose for the Simple Deployment of an Integrated Drug Target Screening Platform](https://www.degruyter.com/view/journals/jib/14/2/article-20170016.xml)
   - [Docker Compose Overview](https://docs.docker.com/compose/)
 
-**Kubernetes** is an open source framework that provides similar functionality to Docker Compose. Its 
-particular strengths are that is platform independent and can be used with many different container 
+**Kubernetes** is an open source framework that provides similar functionality to Docker Compose. Its
+particular strengths are that is platform independent and can be used with many different container
 technologies and that it is widely available on cloud platforms so once you have implemented your workflow
 in Kubernetes it can be deployed in different locations as required. It has become the de facto standard
 for container orchestration.
@@ -167,7 +181,7 @@ for container orchestration.
 **Docker Swarm** provides a way to scale out to multiple copies of similar containers. This potentially
 allows you to parallelise and scale out your research workflow so that you can run multiple copies and
 increase throughput. This would allow you, for example, to take advantage of multiple cores on a local
-system or run your workflow in the cloud to access more resources. Docker Swarm uses the concept of 
+system or run your workflow in the cloud to access more resources. Docker Swarm uses the concept of
 a manager container and worker containers to implement this distribution.
 
   - [Docker Swarm Overview](https://docs.docker.com/engine/swarm/)

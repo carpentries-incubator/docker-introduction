@@ -53,7 +53,7 @@ python3: can't open file 'sum.py': [Errno 2] No such file or directory
 > What does the error message mean? Why might the Python inside the container
 > not be able to find or open our script?
 >
-{: challenge}
+{: .challenge}
 
 The problem here is that the container and its file system is separate from our
 host computer's file system. When the container runs, it can't see anything outside
@@ -240,7 +240,7 @@ the screen. The bigger your image becomes, the harder it will be to easily downl
 > RUN wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.10.0/ncbi-blast-2.10.0+-x64-linux.tar.gz
 > ~~~
 >
-{: callout}
+{: .callout}
 
 ## More fancy `Dockerfile` options (optional, for presentation or as exercises)
 
