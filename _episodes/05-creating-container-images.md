@@ -128,8 +128,8 @@ is enclosed in square brackets (`[]`) and its elements are
 double-quoted (`"`) strings which are separated by commas. For
 example: `CMD ["ls", "-lF", "--color", "/etc"]`
 
-> ## *shell-form* and *exec-form* for CMD Another way to specify the
-> parameter for the
+> ## *shell-form* and *exec-form* for CMD
+> Another way to specify the parameter for the
 > [`CMD` instruction](https://docs.docker.com/engine/reference/builder/#cmd)
 > is the *shell-form*. Here you type the command as you would call it
 > from the command line. Docker then silently runs this command in the
