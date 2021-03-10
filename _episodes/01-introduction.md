@@ -162,8 +162,8 @@ a research context include:
 - Using containers solely on your own computer to use a specific software tool 
   or to test out a tool (possibly to avoid a difficult and complex installation
   process, to save your time or to avoid dependency hell).
-- Setting up software and then sharing it with your collaborators for use on
-  their computers or a remote computing resource (e.g. cloud-based or HPC
+- Setting up software in a container and then sharing it with your collaborators
+  for use on their computers or a remote computing resource (e.g. cloud-based or HPC
   system).
 - Archiving the container(s) so you can repeat analysis/modelling using the 
   same software and configuration in the future - capturing your workflow.
