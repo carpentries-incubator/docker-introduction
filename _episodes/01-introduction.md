@@ -57,7 +57,7 @@ informally termed "dependency hell".
 > Again, take a minute to think about how the software challenges we've discussed 
 > could impact (or have impacted!) the quality of your work. 
 > Share your thoughts with your neighbors. What can go wrong if our software 
-> doesnt work? 
+> doesn't work? 
 {: .challenge}
 
 Unsurprisingly, software installation and configuration challenges can have 
@@ -150,7 +150,23 @@ doesn't matter whether the computer is Mac, Windows or Linux-based.
 on your computer and on other resources (like a large-scale computing cluster). 
 
 The rest of this workshop will show you how to download and run pre-existing containers 
-on your own computer, and how to create and share your own containers. 
+on your own computer, and how to create and share your own containers.
+
+### Use cases for containers
+
+Now that we have discussed a little bit about containers - what they do and the
+issues they attempt to address - you may be able to think of a few potential use
+cases in your area of work. Some examples of common use cases for containers in 
+a research context include:
+
+- Using containers solely on your own computer to use a specific software tool 
+  or to test out a tool (possibly to avoid a difficult and complex installation
+  process, to save your time or to avoid dependency hell).
+- Setting up software in a container and then sharing it with your collaborators
+  for use on their computers or a remote computing resource (e.g. cloud-based or HPC
+  system).
+- Archiving the container(s) so you can repeat analysis/modelling using the 
+  same software and configuration in the future - capturing your workflow.
 
 {% include links.md %}
 
