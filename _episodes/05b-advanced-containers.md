@@ -320,7 +320,7 @@ $ docker run alpine-sum:v2 12 13 14
 > that does only sums, but you need an interactive shell to examine
 > the container:
 > ~~~
-> $ docker run -ti alpine-sum:v2 /bin/sh
+> $ docker run -it alpine-sum:v2 /bin/sh
 > ~~~
 > {: .language-bash}
 > will yield
@@ -330,7 +330,7 @@ $ docker run alpine-sum:v2 12 13 14
 > {: .output}
 > You need to override the `ENTRYPOINT`-statement in the image like so:
 > ~~~
-> $ docker run -ti --entrypoint /bin/sh alpine-sum:v2
+> $ docker run -it --entrypoint /bin/sh alpine-sum:v2
 > ~~~
 > {: .language-bash}
 {: .callout}
