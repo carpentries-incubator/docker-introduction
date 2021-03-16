@@ -107,7 +107,8 @@ and will stay there even when the container stops.
 >
 > > ## Solution
 > >
-> > This script comes from [the Python Wiki](https://wiki.python.org/moin/SimplePrograms) > > and is set to add all numbers
+> > This script comes from [the Python Wiki](https://wiki.python.org/moin/SimplePrograms)
+> > and is set to add all numbers
 > > that are passed to it as arguments.
 > {: .solution}
 {: .challenge}
