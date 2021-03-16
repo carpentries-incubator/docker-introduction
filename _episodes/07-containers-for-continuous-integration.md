@@ -50,42 +50,38 @@ You can now request that a container is created that will compile the files in t
 
 For macOS, Linux and PowerShell:
 ~~~
-$ docker run --rm -it -v ${PWD}:/srv/jekyll -p 127.0.0.1:4000:4000 jekyll/jekyll:3.7.3 make serve
+$ docker run --rm -it -v ${PWD}:/srv/jekyll -p 127.0.0.1:4000:4000 jekyll/jekyll:pages jekyll serve
 ~~~
 {: .language-bash}
 
 For `cmd.exe` shells on Microsoft Windows:
 ~~~
-> docker run --rm -it -v "%CD%":/srv/jekyll -p 127.0.0.1:4000:4000 jekyll/jekyll:3.7.3 make serve
+> docker run --rm -it -v "%CD%":/srv/jekyll -p 127.0.0.1:4000:4000 jekyll/jekyll:pages jekyll serve
 ~~~
 
 When I ran the macOS command, the output was as follows:
 ~~~
-Unable to find image 'jekyll/jekyll:3.7.3' locally
-3.7.3: Pulling from jekyll/jekyll
-ff3a5c916c92: Pull complete
-8e2da6035957: Pull complete
-42e99ed6de92: Pull complete
-70c638bbd0d9: Pull complete
-8f8df9937b34: Pull complete
-Digest: sha256:2b907c5f836ee66d6dde39aa021eebadcadd59dffab693ceecb73be7cfa2808b
-Status: Downloaded newer image for jekyll/jekyll:3.7.3
-jekyll serve
-ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux-musl]
+Unable to find image 'jekyll/jekyll:pages' locally
+pages: Pulling from jekyll/jekyll
+cbdbe7a5bc2a: Already exists 
+aa8ae8202b42: Already exists 
+b21786fe7c0d: Already exists 
+68296e6645b2: Already exists 
+6b1c37303e2d: Already exists 
+4d49f4d60e44: Pull complete 
+Digest: sha256:3741cb6d48b1ed3c544db4af9e2485fba31ddb5c2deb83a93b33fd252e8e2768
+Status: Downloaded newer image for jekyll/jekyll:pages
+ruby 2.7.1p83 (2020-03-31 revision a0c7c23c9c) [x86_64-linux-musl]
 Configuration file: /srv/jekyll/_config.yml
             Source: /srv/jekyll
        Destination: /srv/jekyll/_site
  Incremental build: disabled. Enable with --incremental
-      Generating...
-                    done in 2.647 seconds.
+      Generating... 
+      Remote Theme: Using theme carpentries/carpentries-theme
+                    done in 2.996 seconds.
  Auto-regeneration: enabled for '/srv/jekyll'
     Server address: http://0.0.0.0:4000
   Server running... press ctrl-c to stop.
-[2019-02-07 15:37:35] ERROR `/assets/favicons/favicon-96x96.png' not found.
-[2019-02-07 15:37:35] ERROR `/assets/favicons/favicon-196x196.png' not found.
-[2019-02-07 15:37:35] ERROR `/assets/favicons/favicon-16x16.png' not found.
-[2019-02-07 15:37:35] ERROR `/assets/favicons/favicon-128.png' not found.
-[2019-02-07 15:37:35] ERROR `/assets/favicons/favicon-32x32.png' not found.
 ~~~
 {: .output}
 
