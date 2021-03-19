@@ -178,8 +178,8 @@ $ /Users/yourname/Desktop/docker-intro/sum
 ~~~
 {: .language-bash}
 
-Take a look at the Dockerfile. It looks similar to the one we used before, but
-it has an additional line with the `COPY` keyword.
+Let's add a new line to the Dockerfile we've been using so far to create a copy of `sum.py`.
+We can do so by using the `COPY` keyword.
 
 ~~~
 COPY sum.py /home
