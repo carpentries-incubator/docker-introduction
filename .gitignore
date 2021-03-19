@@ -10,3 +10,6 @@ _site
 .RData
 
 /Gemfile.lock
+
+vendor
+.bundle
