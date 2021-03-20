@@ -66,17 +66,17 @@ or other external hard drive gets connected to a computer - you can see the
 contents appear as if they were on your computer.
 
 We can create a mount between our computer and the running container by using an additional
-option to `docker run`. We'll also use the variable `$PWD` which will substitute
+option to `docker run`. We'll also use the variable `${PWD}` which will substitute
 in our current working directory. The option will look like this
 
-`-v $PWD:/temp`
+`-v ${PWD}:/temp`
 
 What this means is -- link my current directory with the container, and inside the
 container, name the directory `/temp`
 
 Let's try running the command now:
 ~~~
-$ docker run -v $PWD:/temp alice/alpine-python python3 sum.py
+$ docker run -v ${PWD}:/temp alice/alpine-python python3 sum.py
 ~~~
 {: .language-bash}
 
@@ -92,7 +92,7 @@ mapped to `/temp` -- so we need to include that in the path to the script. This
 command should give us what we need:
 
 ~~~
-$ docker run -v $PWD:/temp alice/alpine-python python3 /temp/sum.py
+$ docker run -v ${PWD}:/temp alice/alpine-python python3 /temp/sum.py
 ~~~
 {: .language-bash}
 
@@ -124,7 +124,7 @@ and will stay there even when the container stops.
 > > Here's a breakdown of each piece of the command above
 > >
 > > - `docker run`: use Docker to run a container
-> > - `-v $PWD:/temp`: connect my current working directory (`$PWD`) as a folder
+> > - `-v ${PWD}:/temp`: connect my current working directory (`${PWD}`) as a folder
 > > inside the container called `/temp`
 > > - `alice/alpine-python`: name of the container to run
 > > - `python3 /temp/sum.py`: what commands to run in the container
@@ -144,7 +144,7 @@ and will stay there even when the container stops.
 > >
 > > The docker command to run the container interactively is:
 > > ~~~
-> > $ docker run -v $PWD:/temp -it alice/alpine-python sh
+> > $ docker run -v ${PWD}:/temp -it alice/alpine-python sh
 > > ~~~
 > > {: .language-bash}
 > >
