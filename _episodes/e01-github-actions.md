@@ -105,6 +105,7 @@ create a HTML file in the `build` directory.
 mkdir -p build
 docker run -v $PWD:/tmp pandoc/core /tmp/README.md --standalone --output=/tmp/build/index.html
 ~~~
+{: .source}
 ~~~
 [WARNING] This document format requires a nonempty <title> element.
   Defaulting to 'README' as the title.
