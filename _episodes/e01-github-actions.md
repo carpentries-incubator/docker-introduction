@@ -11,7 +11,7 @@ keypoints:
 - "You can call any Docker image from a Github action"
 ---
 
-> This lesson can be taught as a replacement of the chapter "Containers on the Cloud". Participants
+> This lesson can be taught as a replacement of the episode "Containers on the Cloud". Participants
 > should have a little experience working with `git` and/or Github.
 {: .callout}
 
