@@ -12,41 +12,87 @@ keypoints:
 ---
 
 > This lesson can be taught as a replacement of the episode "Containers on the Cloud". Participants
-> should have a little experience working with `git` and/or Github.
+> should have a little experience working with `git` and Github.
 {: .callout}
+
+Docker has become an industry standard in providing run-time environments to cloud services. This
+lesson shows how you can use Docker images inside Github Actions. At the same time, this shows a
+neat way to build a simple website that goes with any project you might have going.
+
+# Github Actions
+Github Actions are a means of automating repetitive task in maintaining software projects:
+
+- Testing if your software works correctly (Continuous Integration)
+- Building components for distribution to your users (Continuous Deployment)
+- Building documentation
+
+These are tasks that you could do on your own machine, but consider the following cases:
+
+- Your software works on your machine, but you forgot to mention this one crucial package for
+  correct operation.
+- Your software used to work, but since the last update something broke.
+- Someone else contributed to your package but didn't run the same version of the document
+  converter: the documentation looks different now.
+
+These are just some of the bad things that may happen. It is often desirable to have a controlled
+environment in which to run these tasks, collectively known as CI/CD. Github can perform these
+actions for you inside Docker containers. If your project is open source, this service is enterly
+free of charge. Competing platforms have similar services for which the syntax may vary slightly,
+but they are all grounded in the use of some form of containers (Docker or otherwise). We will
+demonstrate the use of a Docker container in deploying a small website presenting a Github
+project.
 
 # Building Github.io pages with Pandoc
 Suppose you have a Github project with a README and would like to turn that into HTML for a
-Github.io page. We take you through the process of creating a project on Github from scratch and
-convert the README to HTML and upload it to a separate `gh-pages` branch.
+Github.io page. A common problem in documenting and testing software is to keep relevant content in
+a single location. In a Github project this location is the README, however it will look a lot more
+professional if you also have a custom website going where people can find downloads, documentation
+etc. This website could become part of a larger portfolio of all your projects on Github.
 
-First let's take a look at what the end product will look like.
+It would be nice if such a page is updated automatically every time you update the project.
 
-We have a project ([example here](https://github.com/jhidding/readme-pages)) with a `main` branch that includes a README.
+A fabulous tool for building web content from Markdown files is Pandoc. You could call it the swiss
+army knife of document conversion: it is very, very versatile. In this instance we will only use
+its most basic operation. (If you are familiar with RMarkdown: Pandoc is what powers RMarkdown).
 
-> ![](../fig/github-main-branch.png)
+> ## Why Pandoc?
+> There are other engines that can do this for you, but here are some features that win some people
+over:
+> - Supports citations using several bibliography formats (including BibTeX)
+> - Rendered equations (using MathJax, optionally numbered)
+> - Code highlighting
+> - Highly customizable
 {: .callout}
+
+We take you through the process of creating a project on Github from scratch and
+convert the README to HTML and upload it to a separate `gh-pages` branch. First let's take a look at
+what the end product will look like. We have a project ([example
+here](https://github.com/jhidding/readme-pages)) with a `main` branch that includes a README.
+
+![A GitHub project with a README](../fig/github-main-branch.png){: width="90%"}
 
 We can use Pandoc to turn this README into a simple static website.
 
-![](../fig/github-io-pages.png)
-{: .callout}
+![Rendered GitHub Pages](../fig/github-io-pages.png){: width="90%"}
 
 If we switch to `gh-pages` branch in Github we can see where this page is hosted.
 
-![](../fig/github-gh-pages-branch.png)
-{: .callout}
+![`gh-pages` branch of the project](../fig/github-gh-pages-branch.png){: width="90%"}
 
 Only a `index.html` and `.nojekyll` (that prevents Github from creating a Jekyll page). So how do we
 set this up?
 
 ## Create a Github project
-Create a github project with a short `README.md`, then clone it in a local shell.
+Create a github project with a short `README.md` (go to `github.com`, make sure you're logged in,
+click the green "New" button at the top right), then clone it in a local shell. The instructions for
+doing so will be shown in the dialog on Github. See also [Software Carpentry lesson on Version
+Control with Git](http://swcarpentry.github.io/git-novice/07-github/index.html).
 
 ~~~
 git clone <your-repo-url>
 cd <repo-name>
 ~~~
+{: .code}
 
 ## Pandoc
 Now that we have cloned the repository we can generate the HTML locally using Pandoc.
@@ -91,19 +137,15 @@ docker run -v ${PWD}:/tmp pandoc/core /tmp/README.md
 ~~~
 {: .output}
 
-> Windows Powershell users should use `%cd%` in place of `$PWD` here.
-> The output depends on the contents of the README.
-{: .callout}
-
-Here, `-v $PWD:/tmp` say as much as: take the directory at `$PWD` (or `%cd%` in Windows powershell)
-and expose it inside the container as `/tmp`. Then `pandoc` can read the source file and convert it
-to HTML. While this HTML is valid, it doesn't show the complete structure of a standalone HTML
-document. For that we need to add the `--standalone` argument. Also we can redirect the output to
-create a HTML file in the `build` directory.
+Here, `-v ${PWD}:/tmp` say as much as: take the directory at `${PWD}` and expose it inside the
+container as `/tmp`. Then `pandoc` can read the source file and convert it to HTML. While this HTML
+is valid, it doesn't show the complete structure of a standalone HTML document. For that we need to
+add the `--standalone` argument. Also we can redirect the output to create a HTML file in the
+`build` directory.
 
 ~~~
 mkdir -p build
-docker run -v $PWD:/tmp pandoc/core /tmp/README.md --standalone --output=/tmp/build/index.html
+docker run -v ${PWD}:/tmp pandoc/core /tmp/README.md --standalone --output=/tmp/build/index.html
 ~~~
 {: .source}
 ~~~
@@ -113,7 +155,16 @@ docker run -v $PWD:/tmp pandoc/core /tmp/README.md --standalone --output=/tmp/bu
 ~~~
 {: .output}
 
-To suppress the warning message use the suggested `--metadata title="..."` argument.
+To suppress the warning message we may add the following lines at the top of the README:
+
+~~~
+---
+title: Hello, Pandoc
+---
+~~~
+
+Or add the mentioned `--metadat title="..."` to the command line.
+
 Inspect the output
 
 ~~~
@@ -157,13 +208,13 @@ Now we tell Github **what** to do.
 
 ~~~yaml
 jobs:
-  deploy:            # a free machine-readable name for this job
-    runs-on: ubuntu-latest
+  deploy:                                         # a free machine-readable name for this job
+    runs-on: ubuntu-latest                        # specify the base operating system
     steps:
-      - name: Checkout repo content
+      - name: Checkout repo content               # fetch the contents of the repository
         uses: actions/checkout@v2
       - name: Prepare build environment
-        run: |
+        run: |                                    # multiple Bash commands follow
           mkdir -p build
           touch build/.nojekyll
 ~~~
@@ -172,14 +223,13 @@ Now for the Docker bit:
 
 ~~~yaml
       - name: Run pandoc
-        uses: docker://pandoc/core:2.12           # always specify a version!
+        uses: docker://pandoc/core:2.12           # Always specify a version!
         with:
           args: >-                                # multi-line argument
             --standalone
             --output=build/index.html
-            --metadata title="Hello, Pandoc"
             README.md
-      - name: Deploy on github pages
+      - name: Deploy on github pages              # Use a third-party plugin to upload the content
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           branch: gh-pages
