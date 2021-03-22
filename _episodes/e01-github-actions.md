@@ -20,7 +20,7 @@ Suppose you have a Github project with a README and would like to turn that into
 Github.io page. We take you through the process of creating a project on Github from scratch and
 convert the README to HTML and upload it to a separate `gh-pages` branch.
 
-Maybe it is best to first show what the end product looks like. (Instructor shows these pages live, preferably using your own repository)
+First let's take a look at what the end product will look like.
 
 We have a project ([example here](https://github.com/jhidding/readme-pages)) with a `main` branch that includes a README.
 
