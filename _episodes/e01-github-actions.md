@@ -82,7 +82,7 @@ warranty, not even for merchantability or fitness for a particular purpose.
 We give Docker access to the contents of the local directory using the following command:
 
 ~~~
-docker run -v $PWD:/tmp pandoc/core /tmp/README.md
+docker run -v ${PWD}:/tmp pandoc/core /tmp/README.md
 ~~~
 {: .source}
 ~~~
