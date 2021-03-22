@@ -58,7 +58,7 @@ its most basic operation. (If you are familiar with RMarkdown: Pandoc is what po
 > ## Why Pandoc?
 > There are other engines that can do this for you, but here are some features that win some people
 over:
-> - Supports citations using several bibliography formats (including BibTeX)
+> - Supports citations (from BibTeX or CSL database)
 > - Rendered equations (using MathJax, optionally numbered)
 > - Code highlighting
 > - Highly customizable
@@ -92,7 +92,7 @@ Control with Git](http://swcarpentry.github.io/git-novice/07-github/index.html).
 git clone <your-repo-url>
 cd <repo-name>
 ~~~
-{: .code}
+{: .source}
 
 ## Pandoc
 Now that we have cloned the repository we can generate the HTML locally using Pandoc.
@@ -193,6 +193,7 @@ The first entry is the **name** of the workflow
 ~~~yaml
 name: Deploy pages
 ~~~
+{: .source}
 
 Next we specify **when** this workflow is run. In this case: every time content is pushed to the
 `main` branch
@@ -203,6 +204,7 @@ on:
     branches:
       - main
 ~~~
+{: .source}
 
 Now we tell Github **what** to do.
 
@@ -218,6 +220,7 @@ jobs:
           mkdir -p build
           touch build/.nojekyll
 ~~~
+{: .source}
 
 Now for the Docker bit:
 
@@ -235,6 +238,7 @@ Now for the Docker bit:
           branch: gh-pages
           folder: build
 ~~~
+{: .source}
 
 We may recognize the command-line that we had previously. Notice that we don't need to specify the
 `-v` flag. Github Actions arranges the Docker environment such that the files are in the correct
