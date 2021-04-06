@@ -6,18 +6,21 @@ questions:
 - "What are containers, and why might they be useful to me?"
 objectives:
 - "Show how software depending on other software leads to configuration management problems."
-- "Identify the problems that software installation problems can pose for research."
+- "Identify the problems that software installation can pose for research."
 - "Give two examples of how containers can solve software configuration problems." 
 keypoints:
 - "Almost all software depends on other software components to function, but these components have independent evolutionary paths."
-- "Projects involving many software components can rapidly run into a combinatoric explosion in the number of software version configurations available, yet only a subset of possible configurations actually works as desired."
-- "Containers collect software components together and can help avoid software dependency problems."
-- "Virtualisation is an old technology that container technology makes more practical."
+- "Small environments that contain only the software that's absolutely needed for a given task are easier to replicate and maintain."
+- "Critical systems that cannot be upgraded, due to cost, difficulty, etc. need to be reproduced on newer systems in a maintainable and self-documented way."
+- "Virtualization was created to allow multiple environments to run on a single computer."
+- "Virtual environments allow pipelines to leverage tools from conflicting operating systems (or even conflicting versions!) simply and reliably without additional cost or hardware." 
+- "Containerization takes virtualization one step further by making even smaller environments by avoiding all but the minimum software required."
+- "Containers are built from 'recipes' that contain the minimum software components together and the installation instructions necessary to build them."
 - "Docker is just one software platform that can create containers and the resources they use."
 ---
 ### Disclaimers
 
-1. Docker is complex software used for many different purposes. We are unlikely to give examples that suit all of your potential ideal use-cases, but would be delighted to at least open up discussion of what those use-cases might be.
+1. Docker is complex software used for many different purposes. We are unlikely to give examples that suit all of your potential ideal use-cases, but would be delighted to at least open up a discussion of what those use-cases might be.
 
 2. Containers are a topic that requires significant amounts of technical background to understand in detail. Most of the time containers, particularly as wrapped up by Docker, do not require you to have a deep technical understanding of container technology, but when things go wrong, the diagnostic messages may turn opaque rather quickly.
 
@@ -32,18 +35,16 @@ keypoints:
 {: .challenge}
 
 You may have come up with some of the following: 
-- software that doesn't exist for the operating system (Mac, Windows, Linux) you use or want to use. 
-- software that is hard to install because you have to install a bunch of other things first 
-(and those installations required *other* installations...). 
-- you're not actually sure what software you're using because the install process was 
-so circuitous. 
-- you and a colleague are using the "same" software but have installed different versions. 
-- you installed everything correctly on your computer, once, but now need to 
-install it on your colleague's computer, or on the campus computing cluster. 
-- you're writing a package for other people to use, but you get a lot of emails 
-from people who can't install it. 
 
-Etc. 
+- you want to use software that doesn't exist for the operating system (Mac, Windows, Linux) you'd prefer.
+- you struggle with installing a software tool because you have to install a bunch of other things first and those installs required *other* things, and those require *more* things, etc. (.i.e combinatoric explosion).
+- the software you're setting up involves many dependencies and only a subset of all possible versions of those dependencies actually works as desired.
+- you're not actually sure what software you're using because the install process was so circuitous. 
+- you and a colleague are using the same software but get different results because you have installed different versions and/or are using different operating systems.
+- you installed everything correctly on your computer but now need to install it on a colleague's computer/campus computing cluster/etc. 
+- you've written a package for other people to use but a lot of your users frequently have trouble with installation.
+- you need to resurrect a research project from a former colleague and the software used was on a system you cannot recreate and won't work (or not the same!) on a modern system. 
+- etc. 
 
 A lot of these characteristics boil down to one fact: the main program you want 
 to use likely depends on many, many, different other programs (including the 
@@ -64,13 +65,14 @@ Unsurprisingly, software installation and configuration challenges can have
 negative consequences for research: 
 - you can't use a specific tool at all, because it's not available or installable. 
 - you can't reproduce your results because you're not sure what tools you're actually using. 
-- you can't access extra resources because you're not able to replicate your software set up. 
+- you can't access extra/newer resources because you're not able to replicate your software set up. 
+- others cannot validate and/or build upon your work because they cannot recreate your system's unicorn configuration.
 
 Thankfully there are ways to get underneath (a lot of) this mess: containers 
 to the rescue! Containers provide a way to package up software dependencies 
 and access to resources such as files and communications networks in a uniform manner.
 
-### What is a Container? 
+### Docker and What is a Container? 
 
 Docker is a tool that allows you to build what are called "containers." It's 
 not the only tool that can create containers, but is the one we've chosen for 
@@ -83,29 +85,27 @@ called the hardware. One of these pieces is the CPU or processor; another is
 the amount of memory or RAM that your computer can use to store information 
 temporarily while running programs; another is the hard drive, which can store 
 information over the long-term. All these pieces work together to do the 
-"computing" of a computer, but we don't see them, because they're hidden away. 
+"computing" of a computer, but we don't see them because they're hidden from view (usually). 
 
 Instead, what we see is our desktop, program windows, different folders, and 
-files. These all 
-live in what's called the file system. Everything on your computer - programs, 
+files. These all live in what's called the file system. Everything on your computer - programs, 
 pictures, documents - lives somewhere in the file system. One way to think of 
-the file system is the layer of stuff that can be activated to use use the CPU, memory and hard 
-drive of your computer. 
+the file system is the layer of stuff that uses the CPU, memory and hard 
+drive of your computer on your behalf.
 
-NOW, imagine you wanted to have a second computer. You don't want to buy a 
-whole new computer because it's too expensive. What if, instead, you could have 
-another filesystem that you could store and access from your main computer, 
-but that is self-contained? 
+NOW, imagine you wanted to have a second computer but you're a cheapskate and don't want to buy a 
+whole new computer because it's too expensive and bringing two laptops to a meeting is a weird flex. 
+What if, instead, you could have another filesystem that you could store and access from your main computer, 
+but was inside your existing computer? 
 
- A container system (like Docker) is a special program 
-on your computer that does this. 
+Container systems like Docker are special programs on your computer that do just that!
 The term "container" can be usefully considered with reference to shipping 
 containers. Before shipping containers were developed, packing and unpacking 
-cargo ships was time consuming, and error prone, with high potential for 
-different clients' goods to become mixed up. Software containers standardise 
-the packaging of a complete software system:
- you can drop a container into a computer with the container software installed
- (also called a container host), and it should "just work".
+cargo ships was time consuming and error prone, with high potential for 
+different clients' goods to become mixed up. Just like shipping containers keep things 
+together that should stay together, software containers standardize the description and 
+creation of a complete software system: you can drop a container into any computer with 
+the container software installed (the 'container host'), and it should "just work".
 
 > ## Virtualization
 > 
@@ -116,19 +116,20 @@ the packaging of a complete software system:
 > addition to its own file system and has to get booted up in the same way 
 > a computer would. 
 > A container is considered a lightweight version of a virtual machine; 
-> underneath, the container is using the Linux 
-> kernel and simply has some flavor of Linux + the file system inside. 
+> underneath, the container is using the Linux kernel and simply has some 
+> flavor of Linux + the file system inside. 
 {: .callout}
 
-One final term: if the container is an alternative file system layer that you 
-can access and run from your computer, the **container image** is like a template 
-for that container. The container image has all the needed information to start 
+One final term: while the **container** is an alternative file system layer that you 
+can access and run from your computer, the **container image** is the 'recipe' or template
+for a container. The container image has all the needed information to start 
 up a running copy of the container. A running container tends to be transient 
-and can be started and shut down. The image is more long-lived, as a source file for the container. 
-You could think of the container image like a cookie cutter -- it 
-can be used to create multiple copies of the same shape (or container) 
-and is relatively unchanging, where cookies come and go. If you want a 
-different type of container (cookie) you need a different image (cookie cutter).
+and can be started and shut down. The image is more long-lived: as a source file 
+for the container, it can also serve as documentation for what is inside the container, 
+like the list of ingredients in a cookie recipe. The container image can be used to 
+create batches of the same cookie (.i.e multiple containers) and is relatively unchanging, 
+whereas the individual cookies come and go. If you want a different type of container 
+(cookie), then you need a different image (recipe).
 
 
 ### Putting the Pieces Together
@@ -138,16 +139,15 @@ of scientific software installations make it hard to install and re-install
 scientific software -- which ultimately, hinders reliability and reproducibility. 
 
 But now, think about what a container is - a self-contained, complete, separate 
-computer file system. What if you put your scientific software tools into a 
-container? 
+computer file system. What advantages are there if you put your scientific software
+tools into containers? 
 
 This solves several of our problems: 
-- There is a clear record of what software and software dependencies were used, 
-from bottom to top. 
-- The container can be used on any computer that has Docker installed -- it 
-doesn't matter whether the computer is Mac, Windows or Linux-based. 
-- The container ensures that you can use the exact same software and environment 
-on your computer and on other resources (like a large-scale computing cluster). 
+
+- documentation: there is a clear record of what software and software dependencies were used, from bottom to top. 
+- portability: the container can be used on any computer that has Docker installed -- it doesn't matter whether the computer is Mac, Windows or Linux-based. 
+- reproducibility: you can use the exact same software and environment on your computer and on other resources (like a large-scale computing cluster). 
+- configurability: containers can be sized to take advantage of more resources (memory, CPU, etc.) on large systems (clusters) or less, depending on the circumstances.
 
 The rest of this workshop will show you how to download and run pre-existing containers 
 on your own computer, and how to create and share your own containers.
