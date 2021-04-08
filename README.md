@@ -31,7 +31,9 @@ Current maintainers of this lesson are
 
 * [David Eyers](https://github.com/dme26/)
 * [Sarah Stevens](https://github.com/sstevens2/)
-
+* [Christina Koch](https://github.com/ChristinaLK)
+* [Andy Turner](https://github.com/aturner-epcc)
+* [Jeremy Cohen](https://github.com/jcohen02)
 
 ## Authors
 
