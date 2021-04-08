@@ -98,7 +98,7 @@ whole new computer because it's too expensive and bringing two laptops to a meet
 What if, instead, you could have another filesystem that you could store and access from your main computer, 
 but was inside your existing computer? 
 
-Container systems like Docker are special programs on your computer that do just that!
+Container systems like Docker are special programs on your computer that enable you to do just that!
 The term "container" can be usefully considered with reference to shipping 
 containers. Before shipping containers were developed, packing and unpacking 
 cargo ships was time consuming and error prone, with high potential for 
