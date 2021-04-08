@@ -43,7 +43,7 @@ You may have come up with some of the following:
 - you and a colleague are using the same software but get different results because you have installed different versions and/or are using different operating systems.
 - you installed everything correctly on your computer but now need to install it on a colleague's computer/campus computing cluster/etc. 
 - you've written a package for other people to use but a lot of your users frequently have trouble with installation.
-- you need to resurrect a research project from a former colleague and the software used was on a system you cannot recreate and won't work (or not the same!) on a modern system. 
+- you need to resurrect a research project from a former colleague and the software used was on a system that you no longer have access to. It also won't work on a modern system.
 - etc. 
 
 A lot of these characteristics boil down to one fact: the main program you want 
