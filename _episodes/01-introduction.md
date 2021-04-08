@@ -15,7 +15,7 @@ keypoints:
 - "Virtualization was created to allow multiple environments to run on a single computer."
 - "Virtual environments allow pipelines to leverage tools from conflicting operating systems (or even conflicting versions!) simply and reliably without additional cost or hardware." 
 - "Containerization takes virtualization one step further by making even smaller environments by avoiding all but the minimum software required."
-- "Containers are built from 'recipes' that contain the minimum software components together and the installation instructions necessary to build them."
+- "Containers are built from 'recipes' that define the required set of software components and the instructions necessary to build/install them within a container image."
 - "Docker is just one software platform that can create containers and the resources they use."
 ---
 ### Disclaimers
