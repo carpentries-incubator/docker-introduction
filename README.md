@@ -29,8 +29,11 @@ Look for the tag ![good_first_issue](https://img.shields.io/badge/-good%20first%
 
 Current maintainers of this lesson are 
 
+* [Jeremy Cohen](https://github.com/jcohen02)
 * [David Eyers](https://github.com/dme26/)
-* [Sarah Stevens](https://github.com/sstevens2/)
+* [Christina Koch](https://github.com/ChristinaLK)
+* [Andy Turner](https://github.com/aturner-epcc)
+* [Sarah Stevens](https://github.com/sstevens2/) - Send emails with questions here
 
 
 ## Authors
