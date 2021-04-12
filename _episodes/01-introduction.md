@@ -7,15 +7,16 @@ questions:
 objectives:
 - "Show how software depending on other software leads to configuration management problems."
 - "Identify the problems that software installation can pose for research."
-- "Give two examples of how containers can solve software configuration problems." 
+- "Explain the advantages virtualization has over traditional computing."
+- "Give two examples of how containers can solve software configuration problems."
 keypoints:
 - "Almost all software depends on other software components to function, but these components have independent evolutionary paths."
 - "Small environments that contain only the software that's absolutely needed for a given task are easier to replicate and maintain."
 - "Critical systems that cannot be upgraded, due to cost, difficulty, etc. need to be reproduced on newer systems in a maintainable and self-documented way."
 - "Virtualization was created to allow multiple environments to run on a single computer."
-- "Virtual environments allow pipelines to leverage tools from conflicting operating systems (or even conflicting versions!) simply and reliably without additional cost or hardware." 
 - "Containerization takes virtualization one step further by making even smaller environments by avoiding all but the minimum software required."
-- "Containers are built from 'recipes' that define the required set of software components and the instructions necessary to build/install them within a container image."
+- "Containerization allows the creation of complex data pipelines that are impossible on a single system simply and reliably, without additional cost or hardware." 
+- "Containers are built from 'recipes' that contain the minimum software components together and the installation instructions necessary to build them."
 - "Docker is just one software platform that can create containers and the resources they use."
 ---
 ### Disclaimers
@@ -36,14 +37,14 @@ keypoints:
 
 You may have come up with some of the following: 
 
-- you want to use software that doesn't exist for the operating system (Mac, Windows, Linux) you prefer to use.
+- you want to use software that doesn't exist for the operating system (Mac, Windows, Linux) you'd prefer.
 - you struggle with installing a software tool because you have to install a bunch of other things first and those installs required *other* things, and those require *more* things, etc. (.i.e combinatoric explosion).
 - the software you're setting up involves many dependencies and only a subset of all possible versions of those dependencies actually works as desired.
 - you're not actually sure what software you're using because the install process was so circuitous. 
 - you and a colleague are using the same software but get different results because you have installed different versions and/or are using different operating systems.
 - you installed everything correctly on your computer but now need to install it on a colleague's computer/campus computing cluster/etc. 
 - you've written a package for other people to use but a lot of your users frequently have trouble with installation.
-- you need to resurrect a research project from a former colleague and the software used was on a system that you no longer have access to. It also won't work on a modern system.
+- you need to resurrect a research project from a former colleague and the software used was on a system you cannot recreate and won't work (or not the same!) on a modern system. 
 - etc. 
 
 A lot of these characteristics boil down to one fact: the main program you want 
@@ -93,12 +94,11 @@ pictures, documents - lives somewhere in the file system. One way to think of
 the file system is the layer of stuff that uses the CPU, memory and hard 
 drive of your computer on your behalf.
 
-NOW, imagine you wanted to have a second computer but you're a cheapskate and don't want to buy a 
-whole new computer because it's too expensive and bringing two laptops to a meeting is a weird flex. 
-What if, instead, you could have another filesystem that you could store and access from your main computer, 
-but was inside your existing computer? 
+NOW, imagine you wanted to install some new software but don't want to take the chance of making a mess of your existing system by installing a bunch of additional stuff (libraries/dependencies/etc.).  You could buy a second computer but you're a cheapskate and don't want to buy a whole new computer just for this.  Plus bringing two laptops to a meeting is a weird flex. 😉 What if, instead, you could have another filesystem that you could store and access from your main computer, but was inside your existing computer?
 
-Container systems like Docker are special programs on your computer that enable you to do just that!
+Or, imagine you have two tools you want to use in your groundbreaking research on cat memes: PurrLOLing, a tool that does AMAZING at predicting the best text for a meme based on the cat species and WhiskerSpot, the only tool available for identifying cat species from images.  You want to send cat pictures to WhiskerSpot, and then send the species output to PurrLOLing.  But there's a problem: PurrLOLing only works on Ubuntu and WhiskerSpot is only supported for OpenSUSE so you can't have them on the same system!  Again, we really want another filesystem (or two) on our computer that we could use to chain together WhiskerSpot and PurrLOLing in a "pipeline"... 
+
+Container systems like Docker are special programs on your computer that make it possible!
 The term "container" can be usefully considered with reference to shipping 
 containers. Before shipping containers were developed, packing and unpacking 
 cargo ships was time consuming and error prone, with high potential for 
@@ -167,6 +167,7 @@ a research context include:
   system).
 - Archiving the container(s) so you can repeat analysis/modelling using the 
   same software and configuration in the future - capturing your workflow.
+- Imagine 
 
 {% include links.md %}
 

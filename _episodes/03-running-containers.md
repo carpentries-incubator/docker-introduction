@@ -6,9 +6,9 @@ questions:
 - "How do I interact with a Docker container on my computer?"
 objectives:
 - "Use the correct command to see which Docker images are on your computer."
-- "Download new Docker images."
+- "Be able to download new Docker images."
 - "Demonstrate how to start an instance of a container from an image."
-- "Describe at least two ways to run commands inside a running Docker container."
+- "Describe at least two ways to execute commands inside a running Docker container."
 keypoints:
 - "The `docker pull` command downloads Docker images from the internet."
 - "The `docker image` command lists Docker images that are (now) on your computer."
@@ -186,9 +186,9 @@ command and they will execute inside the running container.
 In all the examples above, Docker has started the container, run a command, and then
 immediately shut down the container. But what if we wanted to keep the container
 running so we could log into it and test drive more commands? The way to
-do this is by adding the interactive flag `-it` to the `docker run` command and
-by providing a shell (usually `bash` or `sh`) as our command.
-The alpine docker image doesn't include `bash` so we need to use `sh`.
+do this is by adding the interactive flag `-it` 
+flag `-t` to the `docker run` command and provide a shell (`bash`,`sh`, etc.) 
+as our command. The alpine docker image doesn't include `bash` so we need to use `sh`.
 
 ~~~
 $ docker run -it alpine sh
@@ -197,10 +197,10 @@ $ docker run -it alpine sh
 
 > ## Technically...
 >
-> Technically, the interactive flag is just `-i`, the extra `-t` (combined
-> as `-it` above) is an option that allows you to connect to a shell like
-> bash. But since usually you want to have a command line when run interactively,
-> it always makes sense to use the two together.
+> Technically, the interactive flag is just `-i` - the extra `-t` (combined
+> as `-it` above) is the "pseudo-TTY" option, a fancy term that means a text interface. 
+> This allows you to connect to a shell, like `bash`, using a command line. Since you usually 
+> want to have a command line when running interactively, it makes sense to use the two together.
 {: .callout}
 
 

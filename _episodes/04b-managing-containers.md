@@ -4,10 +4,14 @@ teaching: 10
 exercises: 0
 questions:
 - "How do I interact with a Docker container on my computer?"
+- "How do I manage my containers and images?"
 objectives:
 - "Explain how to list running and completed containers."
+- "Know how to list and remove container images."
 keypoints:
-- "The `docker container` command lists containers that have been created."
+- "`docker container` has subcommands used to interact and manage containers."
+- "`docker image` has subcommands used to interact and manage images."
+- "`docker ps` can provide information on currently running containers."
 ---
 
 ## Removing images
@@ -15,7 +19,7 @@ keypoints:
 The images and their corresponding containers can start to take up a lot of disk space if you don't clean them up occasionally, so it's a good idea to periodically remove container images that you won't be using anymore.
 
 In order to remove a specific image, you need to find out details about the image,
-specifically, the "image ID". For example say my laptop contained the following image.
+specifically, the "image ID". For example, say my laptop contained the following image:
 ~~~
 $ docker image ls
 ~~~
@@ -26,7 +30,7 @@ hello-world      latest      fce289e99eb9   15 months ago    1.84kB
 ~~~
 {: .output}
 
-You can remove the image with a `docker image rm` command that includes the image ID, such as:
+I want to remove it now that I'm familiar with the `docker run` command, so I can use the `docker image rm` command that includes the image ID, such as:
 ~~~
 $ docker image rm fce289e99eb9
 ~~~
@@ -107,10 +111,7 @@ $ docker container rm 9c698655416a
 {: .output}
 
 If you want to remove all exited containers at once you can use the `docker containers prune` command.
-**Be careful** with this command.
-If you have containers you may want to reconnect to, you should not use this command.
-It will ask you if to confirm you want to remove these containers, see output below.
-If successfull it will print the full `CONTAINER ID` back to you.
+**Be careful** with this command. If you have containers you may want to reconnect to, you should not use this command! It will ask you if to confirm you want to remove these containers, see output below. If successful, it will print the full `CONTAINER ID` back to you.
 ~~~
 $ docker container prune
 ~~~

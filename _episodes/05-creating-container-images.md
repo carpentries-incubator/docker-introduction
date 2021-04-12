@@ -4,6 +4,7 @@ teaching: 20
 exercises: 15
 questions:
 - "How can I make my own Docker images?"
+- "How do I document the 'recipe' for a Docker image?"
 objectives:
 - "Explain the purpose of a `Dockerfile` and show some simple examples."
 - "Demonstrate how to build a Docker image from a `Dockerfile`."
@@ -19,7 +20,7 @@ keypoints:
 
 There are lots of reasons why you might want to create your **own** Docker image.
 - You can't find a container with all the tools you need on Docker Hub.
-- You want to have a container to "archive" all the specific software versions you ran for a project
+- You want to have a container to "archive" all the specific software versions you ran for a project.
 - You want to share your workflow with someone else.
 
 ## Interactive installation
@@ -80,7 +81,7 @@ Once Python is installed, we can add Python packages using the pip package insta
 
 Once we exit, these changes are not saved to a new container by default. There is
 a command that will "snapshot" our changes, but building containers this way is
-not very reproducible. Instead, we're going to take what we've learned from this
+not easily reproducible. Instead, we're going to take what we've learned from this
 interactive installation and create our container from a reproducible recipe,
 known as a `Dockerfile`.
 
@@ -114,7 +115,8 @@ CMD <CMD TO RUN BY DEFAULT>
 {: .output}
 
 Let's break this file down:
-- The first line, `FROM`, indicates which container we're starting with.
+
+- The first line, `FROM`, indicates which container we're starting with.  It is the "base" image we are going to start from.
 - The next two lines `RUN`, will indicate installation commands we want to run. These
 are the same commands that we used interactively above.
 - The last line, `CMD`, indicates the default command we want the
@@ -126,7 +128,8 @@ list which contains the executable to run as its first element,
 optionally followed by any arguments as subsequent elements. The list
 is enclosed in square brackets (`[]`) and its elements are
 double-quoted (`"`) strings which are separated by commas. For
-example: `CMD ["ls", "-lF", "--color", "/etc"]`
+example, `CMD ["ls", "-lF", "--color", "/etc"]` would translate 
+to `ls -lF --color /etc`.
 
 > ## *shell-form* and *exec-form* for CMD
 > Another way to specify the parameter for the
