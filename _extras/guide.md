@@ -18,7 +18,7 @@ the lesson to ensure that everything works as expected._
 If you experience any issues, please [open an issue] in the lesson repository
 describing the problem and platform(s) affected. The lesson maintainers will
 aim to resolve the issue as soon as possible but we also welcome the opening
-of pull requests (linked to issues) the resolve anything that doesn't work as
+of pull requests (linked to issues) that resolve anything that doesn't work as
 expected with the lesson content.
 
 [Docker]: https://www.docker.com/
