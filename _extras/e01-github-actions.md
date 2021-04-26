@@ -1,5 +1,6 @@
 ---
 title: "Using Docker with Github Actions"
+layout: episode
 teaching: 30
 exercises: 0
 questions:
