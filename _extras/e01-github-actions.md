@@ -1,5 +1,5 @@
 ---
-title: "(extra) Using Docker with Github Actions"
+title: "Using Docker with Github Actions"
 teaching: 30
 exercises: 0
 questions:
