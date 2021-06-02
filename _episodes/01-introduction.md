@@ -7,7 +7,7 @@ questions:
 objectives:
 - "Show how software depending on other software leads to configuration management problems."
 - "Identify the problems that software installation can pose for research."
-- "Explain the advantages of application virtualization."
+- "Explain the advantages of containerization."
 - "Explain how using containers can solve software configuration problems"
 keypoints:
 - "Almost all software depends on other software components to function, but these components have independent evolutionary paths."
@@ -22,7 +22,7 @@ keypoints:
 
 1. Docker is complex software used for many different purposes. We are unlikely to give examples that suit all of your potential ideal use-cases, but would be delighted to at least open up a discussion of what those use-cases might be.
 
-2. Containers are a topic that requires significant amounts of technical background to understand in detail. Most of the time containers, particularly as wrapped up by Docker, do not require you to have a deep technical understanding of container technology, but when things go wrong, the diagnostic messages may turn opaque rather quickly.
+2. Containers are a topic that can require a significant amount of technical background to understand in detail. Most of the time containers, particularly as provided by Docker, do not require you to have a deep technical understanding of container technology in order to make use of them, but when things go wrong, the diagnostic messages may become difficult to understand.
 
 ### Scientific Software Challenges
 
@@ -92,11 +92,11 @@ pictures, documents - lives somewhere in the file system. One way to think of
 the file system is the layer of stuff that uses the CPU, memory and hard 
 drive of your computer on your behalf.
 
-NOW, imagine you wanted to install some new software but don't want to take the chance 
+NOW, imagine you want to install some new software but don't want to take the chance
 of making a mess of your existing system by installing a bunch of additional stuff 
 (libraries/dependencies/etc.).
 You don't want to buy a whole new computer because it's too expensive.
-What if, instead, you could have another filesystem that you could store and access from your main computer, but was inside your existing computer?
+What if, instead, you could have another filesystem that you could store and access from your main computer, and that is actually stored within this existing computer?
 
 Or, imagine you have two tools you want to use in your groundbreaking research on cat memes: `PurrLOLing`, a tool that does AMAZINGLY well at predicting the best text for a meme based on the cat species and `WhiskerSpot`, the only tool available for identifying cat species from images.  You want to send cat pictures to `WhiskerSpot`, and then send the species output to `PurrLOLing`.  But there's a problem: `PurrLOLing` only works on Ubuntu and `WhiskerSpot` is only supported for OpenSUSE so you can't have them on the same system!  Again, we really want another filesystem (or two) on our computer that we could use to chain together `WhiskerSpot` and `PurrLOLing` in a "pipeline"... 
 
@@ -124,14 +124,13 @@ the container software installed (the 'container host'), and it should "just wor
 
 One final term: while the **container** is an alternative file system layer that you 
 can access and run from your computer, the **container image** is the 'recipe' or template
-for a container. The container image has all the needed information to start 
+for a container. The container image has all the required information to start
 up a running copy of the container. A running container tends to be transient 
-and can be started and shut down. The image is more long-lived: as a source file 
-for the container. It can also serve as documentation for what is inside the container, 
-like the list of ingredients in a cookie recipe. The container image can be used to 
-create batches of the same cookie (i.e. multiple containers) and is relatively unchanging, 
-whereas the individual cookies come and go. If you want a different type of container 
-(cookie), then you need a different image (recipe).
+and can be started and shut down. The image is more long-lived, as a source file for the container. 
+You could think of the container image like a cookie cutter -- it 
+can be used to create multiple copies of the same shape (or container)
+and is relatively unchanging, where cookies come and go. If you want a
+different type of container (cookie) you need a different image (cookie cutter).
 
 
 ### Putting the Pieces Together
