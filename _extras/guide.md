@@ -53,10 +53,12 @@ of the participants.
 
 ## Learner Pathways
 
-Docker, and containers more generally, represent a very large area encompassing significant
+Docker, and containers more generally, relate to many different technologies, and thus can
+encompass significant volumes of
 technical information. Depending on the domain they work in, and their motivation for
 taking a course covering this material, learners are likely to have various different reasons
-for wanting to learn about Docker. The material in this lesson covers a set of core concepts,
+for wanting to learn about Docker, that may not necessarily all overlap. 
+The material in this lesson covers a set of core concepts,
 introducing containers and then looking at the key features of Docker and how to use them.
 
 Moving beyond the core features there are a number of topics that are likely to only be
@@ -78,8 +80,8 @@ expertise in areas that are currently missing material._
 
 ### Learners
 
-We consider three core groups of learners here. While also recognising that there are
-likely to be many learners who don't fit into one of the following groups, or who span
+We enumerate three core groups of learners here. While also recognising that there are
+likely to be many learners who don't fit neatly into one of the following groups, or who span
 more than one of them, we hope that highlighting these groups helps to provide an
 example of the different skills and expertise that learners engaging with this material
 may have.
@@ -88,15 +90,15 @@ may have.
  is an increasingly important element of their day-to-day work. Whether they are writing
  code or installing, configuring and/or running software to support their research, they
  will eventually need to deal with the complexities of running software on different
- platforms, handling complex dependencies and potentially submitting their code and data to
+ platforms, handling complex software dependencies and potentially submitting their code and data to
  repositories to support the reproduction of research outputs by other researchers, or to
- meet the requirements of publishers or funders. Container technologies are a valuable
- skill for a researcher to help them address these challenges.
+ meet the requirements of publishers or funders. Software container technologies are valuable
+ to help researchers address these challenges.
 
-- **RSEs:** RSEs - Research Software Engineers - provide software development, training
+- **RSEs:** RSEs -- Research Software Engineers -- provide software development, training
 and technical guidance to support the development of reliable, maintainable, sustainable
 research software. They will generally have extensive technical skills but they may not
-have experience of working with or managing containers. In addition to working with
+have experience of working with or managing software containers. In addition to working with
 researchers to help build and package software, they are likely to be interested in how
 containers can help to support best practices for the development of research software
 and aspects such as software deployment.
@@ -109,10 +111,7 @@ infrastructure and they are likely to need to know about managing and orchestrat
 multiple containers in more complex environments. For example, they may need to provide
 database servers, web application servers and other services that can be deployed
 in containerized environments to support more straightforward management, maintenance
-and upgradability.
-
-**_COMMENT TO REMOVE:_** Add some links between the learner profiles here and those in
-the main lesson content. Also add an RSE profile to the lesson content.
+and upgradeability.
 
 ### Pathways
 
@@ -124,18 +123,37 @@ episodes containing different lesson content to support different target audienc
 
 <hr/>
 
+#### Reproducible research
+
+- Common learner profile: researcher; RSE
+- Episodes: TODO
+
+#### Cloud computing
+
+- Common learner profile: systems professional
+- Episodes: TODO
+
+#### High performance computing
+
+- Common learner profile: researcher; RSE; systems professional
+- Episodes: TODO
+
 _Content from sprint notes to complete and integrate_
 
-- Learner pathways: providing recommended training paths/schedules - i.e. groups of core and optional episodes that work well for particular use cases -> goal: instructor notes that include a couple example schedules (target audience: cloud usages, bundling up for reproduciblity)
+- Learner pathways: providing recommended training paths/schedules - i.e. groups of core and optional episodes that work well for particular use cases -> goal: instructor notes that include a couple example schedules (target audience: cloud usages, bundling up for reproducibility)
     - Write out some options and create some example schedules
         - Currently Docker is often taught over 4 hours - 2 x 2 hour blocks. Following on from that
             - cloud 
                 - episodes: 
-            - reproduciblity
+            - reproducibility
                 - episodes: 
             - docker+singularity together
                 - episodes: 
             - 
+
+**_COMMENT TO REMOVE:_** 
+- Add some links between the learner profiles here and those in the main lesson content.
+- Also add an RSE profile to the lesson content.
 
 <hr/>
 
