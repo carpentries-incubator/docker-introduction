@@ -31,7 +31,7 @@ Start the Docker application that you installed in working through the setup ins
 > - In the top-right of the screen you will see your username
 {: .callout}
 
-Once your Docker application is running, open a shell (terminal) window, and run the following command to check that Docker is installed and the command line tools are working correctly. I have appended the output that I see on my Mac, but the specific version is unlikely to matter much: it certainly does not have to precisely match mine.
+Once your Docker application is running, open a shell (terminal) window, and run the following command to check that Docker is installed and the command line tools are working correctly. Below is the output for a Mac version, but the specific version is unlikely to matter much: it does not have to precisely match the one listed below.
 
 ~~~
 $ docker --version
