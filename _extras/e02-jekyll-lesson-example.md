@@ -1,17 +1,31 @@
 ---
-title: "Containers used in generating this lesson"
+title: "Using Docker with Jekyll - Containers Used in Generating this Lesson"
+layout: episode
 teaching: 20
 exercises: 0
 questions:
+- "What is an example of how I might use Docker instead of installing software?"
 - "How can containers be useful to me for building websites?"
 objectives:
+- "Use an existing container image and Docker in place of a complicated install."
 - "Demonstrate how to construct a website using containers to transform a specification into a fully-presented website."
 keypoints:
+- "You can use existing container images and Docker instead of installing additional software."
 - "The generation of this lesson website can be effected using a container."
 ---
-The website for this lesson is generated mechanically, based on a set of files that specify the configuration of the site, its presentation template, and the content to go on this page. This is far more manageable than editing each webpage of the lesson separately, for example, if the page header needs to change, this change can be made in one place, and all the pages regenerated. The alternative would be needing to edit each page to repeat the change: this is not productive or suitable work for humans to do!
 
-In your shell window, in your `docker-intro` create a new directory `build-website` and `cd` into it. We will later be expanding a ZIP file into this directory later.
+As previously mentioned earlier in the lesson, Docker can be helpful for
+using software that can be difficult to install.  An example is the software
+that generates this lesson website.  The website for this lesson is generated mechanically,
+based on a set of files that specify the configuration of the site, its presentation template,
+and the content to go on this page.  When working on updates to this lesson,
+you might want to preview those changes using a local copy of the website.
+This requires installing Jekyll and depdencies such as Ruby and Gemfiles to your local computer
+which can be difficult. Instead you could use Docker and a pre-built Jekyll container 
+image.
+
+First we need to get a copy of the website to work with on your computer.
+In your shell window, in your `docker-intro` create a new directory `build-website` and `cd` into it. We will later be expanding a ZIP file into this directory later. 
 
 Now open a web browser window and:
 1. Navigate to the [GitHub repository][docker-introduction repository] that contains the files for this session;
