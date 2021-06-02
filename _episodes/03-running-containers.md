@@ -234,7 +234,7 @@ just type `exit`.
 > the `busybox` container is very simplified, you'll want to use a command that prints out
 > the contents of the file `/proc/version`.)
 >
-> Can you also find the `busybox` program? What does it do? (Hint: passing `--help`
+> Can you also find the `busybox` program? What does it do? (Hint: try passing `--help`
 > to almost any command will give you more information.)
 >
 >
