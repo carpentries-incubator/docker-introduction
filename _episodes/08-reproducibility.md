@@ -1,5 +1,5 @@
 ---
-title: "Containers in research workflows: reproducibility and granularity"
+title: "Containers in Research Workflows: Reproducibility and Granularity"
 teaching: 20
 exercises: 0
 questions:

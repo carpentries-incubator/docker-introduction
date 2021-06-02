@@ -1,5 +1,5 @@
 ---
-title: "Finding Containers on the Docker Hub"
+title: "Finding Containers on Docker Hub"
 teaching: 10
 exercises: 10
 questions:
