@@ -7,7 +7,7 @@ questions:
 objectives:
 - "Explain how to check that Docker is installed and is ready to use."
 - "Demonstrate some initial Docker command line interactions."
-- "Remember how to get help for Docker commands."
+- "Use the built-in help for Docker commands."
 keypoints:
 - "A toolbar icon indicates that Docker is ready to use."
 - "You will typically interact with Docker using the command line."
@@ -69,8 +69,8 @@ Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docke
 then you need to check that you have started the Docker Desktop, Docker Engine, or however else you worked through the setup instructions.
 
 ## Getting help
-Whenever we are working with a new command line tool, we need to get help at some point. These tools often have some
-sort of subcommand or flag (usually `help`, `-h`, or `--help`) that displays a help prompt describing how to use the
+Often when working with a new command line tool, we need to get help. These tools often have some
+sort of subcommand or flag (usually `help`, `-h`, or `--help`) that displays a prompt describing how to use the
 tool. For Docker, it's no different. If we run `docker --help`, we see the following output (only `docker` also works):
 ~~~
 
@@ -159,10 +159,10 @@ Run 'docker COMMAND --help' for more information on a command.
 {: .output}
 
 There is a list of commands and the end of the help message says: `Run 'docker COMMAND --help' for more information on
-a command.` Take the `docker container ls` command that we previously ran. We can see from the Docker help prompt
+a command.` For example, take the `docker container ls` command that we ran previously. We can see from the Docker help prompt
 that `container` is a Docker command, so to get help for that command, we run:
 ~~~
-docker container --help  # or simply 'docker container'
+docker container --help  # or instead 'docker container'
 ~~~
 {: .language-bash}
 ~~~
@@ -228,10 +228,10 @@ Options:
 ~~~
 {: .output}
 
-We can notice that there are many commands that stem from the `docker` command. Instead of trying to remember
+You may notice that there are many commands that stem from the `docker` command. Instead of trying to remember
 all possible commands and options, it's better to learn how to effectively get help from the command line. Although
-we can always search the web, getting the built-in help from our tool is usually much faster and may provide the answer
-right away. This applies not only to Docker, but rather to most command line-based tools.
+we can always search the web, getting the built-in help from our tool is often much faster and may provide the answer
+right away. This applies not only to Docker, but also to most command line-based tools.
 
 > ## Exploring a command
 > Run `docker --help` and pick a command from the list.
