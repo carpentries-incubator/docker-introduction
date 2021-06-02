@@ -45,7 +45,7 @@ The main body of the page contains many used headings, such as:
 - Examples of how to use the image; and
 - The licence that applies.
 
-At least in my experience, the "Examples of how to use the image" section of most images' pages will provide examples that are likely to adequately cover your intended use of the image.
+The "Examples of how to use the image" section of most images' pages will provide examples that are likely to adequately cover your intended use of the image.
 
 ## Exploring Image Versions
 
@@ -117,7 +117,7 @@ OWNER/CONTAINERNAME:TAG
 > {: .solution}
 {: .challenge}
 
-## Many Different Containers
+## Finding Containers on Docker Hub
 
 There are many different containers on Docker Hub. This is where the real advantage
 of using containers shows up -- each container represents a complete software
@@ -126,9 +126,24 @@ installation that you can use and access without any extra work!
 The easiest way to find containers is to search on Docker Hub, but sometimes
 software pages have a link to their containers from their home page.
 
+Note that anyone can create an account on Docker Hub and share a container there,
+so it's important to exercise caution when choosing a container on Docker Hub. These
+are some indicators that a container on Docker Hub is consistently maintained,
+functional and secure:
+
+- The image is updated regularly.
+- The image associated with a well established company, community, or other group that is well-known.
+- There is a Dockerfile or other listing of what has been installed to the container.
+- The image page has documentation on how to use the container.
+
+If a container is never updated, created by a random person, and does not have a lot
+of metadata, it is probably worth skipping over. Even if such a container is secure, it
+is not reproducible and not a dependable way to run research computations.
+
 > ## What container is right for you?
 >
-> Find a Docker container that's relevant to you. If you're unsuccessful in your search,
+> Find a Docker container that's relevant to you. Take into account the suggestions
+> above of what to look for as you evaluate options. If you're unsuccessful in your search,
 > or don't know what to look for, you can use the R or Python containers we've
 > already seen.
 >
