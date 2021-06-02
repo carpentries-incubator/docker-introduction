@@ -12,12 +12,13 @@ keypoints:
 - "You can call any Docker image from a Github action"
 ---
 
-> This lesson can be taught as a replacement of the episode "Containers on the Cloud". Participants
-> should have a little experience working with `git` and Github.
+> This lesson can be taught as a replacement of the episode "Containers on the Cloud".
+> Participants should have experience working with `git` and Github.
 {: .callout}
 
 Docker has become an industry standard in providing run-time environments to cloud services. This
-lesson shows how you can use Docker images inside Github Actions. At the same time, this shows a
+lesson shows how you can use Docker images inside Github Actions. Our specific
+example will show a
 neat way to build a simple website that goes with any project you might have going.
 
 # Github Actions
@@ -27,30 +28,32 @@ Github Actions are a means of automating repetitive task in maintaining software
 - Building components for distribution to your users (Continuous Deployment)
 - Building documentation
 
-These are tasks that you could do on your own machine, but consider the following cases:
+These are tasks that you could do on your own computer, but consider the following cases:
 
-- Your software works on your machine, but you forgot to mention this one crucial package for
+- Your software works on your computer, but you forgot to mention this one crucial package for
   correct operation.
 - Your software used to work, but since the last update something broke.
 - Someone else contributed to your package but didn't run the same version of the document
   converter: the documentation looks different now.
 
-These are just some of the bad things that may happen. It is often desirable to have a controlled
+These are just some of the bad things that may happen.  To address these issues,
+it is often desirable to have a consistent, controlled
 environment in which to run these tasks, collectively known as CI/CD. Github can perform these
-actions for you inside Docker containers. If your project is open source, this service is enterly
+actions for you inside Docker containers. If your project is open source, this service is entirely
 free of charge. Competing platforms have similar services for which the syntax may vary slightly,
 but they are all grounded in the use of some form of containers (Docker or otherwise). We will
 demonstrate the use of a Docker container in deploying a small website presenting a Github
 project.
 
 # Building Github.io pages with Pandoc
-Suppose you have a Github project with a README and would like to turn that into HTML for a
+Suppose you have a Github project with a README and would like to turn it into HTML for a
 Github.io page. A common problem in documenting and testing software is to keep relevant content in
 a single location. In a Github project this location is the README, however it will look a lot more
-professional if you also have a custom website going where people can find downloads, documentation
+professional if you also have a custom website where people can find downloads, documentation
 etc. This website could become part of a larger portfolio of all your projects on Github.
 
-It would be nice if such a page is updated automatically every time you update the project.
+It would be nice if such a page was updated automatically every time you update other
+parts of the project.
 
 A fabulous tool for building web content from Markdown files is Pandoc. You could call it the swiss
 army knife of document conversion: it is very, very versatile. In this instance we will only use
@@ -83,11 +86,15 @@ If we switch to `gh-pages` branch in Github we can see where this page is hosted
 Only a `index.html` and `.nojekyll` (that prevents Github from creating a Jekyll page). So how do we
 set this up?
 
-## Create a Github project
-Create a github project with a short `README.md` (go to `github.com`, make sure you're logged in,
-click the green "New" button at the top right), then clone it in a local shell. The instructions for
-doing so will be shown in the dialog on Github. See also [Software Carpentry lesson on Version
-Control with Git](http://swcarpentry.github.io/git-novice/07-github/index.html).
+## Create a Github Project
+Create a github project with a short `README.md`. To do this:
+
+- go to `github.com` and make sure you're logged in
+- click the green "New" button at the top right)
+- clone the new project to your computer. The instructions for
+doing so will be shown in the dialog on Github, or you can also see [Software Carpentry lesson on Version
+Control with Git](http://swcarpentry.github.io/git-novice/07-github/index.html), or
+the example below:
 
 ~~~
 git clone <your-repo-url>
@@ -95,12 +102,16 @@ cd <repo-name>
 ~~~
 {: .source}
 
-## Pandoc
+## Using Pandoc to Create a Website
+
 Now that we have cloned the repository we can generate the HTML locally using Pandoc.
 
 Pandoc is a universal document converter. It reads and writes between very many different file
 formats, including many flavours of Markdown, HTML, LaTeX, Word, RTF, rst and many more. We use
 it to generate static websites from Markdown.
+
+First, let's download a container with pandoc installed and run it to see what the
+pandoc version is.
 
 ~~~
 docker run pandoc/core --version
@@ -125,8 +136,8 @@ warranty, not even for merchantability or fitness for a particular purpose.
 ~~~
 {: .output}
 
-
-We give Docker access to the contents of the local directory using the following command:
+Now, we can run pandoc on our README.md file by including our current directory and
+the README.md file as part of the `docker run` command:
 
 ~~~
 docker run -v ${PWD}:/tmp pandoc/core /tmp/README.md
@@ -138,10 +149,10 @@ docker run -v ${PWD}:/tmp pandoc/core /tmp/README.md
 ~~~
 {: .output}
 
-Here, `-v ${PWD}:/tmp` say as much as: take the directory at `${PWD}` and expose it inside the
-container as `/tmp`. Then `pandoc` can read the source file and convert it to HTML. While this HTML
+Here, the `-v ${PWD}:/tmp` flag says to take the directory at `${PWD}` and expose it inside the
+container as `/tmp`. Then `pandoc` can read the source file (`README.md`) and convert it to HTML. While this HTML
 is valid, it doesn't show the complete structure of a standalone HTML document. For that we need to
-add the `--standalone` argument. Also we can redirect the output to create a HTML file in the
+add the `--standalone` argument to the pandoc command. Also we can redirect the output to create a HTML file in the
 `build` directory.
 
 ~~~
@@ -156,7 +167,7 @@ docker run -v ${PWD}:/tmp pandoc/core /tmp/README.md --standalone --output=/tmp/
 ~~~
 {: .output}
 
-To suppress the warning message we may add the following lines at the top of the README:
+To suppress the warning message we may add the following lines at the top of the `README.md` file:
 
 ~~~
 ---
@@ -164,9 +175,10 @@ title: Hello, Pandoc
 ---
 ~~~
 
-Or add the mentioned `--metadat title="..."` to the command line.
+Or add the mentioned `--metadata title="..."` to the command line.
 
-Inspect the output
+Once we've made all of these changes, and produced the output we want, we can
+check it, using this command:
 
 ~~~
 cat build/index.html
@@ -181,11 +193,17 @@ cat build/index.html
 ~~~
 {: .output}
 
+We now have tested our website deployment workflow - given the source files from
+Github, we can use a Docker container and command to generate our website. We now
+want to automate this process via Github Actions.
+
 ## Github Actions
+
 Github Actions is a cloud service for automating continuous integration and deployment. This means
 we can have Github build our website and publish it on `github.io` automatically at every commit.
 
-Go to the Github project page and click on "Actions". Because we have no active workflows yet, we
+Go to the Github project page you created earlier and click on "Actions". Because
+we have no active workflows yet, we
 are taken immediately to a menu for creating a new one. We will skip the templates and click on
 "set up a workflow yourself". The configuration format is YAML.
 
