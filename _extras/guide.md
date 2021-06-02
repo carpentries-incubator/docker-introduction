@@ -4,26 +4,22 @@ title: "Instructor Notes"
 
 ## Before Teaching This Lesson
 
-[Docker] and its associated tools are under ongoing rapid development. Things
+[Docker][Docker] and its associated tools are under ongoing rapid development. Things
 change regularly with version updates and new tools for interacting with
 Docker and running containers on different platforms.
 
 In particular, there can be differences between macOS, Windows and Linux
 platforms. Updates and changes introduced in Docker releases are highlighted
-in the [Docker release notes].
+in the [Docker release notes][Docker release notes].
 
 _You are strongly advised to run through the lesson content prior to running
 the lesson to ensure that everything works as expected._
 
-If you experience any issues, please [open an issue] in the lesson repository
-describing the problem and platform(s) affected. The lesson maintainers will
+If you experience any issues, please [open an issue][open a lesson issue] in the lesson
+repository describing the problem and platform(s) affected. The lesson maintainers will
 aim to resolve the issue as soon as possible but we also welcome the opening
 of pull requests (linked to issues) that resolve anything that doesn't work as
 expected with the lesson content.
-
-[Docker]: https://www.docker.com/
-[Docker release notes]: https://docs.docker.com/release-notes/
-[open an issue]: https://github.com/carpentries-incubator/docker-introduction/issues/new
 
 ## Miscellaneous Tips
 

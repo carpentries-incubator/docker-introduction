@@ -7,7 +7,7 @@ Please seek help at the start of the lesson if you have not been able to establi
 
 ### Files to download
 
-Download the [`docker-intro.zip`]({{ page.root }}/files/docker-intro.zip) file. _This file can alternatively be downloaded from the `files` directory in the [docker-introduction GitHub repository](https://github.com/carpentries-incubator/docker-introduction/)_.
+Download the [`docker-intro.zip`]({{ page.root }}/files/docker-intro.zip) file. _This file can alternatively be downloaded from the `files` directory in the [docker-introduction GitHub repository][docker-introduction repository]_.
 
 Move the downloaded file to your Desktop and unzip it. It should unzip to a folder called `docker-intro`. 
 

@@ -40,10 +40,8 @@ After completing this session you should:
 > inconsistencies can occur.
 > 
 > If you spot inconsistencies or encounter any problems, please do report them
-> by [opening an issue] in the [GitHub repository] for this lesson.
-> 
-> [opening an issue]: https://github.com/carpentries-incubator/docker-introduction/issues/new
-> [GitHub repository]: https://github.com/carpentries-incubator/docker-introduction
+> by [opening an issue][open a lesson issue] in the [GitHub repository][docker-introduction repository] 
+> for this lesson.
 {: .callout}
 
 ## Learner profiles
