@@ -21,11 +21,11 @@ based on a set of files that specify the configuration of the site, its presenta
 and the content to go on this page.  When working on updates to this lesson,
 you might want to preview those changes using a local copy of the website.
 This requires installing Jekyll and depdencies such as Ruby and Gemfiles to your local computer
-which can be difficult. Instead you could use Docker and a pre-built Jekyll container 
+which can be difficult to achieve given complexities such as needing to match specific versions of the software components. Instead you could use Docker and a pre-built Jekyll container 
 image.
 
 First we need to get a copy of the website to work with on your computer.
-In your shell window, in your `docker-intro` create a new directory `build-website` and `cd` into it. We will later be expanding a ZIP file into this directory later. 
+In your shell window, in your `docker-intro` create a new directory `build-website` and `cd` into it. We will be expanding a ZIP file into this directory later. 
 
 Now open a web browser window and:
 1. Navigate to the [GitHub repository][docker-introduction repository] that contains the files for this session;

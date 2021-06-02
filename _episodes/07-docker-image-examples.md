@@ -20,7 +20,7 @@ You may choose one or more of the following examples to practice using container
 In this [Jekyll Website example](../_extras/e02-jekyll-lesson-example), you can practice
 rendering this lesson website on your computer using Jekyll in a Docker container.
 Rendering the website in a container avoids a complicated software installation; instead of installing Jekyll and all the other tools needed to create the final website, all the work can be done in the container.
-
+Additionally, when you no longer need to render the website, you can easily and cleanly remove the software from your computer.
 
 ## GitHub Actions Example
 
