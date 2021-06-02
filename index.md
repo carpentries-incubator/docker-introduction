@@ -9,12 +9,12 @@ After completing this session you should:
 - Have an understanding of what Docker containers are, why they are useful
   and the common terminology used
 - Have a working Docker installation on your local system to allow you to
-  use Docker
+  use containers
 - Understand how to use existing Docker containers for common tasks
-- Be able to build your own Docker containers and understand the role/syntax
-  of the Dockerfile in building containers
+- Be able to build your own Docker containers by understanding both the role
+  of a `Dockerfile` in building containers, and the syntax used in `Dockerfile`s
 - Understand how to manage Docker containers on your local system
-- Appreciate issues around reporoducibility in software, understand how 
+- Appreciate issues around reproducibility in software, understand how 
   containers can address some of these issues and what the limits to
   reproducibility using containers are
 
@@ -34,33 +34,33 @@ After completing this session you should:
 To help give an idea of the target audience for this lesson we have included 
 some example learner profiles.
 
-*Nelson is a graduate student in microbiology.* They have experience in running unix shell
+*Nelson is a graduate student in microbiology.* They have experience in running Unix shell
 commands and using libraries in R for the bioinformatics workflows they have devleoped.
 They are expanding their analysis to run on 3000 genomes in 200 samples and they have
-started to use the local cluster to run their workflows.  The local reserach computaing
+started to use the local cluster to run their workflows. The local research computing
 facilitator has advised them that Docker could be useful for running their workflows on
 the cluster. They'd like to make use of existing containers that other bioinformaticians
 have made so they want to learn how to use Docker. They would also be interested in
 creating their own Docker images for other lab members and collaborators to re-use their
-workflow.
+workflows.
 
 *Caitlin is a second year undergraduate in computer science examining Docker for the first
 time.* She has heard about Docker but does not really know what it achieves or why it is
 useful. She is reasonably confident in using the Unix shell, having used it briefly in
-her first year papers. She is keen to find jump-off points to learn more about technical
+her first year modules. She is keen to find jump-off points to learn more about technical
 details and alternative technologies that are also popular, having heard that container
 technologies are widely used within industry.
 
-*Xu, a materials science researcher, wants to package their software for release with
+*Xu, a materials science researcher, wants to package her software for release with
 a paper to help ensure reproducibility.* She has written some code that makes use of a
-series of Python libraries to undertake analysis of a compound. He wants to (or is
+series of Python libraries to undertake analysis of a compound. She wants to (or is
 required to) make her software available as part of the paper submission. She
 understands why Docker is important in helping to ensure reproducibility but not the
 process and low-level detail of preparing a container and archiving it to obtain a DOI
 for inclusion with the paper submission.
 
-*Bronwyn is a PhD student running Python/R scripts on their local laptop/workstation.*
-She is having difficulty getting all the tools they need to work because of conflicing
+*Bronwyn is a PhD student running Python/R scripts on her local laptop/workstation.*
+She is having difficulty getting all the tools she needs to work because of conflicting
 depenencies and little experience with package managers. She is also keen to reduce
 the overhead of managing software so she can get on with her thesis research. She has
 heard that Docker might be able to help out but is not confident to start exploring
@@ -69,12 +69,12 @@ research group. She currently wants to know how to use preexisting Docker contai
 but may need to create her own containers in the future.
 
 *Virat is a grad student who is running an obscure bioinformatics tool (from a GitHub
-repo) that depends on a bunch of pre-installed other tools.* He wants to be able to
-run on multiple resources and have his undergrad assistant use the same tools. James
-has command line experience and has blundered their way through complex installations
-but no formal CS background - he only knows to use containers because an departmental
+repo) that depends on a number of other tools that need to be pre-installed .* He wants to be able to
+run on multiple resources and have his undergrad assistant use the same tools. Virat
+has command line experience and has struggled his way through complex installations
+but he has no formal CS background - he only knows to use containers because a departmental
 IT person suggested it. He is usually working from a Windows computer. He needs to
-understand how to create their own container, use it locally, and train his student
+understand how to create his own container, use it locally, and train his student
 to use it as well. 
 
 {% include links.md %}
