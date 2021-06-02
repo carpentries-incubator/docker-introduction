@@ -4,15 +4,16 @@ title: "Instructor Notes"
 
 ## Before Teaching This Lesson
 
-[Docker][Docker] and its associated tools are under ongoing rapid development. Things
-change regularly with version updates and new tools for interacting with
+[Docker][Docker] and its associated ecosystem is rapidly developing.
+While many core features will be stable, the overall environment
+changes regularly with version updates and new tools for interacting with
 Docker and running containers on different platforms.
 
 In particular, there can be differences between macOS, Windows and Linux
 platforms. Updates and changes introduced in Docker releases are highlighted
 in the [Docker release notes][Docker release notes].
 
-_You are strongly advised to run through the lesson content prior to running
+_You are strongly advised to run through the lesson content prior to teaching
 the lesson to ensure that everything works as expected._
 
 If you experience any issues, please [open an issue][open a lesson issue] in the lesson
@@ -23,16 +24,18 @@ expected with the lesson content.
 
 ## Miscellaneous Tips
 
-* **Timing**: As written, there's way more than 3 hours of material in this lesson.
+* **Timing**: With all the lesson episodes taken together, there's way more than three hours of material in this lesson.
 Focusing on the earlier episodes (Introduction through the first half
 of Creating Container Images) will take just about three hours if you
-also include a brief general introduction and time to check people's
-installations.
-* **Install Issues**: Windows computers seem to consistently have issues with Docker.
+also include a brief general introduction and time to check your learners'
+software installations.
+* **Install Issues**: From the feedback we have received about past lessons, computers running 
+Microsoft Windows have encountered the largest number of challenges setting up Docker.
 Consider having people check their install in advance at a separate time or come early.
-In online workshops, consider using breakout rooms to have smaller groups for
-participants to demonstrate their installations. Use a more complex command than
-`docker --version` to test the installation.
+In online workshops, consider using your video conferencing software's "breakout room" functionality
+to form smaller groups within which participants can troubleshoot their installations.
+Note that you should use a more complex command than `docker --version` to test the installation, as the 
+simplest `docker` commands to not connect to the Docker backend.
 * **Virtualization Illustration**: When going through the intro to containers,
 consider demonstrating what this might look like by having two shells (or shell tabs)
 open, one on your host computer and one into a container you started before the
