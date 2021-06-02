@@ -37,7 +37,7 @@ keypoints:
 You may have come up with some of the following: 
 
 - you want to use software that doesn't exist for the operating system (Mac, Windows, Linux) you'd prefer.
-- you struggle with installing a software tool because you have to install a bunch of other things first and those installs required *other* things, and those require *more* things, etc. (.i.e combinatoric explosion).
+- you struggle with installing a software tool because you have to install a number of other dependencies first. Those dependencies, in turn, require *other* things, and so on (.i.e combinatoric explosion).
 - the software you're setting up involves many dependencies and only a subset of all possible versions of those dependencies actually works as desired.
 - you're not actually sure what software you're using because the install process was so circuitous. 
 - you and a colleague are using the same software but get different results because you have installed different versions and/or are using different operating systems.
