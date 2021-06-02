@@ -11,38 +11,31 @@ Download the [`docker-intro.zip`]({{ page.root }}/files/docker-intro.zip) file. 
 
 Move the downloaded file to your Desktop and unzip it. It should unzip to a folder called `docker-intro`. 
 
-### Software to install: Docker
+### Software to install
+Unfortunately, in many common situations installing Docker on your computer will not straightforward if you do not have a large amount of technical experience. 
+Workshops try to have helpers on hand that have worked their way through the install process but be prepared for some troubleshooting.
 
-Docker can be installed on Windows 10, macOS and Linux. However, in some cases, installing Docker on your laptop may, unfortunately, not be completely straightforward. We have helpers on hand during the workshop that have worked their way through the install process but be prepared for some troubleshooting.
+In most cases, you will need to have administrator rights on the computer in order to install the Docker software. If you are using a computer managed by your organisation and do not have administrator rights, you *may* be able to get your organisation's IT staff to install Docker for you. Alternatively your IT support staff *may* be able to give you remote access to a server that can run Docker commands.
 
-Please try to install the appropriate software from the list below depending on the operating system that your laptop is running:
+Please try to install the appropriate software from the list below depending on the operating system that your computer is running. Do let the workshop organisers know as early as possible if you are unable to install Docker using these instructions, as there may be other options available.
 
-#### **Microsoft Windows**
-**You must have admin rights to run docker!** Some parts of the lesson will work without running as admin but if you are unable to `Run as administrator` on your machine some elements of this workshop might not work as described.
+#### Microsoft Windows
 
-On Windows 10, you will need to install [Docker Desktop for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows).
+**You must have admin rights to run Docker!** Some parts of the lesson will work without running as admin but if you are unable to `Run as administrator` on your machine some elements of this workshop might not work as described.
 
-**If you have Windows 10 Pro Edition (or Windows 10 Enterprise or Education):** 
+Ideally, you will be able to install the Docker Desktop software, following the [Docker website's documentation](https://docs.docker.com/docker-for-windows/install/). Note that the instructions for installing Docker Desktop on Windows 10 Home Edition are different from other versions of Windows 10.
 
- - See [these instructions](https://docs.docker.com/docker-for-windows/install/) for installing Docker Desktop for Windows.
+Note that the above installation instructions highlight a minimum version or "build" that is required to be able to install Docker on your Windows 10 system. See [Which version of Windows operating system am I running?](https://support.microsoft.com/en-us/windows/which-version-of-windows-operating-system-am-i-running-628bec99-476a-2c13-5296-9dd081cdd808) for details of how to find out which version/build of Windows 10 you have.
 
-**If you have Windows 10 Home Edition:**
+If you are unable to follow the above instructions to install Docker Desktop on your Windows system, the final release of the deprecated Docker Toolbox version of Docker for Windows can be downloaded from the [releases page of the Docker Toolbox GitHub repository](https://github.com/docker/toolbox/releases). (Download the `.exe` file for the Windows installer). _Please note that this final release of Docker Toolbox includes an old version of Docker and you are strongly advised not to attempt to use this for any production use. It will, however, enable you to follow along with the lesson material._
 
- - See [these instructions](https://docs.docker.com/docker-for-windows/install-windows-home/) for installing Docker Desktop for Windows on Windows 10 Home.
+#### Apple macOS
 
-_Note that the above installation instructions highlight a minimum version or "build" that is required to be able to install Docker on your Windows 10 system. See [Which version of Windows operating system am I running?](https://support.microsoft.com/en-us/windows/which-version-of-windows-operating-system-am-i-running-628bec99-476a-2c13-5296-9dd081cdd808) for details of how to find out which version/build of Windows 10 you have._
+Ideally, you will be able to install the Docker Desktop software, following the [Docker website's documentation](https://docs.docker.com/docker-for-mac/install/).
 
-If you are unable to follow the above instructions to install Docker on your Windows system, the final release of the deprecated Docker Toolbox version of Docker for Windows can be downloaded from the [releases page of the Docker Toolbox GitHub repository](https://github.com/docker/toolbox/releases). (Download the `.exe` file for the Windows installer). _Please note that this final release of Docker Toolbox includes an old version of Docker and you are strongly advised not to attempt to use this for any production use. It will, however, enable you to follow along with this material._
+If you have an older version of macOS, you could try installing the [now deprecated Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_mac/), for the purpose of working through this material, from the [releases page of the Docker Toolbox GitHub repository](https://github.com/docker/toolbox/releases). (Download the `.pkg` file for the macOS installer). _Please note that this final release of Docker Toolbox includes an old version of Docker and you are strongly advised not to attempt to use this for any production use. It will, however, enable you to follow along with the lesson material._
 
-#### **Apple macOS**
-
-Install [Docker Desktop for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac). _macOS version 10.14 or newer is required to install this version._
-
-If you have an older version of macOS, you could try installing the [now deprecated Docker Toolbox](https://docs.docker.com/docker-for-windows/docker-toolbox/), for the purpose of working through this material, from the [releases page of the Docker Toolbox GitHub repository](https://github.com/docker/toolbox/releases). (Download the `.pkg` file for the macOS installer).
-
-_Please note that this final release of Docker Toolbox includes an old version of Docker and you are strongly advised not to attempt to use this for any production use. It will, however, enable you to follow along with this material._
-
-#### **Linux**
+#### Linux
 
 There are too many varieties of Linux to give precise instructions here, but hopefully you can locate documentation for getting Docker installed on your Linux distribution. It may already be installed. If it is not already installed on your system, the [Install Docker Engine](https://docs.docker.com/engine/install/) page provides an overview of supported Linux distributions and pointers to relevant installation information. Alternatively, see:
 
@@ -52,7 +45,7 @@ There are too many varieties of Linux to give precise instructions here, but hop
  - [Docker Engine on Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
 ### A quick tutorial on copy/pasting file contents from episodes of the lesson
-Let's say you want to copy text off the lesson website and paste it into a file named `myfile` in the current working directory of a shell window. This can be achieved in many ways, depending on your laptop's operating system, but routes I have found work for me:
+Let's say you want to copy text off the lesson website and paste it into a file named `myfile` in the current working directory of a shell window. This can be achieved in many ways, depending on your computer's operating system, but routes I have found work for me:
 - macOS and Linux: you are likely to have the `nano` editor installed, which provides you with a very straightforward way to create such a file, just run `nano myfile`, then paste text into the shell window, and press <kbd>control</kbd>+<kbd>x</kbd> to exit: you will be prompted whether you want to save changes to the file, and you can type <kbd>y</kbd> to say "yes".
 - Microsoft Windows running `cmd.exe` shells:
   - `del myfile` to remove `myfile` if it already existed;
