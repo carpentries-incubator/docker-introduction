@@ -267,7 +267,6 @@ the screen. The bigger your image becomes, the harder it will be to easily downl
 >
 {: .callout}
 
-
 ## More fancy `Dockerfile` options (optional, for presentation or as exercises)
 
 We can expand on the example above to make our container even more "automatic".
