@@ -30,7 +30,7 @@ hello-world      latest      fce289e99eb9   15 months ago    1.84kB
 ~~~
 {: .output}
 
-I want to remove it now that I'm familiar with the `docker run` command, so I can use the `docker image rm` command that includes the image ID, such as:
+You can remove the image with a `docker image rm` command that includes the image ID, such as:
 ~~~
 $ docker image rm fce289e99eb9
 ~~~
@@ -110,8 +110,10 @@ $ docker container rm 9c698655416a
 ~~~
 {: .output}
 
-If you want to remove all exited containers at once you can use the `docker containers prune` command.
-**Be careful** with this command. If you have containers you may want to reconnect to, you should not use this command! It will ask you if to confirm you want to remove these containers, see output below. If successful, it will print the full `CONTAINER ID` back to you.
+**Be careful** with this command.
+If you have containers you may want to reconnect to, you should not use this command.
+It will ask you if to confirm you want to remove these containers, see output below.
+If successfull it will print the full `CONTAINER ID` back to you.
 ~~~
 $ docker container prune
 ~~~
