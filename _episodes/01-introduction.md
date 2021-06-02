@@ -7,16 +7,15 @@ questions:
 objectives:
 - "Show how software depending on other software leads to configuration management problems."
 - "Identify the problems that software installation can pose for research."
-- "Explain the advantages virtualization has over traditional computing."
-- "Give two examples of how containers can solve software configuration problems."
+- "Explain the advantages of application virtualization."
+- "Explain how using containers can solve software configuration problems"
 keypoints:
 - "Almost all software depends on other software components to function, but these components have independent evolutionary paths."
-- "Small environments that contain only the software that's absolutely needed for a given task are easier to replicate and maintain."
+- "Small environments that contain only the software that is needed for a given task are easier to replicate and maintain."
 - "Critical systems that cannot be upgraded, due to cost, difficulty, etc. need to be reproduced on newer systems in a maintainable and self-documented way."
-- "Virtualization was created to allow multiple environments to run on a single computer."
-- "Containerization takes virtualization one step further by making even smaller environments by avoiding all but the minimum software required."
-- "Containerization allows the creation of complex data pipelines that are impossible on a single system simply and reliably, without additional cost or hardware." 
-- "Containers are built from 'recipes' that contain the minimum software components together and the installation instructions necessary to build them."
+- "Virtualization allows multiple environments to run on a single computer."
+- "Containerization improves upon the virtualization of whole computers by allowing efficient management of the host computer's memory and storage resources."
+- "Containers are built from 'recipes' that define the required set of software components and the instructions necessary to build/install them within a container image."
 - "Docker is just one software platform that can create containers and the resources they use."
 ---
 ### Disclaimers
