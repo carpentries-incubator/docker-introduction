@@ -1,5 +1,5 @@
 ---
-title: "Creating your own container images"
+title: "Creating Your Own Container Images"
 teaching: 20
 exercises: 15
 questions:
