@@ -90,7 +90,7 @@ set this up?
 Create a github project with a short `README.md`. To do this:
 
 - go to `github.com` and make sure you're logged in
-- click the green "New" button at the top right)
+- click the green "New" button at the top right
 - clone the new project to your computer. The instructions for
 doing so will be shown in the dialog on Github, or you can also see [Software Carpentry lesson on Version
 Control with Git](http://swcarpentry.github.io/git-novice/07-github/index.html), or
@@ -136,8 +136,8 @@ warranty, not even for merchantability or fitness for a particular purpose.
 ~~~
 {: .output}
 
-Now, we can run pandoc on our README.md file by including our current directory and
-the README.md file as part of the `docker run` command:
+Now, we can run pandoc on our `README.md` file by including our current directory and
+the `README.md` file as part of the `docker run` command:
 
 ~~~
 docker run -v ${PWD}:/tmp pandoc/core /tmp/README.md
@@ -149,7 +149,7 @@ docker run -v ${PWD}:/tmp pandoc/core /tmp/README.md
 ~~~
 {: .output}
 
-Here, the `-v ${PWD}:/tmp` flag says to take the directory at `${PWD}` and expose it inside the
+Here, the `-v ${PWD}:/tmp` flag says to take the directory at `${PWD}` and make it available inside the
 container as `/tmp`. Then `pandoc` can read the source file (`README.md`) and convert it to HTML. While this HTML
 is valid, it doesn't show the complete structure of a standalone HTML document. For that we need to
 add the `--standalone` argument to the pandoc command. Also we can redirect the output to create a HTML file in the
