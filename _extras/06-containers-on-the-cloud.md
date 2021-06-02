@@ -1,5 +1,5 @@
 ---
-title: "Creating containers in the cloud"
+title: "Creating Containers on the Cloud"
 teaching: 20
 exercises: 0
 questions:
