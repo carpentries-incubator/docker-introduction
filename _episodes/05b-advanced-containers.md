@@ -100,6 +100,30 @@ Note that if we create any files in the `/temp` directory while the container is
 running, these files will appear on our host filesystem in the original directory
 and will stay there even when the container stops.
 
+> ## Other Commonly Used Docker Run Flags
+>
+> Docker run has many other useful flags to alter its function.
+> A couple that are commonly used include `-w` and `-u`.
+> 
+> The `--workdir`/`-w` flag sets the working directory a.k.a. runs the command 
+> being executed inside the directory specified.
+> For example, the following code would run the `pwd` command in a container
+> started from the latest ubuntu image in the `/home/alice` directory and print
+> `/home/alice`.  If the directory doesn't exist in the image it will create it.
+>
+> ~~~
+> docker run -w /home/alice/ -i -t  ubuntu pwd
+> ~~~
+>
+> The `--user`/`-u` flag lets you specify the username you would like to run the
+> container as.  This is helpful if you'd like to write files to a mounted folder
+> and not write them as `root` but rather your own user identity and group. 
+> A common example of the `-u` flag is `--user $(id -u):$(id -g)` which will
+> graph the current user's ID and group and run the container as that user.
+> 
+> 
+{: .callout}
+
 > ## Exercise: Explore the script
 >
 > What happens if you use the `docker run` command above
