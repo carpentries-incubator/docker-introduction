@@ -7,9 +7,11 @@ questions:
 objectives:
 - "Explain how to check that Docker is installed and is ready to use."
 - "Demonstrate some initial Docker command line interactions."
+- "Remember how to get help for Docker commands."
 keypoints:
 - "A toolbar icon indicates that Docker is ready to use."
 - "You will typically interact with Docker using the command line."
+- "To learn how to run a certain Docker command, we can type the command followed by the `--help` flag."
 ---
 ### Docker command line
 
@@ -38,7 +40,7 @@ $ docker --version
 ~~~
 {: .language-bash}
 ~~~
-Docker version 19.03.5, build 633a0ea
+Docker version 20.10.5, build 55c4c88
 ~~~
 {: .output}
 
@@ -65,6 +67,223 @@ Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docke
 {: .output}
 
 then you need to check that you have started the Docker Desktop, Docker Engine, or however else you worked through the setup instructions.
+
+## Getting help
+Whenever we are working with a new command line tool, we need to get help at some point. These tools often have some
+sort of subcommand or flag (usually `help`, `-h`, or `--help`) that displays a help prompt describing how to use the
+tool. For Docker, it's no different. If we run `docker --help`, we see the following output (only `docker` also works):
+~~~
+
+Usage:  docker [OPTIONS] COMMAND
+
+A self-sufficient runtime for containers
+
+Options:
+      --config string      Location of client config files (default "/Users/vini/.docker")
+  -c, --context string     Name of the context to use to connect to the daemon (overrides DOCKER_HOST env var and default context set with "docker context use")
+  -D, --debug              Enable debug mode
+  -H, --host list          Daemon socket(s) to connect to
+  -l, --log-level string   Set the logging level ("debug"|"info"|"warn"|"error"|"fatal") (default "info")
+      --tls                Use TLS; implied by --tlsverify
+      --tlscacert string   Trust certs signed only by this CA (default "/Users/vini/.docker/ca.pem")
+      --tlscert string     Path to TLS certificate file (default "/Users/vini/.docker/cert.pem")
+      --tlskey string      Path to TLS key file (default "/Users/vini/.docker/key.pem")
+      --tlsverify          Use TLS and verify the remote
+  -v, --version            Print version information and quit
+
+Management Commands:
+  app*        Docker App (Docker Inc., v0.9.1-beta3)
+  builder     Manage builds
+  buildx*     Build with BuildKit (Docker Inc., v0.5.1-docker)
+  config      Manage Docker configs
+  container   Manage containers
+  context     Manage contexts
+  image       Manage images
+  manifest    Manage Docker image manifests and manifest lists
+  network     Manage networks
+  node        Manage Swarm nodes
+  plugin      Manage plugins
+  scan*       Docker Scan (Docker Inc., v0.6.0)
+  secret      Manage Docker secrets
+  service     Manage services
+  stack       Manage Docker stacks
+  swarm       Manage Swarm
+  system      Manage Docker
+  trust       Manage trust on Docker images
+  volume      Manage volumes
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  build       Build an image from a Dockerfile
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  events      Get real time events from the server
+  exec        Run a command in a running container
+  export      Export a container's filesystem as a tar archive
+  history     Show the history of an image
+  images      List images
+  import      Import the contents from a tarball to create a filesystem image
+  info        Display system-wide information
+  inspect     Return low-level information on Docker objects
+  kill        Kill one or more running containers
+  load        Load an image from a tar archive or STDIN
+  login       Log in to a Docker registry
+  logout      Log out from a Docker registry
+  logs        Fetch the logs of a container
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  ps          List containers
+  pull        Pull an image or a repository from a registry
+  push        Push an image or a repository to a registry
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  rmi         Remove one or more images
+  run         Run a command in a new container
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  search      Search the Docker Hub for images
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  version     Show the Docker version information
+  wait        Block until one or more containers stop, then print their exit codes
+
+Run 'docker COMMAND --help' for more information on a command.
+~~~
+{: .output}
+
+There is a list of commands and the end of the help message says: `Run 'docker COMMAND --help' for more information on
+a command.` Take the `docker container ls` command that we previously ran. We can see from the Docker help prompt
+that `container` is a Docker command, so to get help for that command, we run:
+~~~
+docker container --help  # or simply 'docker container'
+~~~
+{: .language-bash}
+~~~
+
+Usage:  docker container COMMAND
+
+Manage containers
+
+Commands:
+  attach      Attach local standard input, output, and error streams to a running container
+  commit      Create a new image from a container's changes
+  cp          Copy files/folders between a container and the local filesystem
+  create      Create a new container
+  diff        Inspect changes to files or directories on a container's filesystem
+  exec        Run a command in a running container
+  export      Export a container's filesystem as a tar archive
+  inspect     Display detailed information on one or more containers
+  kill        Kill one or more running containers
+  logs        Fetch the logs of a container
+  ls          List containers
+  pause       Pause all processes within one or more containers
+  port        List port mappings or a specific mapping for the container
+  prune       Remove all stopped containers
+  rename      Rename a container
+  restart     Restart one or more containers
+  rm          Remove one or more containers
+  run         Run a command in a new container
+  start       Start one or more stopped containers
+  stats       Display a live stream of container(s) resource usage statistics
+  stop        Stop one or more running containers
+  top         Display the running processes of a container
+  unpause     Unpause all processes within one or more containers
+  update      Update configuration of one or more containers
+  wait        Block until one or more containers stop, then print their exit codes
+
+Run 'docker container COMMAND --help' for more information on a command.
+~~~
+{: .output}
+
+There's also help for the `container ls` command:
+~~~
+docker container ls --help  # this one actually requires the '--help' flag
+~~~
+{: .language-bash}
+
+~~~
+Usage:  docker container ls [OPTIONS]
+
+List containers
+
+Aliases:
+  ls, ps, list
+
+Options:
+  -a, --all             Show all containers (default shows just running)
+  -f, --filter filter   Filter output based on conditions provided
+      --format string   Pretty-print containers using a Go template
+  -n, --last int        Show n last created containers (includes all states) (default -1)
+  -l, --latest          Show the latest created container (includes all states)
+      --no-trunc        Don't truncate output
+  -q, --quiet           Only display container IDs
+  -s, --size            Display total file sizes
+~~~
+{: .output}
+
+We can notice that there are many commands that stem from the `docker` command. Instead of trying to remember
+all possible commands and options, it's better to learn how to effectively get help from the command line. Although
+we can always search the web, getting the built-in help from our tool is usually much faster and may provide the answer
+right away. This applies not only to Docker, but rather to most command line-based tools.
+
+> ## Exploring a command
+> Run `docker --help` and pick a command from the list.
+> Explore the help prompt for that command. Try to guess how a command would work by looking at the `Usage: `
+> section of the prompt.
+> 
+> > ## Solution
+> > Suppose we pick the `docker build` command:
+> > ~~~
+> > docker build --help
+> > ~~~
+> > {: .language-bash}
+> > ~~~
+> > Usage:  docker build [OPTIONS] PATH | URL | -
+> > 
+> > Build an image from a Dockerfile
+> > 
+> > Options:
+> >       --add-host list           Add a custom host-to-IP mapping (host:ip)
+> >       --build-arg list          Set build-time variables
+> >       --cache-from strings      Images to consider as cache sources
+> >       --disable-content-trust   Skip image verification (default true)
+> >   -f, --file string             Name of the Dockerfile (Default is 'PATH/Dockerfile')
+> >       --iidfile string          Write the image ID to the file
+> >       --isolation string        Container isolation technology
+> >       --label list              Set metadata for an image
+> >       --network string          Set the networking mode for the RUN instructions during build (default "default")
+> >       --no-cache                Do not use cache when building the image
+> >   -o, --output stringArray      Output destination (format: type=local,dest=path)
+> >       --platform string         Set platform if server is multi-platform capable
+> >       --progress string         Set type of progress output (auto, plain, tty). Use plain to show container output (default "auto")
+> >       --pull                    Always attempt to pull a newer version of the image
+> >   -q, --quiet                   Suppress the build output and print image ID on success
+> >       --secret stringArray      Secret file to expose to the build (only if BuildKit enabled): id=mysecret,src=/local/secret
+> >       --ssh stringArray         SSH agent socket or keys to expose to the build (only if BuildKit enabled) (format: default|<id>[=<socket>|<key>[,<key>]])
+> >   -t, --tag list                Name and optionally a tag in the 'name:tag' format
+> >       --target string           Set the target build stage to build.
+> > ~~~
+> > {: .output}
+> > We could try to guess that the command could be run like this:
+> > ~~~
+> > docker build .
+> > ~~~
+> > {: .language-bash}
+> > or
+> > ~~~
+> > docker build https://github.com/docker/rootfs.git
+> > ~~~
+> > {: .language-bash}
+> > Where `https://github.com/docker/rootfs.git` could be any relevant URL that supports a Docker image.
+> {: .solution}
+{: .challenge}
 
 {% include links.md %}
 
