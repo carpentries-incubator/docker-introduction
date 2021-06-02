@@ -73,7 +73,7 @@ and access to resources such as files and communications networks in a uniform m
 
 ### What is a Container? What is Docker?
 
-Docker is a tool that allows you to build what are called "containers." It's 
+[Docker][Docker] is a tool that allows you to build what are called "containers." It's 
 not the only tool that can create containers, but is the one we've chosen for 
 this workshop. But what *is* a container? 
 

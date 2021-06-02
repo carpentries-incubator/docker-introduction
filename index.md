@@ -29,6 +29,21 @@ After completing this session you should:
 > If you are looking for a lesson on using *singularity* containers (instead of Docker), see this lesson:
 > * [Reproducible Computational Environments Using Containers: Introduction to Singularity](https://carpentries-incubator.github.io/singularity-introduction/)
 
+> ## A note about Docker
+>
+> Docker is a mature, robust and very widely used application. Nonetheless,
+> it is still under extensive development. New versions are released regularly
+> often containing a range of updates and new features.
+>
+> While we do our best to ensure that this lesson remains up to date and the
+> descriptions and outputs shown match what you will see on your own computer,
+> inconsistencies can occur.
+> 
+> If you spot inconsistencies or encounter any problems, please do report them
+> by [opening an issue][open a lesson issue] in the [GitHub repository][docker-introduction repository] 
+> for this lesson.
+{: .callout}
+
 ## Learner profiles
 
 To help give an idea of the target audience for this lesson we have included 

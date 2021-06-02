@@ -14,7 +14,7 @@ The website for this lesson is generated mechanically, based on a set of files t
 In your shell window, in your `docker-intro` create a new directory `build-website` and `cd` into it. We will later be expanding a ZIP file into this directory later.
 
 Now open a web browser window and:
-1. Navigate to the GitHub repository that contains the files for this session, at <https://github.com/carpentries-incubator/docker-introduction/>;
+1. Navigate to the [GitHub repository][docker-introduction repository] that contains the files for this session;
 2. Click the green "Clone or download" button on the right-hand side of the page;
 3. Click "Download ZIP".
 4. The downloaded ZIP file should contain one directory named `docker-introduction-gh-pages`.
