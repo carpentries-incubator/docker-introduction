@@ -186,8 +186,8 @@ command and they will execute inside the running container.
 In all the examples above, Docker has started the container, run a command, and then
 immediately shut down the container. But what if we wanted to keep the container
 running so we could log into it and test drive more commands? The way to
-do this is by adding the interactive flag `-it` 
-flag `-t` to the `docker run` command and provide a shell (`bash`,`sh`, etc.) 
+do this is by adding the interactive flag `-it`
+flag `-t` to the `docker run` command and provide a shell (`bash`,`sh`, etc.)
 as our command. The alpine docker image doesn't include `bash` so we need to use `sh`.
 
 ~~~
@@ -198,8 +198,8 @@ $ docker run -it alpine sh
 > ## Technically...
 >
 > Technically, the interactive flag is just `-i` - the extra `-t` (combined
-> as `-it` above) is the "pseudo-TTY" option, a fancy term that means a text interface. 
-> This allows you to connect to a shell, like `bash`, using a command line. Since you usually 
+> as `-it` above) is the "pseudo-TTY" option, a fancy term that means a text interface.
+> This allows you to connect to a shell, like `bash`, using a command line. Since you usually
 > want to have a command line when running interactively, it makes sense to use the two together.
 {: .callout}
 
@@ -229,8 +229,14 @@ just type `exit`.
 
 > ## Practice Makes Perfect
 > Can you find out the version of Linux installed on the `busybox` container?
-> Can you find the `busybox` program? What does it do? (Hint: passing `--help`
+> (Hint: If you search online, you'll find that there are a few different ways
+> to find out what version of Linux a computer or container is running. Because
+> the `busybox` container is very simplified, you'll want to use a command that prints out
+> the contents of the file `/proc/version`.)
+>
+> Can you also find the `busybox` program? What does it do? (Hint: passing `--help`
 > to almost any command will give you more information.)
+>
 >
 > > ## Solution 1 - Interactive
 > >
