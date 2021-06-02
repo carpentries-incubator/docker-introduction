@@ -197,7 +197,7 @@ We now have tested our website deployment workflow - given the source files from
 Github, we can use a Docker container and command to generate our website. We now
 want to automate this process via Github Actions.
 
-## Github Actions
+## Automating Deployment on Github Actions
 
 Github Actions is a cloud service for automating continuous integration and deployment. This means
 we can have Github build our website and publish it on `github.io` automatically at every commit.
