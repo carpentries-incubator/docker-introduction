@@ -7,7 +7,7 @@ questions:
 - "What is an example of how I might use Docker instead of installing software?"
 - "How can containers be useful to me for building websites?"
 objectives:
-- "Use an existing container image and Docker in place of a complicated install."
+- "Use an existing container image and Docker in place of complicated software installation work."
 - "Demonstrate how to construct a website using containers to transform a specification into a fully-presented website."
 keypoints:
 - "You can use existing container images and Docker instead of installing additional software."
