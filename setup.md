@@ -33,6 +33,8 @@ If you are unable to follow the above instructions to install Docker Desktop on 
 
 Ideally, you will be able to install the Docker Desktop software, following the [Docker website's documentation](https://docs.docker.com/docker-for-mac/install/).
 
+If you already use Homebrew or MacPorts to manage your software, and would prefer to use those tools rather than Docker's installer, you can do so. For Homebrew, you can run the command `brew install --cask docker`. Note that you still need to run the Docker graphical user interface once to complete the initial setup, after which time the command line functionality of Docker will become available. We have not recently tested the installation process for the [Docker port](https://ports.macports.org/port/docker/summary) available through MacPorts, but it appears to be actively maintained.
+
 If you have an older version of macOS, you could try installing the [now deprecated Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_mac/), for the purpose of working through this material, from the [releases page of the Docker Toolbox GitHub repository](https://github.com/docker/toolbox/releases). (Download the `.pkg` file for the macOS installer). _Please note that this final release of Docker Toolbox includes an old version of Docker and you are strongly advised not to attempt to use this for any production use. It will, however, enable you to follow along with the lesson material._
 
 #### Linux
