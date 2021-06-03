@@ -53,8 +53,7 @@ computing system, partially because each system is slightly different, but the
 following resources show what it can look like:
 
 - [Introduction to Singularity](https://carpentries-incubator.github.io/singularity-introduction/): See the episode titled "
-Running MPI parallel jobs using Singularity containers
-"
+Running MPI parallel jobs using Singularity containers"
 - [Container Workflows at Pawsey](https://pawseysc.github.io/container-workflows/): See the episode titled "Run containers on HPC with Shifter (and Singularity)"
 
 ## Seeking Examples
