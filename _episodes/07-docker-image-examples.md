@@ -35,7 +35,7 @@ Ask @mkuzak to make a PR to add extra for <https://github.com/escience-academy/d
 
 -->
 
-## On an HPC Cluster
+## Using Containers on an HPC Cluster
 
 It is possible to run containers on shared computing systems run by a university or national
 computing center. As a researcher, you can build and test your container on your own
