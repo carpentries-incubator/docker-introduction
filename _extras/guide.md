@@ -55,5 +55,7 @@ of the participants.
 
 * difference between a container and container image
 * what it means for a container to be stopped (but not removed)
+* differences in container behaviour between hosts that are running Linux compared to hosts running macOS or Microsoft Windows
+    * on Linux hosts there is usually only one OS kernel shared between the host and the containers, so less separation than is typical when using macOS or Windows hosts. This can lead to effects such as volume mounts behaving differently, e.g., regarding filesystem permissions, user and group mappings between the host and the container.
 
 {% include links.md %}
