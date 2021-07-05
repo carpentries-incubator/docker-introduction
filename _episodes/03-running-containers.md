@@ -77,7 +77,7 @@ docker.io/library/hello-world:latest
 {: .challenge}
 
 Note that the downloaded `hello-world` image is not in the folder where you are in the terminal! (Run
-`ls` by itself to check.) The image is not a file like our normal programs and files;
+`ls` by itself to check.) The image is not a file like our normal programs and documents;
 Docker stores it in a specific location that isn't commonly accessed, so it's necessary
 to use the special `docker image` command to see what Docker images you have on your
 computer.
@@ -118,9 +118,9 @@ What just happened? When we use the `docker run` command, Docker does three thin
 
 | 1. Starts a Running Container | 2. Performs Default Action | 3. Shuts Down the Container
 | --------------------|-----------------|----------------|
-| starts a running container, based on the image. Think of this as the "alive" or"inflated" version of the container -- it's actually doing something | If the container has a default action set, it will perform that default action. This could be as simple as printing a message (as above) or running a whole analysis pipeline! | Once the default action is complete, the container stops running (or exits). The image is still there, but nothing is actively running. |
+| Starts a running container, based on the image. Think of this as the "alive" or "inflated" version of the container -- it's actually doing something. | If the container has a default action set, it will perform that default action. This could be as simple as printing a message (as above) or running a whole analysis pipeline! | Once the default action is complete, the container stops running (or exits). The image is still there, but nothing is actively running. |
 
-The `hello-world` container is set up to run an action by default -
+The `hello-world` container is set up to run an action by default --
 namely to print this message.
 
 > ## Using `docker run` to get the image
@@ -197,7 +197,7 @@ $ docker run -it alpine sh
 
 > ## Technically...
 >
-> Technically, the interactive flag is just `-i` - the extra `-t` (combined
+> Technically, the interactive flag is just `-i` -- the extra `-t` (combined
 > as `-it` above) is the "pseudo-TTY" option, a fancy term that means a text interface.
 > This allows you to connect to a shell, like `bash`, using a command line. Since you usually
 > want to have a command line when running interactively, it makes sense to use the two together.
@@ -238,7 +238,7 @@ just type `exit`.
 > to almost any command will give you more information.)
 >
 >
-> > ## Solution 1 - Interactive
+> > ## Solution 1 -- Interactive
 > >
 > > Run the busybox container interactively -- you can use `docker pull` first, or just
 > > run it with this command:
@@ -262,7 +262,7 @@ just type `exit`.
 > > {: .language-bash}
 > {: .solution}
 >
-> > ## Solution 2 - Run commands
+> > ## Solution 2 -- Run commands
 > >
 > > Run the busybox container, first with a command to read out the Linux version:
 > > ~~~
