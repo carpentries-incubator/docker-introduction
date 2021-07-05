@@ -55,7 +55,7 @@ docker.io/library/hello-world:latest
 
 > ## DockerHub
 >
-> Where did the `hello-world` image come from? It came from the DockerHub
+> Where did the `hello-world` image come from? It came from the Docker Hub
 > website, which is a place to share Docker images with other people. More on that
 > in a later episode.
 {: .callout}
