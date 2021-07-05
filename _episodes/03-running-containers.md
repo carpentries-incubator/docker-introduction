@@ -187,7 +187,7 @@ In all the examples above, Docker has started the container, run a command, and 
 immediately shut down the container. But what if we wanted to keep the container
 running so we could log into it and test drive more commands? The way to
 do this is by adding the interactive flag `-it`
-flag `-t` to the `docker run` command and provide a shell (`bash`,`sh`, etc.)
+to the `docker run` command and provide a shell (`bash`,`sh`, etc.)
 as our command. The alpine docker image doesn't include `bash` so we need to use `sh`.
 
 ~~~
