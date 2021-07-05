@@ -270,11 +270,6 @@ In general, a good strategy for installing software is:
 - From your interactive installation, create a Dockerfile and then try to build
 the container again from that.
 
-> ## TODO: Exercises
->
-> Have a set of "choose your own adventure" software installation examples
-{: challenge}
-
 ## Share your new container on Docker Hub
 
 Images that you release publicly can be stored on the Docker Hub for free.  If you
