@@ -113,7 +113,7 @@ $ docker container rm 9c698655416a
 **Be careful** with this command.
 If you have containers you may want to reconnect to, you should not use this command.
 It will ask you if to confirm you want to remove these containers, see output below.
-If successfull it will print the full `CONTAINER ID` back to you.
+If successful it will print the full `CONTAINER ID` back to you.
 ~~~
 $ docker container prune
 ~~~
