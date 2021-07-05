@@ -87,10 +87,8 @@ information over the long-term. All these pieces work together to do the
 "computing" of a computer, but we don't see them because they're hidden from view (usually). 
 
 Instead, what we see is our desktop, program windows, different folders, and 
-files. These all live in what's called the file system. Everything on your computer - programs, 
-pictures, documents - lives somewhere in the file system. One way to think of 
-the file system is the layer of stuff that uses the CPU, memory and hard 
-drive of your computer on your behalf.
+files. These all live in what's called the filesystem. Everything on your computer -- programs, 
+pictures, documents, the operating system itself -- lives somewhere in the filesystem.
 
 NOW, imagine you want to install some new software but don't want to take the chance
 of making a mess of your existing system by installing a bunch of additional stuff 
