@@ -10,7 +10,7 @@ objectives:
 - "Demonstrate some initial Docker command line interactions."
 - "Use the built-in help for Docker commands."
 keypoints:
-- "A toolbar icon indicates that Docker is ready to use."
+- "A toolbar icon indicates that Docker is ready to use (on Windows and macOS)."
 - "You will typically interact with Docker using the command line."
 - "To learn how to run a certain Docker command, we can type the command followed by the `--help` flag."
 ---
