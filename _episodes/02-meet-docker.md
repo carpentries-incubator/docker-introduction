@@ -71,7 +71,7 @@ then you need to check that you have started the Docker Desktop, Docker Engine, 
 ## Getting help
 Often when working with a new command line tool, we need to get help. These tools often have some
 sort of subcommand or flag (usually `help`, `-h`, or `--help`) that displays a prompt describing how to use the
-tool. For Docker, it's no different. If we run `docker --help`, we see the following output (only `docker` also works):
+tool. For Docker, it's no different. If we run `docker --help`, we see the following output (just running `docker` also produces the help message):
 ~~~
 
 Usage:  docker [OPTIONS] COMMAND
