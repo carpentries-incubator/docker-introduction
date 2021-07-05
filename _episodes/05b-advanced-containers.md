@@ -55,8 +55,8 @@ python3: can't open file 'sum.py': [Errno 2] No such file or directory
 >
 {: .challenge}
 
-The problem here is that the container and its file system is separate from our
-host computer's file system. When the container runs, it can't see anything outside
+The problem here is that the container and its filesystem is separate from our
+host computer's filesystem. When the container runs, it can't see anything outside
 itself, including any of the files on our computer. In order to use Python
 (inside the container) and our script (outside the container, on our computer),
 we need to create a link between the directory on our computer and the container.
@@ -210,7 +210,7 @@ COPY sum.py /home
 ~~~
 
 This line will cause Docker to copy the file from your computer into the container's
-file system. Let's build the container like before, but give it a different name:
+filesystem. Let's build the container like before, but give it a different name:
 
 ~~~
 $ docker build -t alice/alpine-sum .
