@@ -28,7 +28,7 @@ Start the Docker application that you installed in working through the setup ins
 > ## Determining your Docker Hub username
 > If you no longer recall your Docker Hub username, e.g., because you have been logging into the Docker Hub using your email address,
 > you can find out what it is through the steps:
-> - Open <http://hub.docker.com/> in a web browser window
+> - Open <https://hub.docker.com/> in a web browser window
 > - Sign-in using your email and password (don't tell us what it is)
 > - In the top-right of the screen you will see your username
 {: .callout}
