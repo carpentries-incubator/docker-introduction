@@ -94,7 +94,7 @@ NOW, imagine you want to install some new software but don't want to take the ch
 of making a mess of your existing system by installing a bunch of additional stuff 
 (libraries/dependencies/etc.).
 You don't want to buy a whole new computer because it's too expensive.
-What if, instead, you could have another filesystem that you could store and access from your main computer, and that is actually stored within this existing computer?
+What if, instead, you could have another independent filesystem and running operating system that you could access from your main computer, and that is actually stored within this existing computer?
 
 Or, imagine you have two tools you want to use in your groundbreaking research on cat memes: `PurrLOLing`, a tool that does AMAZINGLY well at predicting the best text for a meme based on the cat species and `WhiskerSpot`, the only tool available for identifying cat species from images.  You want to send cat pictures to `WhiskerSpot`, and then send the species output to `PurrLOLing`.  But there's a problem: `PurrLOLing` only works on Ubuntu and `WhiskerSpot` is only supported for OpenSUSE so you can't have them on the same system!  Again, we really want another filesystem (or two) on our computer that we could use to chain together `WhiskerSpot` and `PurrLOLing` in a "pipeline"... 
 
@@ -116,8 +116,8 @@ the container software installed (the 'container host'), and it should "just wor
 > addition to its own file system and has to get booted up in the same way 
 > a computer would. 
 > A container is considered a lightweight version of a virtual machine; 
-> underneath, the container is using the Linux kernel and simply has some 
-> flavor of Linux + the file system inside. 
+> underneath, the container is (usually) using the Linux kernel and simply has some 
+> flavour of Linux + the filesystem inside. 
 {: .callout}
 
 One final term: while the **container** is an alternative file system layer that you 
