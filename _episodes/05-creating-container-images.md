@@ -61,7 +61,7 @@ We can test our installation by running a Python command:
 
 Once Python is installed, we can add Python packages using the pip package installer:
 ~~~
-/# pip install cython
+/# pip3 install cython
 ~~~
 {: .language-bash}
 
@@ -154,7 +154,7 @@ to `ls -lF --color /etc`.
 > > ~~~
 > > FROM alpine
 > > RUN apk add --update python3 py3-pip python3-dev
-> > RUN pip install cython
+> > RUN pip3 install cython
 > > CMD ["python3", "--version"]
 > > ~~~
 > {: .solution}
