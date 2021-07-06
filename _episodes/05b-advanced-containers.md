@@ -8,8 +8,8 @@ objectives:
 - "Explain how you can include files within Docker images when you build them."
 - "Explain how you can access files on the Docker host from your Docker containers."
 keypoints:
-- You can include files from your Docker host into your Docker images by using the `COPY` instruction in your `Dockerfile`.
 - Docker allows containers to read and write files from the Docker host.
+- You can include files from your Docker host into your Docker images by using the `COPY` instruction in your `Dockerfile`.
 ---
 
 In order to create and use your own containers, you may need more information than
