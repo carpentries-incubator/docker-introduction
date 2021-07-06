@@ -16,8 +16,8 @@ In order to create and use your own containers, you may need more information th
 our previous example. You may want to use files from outside the container, copy
 those files into the container, and just generally learn a little bit about software
 installation. This episode will cover these. Note that the examples will get gradually
-more and more complex - most day-to-day use of containers can be accomplished
-using the first 1-2 sections on this page.
+more and more complex -- most day-to-day use of containers can be accomplished
+using the first 1--2 sections on this page.
 
 ## Using scripts and files from outside the container
 
@@ -29,13 +29,13 @@ $ ls
 ~~~
 {: .language-bash}
 
-This folder has both a `Dockerfile` and a python script called `sum.py`. Let's say
+This folder has both a `Dockerfile` and a Python script called `sum.py`. Let's say
 we wanted to try running the script using our recently created `alpine-python`
 container.
 
 > ## Running containers
 >
-> What command would we use to run python from the `alpine-python` container?
+> What command would we use to run Python from the `alpine-python` container?
 {: .challenge}
 
 If we try running the container and Python script, what happens?
@@ -62,7 +62,7 @@ itself, including any of the files on our computer. In order to use Python
 we need to create a link between the directory on our computer and the container.
 
 This link is called a "mount" and is what happens automatically when a USB drive
-or other external hard drive gets connected to a computer - you can see the
+or other external hard drive gets connected to a computer -- you can see the
 contents appear as if they were on your computer.
 
 We can create a mount between our computer and the running container by using an additional
@@ -119,7 +119,7 @@ and will stay there even when the container stops.
 > container as.  This is helpful if you'd like to write files to a mounted folder
 > and not write them as `root` but rather your own user identity and group. 
 > A common example of the `-u` flag is `--user $(id -u):$(id -g)` which will
-> graph the current user's ID and group and run the container as that user.
+> fetch the current user's ID and group and run the container as that user.
 > 
 > 
 {: .callout}
@@ -154,7 +154,7 @@ and will stay there even when the container stops.
 > > - `python3 /temp/sum.py`: what commands to run in the container
 > >
 > > More generally, every Docker command will have the form:
-> > `docker [action] [docker options] [docker image] [command to run inside]
+> > `docker [action] [docker options] [docker image] [command to run inside]`
 > >
 > {: .solution}
 {: .challenge}
@@ -187,7 +187,7 @@ In other situations, you may want to save or archive an authoritative version of
 
 ## Including personal scripts and data in a container
 
-Our next project will be to add our own files to a container - something you
+Our next project will be to add our own files to a container -- something you
 might want to do if you're sharing a finished analysis or just want to have
 an archived copy of your entire analysis including the data. Let's assume that we've finished with our `sum.py`
 script and want to add it to the container itself.
@@ -202,7 +202,7 @@ $ /Users/yourname/Desktop/docker-intro/sum
 ~~~
 {: .language-bash}
 
-Let's add a new line to the Dockerfile we've been using so far to create a copy of `sum.py`.
+Let's add a new line to the `Dockerfile` we've been using so far to create a copy of `sum.py`.
 We can do so by using the `COPY` keyword.
 
 ~~~
@@ -353,7 +353,7 @@ $ docker run alpine-sum:v2 12 13 14
 > Please supply integer arguments
 > ~~~
 > {: .output}
-> You need to override the `ENTRYPOINT`-statement in the image like so:
+> You need to override the `ENTRYPOINT` statement in the image like so:
 > ~~~
 > $ docker run -it --entrypoint /bin/sh alpine-sum:v2
 > ~~~
