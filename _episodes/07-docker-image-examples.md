@@ -10,7 +10,7 @@ keypoints:
 - "There are many ways you might use Docker and existing container images in your research project."
 ---
 
-Now that we have learned the basics of working with docker images and containers,
+Now that we have learned the basics of working with Docker images and containers,
 let's apply what we learned to an example workflow.
 
 You may choose one or more of the following examples to practice using containers.
@@ -18,7 +18,7 @@ You may choose one or more of the following examples to practice using container
 ## Jekyll Website Example
 
 In this [Jekyll Website example](../e02-jekyll-lesson-example), you can practice
-rendering this lesson website on your computer using Jekyll in a Docker container.
+rendering this lesson website on your computer using the Jekyll static website generator in a Docker container.
 Rendering the website in a container avoids a complicated software installation; instead of installing Jekyll and all the other tools needed to create the final website, all the work can be done in the container.
 Additionally, when you no longer need to render the website, you can easily and cleanly remove the software from your computer.
 
@@ -46,14 +46,13 @@ The catch? Most university and national computing centers do not support *runnin
 containers with Docker commands, and instead use a similar tool called Singularity or
 Shifter. However, both of these programs can be used to run Docker container images,
 so often people create their container as a Docker container image, so they can
-run it using Docker or Singularity.
+run it using either of Docker or Singularity.
 
 There isn't yet a working example of how to use Docker container images on a shared
 computing system, partially because each system is slightly different, but the
 following resources show what it can look like:
 
-- [Introduction to Singularity](https://carpentries-incubator.github.io/singularity-introduction/): See the episode titled "
-Running MPI parallel jobs using Singularity containers"
+- [Introduction to Singularity](https://carpentries-incubator.github.io/singularity-introduction/): See the episode titled "Running MPI parallel jobs using Singularity containers"
 - [Container Workflows at Pawsey](https://pawseysc.github.io/container-workflows/): See the episode titled "Run containers on HPC with Shifter (and Singularity)"
 
 ## Seeking Examples
