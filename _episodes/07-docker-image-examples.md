@@ -63,18 +63,4 @@ Do you have another example of using Docker in a workflow related to your field?
 
 {% include links.md %}
 
-{% comment %}
-<!--  LocalWords:  keypoints _episodes_rmd CODE_OF_CONDUCT.md aio.md
- -->
-<!--  LocalWords:  CONTRIBUTING.md LICENSE.md index.md reference.md
- -->
-<!--  LocalWords:  README.md setup.md _config.yml webserver srv
- -->
-<!--  LocalWords:  jekyll x86_64-linux-musl favicons github.io
- -->
-<!--  LocalWords:  links.md _episodes_rmd _config.yml endcomment
- -->
-{% endcomment %}
-
-
 [submit a pull request]: https://github.com/carpentries-incubator/docker-introduction/pulls
