@@ -318,20 +318,3 @@ She could then push the re-named container to Docker Hub,
 using `docker push alice/workflow-complete:v1`
 
 {% include links.md %}
-
-{% comment %}
-<!--  LocalWords:  keypoints Dockerfiles Dockerfile docker.io WORKDIR
- -->
-<!--  LocalWords:  test.py 43288b101abf fc145d33ea49 csv numpy cmap
- -->
-<!--  LocalWords:  csv-to-scatter-plot.py matplotlib.pyplot viridis
- -->
-<!--  LocalWords:  np.genfromtxt seaborn-whitegrid the_plot.colorbar
- -->
-<!--  LocalWords:  f.savefig matplotlib links.md endcomment
- -->
-<!--  LocalWords:  5377596cb1c035c102396f5934237a046f80da69974026f90bee5db8b7ba
- -->
-{% endcomment %}
-<!--  LocalWords:  PowerShell
- -->
