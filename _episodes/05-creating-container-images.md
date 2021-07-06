@@ -9,12 +9,12 @@ objectives:
 - "Explain the purpose of a `Dockerfile` and show some simple examples."
 - "Demonstrate how to build a Docker image from a `Dockerfile`."
 - "Compare the steps of creating a container interactively versus a `Dockerfile`."
-- "Create an installation strategy for a container"
+- "Create an installation strategy for a container."
 - "Demonstrate how to upload ('push') your container images to the Docker Hub."
 - "Describe the significance of the Docker Hub naming scheme."
 keypoints:
-- "`Dockerfiles` specify what is within Docker images."
-- "The `docker build` command is used to build an image from a `Dockerfile`"
+- "`Dockerfile`s specify what is within Docker images."
+- "The `docker build` command is used to build an image from a `Dockerfile`."
 - "You can share your Docker images through the Docker Hub so that others can create Docker containers from your images."
 ---
 
@@ -160,13 +160,14 @@ to `ls -lF --color /etc`.
 > {: .solution}
 {: .challenge}
 
-The recipe provided by this Dockerfile will use Alpine Linux as the base container,
-add Python and the Cython library, and set a default print command.
+The recipe provided by the `Dockerfile` shown in the solution to the preceding exercise will use Alpine Linux as the base container,
+add Python and the Cython library, and set a default command to request Python to report its version information.
 
 ## Create a new Docker image
 
-So far, we just have a file. We want Docker to take this file,
-run the install commands inside, and then save the
+So far, we just have a text file named `Dockerfile` -- we do not yet have a container image.
+We want Docker to take this `Dockerfile`,
+run the installation commands contained within it, and then save the
 resulting container as a new container image. To do this we will use the
 `docker build` command.
 
@@ -199,7 +200,7 @@ $ docker build -t alice/alpine-python .
 > 1. Think back to earlier. What command can you run to check if your image was created
 > successfully? (Hint: what command shows the images on your computer?)
 >
-> 2. We didn't specify a tag for our image name. What did Docker automatically use?
+> 2. We didn't specify a tag for our image name. What tag did Docker automatically use?
 >
 > 3. What command will run the container you've created? What should happen by default
 > if you run the container? Can you make it do something different, like print
@@ -215,18 +216,18 @@ $ docker build -t alice/alpine-python .
 > >
 > > 3. We want to use `docker run` to run the container.
 > >
+> > The following command should run the container and print out our default message, the version
+> > of Python:
 > > ~~~
 > > $ docker run alice/alpine-python
 > > ~~~
 > > {: .language-bash}
-> > should run the container and print out our default message, the version
-> > of Python.
 > >
+> > To run the container and print out "Hello world" instead:
 > > ~~~
 > > $ docker run alice/alpine-python echo "Hello World"
 > > ~~~
 > > {: .language-bash}
-> > will run the container and print out "Hello world" instead.
 > {: .solution}
 {: .challenge}
 
@@ -234,7 +235,7 @@ While it may not look like you have achieved much, you have already effected the
 
 ## Boring but important notes about installation
 
-There are a lot of choices when it comes to installing software - sometimes too many!
+There are a lot of choices when it comes to installing software -- sometimes too many!
 Here are some things to consider when creating your own container:
 
 - **Start smart**, or, don't install everything from scratch! If you're using Python
@@ -266,8 +267,8 @@ In general, a good strategy for installing software is:
 - Make a list of what you want to install.
 - Look for pre-existing containers.
 - Read through instructions for software you'll need to install.
-- Try installing everything interactively in your base container - take notes!
-- From your interactive installation, create a Dockerfile and then try to build
+- Try installing everything interactively in your base container -- take notes!
+- From your interactive installation, create a `Dockerfile` and then try to build
 the container again from that.
 
 > ## TODO: Exercises
@@ -300,7 +301,7 @@ In a web browser, open <https://hub.docker.com>, and on your user page you shoul
 
 ## What's in a name? (again)
 
-You don't *have* to name your containers using the `USERNAME/CONTAINER:TAG` naming> scheme. On your own computer, you can call containers whatever you want and refer to
+You don't *have* to name your containers using the `USERNAME/CONTAINER:TAG` naming scheme. On your own computer, you can call containers whatever you want, and refer to
 them by the names you choose. It's only when you want to share a container that it
 needs the correct naming format.
 
