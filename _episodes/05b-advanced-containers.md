@@ -265,6 +265,9 @@ the screen. The bigger your image becomes, the harder it will be to easily downl
 > RUN wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.10.0/ncbi-blast-2.10.0+-x64-linux.tar.gz
 > ~~~
 >
+> Note that the above `RUN` examples depend on commands (`git` and `wget` respectively) that 
+> must be available within your container: Linux distributions such as Alpine may require you to 
+> install such commands before using them within `RUN` statements.
 {: .callout}
 
 ## More fancy `Dockerfile` options (optional, for presentation or as exercises)
