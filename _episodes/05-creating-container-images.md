@@ -239,21 +239,20 @@ Here are some things to consider when creating your own container:
 
 - **Start smart**, or, don't install everything from scratch! If you're using Python
 as your main tool, start with a [Python container](https://hub.docker.com/_/python). Same with [R](https://hub.docker.com/r/rocker/r-ver/). We've used Alpine Linux as an example
-in this lesson, but it's generally not a good container to start with because it is
-a less common version of Linux; using [Ubuntu](https://hub.docker.com/_/ubuntu), [Debian](https://hub.docker.com/_/debian) and [CentOS](https://hub.docker.com/_/centos) are all
+in this lesson, but it's generally not a good container to start with for initial development and experimentation because it is
+a less common distribution of Linux; using [Ubuntu](https://hub.docker.com/_/ubuntu), [Debian](https://hub.docker.com/_/debian) and [CentOS](https://hub.docker.com/_/centos) are all
 good options for scientific software installations. The program you're using might
-recommend a particular version of Linux; if this happens, start with that particular
-Linux container.
+recommend a particular distribution of Linux, and if so, it may be useful to start with a container image for that distribution.
 - **How big?** How much software do you really need to install? When you have a choice,
 lean towards using smaller starting images and installing only what's needed for
 your software, as a bigger image means longer download times to use.
-- **Know (or Google) your Linux**. Each version of Linux has a special set of tools specifically for installing software. The `apk` command we used above is the installer for Alpine Linux. The installers for various common Linux versions are listed below:
+- **Know (or Google) your Linux**. Different distributions of Linux often have distinct sets of tools for installing software. The `apk` command we used above is the software package installer for Alpine Linux. The installers for various common Linux distributions are listed below:
     - Ubuntu: `apt` or `apt-get`
     - Debian: `deb`
     - CentOS: `yum`
   Most common software installations are available to be installed via these tools.
-  Searching for "install X on Y Linux" is always a good start for common software
-  installations; if something isn't available via the Linux distribution's installation
+  A web search for "install X on Y Linux" is usually a good start for common software
+  installation tasks; if something isn't available via the Linux distribution's installation
   tools, try the options below.
 - **Use what you know**. You've probably used commands like `pip` or `install.packages()`
 before on your own computer -- these will also work to install things in containers (if the basic scripting
