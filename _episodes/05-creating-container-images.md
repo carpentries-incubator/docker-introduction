@@ -165,7 +165,7 @@ add Python and the Cython library, and set a default command to request Python t
 
 ## Create a new Docker image
 
-So far, we just have a text file named `Dockerfile` -- we do not yet have a container image.
+So far, we only have a text file named `Dockerfile` -- we do not yet have a container image.
 We want Docker to take this `Dockerfile`,
 run the installation commands contained within it, and then save the
 resulting container as a new container image. To do this we will use the
