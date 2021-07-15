@@ -28,12 +28,14 @@ In this [GitHub Actions example](../e01-github-actions), you can learn more abou
 continuous integration in the cloud and how you can use container images with GitHub to
 automate repetitive tasks like testing code or deploying websites.
 
+{% comment %}
 <!--- Placeholder for
 ## Geospatial Example
 
 Ask @mkuzak to make a PR to add extra for <https://github.com/escience-academy/docker-gdal-demo>
 
 -->
+{% endcomment %}
 
 ## Using Containers on an HPC Cluster
 
