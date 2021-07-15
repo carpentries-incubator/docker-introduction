@@ -87,16 +87,14 @@ information over the long-term. All these pieces work together to do the
 "computing" of a computer, but we don't see them because they're hidden from view (usually). 
 
 Instead, what we see is our desktop, program windows, different folders, and 
-files. These all live in what's called the file system. Everything on your computer - programs, 
-pictures, documents - lives somewhere in the file system. One way to think of 
-the file system is the layer of stuff that uses the CPU, memory and hard 
-drive of your computer on your behalf.
+files. These all live in what's called the filesystem. Everything on your computer -- programs, 
+pictures, documents, the operating system itself -- lives somewhere in the filesystem.
 
 NOW, imagine you want to install some new software but don't want to take the chance
 of making a mess of your existing system by installing a bunch of additional stuff 
 (libraries/dependencies/etc.).
 You don't want to buy a whole new computer because it's too expensive.
-What if, instead, you could have another filesystem that you could store and access from your main computer, and that is actually stored within this existing computer?
+What if, instead, you could have another independent filesystem and running operating system that you could access from your main computer, and that is actually stored within this existing computer?
 
 Or, imagine you have two tools you want to use in your groundbreaking research on cat memes: `PurrLOLing`, a tool that does AMAZINGLY well at predicting the best text for a meme based on the cat species and `WhiskerSpot`, the only tool available for identifying cat species from images.  You want to send cat pictures to `WhiskerSpot`, and then send the species output to `PurrLOLing`.  But there's a problem: `PurrLOLing` only works on Ubuntu and `WhiskerSpot` is only supported for OpenSUSE so you can't have them on the same system!  Again, we really want another filesystem (or two) on our computer that we could use to chain together `WhiskerSpot` and `PurrLOLing` in a "pipeline"... 
 
@@ -118,8 +116,8 @@ the container software installed (the 'container host'), and it should "just wor
 > addition to its own filesystem and has to get booted up in the same way 
 > a computer would. 
 > A container is considered a lightweight version of a virtual machine; 
-> underneath, the container is using the Linux kernel and simply has some 
-> flavor of Linux + the file system inside. 
+> underneath, the container is (usually) using the Linux kernel and simply has some 
+> flavour of Linux + the filesystem inside. 
 {: .callout}
 
 One final term: while the **container** is an alternative filesystem layer that you 

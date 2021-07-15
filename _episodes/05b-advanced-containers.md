@@ -8,8 +8,8 @@ objectives:
 - "Explain how you can include files within Docker images when you build them."
 - "Explain how you can access files on the Docker host from your Docker containers."
 keypoints:
-- You can include files from your Docker host into your Docker images by using the `COPY` instruction in your `Dockerfile`.
 - Docker allows containers to read and write files from the Docker host.
+- You can include files from your Docker host into your Docker images by using the `COPY` instruction in your `Dockerfile`.
 ---
 
 In order to create and use your own containers, you may need more information than
@@ -185,7 +185,7 @@ and will stay there even when the container stops.
 Mounting a folder can be very useful when you want to run the software inside your container on many different input files.
 In other situations, you may want to save or archive an authoritative version of your data by adding it to the container permanently.  That's what we will cover next.
 
-## Including personal scripts and data in a container
+## Including your scripts and data within a container image
 
 Our next project will be to add our own files to a container -- something you
 might want to do if you're sharing a finished analysis or just want to have
@@ -265,6 +265,9 @@ the screen. The bigger your image becomes, the harder it will be to easily downl
 > RUN wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.10.0/ncbi-blast-2.10.0+-x64-linux.tar.gz
 > ~~~
 >
+> Note that the above `RUN` examples depend on commands (`git` and `wget` respectively) that 
+> must be available within your container: Linux distributions such as Alpine may require you to 
+> install such commands before using them within `RUN` statements.
 {: .callout}
 
 ## More fancy `Dockerfile` options (optional, for presentation or as exercises)

@@ -10,7 +10,7 @@ objectives:
 - "Demonstrate some initial Docker command line interactions."
 - "Use the built-in help for Docker commands."
 keypoints:
-- "A toolbar icon indicates that Docker is ready to use."
+- "A toolbar icon indicates that Docker is ready to use (on Windows and macOS)."
 - "You will typically interact with Docker using the command line."
 - "To learn how to run a certain Docker command, we can type the command followed by the `--help` flag."
 ---
@@ -28,7 +28,7 @@ Start the Docker application that you installed in working through the setup ins
 > ## Determining your Docker Hub username
 > If you no longer recall your Docker Hub username, e.g., because you have been logging into the Docker Hub using your email address,
 > you can find out what it is through the steps:
-> - Open <http://hub.docker.com/> in a web browser window
+> - Open <https://hub.docker.com/> in a web browser window
 > - Sign-in using your email and password (don't tell us what it is)
 > - In the top-right of the screen you will see your username
 {: .callout}
@@ -71,7 +71,7 @@ then you need to check that you have started the Docker Desktop, Docker Engine, 
 ## Getting help
 Often when working with a new command line tool, we need to get help. These tools often have some
 sort of subcommand or flag (usually `help`, `-h`, or `--help`) that displays a prompt describing how to use the
-tool. For Docker, it's no different. If we run `docker --help`, we see the following output (only `docker` also works):
+tool. For Docker, it's no different. If we run `docker --help`, we see the following output (running `docker` also produces the help message):
 ~~~
 
 Usage:  docker [OPTIONS] COMMAND
