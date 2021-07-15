@@ -21,7 +21,7 @@ Start the Docker application that you installed in working through the setup ins
 > ## You may need to login to Docker Hub
 > The Docker application will usually provide a way for you to log in to the Docker Hub using the application's menu (macOS) or systray
 > icon (Windows) and it is usually convenient to do this when the application starts. This will require you to use your Docker Hub
-> username and your password. We will not actually require access to Dockerhub until later in the course but if you can login now,
+> username and your password. We will not actually require access to the Docker Hub until later in the course but if you can login now,
 > you should do so.
 {: .callout}
 

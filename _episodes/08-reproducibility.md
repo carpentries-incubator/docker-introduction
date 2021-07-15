@@ -9,7 +9,7 @@ questions:
 objectives:
 - "Understand how container images can help make research more reproducible."
 - "Understand what practical steps I can take to improve the reproducibility of my research using containers."
-- "Know that container orchestration tools are and what they can do"
+- "Know that container orchestration tools are and what they can do."
 keypoints:
 - "Container images allow us to encapsulate the computation (and data) we have used in our research."
 - "Using a service such as Docker Hub allows us to easily share computational work we have done."
@@ -29,7 +29,7 @@ the reproducibility aspects. In this section, we discuss these aspects in more d
 
 By *reproducibility* here we mean the ability of someone else (or your future self) being able to reproduce
 what you did computationally at a particular time (be this in research, analysis or something else)
-as closely as possible even if they do not have access to exactly the same hardware resources #
+as closely as possible even if they do not have access to exactly the same hardware resources
 that you had when you did the original work.
 
 Some examples of why containers are an attractive technology to help with reproducibility include:
@@ -77,13 +77,13 @@ Once you have your archive, you can [deposit it on Zenodo](https://zenodo.org/de
 
 In addition to the archive file itself, the deposit process will ask you to provide some basic metadata to classify the image and the associated work.
 
-Note that Zenodo is not the only option for archiving and generating persistent DOIs for images. There are other services out there - for example, some organizations may provide their own, equivalent, service.
+Note that Zenodo is not the only option for archiving and generating persistent DOIs for images. There are other services out there -- for example, some organizations may provide their own, equivalent, service.
 
 ## Reproducibility good practice
 
    - Make use of images to capture the computational environment required for your work.
-   - Decide on the appropriate granularity for the images you will use for your computational work - this will be different for each project/area. Take note of accepted practice from contemporary work in the same area. What are the right building blocks for individual images in your work?
-   - Document what you have done and why - this can be put in comments in the Dockerfile and the use of the image described in associated documentation and/or publications. Make sure that references are made in both directions so that the image and the documentation are appropriately linked.
+   - Decide on the appropriate granularity for the images you will use for your computational work -- this will be different for each project/area. Take note of accepted practice from contemporary work in the same area. What are the right building blocks for individual images in your work?
+   - Document what you have done and why -- this can be put in comments in the `Dockerfile` and the use of the image described in associated documentation and/or publications. Make sure that references are made in both directions so that the image and the documentation are appropriately linked.
    - When you publish work (in whatever way) use an archiving and DOI service such as Zenodo to make sure your image is captured as it was used for the work and that is obtains a persistent DOI to allow it to be cited and referenced properly.
 
 ## Container Granularity
@@ -121,7 +121,7 @@ Of course, many real applications will sit somewhere between these two extremes.
 > > - Advantages:
 > >   + Individual components can be re-used for different, but related, work
 > >   + Individual parts are smaller in size making them easier to distribute
-> >   + Avoid dependency issues between different softwares
+> >   + Avoid dependency issues between different pieces of software
 > >   + Easier to test
 > > - Disadvantage:
 > >   + More difficult to document
@@ -130,12 +130,12 @@ Of course, many real applications will sit somewhere between these two extremes.
 > {: .solution}
 {: .challenge}
 
-> ## Next Steps With Containers
+> ## Next steps with containers
 >
 > Now that we're at the end of the lesson material, take a moment to reflect on
 > what you've learned, how it applies to you, and what to do next.
 >
-> 1. In your own notes, write down or diagram your understanding of Docker Containers:
+> 1. In your own notes, write down or diagram your understanding of Docker containers:
 > concepts, commands, and how they work.
 > 2. In the workshop's shared notes document, write down how you think you might
 > use containers in your daily work. If there's something you want to try doing with

@@ -79,7 +79,7 @@ this workshop. But what *is* a container?
 
 To understand containers, let's first talk briefly about your computer. 
 
-Your computer has some standard pieces that allow it to work - often what's 
+Your computer has some standard pieces that allow it to work -- often what's 
 called the hardware. One of these pieces is the CPU or processor; another is 
 the amount of memory or RAM that your computer can use to store information 
 temporarily while running programs; another is the hard drive, which can store 
@@ -115,14 +115,14 @@ the container software installed (the 'container host'), and it should "just wor
 > second "virtual" computer running and accessible from a main or **host**
 > computer. Another example of virtualization are **virtual machines** or 
 > VMs. A virtual machine typically contains a whole copy of an operating system in 
-> addition to its own file system and has to get booted up in the same way 
+> addition to its own filesystem and has to get booted up in the same way 
 > a computer would. 
 > A container is considered a lightweight version of a virtual machine; 
 > underneath, the container is using the Linux kernel and simply has some 
 > flavor of Linux + the file system inside. 
 {: .callout}
 
-One final term: while the **container** is an alternative file system layer that you 
+One final term: while the **container** is an alternative filesystem layer that you 
 can access and run from your computer, the **container image** is the 'recipe' or template
 for a container. The container image has all the required information to start
 up a running copy of the container. A running container tends to be transient 
@@ -139,24 +139,24 @@ Think back to some of the challenges we described at the beginning. The many lay
 of scientific software installations make it hard to install and re-install 
 scientific software -- which ultimately, hinders reliability and reproducibility. 
 
-But now, think about what a container is - a self-contained, complete, separate 
-computer file system. What advantages are there if you put your scientific software
+But now, think about what a container is -- a self-contained, complete, separate 
+computer filesystem. What advantages are there if you put your scientific software
 tools into containers? 
 
 This solves several of our problems: 
 
-- documentation - there is a clear record of what software and software dependencies were used, from bottom to top. 
-- portability -  the container can be used on any computer that has Docker installed -- it doesn't matter whether the computer is Mac, Windows or Linux-based. 
-- reproducibility -  you can use the exact same software and environment on your computer and on other resources (like a large-scale computing cluster). 
-- configurability -  containers can be sized to take advantage of more resources (memory, CPU, etc.) on large systems (clusters) or less, depending on the circumstances.
+- documentation -- there is a clear record of what software and software dependencies were used, from bottom to top. 
+- portability -- the container can be used on any computer that has Docker installed -- it doesn't matter whether the computer is Mac, Windows or Linux-based. 
+- reproducibility -- you can use the exact same software and environment on your computer and on other resources (like a large-scale computing cluster). 
+- configurability -- containers can be sized to take advantage of more resources (memory, CPU, etc.) on large systems (clusters) or less, depending on the circumstances.
 
 The rest of this workshop will show you how to download and run pre-existing containers 
 on your own computer, and how to create and share your own containers.
 
 ### Use cases for containers
 
-Now that we have discussed a little bit about containers - what they do and the
-issues they attempt to address - you may be able to think of a few potential use
+Now that we have discussed a little bit about containers -- what they do and the
+issues they attempt to address -- you may be able to think of a few potential use
 cases in your area of work. Some examples of common use cases for containers in 
 a research context include:
 
@@ -167,7 +167,7 @@ a research context include:
   for use on their computers or a remote computing resource (e.g. cloud-based or HPC
   system).
 - Archiving the container(s) so you can repeat analysis/modelling using the 
-  same software and configuration in the future - capturing your workflow.
+  same software and configuration in the future -- capturing your workflow.
 
 {% include links.md %}
 

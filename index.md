@@ -55,7 +55,7 @@ To help give an idea of the target audience for this lesson we have included
 some example learner profiles.
 
 *Nelson is a graduate student in microbiology.* They have experience in running Unix shell
-commands and using libraries in R for the bioinformatics workflows they have devleoped.
+commands and using libraries in R for the bioinformatics workflows they have developed.
 They are expanding their analysis to run on 3000 genomes in 200 samples and they have
 started to use the local cluster to run their workflows. The local research computing
 facilitator has advised them that Docker could be useful for running their workflows on
@@ -81,7 +81,7 @@ for inclusion with the paper submission.
 
 *Bronwyn is a PhD student running Python/R scripts on her local laptop/workstation.*
 She is having difficulty getting all the tools she needs to work because of conflicting
-depenencies and little experience with package managers. She is also keen to reduce
+dependencies and little experience with package managers. She is also keen to reduce
 the overhead of managing software so she can get on with her thesis research. She has
 heard that Docker might be able to help out but is not confident to start exploring
 this on her own and does not have access to any expertise in this within her local
