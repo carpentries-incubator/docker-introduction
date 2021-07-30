@@ -46,6 +46,22 @@ There are too many varieties of Linux to give precise instructions here, but hop
  - [Docker Engine on Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)
  - [Docker Engine on Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
+#### Chromebook
+
+Most newer Chromebooks (Chrome OS) can run Linux (Debian) and support running Docker.  This requires enabling the "Linux development environment" if you have not already done so (this must not be confused with "Developer Mode").  To do this navigate to the setting by pressing the time on the bottom right of the screen and then clicking the settings icon (gear).  In the settings screen click on "Advanced" then "Developers" and in "Linux development environment" section click "Turn On", which is on the right.  *Please note, some "Enterprise Managed" systems will disable this feature (it will be grayed out).*  In the "Set up Linux development environment" dialog that appears click the "Next" button then change the "Username" and "Disk size" options if desired and then click install. Upon a successful installation you will see a terminal window (you may want to pin the terminal icon for quicker access by right clicking the terminal icon and selecting "Pin").  Congratulations you have a Linux developement environment.
+
+To update Debian and setup Docker in the Linux development environment, run the following commands in the terminal.
+
+~~~
+$ sudo apt update
+$ sudo apt full-upgrade -y
+$ sudo apt install docker.io -y
+$ sudo usermod -a -G docker $USER
+~~~
+{: .language-bash}
+
+The first three commands update Debian and install Docker. The `usermod` command adds the `docker` group to your user.  You must restart the Linux developer environment to enable the group changes required to run Docker by right clicking on the "Terminal" icon and selecting "Shutdown Linux" and then opening up a new terminal. You can then test the environment by following instructions in the Verify Installation section below. 
+
 ### A quick tutorial on copy/pasting file contents from episodes of the lesson
 Let's say you want to copy text off the lesson website and paste it into a file named `myfile` in the current working directory of a shell window. This can be achieved in many ways, depending on your computer's operating system, but routes I have found work for me:
 - macOS and Linux: you are likely to have the `nano` editor installed, which provides you with a very straightforward way to create such a file, just run `nano myfile`, then paste text into the shell window, and press <kbd>control</kbd>+<kbd>x</kbd> to exit: you will be prompted whether you want to save changes to the file, and you can type <kbd>y</kbd> to say "yes".
