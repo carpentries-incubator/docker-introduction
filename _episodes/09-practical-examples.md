@@ -116,3 +116,23 @@ keypoints:
 > > If you want you can upload them to dockerhub as well.
 > {: .solution}
 {: .challenge}
+
+## Using a dockerfile as mybinder environment
+Mybinder is a website that can turn your git repository with jupyter notebooks into an 
+executable environment. This makes it easy for others to reuse your code.
+
+For many usecases, it will be enough to supply a requirements.txt file in your git repo to 
+install the dependencies you need. However, in some more complicated cases this python environment 
+will not be 
+enough, for example if your python code calls software that has not been written in python.
+
+Example mybinder dockerfile:
+```dockerfile
+FROM jupyter/minimal-notebook
+
+USER root
+
+RUN apt update -y && apt install -y ffmpeg
+
+USER $NB_USER
+```
