@@ -10,7 +10,7 @@ def calculate_age(born):
     return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
 
 ages={}
-with open(r'../data/data_birthday.csv', 'rb') as f:
+with open(r'data_birthday.csv', 'rb') as f:
     reader = csv.DictReader(f, delimiter=',',)
     for line in reader:
         name = line["Names"]
