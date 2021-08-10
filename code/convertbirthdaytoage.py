@@ -2,7 +2,6 @@
 import csv
 import json
 import datetime
-import os
 
 # taken from https://stackoverflow.com/questions/2217488/age-from-birthdate-in-python
 def calculate_age(born):
@@ -21,6 +20,5 @@ with open(r'data_birthday.csv', 'rb') as f:
 with open('ages.json', 'w') as f:
     json.dump(ages, f)
         
-
 
 
