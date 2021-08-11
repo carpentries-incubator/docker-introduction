@@ -25,7 +25,7 @@ Create two docker containers and provide your colleagues with a working docker w
 Before you start with a solution, you need to download the files you need:
 
 - the old script [convertbirthdaytoage.py](/code/convertbirthdaytoage.py) written by the former PhD in Python 2.7;
-- the new script [heckdrinkinglimit.py](/code/checkdrinkinglimit.py) you wrote in Python 3.6;
+- the new script [checkdrinkinglimit.py](/code/checkdrinkinglimit.py) you wrote in Python 3.6;
 - the [birthday data](/data/data_birthday.csv) required for this study.
 
 To simplify our workflow, let's put them all in the same working directory:
