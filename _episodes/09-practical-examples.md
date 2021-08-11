@@ -16,7 +16,7 @@ You are provided with a list of names and the corresponding birthdates.
 
 A former PhD student already did the first part and wrote a program to convert birthdates into the current age of the people. Unfortunately it was written in Python2.7 and there is no way to upgrade it to Python3 (technically there is, but psssst).
 
-As you are on of the best and brightest you have written a code to check the current age of people against the legal drinking age and output all people who are below it. You wrote it in Python 3.6. Your professor/boss/overlord and the rest of the group use python 3.3 in the work and cannot use your critical piece of software.
+As you are on of the best and brightest you have written a script to check the current age of people against the legal drinking age and output all people who are below it. You wrote it in Python 3.6. Your professor/boss/overlord and the rest of the group use python 3.3 in the work and cannot use your critical piece of software.
 
 Create two docker containers and provide your colleagues with a working docker workflow before they get angry!
 
@@ -43,7 +43,7 @@ checkdrinkinglimit.py  convertbirthdaytoage.py  data_birthday.csv
 
 
 > ## Solution
-> Now let's think of our problem: we need to use the old script `convertbirthdaytoage.py` to get the age of people, and use the new script `heckdrinkinglimit.py` to find out if anyone is under the drinking age. Neither of the scripts is 100% compatible with your collegues' Python 3.3 environment. To make sure they have a smooth workflow, we need to run the old script under Python2.7 environment, and the new script under Python 3.6. 
+> Now let's think of our problem: we need to use the old script `convertbirthdaytoage.py` to get the age of people, and use the new script `checkdrinkinglimit.py` to find out if anyone is under the drinking age. Neither of the scripts is 100% compatible with your colleagues' Python 3.3 environment. To make sure they have a smooth workflow, we need to run the old script under Python2.7 environment, and the new script under Python 3.6. 
 >
 > From what we have learnt, we know `DockerHub` provides images for both environments we need. What we need to do is simply pulling them down:
 >
@@ -66,7 +66,7 @@ checkdrinkinglimit.py  convertbirthdaytoage.py  data_birthday.csv
 > ~~~
 > {: .language-bash}
 >
-> Here we used the `-v $(pwd):/mnt` to mount our working directory to the Docker conatiner. `-w /mnt` is used to specify the working directory within the Docker container. Now if we check our current working directory:
+> Here we used the `-v $(pwd):/mnt` to mount our working directory to the Docker container. `-w /mnt` is used to specify the working directory within the Docker container. Now if we check our current working directory:
 > ~~~
 > $ ls .
 > ~~~
@@ -76,7 +76,7 @@ checkdrinkinglimit.py  convertbirthdaytoage.py  data_birthday.csv
 > ages.json  checkdrinkinglimit.py  convertbirthdaytoage.py  data_birthday.csv
 > ~~~
 > {: .output}
-> A new file `ages.json` has been created, which contains the ages of all people. Now we can execute `heckdrinkinglimit.py` using another Docker image:
+> A new file `ages.json` has been created, which contains the ages of all people. Now we can execute `checkdrinkinglimit.py` using another Docker image:
 > ~~~
 > $ docker run -v $(pwd):/mnt -w /mnt python:3.6 python /mnt/checkdrinkinglimit.py
 > ~~~
