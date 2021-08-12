@@ -13,9 +13,7 @@ keypoints:
 ---
 
 In order to create and use your own containers, you may need more information than
-our previous example. You may want to use files from outside the container, copy
-those files into the container, and just generally learn a little bit about software
-installation. This episode will cover these. Note that the examples will get gradually
+our previous example. You may want to use files from outside the container, that are not included within the container image, either by copying the files into the container, or by making them visible within the container from their existing location on your main system. You may also want to learn a little bit about how to install software within a running container or an image. This episode will look at these more advanced aspects of running or building a container. Note that the examples will get gradually
 more and more complex -- most day-to-day use of containers can be accomplished
 using the first 1--2 sections on this page.
 
@@ -23,6 +21,7 @@ using the first 1--2 sections on this page.
 
 In your shell, change to the `sum` folder in the `docker-intro` folder and look at
 the files inside.
+
 ~~~
 $ cd ~/Desktop/docker-intro/sum
 $ ls
@@ -39,6 +38,7 @@ container.
 {: .challenge}
 
 If we try running the container and Python script, what happens?
+
 ~~~
 $ docker run alice/alpine-python python3 sum.py
 ~~~
@@ -384,5 +384,10 @@ $ docker run alpine-sum:v3 sum.py 1 2 3 4
 ~~~
 {: .language-bash}
 
+> ## Best practices for writing Dockerfiles
+> Take a look at Nüst et al.'s "[_Ten simple rules for writing Dockerfiles for reproducible data science_](https://doi.org/10.1371/journal.pcbi.1008316)" \[1\] for some great examples of best practices to use when writing Dockerfiles. The [GitHub repository](https://github.com/nuest/ten-simple-rules-dockerfiles) associated with the paper also has a set of [example `Dockerfile`s](https://github.com/nuest/ten-simple-rules-dockerfiles/tree/master/examples) demonstrating how the rules highlighted by the paper can be applied.
+>
+> <small>[1] Nüst D, Sochat V, Marwick B, Eglen SJ, Head T, et al. (2020) Ten simple rules for writing Dockerfiles for reproducible data science. PLOS Computational Biology 16(11): e1008316. https://doi.org/10.1371/journal.pcbi.1008316</small>
+{: .callout}
 
 {% include links.md %}
