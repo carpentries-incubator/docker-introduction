@@ -18,9 +18,9 @@ keypoints:
 >
 > A former PhD student already did the first part and wrote a program to convert birthdates into the current age of the people. Unfortunately it was written in Python2.7 and there is no way to upgrade  it to Python3 (technically there is, but psssst).
 >
-> As you are on of the best and brightest you have written a script to check the current age of people against the legal drinking age and output all people who are below it. You wrote it in Python 3.6. Your professor/boss/overlord and the rest of the group use python 3.3 in the work and cannot use your critical piece of software.
+> As you are one of the best and brightest you have written a script to check the current age of people against the legal drinking age and output all people who are below it. You wrote it in Python 3.6. Your professor or boss and the rest of the group use python 3.3 in the work and cannot use your useful piece of software.
 > 
-> Create two docker containers and provide your colleagues with a working docker workflow before they get angry!
+> Create two docker containers and provide your colleagues with a working docker workflow.
 >
 >### Preparation work
 >
@@ -47,7 +47,7 @@ keypoints:
 > > ## Solution
 > > Now let's think of our problem: we need to use the old script `convertbirthdaytoage.py` to get the age of people, and use the new script `checkdrinkinglimit.py` to find out if anyone is under the drinking age. Neither of the scripts is 100% compatible with your colleagues' Python 3.3 environment. To make sure they have a smooth workflow, we need to run the old script under Python2.7 environment, and the new script under Python 3.6. 
 > >
-> > From what we have learnt, we know `DockerHub` provides images for both environments we need. What we need to do is simply pulling them down:
+> > From what we have learnt, we know `DockerHub` provides images for both environments we need. What we need to do is to pull them down:
 > >
 > > ~~~
 > > $ docker pull python:2.7
