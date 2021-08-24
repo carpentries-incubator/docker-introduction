@@ -42,10 +42,10 @@ keypoints:
 > checkdrinkinglimit.py  convertbirthdaytoage.py  data_birthday.csv
 > ~~~
 > {: .output}
->
->
+> 
+> You can first try to run them inside docker containers, afterwards try creating your own containers which nicely package this workflow. (Create one container for each file. You might want to look up the `ENTRYPOINT` instruction for the second task)
 > > ## Solution
-> > Now let's think of our problem: we need to use the old script `convertbirthdaytoage.py` to get the age of people, and use the new script `checkdrinkinglimit.py` to find out if anyone is under the drinking age. Neither of the scripts is 100% compatible with your colleagues' Python 3.3 environment. To make sure they have a smooth workflow, we need to run the old script under Python2.7 environment, and the new script under Python 3.6. 
+> > Now let's think of our problem: we need to use the old script `convertbirthdaytoage.py` to get the age of people, and use the new script `checkdrinkinglimit.py` to find out if anyone is under the drinking age. Neither of the scripts is 100% compatible with your colleagues' Python 3.3 environment. To make sure they have a smooth workflow, we need to run the old script under Python2.7 environment, and the new script under Python 3.6.. For simplicity each script has a `-h` flag for some help. Input and output to scripts are handled via `-i` and `-o` command line parameters.
 > >
 > > From what we have learnt, we know `DockerHub` provides images for both environments we need. What we need to do is to pull them down:
 > >
@@ -64,7 +64,7 @@ keypoints:
 > >
 > > After we have the images ready, we can run  `convertbirthdaytoage.py` to get the age of people:
 > > ~~~
-> > $ docker run -v $(pwd):/mnt -w /mnt python:2.7 python /mnt/convertbirthdaytoage.py
+> > $ docker run -v $(pwd):/mnt -w /mnt python:2.7 python convertbirthdaytoage.py -i data_birthday.csv -o ages.json
 > > ~~~
 > >{: .language-bash}
 > >
@@ -80,7 +80,7 @@ keypoints:
 > > {: .output}
 > > A new file `ages.json` has been created, which contains the ages of all people. Now we can execute `checkdrinkinglimit.py` using another Docker image:
 > > ~~~
-> > $ docker run -v $(pwd):/mnt -w /mnt python:3.6 python /mnt/checkdrinkinglimit.py
+> > $ docker run -v $(pwd):/mnt -w /mnt python:3.6 python checkdrinkinglimit.py -i ages.json
 > > ~~~
 > > {: .language-bash}
 > > ~~~
@@ -91,5 +91,28 @@ keypoints:
 > > ~~~
 > > {: .output}
 > > Congrats! Now we find all the people who are under the drinking age!
+> > 
+> > Now we can make the whole thing even better, so far we only used containers to run our scripts in, but we can also create new containers our colleagues can use. It is good practice to create a folder for each dockercontainer. Copy the respective scripts to the folders
+> > ~~~
+> > $ mkdir convertbirthdaytoage
+> > $ cp convertbirthdaytoage.py convertbirthdaytoage
+> > $ mkdir checkdrinkinglimit
+> > $ cp checkdrinkinglimit.py checkdrinkinglimit
+> > ~~~
+> > {: .language-bash}
+> > The Dockerfiles for the respective folders are then
+> > ~~~
+> > FROM python:2.7
+> > COPY convertbirthdaytoage.py /convertbirthdaytoage.py
+> > ENTRYPOINT ["python2","/convertbirthdaytoage.py"]
+> > ~~~
+> > ~~~
+> > FROM python:3.6
+> > COPY checkdrinkinglimit.py /checkdrinkinglimit.py
+> > ENTRYPOINT ["python3","/checkdrinkinglimit.py"]
+> > ~~~
+> > The `ENTRYPOINT` instruction allows you to configure a container that will run as an executable. This allows arguments to be passed to the entry point, i.e., `docker run <image> -d` will pass the `-d` argument to the entry point. You can override the `ENTRYPOINT` instruction using the `docker run --entrypoint` flag.
+> > Create the two containers using `docker -build` and run them. 
+> > If you want you can upload them to dockerhub as well.
 > {: .solution}
 {: .challenge}
