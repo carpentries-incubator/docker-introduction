@@ -118,12 +118,28 @@ keypoints:
 {: .challenge}
 
 ## Using a dockerfile as mybinder environment
+_Exercise based on example from [towardsdatascience](https://towardsdatascience.
+com/animations-with-matplotlib-d96375c5442c)_
 [Mybinder](https://mybinder.org/) is a website that can turn your git repository with jupyter notebooks into an 
 executable environment. This makes it easy for others to reuse your code.
 
 For many usecases, it will be enough to supply a `requirements.txt` file in your git repo to 
 install the dependencies you need. However, in some more complicated cases this python environment 
 will not be enough, for example if your python code calls software that has not been written in python.
+
+Consider the following case: 
+
+A volcanologist has recently acquired some new height data on the volcano she is studying. She 
+has a notebook where she parses the data and displays it as an animated 3d density plot.
+
+To make her research reproducible she wants to make her workflow available in mybinder. However, 
+she uses some additional software that is not in the standard mybinder environment to convert 
+her animation into a video file.
+
+
+
+
+
 
 Example mybinder dockerfile:
 ```dockerfile
