@@ -11,7 +11,7 @@ keypoints:
   - You can use intermediate files to let different Docker containers talk to each other.
 ---
 
-> ## Python Workflow
+> ## Python Version Conflict
 >
 > You are a social science researcher and are trying to establish how many people in a list are below the allowed drinking age.
 > You are provided with a list of names and the corresponding birthdates.
