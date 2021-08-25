@@ -9,6 +9,7 @@ objectives:
 keypoints:
   - Docker can be a solution to include the legacy script into your workflow with minimum effort.
   - You can use intermediate files to let different Docker containers talk to each other.
+  - Docker can be used in combinination with MyBinder to reproduce complex software environments
 ---
 
 > ## Python Version Conflict
@@ -117,48 +118,68 @@ keypoints:
 > {: .solution}
 {: .challenge}
 
-## Using a dockerfile as mybinder environment
-_Exercise based on example from [towardsdatascience](https://towardsdatascience.
-com/animations-with-matplotlib-d96375c5442c)_
-[Mybinder](https://mybinder.org/) is a website that can turn your git repository with jupyter notebooks into an 
-executable environment. This makes it easy for others to reuse your code.
-
-For many usecases, it will be enough to supply a `requirements.txt` file in your git repo to 
-install the dependencies you need. However, in some more complicated cases this python environment 
-will not be enough, for example if your python code calls software that has not been written in python.
-
-Consider the following case: 
-
-A volcanologist has recently acquired some new height data on the volcano she is studying. She 
-has a notebook where she parses the data and displays it as an animated 3d density plot.
-
-To make her research reproducible she wants to make her workflow available in mybinder. However, 
-she uses some additional software that is not in the standard mybinder environment to convert 
-her animation into a video file.
-
-
-
-
-
-
-Example mybinder dockerfile:
-```dockerfile
-FROM continuumio/miniconda3
-
-ARG NB_USER=jupyter
-
-RUN adduser --disabled-password $NB_USER
-RUN apt update -y && \
-    apt install -y ffmpeg && \
-    pip install jupyter
-
-USER $NB_USER
-WORKDIR /home/$NB_USER
-
-CMD ["jupyter", "notebook", "--no-browser", "--ip=0.0.0.0"]
-```
-
-Let's break it down
-- `FROM continuumio/miniconda3`: A base image that comes with a small number of Python packages 
-preinstalled
-- `ARG NB_USER=jupyter`: Binder requires
+>## Using a dockerfile as mybinder environment
+>_Exercise based on example from the 
+> [Python Graph Gallery](https://www.python-graph-gallery.com/342-animation-on-3d-plot)._
+>
+>[Mybinder](https://mybinder.org/) is a website that can turn your git repository with jupyter 
+> notebooks into an 
+>executable environment. This makes it easy for others to reuse your code.
+>
+>For many usecases, it will be enough to supply a `requirements.txt` file in your git repo to 
+>install the dependencies you need. However, in some more complicated cases this python environment 
+>will not be enough, for example if your python code calls software that has not been written in 
+> python.
+>
+>Consider the following case: 
+>
+>A volcanologist has recently acquired some new height data on the volcano she is studying. She 
+>has a notebook where she parses the data, displays it as a 3d plot and converts it into an 
+>animated gif.
+>
+>To make her research reproducible she wants to make her workflow available in mybinder. However, 
+>she uses some additional software that is not in the standard mybinder environment to convert 
+>her animation into a video file. This software is called `ImageMagick`. When installed, a user 
+>can run the following to convert a collection of images to an animated gif:
+>
+>~~~
+> convert -delay 20 my_dir/some_image*.png animated.gif 
+>~~~
+>{: .language-bash}
+>
+>Create your own repository on your github account and copy the notebook file there.
+>Then, create a `Dockerfile` that would create an environment that will run on mybinder and also 
+>includes the necessary software to call the `convert` command within the mybinder environment.
+>
+>Tips:
+>- You can use `continuumio/miniconda3:4.10.3-alpine` as a base, which will have Python and pip 
+   > installed
+>- You should check out the
+>  [mybinder documentation](https://mybinder.readthedocs.io/en/latest/tutorials/dockerfile.
+>   html#use-a-dockerfile-for-your-binder-repository) 
+>  to learn about the requirements of a Dockerfile for mybinder.
+>
+> > ## Solution
+> > ~~~
+> > # A base image that comes with a small number of Python packages
+> > FROM continuumio/miniconda3:4.10.3-alpine
+> > 
+> > # mybinder requires the argument NB_USER to specify a non-root user that will be used to run jupyter
+> > ARG NB_USER=jupyter
+> > 
+> > RUN adduser --disabled-password --gecos "" $NB_USER
+> > 
+> > # Install the required dependencies
+> > RUN apk add imagemagick && \
+> >     pip install jupyter matplotlib seaborn pandas
+> > 
+> > COPY notebooks/ /home/$NB_USER/
+> > # Switch to specified non-root user
+> > USER $NB_USER
+> > 
+> > WORKDIR /home/$NB_USER
+> > 
+> > CMD ["jupyter", "notebook", "--no-browser", "--ip=0.0.0.0"]
+> > ~~~
+> {: .solution}
+{: .challenge}
