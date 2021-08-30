@@ -5,10 +5,11 @@ exercises: 1
 questions: 
 - "What are examples where docker can be applied in a research setting?"
 objectives:
-    - Use docker in combination with real research software keypoints:
-    - Docker can be a solution to include the legacy script into your workflow with minimum effort.
-    - You can use intermediate files to let different Docker containers talk to each other.
-    - Docker can be used in combinination with MyBinder to reproduce complex software environments
+- Use docker in combination with real research software
+keypoints:
+- Docker can be a solution to include the legacy script into your workflow with minimum effort.
+- You can use intermediate files to let different Docker containers talk to each other.
+- Docker can be used in combinination with MyBinder to reproduce complex software environments
 ---
 
 > ## Python Version Conflict
