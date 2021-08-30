@@ -1,14 +1,14 @@
 ---
 title: "Practical Examples"
-teaching: 20 exercises: 0 questions:
-
+teaching: 20
+exercises: 1
+questions: 
 - "What are examples where docker can be applied in a research setting?"
-  objectives:
+objectives:
     - Use docker in combination with real research software keypoints:
     - Docker can be a solution to include the legacy script into your workflow with minimum effort.
     - You can use intermediate files to let different Docker containers talk to each other.
     - Docker can be used in combinination with MyBinder to reproduce complex software environments
-
 ---
 
 > ## Python Version Conflict
@@ -114,7 +114,8 @@ teaching: 20 exercises: 0 questions:
 > > The `ENTRYPOINT` instruction allows you to configure a container that will run as an executable. This allows arguments to be passed to the entry point, i.e., `docker run <image> -d` will pass the `-d` argument to the entry point. You can override the `ENTRYPOINT` instruction using the `docker run --entrypoint` flag.
 > > Create the two containers using `docker -build` and run them.
 > > If you want you can upload them to dockerhub as well.
-> {: .solution} {: .challenge}
+> {: .solution}
+{: .challenge}
 
 ## Using a dockerfile as mybinder environment
 
@@ -145,13 +146,13 @@ data_path = 'volcano.csv'
 
 data = pd.read_csv(data_path)
 ~~~
-   
+{: .language-python}   
 
 ~~~
 # Create a directory to store the images
 !mkdir Volcano
 ~~~
-
+{: .language-bash}
 ~~~
 # Transform it to a long format
 df=data.unstack().reset_index()
@@ -161,6 +162,7 @@ df.columns=["X","Y","Z"]
 df['X']=pd.Categorical(df['X'])
 df['X']=df['X'].cat.codes
 ~~~
+{: .language-python}
 
 ~~~
 # We are going to do 20 plots, for 20 different angles
@@ -177,10 +179,11 @@ for angle in range(0, 360,18):
     plt.gca()
     plt.close(fig)
 ~~~
-
+{: .language-python}
 ~~~
 !convert -delay 20 Volcano/Volcano*.png animated_volcano.gif
 ~~~
+{: .language-bash}
 
 To make her research reproducible she wants to make her workflow available in mybinder. However, she
 uses some additional software that is not in the standard mybinder environment to convert her
@@ -219,3 +222,6 @@ WORKDIR /home/$NB_USER
  
 CMD ["jupyter", "notebook", "--no-browser", "--ip=0.0.0.0"]
 ~~~
+
+If this dockerfile is placed in a github repo alongside the notebook the entire workflow will 
+run in mybinder.
