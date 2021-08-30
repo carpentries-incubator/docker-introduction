@@ -228,53 +228,48 @@ just type `exit`.
 {: .language-bash}
 
 > ## Practice Makes Perfect
-> Can you find out the version of Linux installed on the `busybox` container?
-> (Hint: If you search online, you'll find that there are a few different ways
-> to find out what version of Linux a computer or container is running. Because
-> the `busybox` container is very simplified, you'll want to use a command that prints out
-> the contents of the file `/proc/version`.)
+> Use `docker search` to find out to see if your favorite linux distro is available as docker image.
+> Then, start a container with that docker image and run the command `cat /etc/os-release` to 
+> find out the version of linux installed in that container.
+> 
+> If you don't have a favorite linux distro, you can pick one of the following:
+> - ubuntu
+> - debian
+> - fedora
 >
-> Can you also find the `busybox` program? What does it do? (Hint: try passing `--help`
-> to almost any command will give you more information.)
->
->
-> > ## Solution 1 -- Interactive
-> >
-> > Run the busybox container interactively -- you can use `docker pull` first, or just
-> > run it with this command:
+> > ## Solution
+> > Find out if your distro has a docker image:
 > > ~~~
-> > $ docker run -it busybox sh
+> > docker search debian
 > > ~~~
 > > {: .language-bash}
-> >
-> > Then try, running these commands
-> >
 > > ~~~
-> > /# cat /proc/version
-> > /# busybox --help
+> > NAME                                               DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+> > ubuntu                                             Ubuntu is a Debian-based Linux operating sys…   12691     [OK]       
+> > debian                                             Debian is a Linux distribution that's compos…   3979      [OK]       
+> > arm32v7/debian                                     Debian is a Linux distribution that's compos…   72                   
+> > itscaro/debian-ssh                                 debian:jessie                                   28                   [OK]
 > > ~~~
-> > {: .language-bash}
-> >
-> > Exit when you're done.
+> > {: .output}
+> > 
+> > Start a docker container based on the image you pick with the command `cat /etc/os-release`.
 > > ~~~
-> > /# exit
-> > ~~~
-> > {: .language-bash}
-> {: .solution}
->
-> > ## Solution 2 -- Run commands
-> >
-> > Run the busybox container, first with a command to read out the Linux version:
-> > ~~~
-> > $ docker run busybox cat /proc/version
+> > docker run debian cat /et/os-release
 > > ~~~
 > > {: .language-bash}
-> >
-> > Then run the container again with a command to print out the busybox help:
 > > ~~~
-> > $ docker run busybox busybox --help
+> > PRETTY_NAME="Debian GNU/Linux 11 (bullseye)"
+> > NAME="Debian GNU/Linux"
+> > VERSION_ID="11"
+> > VERSION="11 (bullseye)"
+> > VERSION_CODENAME=bullseye
+> > ID=debian
+> > HOME_URL="https://www.debian.org/"
+> > SUPPORT_URL="https://www.debian.org/support"
+> > BUG_REPORT_URL="https://bugs.debian.org/"
 > > ~~~
-> > {: .language-bash}
+> > {: .output}
+> > 
 > {: .solution}
 {: .challenge}
 
