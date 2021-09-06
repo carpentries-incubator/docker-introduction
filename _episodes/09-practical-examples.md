@@ -9,7 +9,9 @@ objectives:
 keypoints:
 - Docker can be a solution to include the legacy script into your workflow with minimum effort.
 - You can use intermediate files to let different Docker containers talk to each other.
-- Docker can be used in combinination with MyBinder to reproduce complex software environments
+- Docker can be used in combination with MyBinder to reproduce complex software environments
+- By including a Dockerfile that contains the necessary dependencies alongside your code it will 
+  be more easily reproducible 
 ---
 
 > ## Python Version Conflict
