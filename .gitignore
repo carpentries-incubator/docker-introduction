@@ -14,3 +14,5 @@ _site
 vendor
 .bundle
 .idea
+docker-intro/binder/Volcano/
+docker-intro/binder/animated_volcano.gif
