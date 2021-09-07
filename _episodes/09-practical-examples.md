@@ -27,11 +27,12 @@ keypoints:
 >
 >### Preparation work
 >
-> Before you start with a solution, you need to download the files you need:
+> Before you start with a solution, you need to download the files you need. They are available 
+> in docker-into.zip
 >
-> - the old script [convertbirthdaytoage.py](/code/convertbirthdaytoage.py) written by the former PhD in Python 2.7;
-> - the new script [checkdrinkinglimit.py](/code/checkdrinkinglimit.py) you wrote in Python 3.6;
-> - the [birthday data](/data/data_birthday.csv) required for this study.
+> - the old script `docker-intro/versionconflict/convertbirthdaytoage.py` written by the former PhD in Python 2.7;
+> - the new script `docker-intro/versionconflict/checkdrinkinglimit.py` you wrote in Python 3.6;
+> - The data `docker-intro/versionconflict/data_birthday.csv` required for this study.
 >
 > To simplify our workflow, let's put them all in the same working directory:
 >
