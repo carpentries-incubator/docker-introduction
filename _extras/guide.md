@@ -22,6 +22,39 @@ aim to resolve the issue as soon as possible but we also welcome the opening
 of pull requests (linked to issues) that resolve anything that doesn't work as
 expected with the lesson content.
 
+## Checking for correct setup
+
+It has been really beneficial in an online setting to schedule a check-up session with participants to ascertain that docker has been correctly installed before the workshop starts.
+
+Ask the participants to run the following two commands:
+~~~
+$ docker run docker/whalesay cowsay boo
+~~~
+{: .language-bash}
+
+on Linux/Mac
+~~~
+$ docker run -it -v $PWD:/tmp python:slim bash
+$ ls
+~~~
+{: .language-bash}
+
+on Windows (powershell, wsl might also work)
+~~~
+$ docker run –it –v %cd%:/tmp/ python:slim bash
+$ ls
+~~~
+{: .language-bash}
+
+or if that fails
+~~~
+$ docker run –it –v C:\\Users\username:/tmp python:slim bash
+$ ls
+~~~
+{: .language-bash}
+
+If those two commands work on the participant's machine the lesson material should work without problems.
+
 ## Miscellaneous Tips
 
 * **Timing**: With all the lesson episodes taken together, there's way more than three hours of material in this lesson.
