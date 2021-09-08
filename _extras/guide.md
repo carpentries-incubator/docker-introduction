@@ -24,7 +24,7 @@ expected with the lesson content.
 
 ## Checking for correct setup
 
-It has been really beneficial in an online setting to schedule a check-up session with participants to ascertain that docker has been correctly installed before the workshop starts.
+It has been very beneficial in an online setting to schedule a check-up session with participants to ascertain that docker has been correctly installed before the workshop starts.
 
 Ask the participants to run the following two commands:
 ~~~
