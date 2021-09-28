@@ -275,6 +275,7 @@ just type `exit`.
 > > $ docker run busybox busybox --help
 > > ~~~
 > > {: .language-bash}
+> > Note that this command uses `busybox` twice, first for the image name and then to run `busybox` command from the image.
 > {: .solution}
 {: .challenge}
 
