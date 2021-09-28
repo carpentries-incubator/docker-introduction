@@ -279,9 +279,8 @@ Here are some ideas:
 
 ~~~
 FROM alpine
-
-COPY sum.py /home
 RUN apk add --update python3 py3-pip python3-dev
+COPY sum.py /home
 
 # Run the sum.py script as the default command
 CMD ["python3", "/home/sum.py"]
