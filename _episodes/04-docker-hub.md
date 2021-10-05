@@ -104,6 +104,10 @@ OWNER/CONTAINERNAME:TAG
 > How would I download the Docker container produced by the `rocker` group that
 > has version 3.6.1 of R and the tidyverse installed?
 >
+> Note: the container image described in this exercise is large and won't be used
+> later in this lesson, so you don't actually need to pull the container image --
+> constructing the correct `docker pull` command is sufficient.
+>
 > > ## Solution
 > >
 > > First, search for `rocker` in Docker Hub. Then look for their `tidyverse` image.
