@@ -195,7 +195,7 @@ $ docker build -t alice/alpine-python .
 
 > ## Build Context
 >
-> Notice that the final input to `docker build` isn't the Dockerfile -- it's
+> Notice that the final input to `docker image build` isn't the Dockerfile -- it's
 > a directory! In the command above, we've used the current working directory (`.`) of
 > the shell as the final input to the `docker build` command. This option provides
 > what is called the *build context* to Docker -- if there are files being copied
