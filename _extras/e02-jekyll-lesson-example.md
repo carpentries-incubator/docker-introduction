@@ -21,11 +21,11 @@ based on a set of files that specify the configuration of the site, its presenta
 and the content to go on this page.  When working on updates to this lesson,
 you might want to preview those changes using a local copy of the website.
 This requires installing Jekyll and depdencies such as Ruby and Gemfiles to your local computer
-which can be difficult to achieve given complexities such as needing to match specific versions of the software components. Instead you could use Docker and a pre-built Jekyll container 
+which can be difficult to achieve given complexities such as needing to match specific versions of the software components. Instead you could use Docker and a pre-built Jekyll container
 image.
 
 First we need to get a copy of the website to work with on your computer.
-In your shell window, in your `docker-intro` create a new directory `build-website` and `cd` into it. We will be expanding a ZIP file into this directory later. 
+In your shell window, in your `docker-intro` create a new directory `build-website` and `cd` into it. We will be expanding a ZIP file into this directory later.
 
 Now open a web browser window and:
 1. Navigate to the [GitHub repository][docker-introduction repository] that contains the files for this session;
@@ -64,33 +64,33 @@ You can now request that a container is created that will compile the files in t
 
 For macOS, Linux and PowerShell:
 ~~~
-$ docker run --rm -it -v ${PWD}:/srv/jekyll -p 127.0.0.1:4000:4000 jekyll/jekyll:pages jekyll serve
+$ docker run --rm -it -v ${PWD}:/srv/jekyll -p 127.0.0.1:4000:4000 jekyll/jekyll:4 jekyll serve
 ~~~
 {: .language-bash}
 
 For `cmd.exe` shells on Microsoft Windows:
 ~~~
-> docker run --rm -it -v "%CD%":/srv/jekyll -p 127.0.0.1:4000:4000 jekyll/jekyll:pages jekyll serve
+> docker run --rm -it -v "%CD%":/srv/jekyll -p 127.0.0.1:4000:4000 jekyll/jekyll:4 jekyll serve
 ~~~
 
 When I ran the macOS command, the output was as follows:
 ~~~
-Unable to find image 'jekyll/jekyll:pages' locally
+Unable to find image 'jekyll/jekyll:4' locally
 pages: Pulling from jekyll/jekyll
-cbdbe7a5bc2a: Already exists 
-aa8ae8202b42: Already exists 
-b21786fe7c0d: Already exists 
-68296e6645b2: Already exists 
-6b1c37303e2d: Already exists 
-4d49f4d60e44: Pull complete 
+cbdbe7a5bc2a: Already exists
+aa8ae8202b42: Already exists
+b21786fe7c0d: Already exists
+68296e6645b2: Already exists
+6b1c37303e2d: Already exists
+4d49f4d60e44: Pull complete
 Digest: sha256:3741cb6d48b1ed3c544db4af9e2485fba31ddb5c2deb83a93b33fd252e8e2768
-Status: Downloaded newer image for jekyll/jekyll:pages
+Status: Downloaded newer image for jekyll/jekyll:4
 ruby 2.7.1p83 (2020-03-31 revision a0c7c23c9c) [x86_64-linux-musl]
 Configuration file: /srv/jekyll/_config.yml
             Source: /srv/jekyll
        Destination: /srv/jekyll/_site
  Incremental build: disabled. Enable with --incremental
-      Generating... 
+      Generating...
       Remote Theme: Using theme carpentries/carpentries-theme
                     done in 2.996 seconds.
  Auto-regeneration: enabled for '/srv/jekyll'
