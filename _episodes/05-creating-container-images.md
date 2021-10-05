@@ -128,7 +128,7 @@ list which contains the executable to run as its first element,
 optionally followed by any arguments as subsequent elements. The list
 is enclosed in square brackets (`[]`) and its elements are
 double-quoted (`"`) strings which are separated by commas. For
-example, `CMD ["ls", "-lF", "--color", "/etc"]` would translate 
+example, `CMD ["ls", "-lF", "--color", "/etc"]` would translate
 to `ls -lF --color /etc`.
 
 > ## *shell-form* and *exec-form* for CMD
@@ -192,6 +192,23 @@ image `alpine-python`, I would use this command:
 $ docker image build -t alice/alpine-python .
 ~~~
 {: .language-bash}
+
+> ## Build Context
+>
+> Notice that the final input to `docker image build` isn't the Dockerfile -- it's
+> a directory! In the command above, we've used the current working directory (`.`) of
+> the shell as the final input to the `docker image build` command. This option provides
+> what is called the *build context* to Docker -- if there are files being copied
+> into the built container [more details in the next episode](/05b-advanced-containers)
+> they're assumed to be in this location. Docker expects to see a Dockerfile in the
+> build context also (unless you tell it to look elsewhere).
+>
+> Even if it won't need all of the files in the build context directory, Docker does
+> "load" them before starting to build, which means that it's a good idea to have
+> only what you need for the container in a build context directory, as we've done
+> in this example.
+{: .callout}
+
 
 > ## Exercise: Review!
 >
