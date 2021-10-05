@@ -19,15 +19,18 @@ keypoints:
 > ## EMBOSS 
 > “The European Molecular Biology Open Software Suite” ([EMBOSS](http://emboss.sourceforge.net/) is a free Open Source software analysis package specially developed for the needs of the molecular biology user community. 
 > EMBOSS contains a large number of sequence analysis tools, and we’ll sample a few of them via a docker method. 
+{: .callout}
 
 The purpose of this tutorial is more about learning how to use a Docker container rather than learning EMBOSS itself. 
 To learn more about EMBOSS: List of applications: [emboss_apps](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/index.html) 
 grouped by [function](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/groups.html), and [emboss tutorials](http://emboss.sourceforge.net/docs/emboss_tutorial/emboss_tutorial.html)
 
+
 > ## Set-up
 > Macintosh: Double click on `Terminal` icon in the `/Applications/Utilities directory`.   
 > Windows: Open `PowerShell`.  
 > Linux: open a new shell terminal.  
+> {:.prereq}
 
 In your terminal shell window login Docker with your credentials. 
 If you need to create an ID now go to the [Docker Hub](https://hub.docker.com) to register a free account.
