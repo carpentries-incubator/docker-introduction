@@ -284,6 +284,21 @@ GLP-2              1 HADGSFSDEMNTILDNLAARDFINWLIQTKITD     33
 ~~~
 {: .output}
 
+This can easily be turned into a loop, for example aligning all sequences to that of glucagon:
+
+~~~
+$ 
+for f in G*.fa; do  b=`basename $f .fa`;   docker run --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1  needle glucagon.fa $f -outfil gluc_$b.needle  -gapopen 10 -gapextend 0.5; done
+~~~
+{: .language-bash}
+~~~
+Needleman-Wunsch global alignment of two sequences
+Needleman-Wunsch global alignment of two sequences
+Needleman-Wunsch global alignment of two sequences
+~~~
+{: .output}
+
+
 
 
 ## References
