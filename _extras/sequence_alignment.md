@@ -74,15 +74,24 @@ biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   63
 ~~~
 {: .output}
 
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+> ## Shared directory
+> We'll use the EMBOSS software on files shared from our local computer.
+
+Download the [`docker-intro.zip`]({{ page.root }}/files/docker-intro.zip) file. _This file can alternatively be downloaded from the `files` directory in the [docker-introduction GitHub repository][docker-introduction repository]_. Move the downloaded file to your Desktop and unzip it. It should unzip to a folder called `docker-intro`. 
+
+Within the `docker-intro` change to the `peptides` directory. There are 4 files in the simpe "fasta" sequence format.
+
+~~~
+$ cd ~/Desktop/docker-intro/peptides
+$ ls
+~~~
+{: .language-bash}
+~~~
+GIP.fa		GLP-1.fa	GLP-2.fa	glucagon.fa
+~~~
+{: .output}
+
+
+
+
+
