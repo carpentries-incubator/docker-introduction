@@ -278,6 +278,24 @@ just type `exit`.
 > {: .solution}
 {: .challenge}
 
+> ## Even More Options
+>
+> There are many more options, besides `-it` that can be used with the `docker run`
+> command!  A few of them will be covered in [later episodes](/05b-advanced-containers)
+> and we'll share two more common ones here:
+>
+> * `--rm`: this option guarantees that any running container is completely
+> removed from your computer after the container is stopped. Without this option,
+> Docker actually keeps the "stopped" container around, which you'll see in a later
+> episode. Note that this option doesn't impact the container *images* that you've pulled,
+> just running instances of containers.
+>
+> * `--name=`: By default, Docker assigns a random name and ID number to each container
+> instance that you run on your computer. If you want to be able to more easily refer
+> to a specific running container, you can assign it a name using this option.
+>
+{: .callout}
+
 ## Conclusion
 
 So far, we've seen how to download Docker images, use them to run commands inside
