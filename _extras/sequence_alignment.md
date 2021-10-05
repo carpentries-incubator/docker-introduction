@@ -248,7 +248,9 @@ Since we added `--rm` when we started this container, it will be automatically d
 We are now back at the prompt of the local computer.
 
 > ## Using EMBOSS from outside the container
-> The `docker run` command used previously started an interactive container. This time, we'll provide the EMBOSS program command on the same line, and the container will start, run the EMBOSS program, and then exit after accomplishing its task.
+> The `docker run` command used previously started an interactive container. 
+> This time, we'll provide the EMBOSS program command on the same line, and the container will start, run the EMBOSS program, and then exit after accomplishing its task.
+> {: .callout}
 
 We can accomplish this by removing the `-it` option from the `docker run` command, and adding the complete `needle` command that includes all the mandatory parameters.
 Since the command has become quite long, we can add the continuation symbol ` \ ` to let the shell know that the file is written on 2 lines rather than a single, long line. This time we can align different sequences: GIP.fa and GLP-2.fa.
