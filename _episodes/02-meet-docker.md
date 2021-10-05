@@ -58,7 +58,7 @@ $ docker container ls
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 ~~~
 {: .output}
-(The command `docker system info` will achieve a similar end but produces a larger amount of output.)
+(The command `docker system info` could also be used to verify that Docker is correctly installed and operational but it produces a larger amount of output.)
 
 However, if you instead get a message similar to the following
 ~~~
@@ -235,7 +235,7 @@ right away. This applies not only to Docker, but also to most command line-based
 
 > ## Docker Command Line Interface (CLI) syntax
 >
-> In this course we use the newest Docker CLI syntax
+> In this lesson we use the newest Docker CLI syntax
 > [introduced with the Docker Engine version 1.13](https://www.docker.com/blog/whats-new-in-docker-1-13/).
 > This new syntax combines commands into groups you will most often 
 > want to interact with. In the help example above you can see `image` and `container`
@@ -245,7 +245,7 @@ right away. This applies not only to Docker, but also to most command line-based
 > 
 > Comparing the output of two help commands above, you can
 > see that the same thing can be achieved in multiple ways. For example to start a
-> Docker container using old syntax you would use `docker run`. To achieve the
+> Docker container using the old syntax you would use `docker run`. To achieve the
 > same with the new syntax, you use `docker container run` instead. Even though the old
 > approach is shorter and still officially supported, the new syntax is more descriptive, less
 > error-prone and is therefore recommended.
