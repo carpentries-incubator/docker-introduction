@@ -16,6 +16,9 @@ keypoints:
 - "Files can be shared with the container and used by the software within."
 ---
 
+> ## EMBOSS 
+> “The European Molecular Biology Open Software Suite” ([EMBOSS](http://emboss.sourceforge.net/) is a free Open Source software analysis package specially developed for the needs of the molecular biology user community. 
+
 > ## Set-up
 > Macintosh: Double click on `Terminal` icon in the `/Applications/Utilities directory`. T
 > Windows: Open `PowerShell`
