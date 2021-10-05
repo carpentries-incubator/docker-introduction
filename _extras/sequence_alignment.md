@@ -217,11 +217,16 @@ glucagon           1 HSQGTFTSDYSKYLDSRRAQDFVQWLMNT--     29
                      |::||||||.|.||:.:.|::|:.||:..  
 GLP-1              1 HAEGTFTSDVSSYLEGQAAKEFIAWLVKGRG     31
 
-
 #---------------------------------------
 #--------------------------------------- 
 ~~~
 {: .output}
+
+
+
+
+
+
 
 
 ## References
