@@ -55,11 +55,11 @@ This is fine for working collaboratively with images on a day-to-day basis but t
 
 When you publish your work or make it publicly available in some way it is good practice to make images that you used for computational work available in an immutable, persistent way and to have an identifier that allows people to cite and give you credit for the work you have done. [Zenodo](https://zenodo.org/) provides this functionality.
 
-Zenodo supports the archiving of *tar* archives and we can capture our Docker images as tar archives using the `docker save` command.
+Zenodo supports the archiving of *tar* archives and we can capture our Docker images as tar archives using the `docker image save` command.
 For example, to export the image we created earlier in this lesson:
 
 ~~~
-docker save alice/alpine-python:v1 -o alpine-python.tar
+docker image save alice/alpine-python:v1 -o alpine-python.tar
 ~~~
 {: .bash}
 

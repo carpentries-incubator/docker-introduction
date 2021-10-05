@@ -40,7 +40,7 @@ container.
 
 If we try running the container and Python script, what happens?
 ~~~
-$ docker run alice/alpine-python python3 sum.py
+$ docker container run alice/alpine-python python3 sum.py
 ~~~
 {: .language-bash}
 ~~~
@@ -66,7 +66,7 @@ or other external hard drive gets connected to a computer -- you can see the
 contents appear as if they were on your computer.
 
 We can create a mount between our computer and the running container by using an additional
-option to `docker run`. We'll also use the variable `${PWD}` which will substitute
+option to `docker container run`. We'll also use the variable `${PWD}` which will substitute
 in our current working directory. The option will look like this
 
 `-v ${PWD}:/temp`
@@ -76,7 +76,7 @@ container, name the directory `/temp`
 
 Let's try running the command now:
 ~~~
-$ docker run -v ${PWD}:/temp alice/alpine-python python3 sum.py
+$ docker container run -v ${PWD}:/temp alice/alpine-python python3 sum.py
 ~~~
 {: .language-bash}
 
@@ -92,7 +92,7 @@ mapped to `/temp` -- so we need to include that in the path to the script. This
 command should give us what we need:
 
 ~~~
-$ docker run -v ${PWD}:/temp alice/alpine-python python3 /temp/sum.py
+$ docker container run -v ${PWD}:/temp alice/alpine-python python3 /temp/sum.py
 ~~~
 {: .language-bash}
 
@@ -112,7 +112,7 @@ and will stay there even when the container stops.
 > `/home/alice`.  If the directory doesn't exist in the image it will create it.
 >
 > ~~~
-> docker run -w /home/alice/ -i -t  ubuntu pwd
+> docker container run -w /home/alice/ -i -t  ubuntu pwd
 > ~~~
 >
 > The `--user`/`-u` flag lets you specify the username you would like to run the
@@ -126,7 +126,7 @@ and will stay there even when the container stops.
 
 > ## Exercise: Explore the script
 >
-> What happens if you use the `docker run` command above
+> What happens if you use the `docker container run` command above
 > and put numbers after the script name?
 >
 > > ## Solution
@@ -147,7 +147,7 @@ and will stay there even when the container stops.
 > >
 > > Here's a breakdown of each piece of the command above
 > >
-> > - `docker run`: use Docker to run a container
+> > - `docker container run`: use Docker to run a container
 > > - `-v ${PWD}:/temp`: connect my current working directory (`${PWD}`) as a folder
 > > inside the container called `/temp`
 > > - `alice/alpine-python`: name of the container to run
@@ -168,7 +168,7 @@ and will stay there even when the container stops.
 > >
 > > The docker command to run the container interactively is:
 > > ~~~
-> > $ docker run -v ${PWD}:/temp -it alice/alpine-python sh
+> > $ docker container run -v ${PWD}:/temp -it alice/alpine-python sh
 > > ~~~
 > > {: .language-bash}
 > >
@@ -213,7 +213,7 @@ This line will cause Docker to copy the file from your computer into the contain
 filesystem. Let's build the container like before, but give it a different name:
 
 ~~~
-$ docker build -t alice/alpine-sum .
+$ docker image build -t alice/alpine-sum .
 ~~~
 {: .language-bash}
 
@@ -248,7 +248,7 @@ $ docker build -t alice/alpine-sum .
 > >
 > > You can start the container interactively like so:
 > > ~~~
-> > $ docker run -it alice/alpine-sum sh
+> > $ docker container run -it alice/alpine-sum sh
 > > ~~~
 > > {: .language-bash}
 > >
@@ -310,8 +310,8 @@ CMD ["python3", "/home/sum.py"]
 
 Build and test it:
 ~~~
-$ docker build -t alpine-sum:v1 .
-$ docker run alpine-sum:v1
+$ docker image build -t alpine-sum:v1 .
+$ docker container run alpine-sum:v1
 ~~~
 {: .language-bash}
 
@@ -319,7 +319,7 @@ You'll notice that you can run the container without arguments just fine,
 resulting in `sum = 0`, but this is boring. Supplying arguments however
 doesn't work:
 ~~~
-docker run alpine-sum:v1 10 11 12
+docker container run alpine-sum:v1 10 11 12
 ~~~
 {: .language-bash}
 results in
@@ -355,11 +355,11 @@ CMD ["10", "11"]
 
 Build and test it:
 ~~~
-$ docker build -t alpine-sum:v2 .
+$ docker image build -t alpine-sum:v2 .
 # Most of the time you are interested in the sum of 10 and 11:
-$ docker run alpine-sum:v2
+$ docker container run alpine-sum:v2
 # Sometimes you have more challenging calculations to do:
-$ docker run alpine-sum:v2 12 13 14
+$ docker container run alpine-sum:v2 12 13 14
 ~~~
 {: .language-bash}
 
@@ -369,7 +369,7 @@ $ docker run alpine-sum:v2 12 13 14
 > that does only sums, but you need an interactive shell to examine
 > the container:
 > ~~~
-> $ docker run -it alpine-sum:v2 /bin/sh
+> $ docker container run -it alpine-sum:v2 /bin/sh
 > ~~~
 > {: .language-bash}
 > will yield
@@ -379,7 +379,7 @@ $ docker run alpine-sum:v2 12 13 14
 > {: .output}
 > You need to override the `ENTRYPOINT` statement in the image like so:
 > ~~~
-> $ docker run -it --entrypoint /bin/sh alpine-sum:v2
+> $ docker container run -it --entrypoint /bin/sh alpine-sum:v2
 > ~~~
 > {: .language-bash}
 {: .callout}
@@ -400,8 +400,8 @@ RUN apk add --update python3 py3-pip python3-dev
 
 Build and test it:
 ~~~
-$ docker build -t alpine-sum:v3 .
-$ docker run alpine-sum:v3 sum.py 1 2 3 4
+$ docker image build -t alpine-sum:v3 .
+$ docker container run alpine-sum:v3 sum.py 1 2 3 4
 ~~~
 {: .language-bash}
 

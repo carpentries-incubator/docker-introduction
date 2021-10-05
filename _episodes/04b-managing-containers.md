@@ -11,7 +11,7 @@ objectives:
 keypoints:
 - "`docker container` has subcommands used to interact and manage containers."
 - "`docker image` has subcommands used to interact and manage images."
-- "`docker ps` can provide information on currently running containers."
+- "`docker container ls` or `docker ps` can provide information on currently running containers."
 ---
 
 ## Removing images
@@ -91,7 +91,7 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 > ## Keeping it clean
 >
 > You might be surprised at the number of containers Docker is still keeping track of.
-> One way to prevent this from happening is to add the `--rm` flag to `docker run`. This
+> One way to prevent this from happening is to add the `--rm` flag to `docker container run`. This
 > will completely wipe out the record of the run container when it exits. If you need
 > a reference to the running container for any reason, **don't** use this flag.
 {: .callout}

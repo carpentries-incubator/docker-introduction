@@ -47,7 +47,7 @@ Docker version 20.10.5, build 55c4c88
 The above command has not actually relied on the part of Docker that runs containers, just that Docker
 is installed and you can access it correctly from the command line.
 
-A command that checks that Docker is working correctly is the `docker container list` command (we cover this command in more detail later in the course).
+A command that checks that Docker is working correctly is the `docker container ls` command (we cover this command in more detail later in the course).
 
 Without explaining the details, output on a newly installed system would likely be:
 ~~~
@@ -58,7 +58,7 @@ $ docker container ls
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 ~~~
 {: .output}
-(The command `docker info` will achieve a similar end but produces a larger amount of output.)
+(The command `docker system info` could also be used to verify that Docker is correctly installed and operational but it produces a larger amount of output.)
 
 However, if you instead get a message similar to the following
 ~~~
@@ -233,52 +233,79 @@ all possible commands and options, it's better to learn how to effectively get h
 we can always search the web, getting the built-in help from our tool is often much faster and may provide the answer
 right away. This applies not only to Docker, but also to most command line-based tools.
 
+> ## Docker Command Line Interface (CLI) syntax
+>
+> In this lesson we use the newest Docker CLI syntax
+> [introduced with the Docker Engine version 1.13](https://www.docker.com/blog/whats-new-in-docker-1-13/).
+> This new syntax combines commands into groups you will most often 
+> want to interact with. In the help example above you can see `image` and `container`
+> management commands, which can be used to interact with your images and 
+> containers respectively. With this new syntax you issue commands using the following
+> pattern `docker [command] [subcommand] [additional options]`
+> 
+> Comparing the output of two help commands above, you can
+> see that the same thing can be achieved in multiple ways. For example to start a
+> Docker container using the old syntax you would use `docker run`. To achieve the
+> same with the new syntax, you use `docker container run` instead. Even though the old
+> approach is shorter and still officially supported, the new syntax is more descriptive, less
+> error-prone and is therefore recommended.
+{: .callout}
+
 > ## Exploring a command
 > Run `docker --help` and pick a command from the list.
 > Explore the help prompt for that command. Try to guess how a command would work by looking at the `Usage: `
 > section of the prompt.
 > 
 > > ## Solution
-> > Suppose we pick the `docker build` command:
+> > Suppose we pick the `docker image build` command:
 > > ~~~
-> > docker build --help
+> > docker image build --help
 > > ~~~
 > > {: .language-bash}
 > > ~~~
-> > Usage:  docker build [OPTIONS] PATH | URL | -
-> > 
+> > Usage:  docker image build [OPTIONS] PATH | URL | -
+> >
 > > Build an image from a Dockerfile
-> > 
+> >
 > > Options:
-> >       --add-host list           Add a custom host-to-IP mapping (host:ip)
-> >       --build-arg list          Set build-time variables
-> >       --cache-from strings      Images to consider as cache sources
-> >       --disable-content-trust   Skip image verification (default true)
-> >   -f, --file string             Name of the Dockerfile (Default is 'PATH/Dockerfile')
-> >       --iidfile string          Write the image ID to the file
-> >       --isolation string        Container isolation technology
-> >       --label list              Set metadata for an image
-> >       --network string          Set the networking mode for the RUN instructions during build (default "default")
-> >       --no-cache                Do not use cache when building the image
-> >   -o, --output stringArray      Output destination (format: type=local,dest=path)
-> >       --platform string         Set platform if server is multi-platform capable
-> >       --progress string         Set type of progress output (auto, plain, tty). Use plain to show container output (default "auto")
-> >       --pull                    Always attempt to pull a newer version of the image
-> >   -q, --quiet                   Suppress the build output and print image ID on success
-> >       --secret stringArray      Secret file to expose to the build (only if BuildKit enabled): id=mysecret,src=/local/secret
-> >       --ssh stringArray         SSH agent socket or keys to expose to the build (only if BuildKit enabled) (format: default|<id>[=<socket>|<key>[,<key>]])
-> >   -t, --tag list                Name and optionally a tag in the 'name:tag' format
-> >       --target string           Set the target build stage to build.
+> >      --add-host list           Add a custom host-to-IP mapping (host:ip)
+> >      --build-arg list          Set build-time variables
+> >      --cache-from strings      Images to consider as cache sources
+> >      --cgroup-parent string    Optional parent cgroup for the container
+> >      --compress                Compress the build context using gzip
+> >      --cpu-period int          Limit the CPU CFS (Completely Fair Scheduler) period
+> >      --cpu-quota int           Limit the CPU CFS (Completely Fair Scheduler) quota
+> >  -c, --cpu-shares int          CPU shares (relative weight)
+> >      --cpuset-cpus string      CPUs in which to allow execution (0-3, 0,1)
+> >      --cpuset-mems string      MEMs in which to allow execution (0-3, 0,1)
+> >      --disable-content-trust   Skip image verification (default true)
+> >  -f, --file string             Name of the Dockerfile (Default is 'PATH/Dockerfile')
+> >      --force-rm                Always remove intermediate containers
+> >      --iidfile string          Write the image ID to the file
+> >      --isolation string        Container isolation technology
+> >      --label list              Set metadata for an image
+> >  -m, --memory bytes            Memory limit
+> >      --memory-swap bytes       Swap limit equal to memory plus swap: '-1' to enable unlimited swap
+> >      --network string          Set the networking mode for the RUN instructions during build (default "default")
+> >      --no-cache                Do not use cache when building the image
+> >      --pull                    Always attempt to pull a newer version of the image
+> >  -q, --quiet                   Suppress the build output and print image ID on success
+> >      --rm                      Remove intermediate containers after a successful build (default true)
+> >      --security-opt strings    Security options
+> >      --shm-size bytes          Size of /dev/shm
+> >  -t, --tag list                Name and optionally a tag in the 'name:tag' format
+> >      --target string           Set the target build stage to build.
+> >      --ulimit ulimit           Ulimit options (default [])
 > > ~~~
 > > {: .output}
 > > We could try to guess that the command could be run like this:
 > > ~~~
-> > docker build .
+> > docker image build .
 > > ~~~
 > > {: .language-bash}
 > > or
 > > ~~~
-> > docker build https://github.com/docker/rootfs.git
+> > docker image build https://github.com/docker/rootfs.git
 > > ~~~
 > > {: .language-bash}
 > > Where `https://github.com/docker/rootfs.git` could be any relevant URL that supports a Docker image.
