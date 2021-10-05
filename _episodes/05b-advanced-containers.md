@@ -391,7 +391,10 @@ $ docker run alpine-sum:v3 sum.py 1 2 3 4
 {: .language-bash}
 
 > ## Best practices for writing Dockerfiles
-> Take a look at Nüst et al.'s "[_Ten simple rules for writing Dockerfiles for reproducible data science_](https://doi.org/10.1371/journal.pcbi.1008316)" \[1\] for some great examples of best practices to use when writing Dockerfiles. The [GitHub repository](https://github.com/nuest/ten-simple-rules-dockerfiles) associated with the paper also has a set of [example `Dockerfile`s](https://github.com/nuest/ten-simple-rules-dockerfiles/tree/master/examples) demonstrating how the rules highlighted by the paper can be applied.
+> Take a look at Nüst et al.'s "[_Ten simple rules for writing Dockerfiles for reproducible data science_](https://doi.org/10.1371/journal.pcbi.1008316)" \[1\] 
+> for some great examples of best practices to use when writing Dockerfiles. 
+> The [GitHub repository](https://github.com/nuest/ten-simple-rules-dockerfiles) associated with the paper also has a set of [example `Dockerfile`s](https://github.com/nuest/ten-simple-rules-dockerfiles/tree/master/examples) 
+> demonstrating how the rules highlighted by the paper can be applied.
 >
 > <small>[1] Nüst D, Sochat V, Marwick B, Eglen SJ, Head T, et al. (2020) Ten simple rules for writing Dockerfiles for reproducible data science. PLOS Computational Biology 16(11): e1008316. https://doi.org/10.1371/journal.pcbi.1008316</small>
 {: .callout}
