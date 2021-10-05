@@ -1,0 +1,45 @@
+---
+title: "sequence alignment - EMBOSS"
+layout: episode
+teaching: 20
+exercises: 0
+questions:
+- "How can I align sequences without complex installation?"
+- "How can I use a container from within and without?"
+- "How can I share/use existing sequence files residing on my computer?"
+objectives:
+- "Select Docker containers from the docker hub."
+- "Use a Docker container to accomplish tasks."
+- "Make use of shared folder."
+keypoints:
+- "You can use existing container images and Docker instead of installing additional software."
+- "Files can be shared with the container and used by the software within."
+---
+
+> ## Set-up
+> Macintosh: Double click on `Terminal` icon in the `/Applications/Utilities directory`. T
+> Windows: Open `PowerShell`
+> Linux: open a new shell terminal
+
+Login Docker with your credentials. f you need to create an ID now go to https://hub.docker.com to register a free account.
+
+In your shell window, if you `cd` into the `docker-introduction-gh-pages` folder and list the files, you should see something similar to what I see:
+~~~
+$ docker login
+~~~
+{: .language-bash}
+~~~
+Login with your Docker ID to push and pull images from Docker Hub. 
+If you don't have a Docker ID, head over to https://hub.docker.com 
+to create one.
+Username: YOUR_DOCKER_ID_HERE
+Password: 
+Login Succeeded
+$ 
+~~~
+{: .output}
+
+
+
+
+
