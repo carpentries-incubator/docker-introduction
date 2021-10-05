@@ -79,7 +79,7 @@ biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   63
 
 Download the [`docker-intro.zip`]({{ page.root }}/files/docker-intro.zip) file. _This file can alternatively be downloaded from the `files` directory in the [docker-introduction GitHub repository][docker-introduction repository]_. Move the downloaded file to your Desktop and unzip it. It should unzip to a folder called `docker-intro`. 
 
-Within the `docker-intro` change to the `peptides` directory. There are 4 files in the simpe "fasta" sequence format.
+Within the `docker-intro` change to the `peptides` directory. There are 4 files in the simple "fasta" sequence format.
 
 ~~~
 $ cd ~/Desktop/docker-intro/peptides
@@ -90,6 +90,24 @@ $ ls
 GIP.fa		GLP-1.fa	GLP-2.fa	glucagon.fa
 ~~~
 {: .output}
+
+These are very short peptide sequences to keep the output simple: the glucagon family.
+
+*Glucagon is the principal hyperglycemic hormone, and acts as a counterbalancing hormone to insulin. 
+Glucagon is a peptide hormone of 29 amino acids that shares the same precursor molecule, proglucagon, with GLP-1 and GLP-2. 
+By tissue-specific posttranslational processing, glucagon is secreted from pancreatic α cells whereas GLP-1 and GLP-2 are secreted from intestinal L cells. 
+All these peptides have considerable sequence similarity (Park (2015).)*
+
+*GIP, a related member of the glucagon peptide superfamily, also regulates nutrient disposal via stimulation of insulin secretion (Brubaker and Drucker (2002).)*
+
+
+
+## References
+
+Brubaker, P. L., and D. J. Drucker. 2002. “Structure-function of the glucagon receptor family of G protein-coupled receptors: the glucagon, GIP, GLP-1, and GLP-2 receptors.” Recept. Channels 8 (3-4): 179–88. https://doi.org/10.3109/10606820213687.
+
+Park, Min Kyun. 2015. “Subchapter 17A - Glucagon.” In Handbook of Hormones: Comparative Endocrinology for Basic and Clinical Research, 129–31. Academic Press. https://doi.org/10.1016/B978-0-12-801028-0.00138-0.
+
 
 
 
