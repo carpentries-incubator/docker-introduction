@@ -217,6 +217,28 @@ $ docker build -t alice/alpine-sum .
 ~~~
 {: .language-bash}
 
+> ## The Importance of Command Order in a Dockerfile
+> 
+> TL;DR - When you run `docker build` it executes the build in the order specified
+> in the `Dockerfile`.
+> This order is important for rebuilding and you typically will want to put your `RUN` 
+> commands before your `COPY` commands.
+> 
+> Docker builds the layers of commands in order.
+> This becomes important when you need to rebuild images.
+> If you change layers later in the `Dockerfile` and rebuild the image, Docker doesn't need to 
+> rebuild the earlier layers but will instead used a stored (called "cached") version of
+> those layers.
+> 
+> For example, in an instance where you wanted to copy `multiply.py` into the container 
+> image instead of `sum.py`.
+> If the `COPY` line came before the `RUN` line, it would need to rebuild the whole image. 
+> If the `COPY` line came second then it would use the cached `RUN` layer from the previous
+> build and then only rebuild the `COPY` layer.
+> 
+{: .callout}
+
+
 > ## Exercise: Did it work?
 >
 > Can you remember how to run a container interactively? Try that with this one.
