@@ -159,13 +159,69 @@ The prompt tells us that now we are looking **within** the container.
 {: .challenge}
 
 
+> ## Where is EMBOSS?
+> EMBOSS consists in a series of software for the analysis of protein or nucleic acid DNA and RNA sequences (but not Next Gen sequencing.)
+
+The program `needle` is an implementation of the Needleman-Wunsch global alignment of two sequences (Needleman and Wunsch (1970).) From the EMBOSS documentation: [`needle`](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/needle.html) reads two input sequences and writes their optimal global sequence alignment to file. It uses the Needleman-Wunsch alignment algorithm to find the optimum alignment (including gaps) of two sequences along their entire length.
+
+As an example we can align glucagon and GLP-1 using default parameters: press <kbd>return</kbd> or <kbd>enter</kbd> 3 times to keep the proposed default for the gap penalty and extension, and to use the suggested name for the output file:
+
+~~~
+$ needle glucagon.fa GLP-1.fa 
+~~~
+{: .language-bash}
+~~~
+Needleman-Wunsch global alignment of two sequences
+Gap opening penalty [10.0]: 
+Gap extension penalty [0.5]: 
+Output alignment [glucagon.needle]: 
+~~~
+{: .output}
+
+We can now visualize the output file on the screen:
+
+~~~
+$ cat glucagon.needle 
+~~~
+{: .language-bash}
+~~~
+########################################
+# Program: needle
+# Rundate: Tue 22 Oct 2019 16:38:08
+# Commandline: needle
+#    [-asequence] glucagon.fa
+#    [-bsequence] GLP-1.fa
+# Align_format: srspair
+# Report_file: glucagon.needle
+########################################
+
+#=======================================
+#
+# Aligned_sequences: 2
+# 1: glucagon
+# 2: GLP-1
+# Matrix: EBLOSUM62
+# Gap_penalty: 10.0
+# Extend_penalty: 0.5
+#
+# Length: 31
+# Identity:      14/31 (45.2%)
+# Similarity:    22/31 (71.0%)
+# Gaps:           2/31 ( 6.5%)
+# Score: 88.0
+# 
+#
+#=======================================
+
+glucagon           1 HSQGTFTSDYSKYLDSRRAQDFVQWLMNT--     29
+                     |::||||||.|.||:.:.|::|:.||:..  
+GLP-1              1 HAEGTFTSDVSSYLEGQAAKEFIAWLVKGRG     31
 
 
-
-
-
-
-
+#---------------------------------------
+#--------------------------------------- 
+~~~
+{: .output}
 
 
 ## References
@@ -174,7 +230,7 @@ Brubaker, P. L., and D. J. Drucker. 2002. “Structure-function of the glucagon 
 
 Park, Min Kyun. 2015. “Subchapter 17A - Glucagon.” In Handbook of Hormones: Comparative Endocrinology for Basic and Clinical Research, 129–31. Academic Press. https://doi.org/10.1016/B978-0-12-801028-0.00138-0.
 
-
+Needleman, S. B., and C. D. Wunsch. 1970. “A general method applicable to the search for similarities in the amino acid sequence of two proteins.” J. Mol. Biol. 48 (3): 443–53. https://doi.org/10.1016/0022-2836(70)90057-4.
 
 
 
