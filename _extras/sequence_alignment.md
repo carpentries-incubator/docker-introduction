@@ -153,6 +153,7 @@ The prompt tells us that now we are looking **within** the container.
 > > $ echo $SHELL
 > > ~~~
 > > {: .language-bash}
+> > 
 > > Therefore we are logged in as user `biodocker` running the `bash` shell and that is all good.
 > {: .solution}
 {: .challenge}
