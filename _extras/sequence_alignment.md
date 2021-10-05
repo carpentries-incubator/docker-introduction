@@ -230,9 +230,52 @@ $ needle glucagon.fa GLP-1.fa -outfil glucagon.needle -gapopen 10 -gapextend 0.5
 ~~~
 {: .language-bash}
 
+This is particularly useful if we want to access and use an EMBOSS program without using an interactive shell command.
 
+In order to do that, we'll first exit the current container. 
 
+~~~
+$ exit
+~~~
+{: .language-bash}
 
+Since we added `--rm` when we started this container, it will be automatically deleted upon exit.
+We are now back at the prompt of the local computer.
+
+> ## Using EMBOSS from outside the container
+> The `docker run` command used previously started an interactive container. This time, we'll provide the EMBOSS program command on the same line, and the container will start, run the EMBOSS program, and then exit after accomplishing its task.
+
+We can accomplish this by removing the `-it` option from the `docker run` command, and adding the complete `needle` command that includes all the mandatory parameters.
+Since the command has become quite long, we can add the continuation symbol ` \ ` to let the shell know that the file is written on 2 lines rather than a single, long line. This time we can align different sequences: GIP.fa and GLP-2.fa.
+
+~~~
+$ docker run --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1  \
+needle GIP.fa GLP-2.fa -outfil gip-glp2.needle -gapopen 10 -gapextend 0.5
+~~~
+{: .language-bash}
+~~~
+ Needleman-Wunsch global alignment of two sequences 
+~~~
+{: .output}
+
+We can then look just at the bottom of the resulting alignment file:
+
+~~~
+$ tail gip-glp2.needle 
+~~~
+{: .language-bash}
+~~~
+#
+#=======================================
+
+GIP                1 YAEGTFISDYSIAMDKIRQQDFVNWLLAQ----     29
+                     :|:|:|..:.:..:|.:..:||:|||:..    
+GLP-2              1 HADGSFSDEMNTILDNLAARDFINWLIQTKITD     33
+
+#---------------------------------------
+#---------------------------------------
+~~~
+{: .output}
 
 
 
