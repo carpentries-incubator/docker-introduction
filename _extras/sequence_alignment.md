@@ -1,5 +1,5 @@
 ---
-title: "sequence alignment - EMBOSS"
+title: "sequence alignment - EMBOSS, clustalomega"
 layout: episode
 teaching: 20
 exercises: 0
@@ -253,7 +253,7 @@ We are now back at the prompt of the local computer.
 > {: .callout}
 
 We can accomplish this by removing the `-it` option from the `docker run` command, and adding the complete `needle` command that includes all the mandatory parameters.
-Since the command has become quite long, we can add the continuation symbol ` \ ` to let the shell know that the file is written on 2 lines rather than a single, long line. This time we can align different sequences: GIP.fa and GLP-2.fa.
+Since the command has become quite long, we can add the continuation symbol `\` to let the shell know that the file is written on 2 lines rather than a single, long line. This time we can align different sequences: GIP.fa and GLP-2.fa.
 
 ~~~
 $ docker run --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1  \
@@ -284,11 +284,12 @@ GLP-2              1 HADGSFSDEMNTILDNLAARDFINWLIQTKITD     33
 ~~~
 {: .output}
 
-This can easily be turned into a loop, for example aligning all sequences to that of glucagon:
+This can easily be turned into a loop, for example aligning all sequences to that of glucagon.
+However, due to the loop nature of the command, it is not possible to use the continuation symbol as we just did previously.
 
 ~~~
 $ 
-for f in G*.fa; do  b=`basename $f .fa`;   docker run --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1  needle glucagon.fa $f -outfil gluc_$b.needle  -gapopen 10 -gapextend 0.5; done
+for f in G*.fa; do  b=`basename $f .fa`; docker run --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1  needle glucagon.fa $f -outfil gluc_$b.needle  -gapopen 10 -gapextend 0.5; done
 ~~~
 {: .language-bash}
 ~~~
@@ -298,6 +299,13 @@ Needleman-Wunsch global alignment of two sequences
 ~~~
 {: .output}
 
+> ## Multiple sequence alignment
+> EMBOSS only provides a "wrapper" for an external multiple sequence alignment called `clustalw` which is an older algorithm. For protein sequences one of the recommended algorithm is `clustalomega` which will use within a different docker image.
+
+From web [clustalomega documentation](https://www.ebi.ac.uk/seqdb/confluence/display/THD/Clustal+Omega): *Clustal Omega is a multiple sequence alignment program for aligning three or more sequences together in a computationally efficient and accurate manner. It produces biologically meaningful multiple sequence alignments of divergent sequences.*
+> {: .callout}
+
+One of the great advantages of Docker is the modularity that it can bring to using software that is not even installed on your own computer.
 
 
 
