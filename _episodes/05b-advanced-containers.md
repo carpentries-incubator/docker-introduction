@@ -219,7 +219,7 @@ $ docker build -t alice/alpine-sum .
 
 > ## The Importance of Command Order in a Dockerfile
 > 
-> TL;DR - When you run `docker build` it executes the build in the order specified
+> When you run `docker build` it executes the build in the order specified
 > in the `Dockerfile`.
 > This order is important for rebuilding and you typically will want to put your `RUN` 
 > commands before your `COPY` commands.
