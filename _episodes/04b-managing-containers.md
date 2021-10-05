@@ -110,6 +110,9 @@ $ docker container rm 9c698655416a
 ~~~
 {: .output}
 
+An alternative option for deleting exited containers is the `docker container
+prune` command. Note that this command doesn't accept a container ID as an
+option because it deletes ALL exited containers!
 **Be careful** with this command as deleting the container is **forever**.
 **Once a container is deleted you can not get it back.**
 If you have containers you may want to reconnect to, you should **not** use this command.
