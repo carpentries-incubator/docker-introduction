@@ -32,6 +32,8 @@ keypoints:
 > or after you go through this section to reinforce your understanding!
 >
 > [How can software containers help your research?](https://www.youtube.com/watch?v=HelrQnm3v4g)
+>
+> Australian Research Data Commons, 2021. *How can software containers help your research?*. [video] Available at: https://www.youtube.com/watch?v=HelrQnm3v4g DOI: http://doi.org/10.5281/zenodo.5091260
 {: .callout}
 
 
