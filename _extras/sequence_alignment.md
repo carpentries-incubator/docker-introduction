@@ -25,9 +25,9 @@ To learn more about EMBOSS: List of applications: [emboss_apps](http://emboss.so
 grouped by [function](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/groups.html), and [emboss tutorials](http://emboss.sourceforge.net/docs/emboss_tutorial/emboss_tutorial.html)
 
 > ## Set-up
-> Macintosh: Double click on `Terminal` icon in the `/Applications/Utilities directory`. 
-> Windows: Open `PowerShell`
-> Linux: open a new shell terminal
+> Macintosh: Double click on `Terminal` icon in the `/Applications/Utilities directory`.   
+> Windows: Open `PowerShell`.  
+> Linux: open a new shell terminal.  
 
 In your terminal shell window login Docker with your credentials. 
 If you need to create an ID now go to the [Docker Hub](https://hub.docker.com) to register a free account.
@@ -159,7 +159,7 @@ The prompt tells us that now we are looking **within** the container.
 {: .challenge}
 
 
-> ## Where is EMBOSS?
+> ## Using EMBOSS?
 > EMBOSS consists in a series of software for the analysis of protein or nucleic acid DNA and RNA sequences (but not Next Gen sequencing.)
 
 The program `needle` is an implementation of the Needleman-Wunsch global alignment of two sequences (Needleman and Wunsch (1970).) From the EMBOSS documentation: [`needle`](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/needle.html) reads two input sequences and writes their optimal global sequence alignment to file. It uses the Needleman-Wunsch alignment algorithm to find the optimum alignment (including gaps) of two sequences along their entire length.
@@ -222,7 +222,14 @@ GLP-1              1 HAEGTFTSDVSSYLEGQAAKEFIAWLVKGRG     31
 ~~~
 {: .output}
 
-While it is nice to have an interactive interface, we can also provide all the required parameters on the comand line in order to make the alignment process non interactive. For example
+While it is nice to have an interactive interface, we can also provide all the required parameters on the comand line in order to make the alignment process non interactive. These qualifiers are detailed on the [`needle`](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/needle.html) help page.
+For the above alignment example, adding the mandatory paramters the commands would be:
+
+~~~
+$ needle glucagon.fa GLP-1.fa -outfil glucagon.needle -gapopen 10 -gapextend 0.5
+~~~
+{: .language-bash}
+
 
 
 
