@@ -26,7 +26,7 @@ To learn more about EMBOSS: List of applications: [emboss_apps](http://emboss.so
 grouped by [function](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/groups.html), and [emboss tutorials](http://emboss.sourceforge.net/docs/emboss_tutorial/emboss_tutorial.html)
 
 
- ## Set-up
+> ## Set-up
 - Macintosh: Double click on `Terminal` icon in the `/Applications/Utilities directory`.   
 -  Windows: Open `PowerShell`.  
 - Linux: open a new shell terminal.  
