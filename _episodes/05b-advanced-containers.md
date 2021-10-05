@@ -13,7 +13,13 @@ keypoints:
 ---
 
 In order to create and use your own containers, you may need more information than
-our previous example. You may want to use files from outside the container, that are not included within the container image, either by copying the files into the container, or by making them visible within the container from their existing location on your main system. You may also want to learn a little bit about how to install software within a running container or an image. This episode will look at these more advanced aspects of running or building a container. Note that the examples will get gradually
+our previous example. You may want to use files from outside the container, 
+that are not included within the container image, either by copying the files 
+into the container, or by making them visible within the container from their 
+existing location on your main system. You may also want to learn a little bit 
+about how to install software within a running container or an image. 
+This episode will look at these advanced aspects of running or building 
+a container. Note that the examples will get gradually
 more and more complex -- most day-to-day use of containers can be accomplished
 using the first 1--2 sections on this page.
 
