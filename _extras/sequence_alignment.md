@@ -26,11 +26,11 @@ To learn more about EMBOSS: List of applications: [emboss_apps](http://emboss.so
 grouped by [function](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/groups.html), and [emboss tutorials](http://emboss.sourceforge.net/docs/emboss_tutorial/emboss_tutorial.html)
 
 
-> ## Set-up
-> Macintosh: Double click on `Terminal` icon in the `/Applications/Utilities directory`.   
-> Windows: Open `PowerShell`.  
-> Linux: open a new shell terminal.  
-> {:.prereq}
+ ## Set-up
+- Macintosh: Double click on `Terminal` icon in the `/Applications/Utilities directory`.   
+-  Windows: Open `PowerShell`.  
+- Linux: open a new shell terminal.  
+{:.prereq}
 
 In your terminal shell window login Docker with your credentials. 
 If you need to create an ID now go to the [Docker Hub](https://hub.docker.com) to register a free account.
