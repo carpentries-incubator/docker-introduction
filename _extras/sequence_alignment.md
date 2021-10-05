@@ -116,7 +116,16 @@ HSQGTFTSDYSKYLDSRRAQDFVQWLMNT
 ~~~
 {: .output}
 
+We can now start a container and share the content of the current directory with the `--mount` qualifier:
 
+~~~
+run -it --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1
+~~~
+{: .language-bash}
+~~~
+biodocker@f3c591eb2b5f:/data$ 
+~~~
+{: .output}
 
 ## References
 
