@@ -61,14 +61,14 @@ CONTAINERNAME:TAG
 So if I wanted to download the `python` container, with Python 3.8, I would use this name:
 
 ```
-$ docker pull python:3.8
+$ docker image pull python:3.8
 ```
 {: .language-bash}
 
 But if I wanted to download a Python 3.6 container, I would use this name:
 
 ```
-$ docker pull python:3.6
+$ docker image pull python:3.6
 ```
 {: .language-bash}
 
@@ -111,7 +111,7 @@ OWNER/CONTAINERNAME:TAG
 > > that means that the name of the container we want to download is:
 > >
 > > ~~~
-> > $ docker pull rocker/tidyverse:3.6.1
+> > $ docker image pull rocker/tidyverse:3.6.1
 > > ~~~
 > > {: .language-bash}
 > {: .solution}

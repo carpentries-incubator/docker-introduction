@@ -14,7 +14,7 @@ objectives:
 - "Describe the significance of the Docker Hub naming scheme."
 keypoints:
 - "`Dockerfile`s specify what is within Docker images."
-- "The `docker build` command is used to build an image from a `Dockerfile`."
+- "The `docker image build` command is used to build an image from a `Dockerfile`."
 - "You can share your Docker images through the Docker Hub so that others can create Docker containers from your images."
 ---
 
@@ -29,7 +29,7 @@ Before creating a reproducible installation, let's experiment with installing
 software inside a container. Start the `alpine` container from before, interactively:
 
 ~~~
-$ docker run -it alpine sh
+$ docker container run -it alpine sh
 ~~~
 {: .language-bash}
 
@@ -169,9 +169,9 @@ So far, we only have a text file named `Dockerfile` -- we do not yet have a cont
 We want Docker to take this `Dockerfile`,
 run the installation commands contained within it, and then save the
 resulting container as a new container image. To do this we will use the
-`docker build` command.
+`docker image build` command.
 
-We have to provide `docker build` with two pieces of information:
+We have to provide `docker image build` with two pieces of information:
 - the location of the `Dockerfile`
 - the name of the new image. Remember the naming scheme from before? You should name
 your new image with your Docker Hub username and a name for the container, like this: `USERNAME/CONTAINERNAME`.
@@ -179,7 +179,7 @@ your new image with your Docker Hub username and a name for the container, like 
 All together, the build command that you should run on your computer, will have a similar structure to this:
 
 ~~~
-$ docker build -t USERNAME/CONTAINERNAME .
+$ docker image build -t USERNAME/CONTAINERNAME .
 ~~~
 {: .language-bash}
 
@@ -189,7 +189,7 @@ our current directory.
 For example, if my user name was `alice` and I wanted to call my
 image `alpine-python`, I would use this command:
 ~~~
-$ docker build -t alice/alpine-python .
+$ docker image build -t alice/alpine-python .
 ~~~
 {: .language-bash}
 
@@ -212,18 +212,18 @@ $ docker build -t alice/alpine-python .
 > > 2. In the output of `docker image ls`, you can see that Docker has automatically
 > > used the `latest` tag for our new image.
 > >
-> > 3. We want to use `docker run` to run the container.
+> > 3. We want to use `docker container run` to run the container.
 > >
 > > The following command should run the container and print out our default message, the version
 > > of Python:
 > > ~~~
-> > $ docker run alice/alpine-python
+> > $ docker container run alice/alpine-python
 > > ~~~
 > > {: .language-bash}
 > >
 > > To run the container and print out "Hello world" instead:
 > > ~~~
-> > $ docker run alice/alpine-python echo "Hello World"
+> > $ docker container run alice/alpine-python echo "Hello World"
 > > ~~~
 > > {: .language-bash}
 > {: .solution}
@@ -272,10 +272,10 @@ the container again from that.
 
 Images that you release publicly can be stored on the Docker Hub for free.  If you
 name your image as described above, with your Docker Hub username, all you need to do
-is run the opposite of `docker pull` -- `docker push`.
+is run the opposite of `docker image pull` -- `docker image push`.
 
 ~~~
-$ docker push alice/alpine-python
+$ docker image push alice/alpine-python
 ~~~
 {: .language-bash}
 
@@ -286,9 +286,9 @@ In a web browser, open <https://hub.docker.com>, and on your user page you shoul
 > ## Logging In
 >
 > Technically, you have to be logged into Docker on your computer for this to work.
-> Usually it happens by default, but if `docker push` doesn't work for you,
+> Usually it happens by default, but if `docker image push` doesn't work for you,
 > run `docker login` first, enter your Docker Hub username and password, and then
-> try `docker push` again.
+> try `docker image push` again.
 {: .callout}
 
 ## What's in a name? (again)
@@ -297,17 +297,17 @@ You don't *have* to name your containers using the `USERNAME/CONTAINER:TAG` nami
 them by the names you choose. It's only when you want to share a container that it
 needs the correct naming format.
 
-You can rename images using the `docker tag` command. For example, imagine someone
+You can rename images using the `docker image tag` command. For example, imagine someone
 named Alice has been working on a workflow container and called it `workflow-test`
 on her own computer. She now wants to share it in her `alice` Docker Hub account
-with the name `workflow-complete` and a tag of `v1`. Her `docker tag` command
+with the name `workflow-complete` and a tag of `v1`. Her `docker image tag` command
 would look like this:
 ~~~
-$ docker tag workflow-test alice/workflow-complete:v1
+$ docker image tag workflow-test alice/workflow-complete:v1
 ~~~
 {: .language-bash}
 
 She could then push the re-named container to Docker Hub,
-using `docker push alice/workflow-complete:v1`
+using `docker image push alice/workflow-complete:v1`
 
 {% include links.md %}

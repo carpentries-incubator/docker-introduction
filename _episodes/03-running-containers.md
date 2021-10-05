@@ -10,10 +10,10 @@ objectives:
 - "Demonstrate how to start an instance of a container from an image."
 - "Describe at least two ways to execute commands inside a running Docker container."
 keypoints:
-- "The `docker pull` command downloads Docker images from the internet."
-- "The `docker image` command lists Docker images that are (now) on your computer."
-- "The `docker run` command creates running containers from images and can run commands inside them."
-- "When using the `docker run` command, a container can run a default action (if it
+- "The `docker image pull` command downloads Docker images from the internet."
+- "The `docker image ls` command lists Docker images that are (now) on your computer."
+- "The `docker container run` command creates running containers from images and can run commands inside them."
+- "When using the `docker container run` command, a container can run a default action (if it
 has one), a user specified action, or a shell to be used interactively."
 ---
 
@@ -26,7 +26,7 @@ image online called `hello-world`. We'll start with that one.
 
 ## Downloading Docker images
 
-The `docker image` command is used to list and modify Docker images.
+The `docker image` command is used to interact with Docker images.
 You can find out what container images you have on your computer by using the following command ("ls" is short for "list"):
 ~~~
 $ docker image ls
@@ -38,7 +38,7 @@ installed Docker, you won't see any images listed.
 
 To get a copy of the `hello-world` Docker image from the internet, run this command:
 ~~~
-$ docker pull hello-world
+$ docker image pull hello-world
 ~~~
 {: .language-bash}
 
@@ -84,10 +84,10 @@ computer.
 
 ## Running the `hello-world` container
 
-To create and run containers from named Docker images you use the `docker run` command. Try the following `docker run` invocation. Note that it does not matter what your current working directory is.
+To create and run containers from named Docker images you use the `docker container run` command. Try the following `docker container run` invocation. Note that it does not matter what your current working directory is.
 
 ~~~
-$ docker run hello-world
+$ docker container run hello-world
 ~~~
 {: .language-bash}
 ~~~
@@ -114,7 +114,7 @@ For more examples and ideas, visit:
 ~~~
 {: .output}
 
-What just happened? When we use the `docker run` command, Docker does three things:
+What just happened? When we use the `docker container run` command, Docker does three things:
 
 | 1. Starts a Running Container | 2. Performs Default Action | 3. Shuts Down the Container
 | --------------------|-----------------|----------------|
@@ -123,9 +123,9 @@ What just happened? When we use the `docker run` command, Docker does three thin
 The `hello-world` container is set up to run an action by default --
 namely to print this message.
 
-> ## Using `docker run` to get the image
+> ## Using `docker container run` to get the image
 >
-> We could have skipped the `docker pull` step; if you use the `docker run`
+> We could have skipped the `docker image pull` step; if you use the `docker container run`
 > command and you don't already have a copy of the Docker image, Docker will
 > automatically pull the image first and then run it.
 {: .callout}
@@ -134,7 +134,7 @@ namely to print this message.
 
 But what if we wanted to do something different with the container? The output
 just gave us a suggestion of what to do -- let's use a different Docker image
-to explore what else we can do with the `docker run` command. The suggestion above
+to explore what else we can do with the `docker container run` command. The suggestion above
 is to use `ubuntu`, but we're going to run a different type of Linux, `alpine`
 instead because it's quicker to download.
 
@@ -147,7 +147,7 @@ instead because it's quicker to download.
 What happened when you ran the Alpine Docker container?
 
 ~~~
-$ docker run alpine
+$ docker container run alpine
 ~~~
 {: .language-bash}
 
@@ -156,7 +156,7 @@ If you used the alpine image before, the command will probably show no output. T
 provide commands yourself. Try running this instead:
 
 ~~~
-$ docker run alpine cat /etc/os-release
+$ docker container run alpine cat /etc/os-release
 ~~~
 {: .language-bash}
 
@@ -172,13 +172,13 @@ the version of Alpine Linux that this container is using and a few additional bi
 > >
 > > Use the same command as above, but with the `echo` command to print a message.
 > > ~~~
-> > $ docker run alpine echo 'Hello World'
+> > $ docker container run alpine echo 'Hello World'
 > > ~~~
 > > {: .language-bash}
 > {: .solution}
 {: .challenge}
 
-So here, we see another option -- we can provide commands at the end of the `docker run`
+So here, we see another option -- we can provide commands at the end of the `docker container run`
 command and they will execute inside the running container.
 
 ## Running containers interactively
@@ -187,11 +187,11 @@ In all the examples above, Docker has started the container, run a command, and 
 immediately shut down the container. But what if we wanted to keep the container
 running so we could log into it and test drive more commands? The way to
 do this is by adding the interactive flag `-it`
-to the `docker run` command and provide a shell (`bash`,`sh`, etc.)
+to the `docker container run` command and provide a shell (`bash`,`sh`, etc.)
 as our command. The alpine docker image doesn't include `bash` so we need to use `sh`.
 
 ~~~
-$ docker run -it alpine sh
+$ docker container run -it alpine sh
 ~~~
 {: .language-bash}
 
@@ -240,10 +240,10 @@ just type `exit`.
 >
 > > ## Solution 1 -- Interactive
 > >
-> > Run the busybox container interactively -- you can use `docker pull` first, or just
+> > Run the busybox container interactively -- you can use `docker image pull` first, or just
 > > run it with this command:
 > > ~~~
-> > $ docker run -it busybox sh
+> > $ docker container run -it busybox sh
 > > ~~~
 > > {: .language-bash}
 > >
@@ -266,13 +266,13 @@ just type `exit`.
 > >
 > > Run the busybox container, first with a command to read out the Linux version:
 > > ~~~
-> > $ docker run busybox cat /proc/version
+> > $ docker container run busybox cat /proc/version
 > > ~~~
 > > {: .language-bash}
 > >
 > > Then run the container again with a command to print out the busybox help:
 > > ~~~
-> > $ docker run busybox busybox --help
+> > $ docker container run busybox busybox --help
 > > ~~~
 > > {: .language-bash}
 > {: .solution}
