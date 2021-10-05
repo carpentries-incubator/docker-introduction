@@ -111,7 +111,7 @@ episode_order:
     - running-containers
     - managing-containers
     - docker-hub
-    - creating-comtainer-images
+    - creating-container-images
     - advanced-containers
     - docker-image-examples
     - reproduciblity
