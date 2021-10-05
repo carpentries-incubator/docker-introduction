@@ -222,7 +222,7 @@ GLP-1              1 HAEGTFTSDVSSYLEGQAAKEFIAWLVKGRG     31
 ~~~
 {: .output}
 
-
+While it is nice to have an interactive interface, we can also provide all the required parameters on the comand line in order to make the alignment process non interactive. For example
 
 
 
