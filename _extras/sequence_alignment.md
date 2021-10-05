@@ -119,13 +119,53 @@ HSQGTFTSDYSKYLDSRRAQDFVQWLMNT
 We can now start a container and share the content of the current directory with the `--mount` qualifier:
 
 ~~~
-run -it --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1
+$ run -it --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1
 ~~~
 {: .language-bash}
 ~~~
 biodocker@f3c591eb2b5f:/data$ 
 ~~~
 {: .output}
+
+The prompt tells us that now we are looking **within** the container.
+
+> ## Exercise: Container checks
+>
+> What commands would you use to explore the Linux system on the container?
+> What command would you use to find "who" is the default user of this container?
+> Give it a try before checking the solution.
+>
+> > ## Solution
+> >
+> > To explore the Linux system the following commands are useful:
+> > ~~~
+> > $ uname -a
+> > $ cat /etc/issue
+> > $ cat /etc/os-release
+> > ~~~
+> > {: .language-bash}
+> > Many containers by default are running as "root" *i.e.* administrator level.
+> > However, it is often useful (or required) to run as a "regular" user. The
+> > following commands show use the user name and the shell that is running
+> > ~~~
+> > $ whoami
+> > $ cat /etc/issue
+> > $ echo $SHELL
+> > ~~~
+> > {: .language-bash}
+> > Therefore we are logged in as user `biodocker` running the `bash` shell and that is all good.
+> {: .solution}
+{: .challenge}
+
+
+
+
+
+
+
+
+
+
 
 ## References
 
