@@ -91,12 +91,11 @@ GIP.fa		GLP-1.fa	GLP-2.fa	glucagon.fa
 ~~~
 {: .output}
 
-These are very short peptide sequences to keep the output simple: the glucagon family.
-
+These are very short peptide sequencesthe glucagon family to keep the output simple. 
 *Glucagon is the principal hyperglycemic hormone, and acts as a counterbalancing hormone to insulin. 
 Glucagon is a peptide hormone of 29 amino acids that shares the same precursor molecule, proglucagon, with GLP-1 and GLP-2. 
 By tissue-specific posttranslational processing, glucagon is secreted from pancreatic α cells whereas GLP-1 and GLP-2 are secreted from intestinal L cells. 
-All these peptides have considerable sequence similarity (Park (2015).)*
+All these peptides have considerable sequence similarity (Park (2015).)*   
 
 *GIP, a related member of the glucagon peptide superfamily, also regulates nutrient disposal via stimulation of insulin secretion (Brubaker and Drucker (2002).)*
 
