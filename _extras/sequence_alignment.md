@@ -278,7 +278,8 @@ We are now back at the prompt of the local computer.
 
 > ## Using EMBOSS from outside the container
 > The `docker run` command used previously started an interactive container. 
-> This time, we'll provide the EMBOSS program command on the same line, and the container will start, run the EMBOSS program, and then exit after accomplishing its task.
+> This time, we'll provide the EMBOSS program command on the same line, and the container will start, run the EMBOSS program, 
+> and then exit after accomplishing its task.
 {: .callout}
 
 We can accomplish this by removing the `-it` option from the `docker run` command, and adding the complete `needle` command that includes all the mandatory parameters.
@@ -331,9 +332,14 @@ Needleman-Wunsch global alignment of two sequences
 The output shows that the program ran 3 times, as expected. The resulting files can be found within the current directory that you can explore using the `cat` or `tail` shell commands for example.
 
 > ## Multiple sequence alignment
-> EMBOSS only provides a "wrapper" ([emma](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/emma.html)) calling an external multiple sequence alignment named `clustalw` which is an older algorithm. For protein sequences one of the recommended algorithm is a similar, newer algorithm named `clustalomega` that we will use within a different docker image.   
-> From web [clustalomega documentation](https://www.ebi.ac.uk/seqdb/confluence/display/THD/Clustal+Omega): *Clustal Omega is a multiple sequence alignment program for aligning three or more sequences together in a computationally efficient and accurate manner. It produces biologically meaningful multiple sequence alignments of divergent sequences.*
+> EMBOSS only provides a "wrapper" ([emma](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/emma.html)) calling an external multiple sequence 
+> alignment named `clustalw` which is an older algorithm. For protein sequences one of the recommended algorithm is a similar, newer algorithm named `clustalomega` 
+> that we will use within a different docker image.   
+> From web [clustalomega documentation](https://www.ebi.ac.uk/seqdb/confluence/display/THD/Clustal+Omega): 
+> *Clustal Omega is a multiple sequence alignment program for aligning three or more sequences together in a computationally efficient and accurate manner. 
+> It produces biologically meaningful multiple sequence alignments of divergent sequences.*
 > (See Sievers and Higgins (2018).)
+> 
 {: .callout}
 
 One of the great advantages of Docker is the modularity that it can bring to using software that is not even installed on your own computer.
