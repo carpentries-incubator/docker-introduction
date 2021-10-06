@@ -107,7 +107,6 @@ biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   63
 > > ~~~
 > > {: .output}
 > {: .solution}
-
 {: .challenge}
 
 > ## Shared directory
