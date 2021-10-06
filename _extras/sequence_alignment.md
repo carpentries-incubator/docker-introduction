@@ -359,8 +359,8 @@ $
 ~~~
 {: .output}
 
-This image  was constructed with an "entrypoint" statement as indicated by its [Dockerfile](https://hub.docker.com/r/pegi3s/clustalomega/dockerfile): `ENTRYPOINT ["clustalo"]`. This means that as the container is started the `clustalo` software is immediately engaged *i.e.* expecing sequence input. 
-However, can check if the container works and at the same time requesting help on `clustalo` with the command below simply adding `-h` to request the help information. (Also available online: [README](http://www.clustal.org/omega/README).)
+This image  was constructed with an "entrypoint" statement as indicated by its [Dockerfile](https://hub.docker.com/r/pegi3s/clustalomega/dockerfile): `ENTRYPOINT ["clustalo"]`. This means that as the container is started the `clustalo` software is immediately engaged *i.e.* expecting sequence input. 
+However, we can check if the container works and at the same time request help on `clustalo` by simply adding `-h` to request the help information. (The rather long output is also online: [README](http://www.clustal.org/omega/README).)
 
 ~~~
 $ docker run --rm  pegi3s/clustalomega -h
@@ -375,13 +375,16 @@ $
 ~~~
 {: .output}
 
-We can now proceed to align sequences. As a first attempt we'll use the multiple sequence file `peptides.fasta` located in the same directory. 
+We can now proceed to align sequences. 
+We should still be set within the `~/Desktop/docker-intro/peptides` directory as before, and we will share the current directory with the container.
+As a first attempt we'll use the multiple sequence file `peptides.fasta` located in the same directory. 
 The file contains all 4 sequences we just used previously. 
 You can check its content with the  `cat` command.
-We should still be set within the `~/Desktop/docker-intro/peptides` directory as before, and we will share the current directory with the container.
+
 Since the container uses  `ENTRYPOINT` at this time we can only use it from outside the container *i.e.* adding `-it` 
 to make the container interactive would have no effect. We can provide the minimal mandatory input required 
 as the input and output file names with `-i` and `-o` which will pass directly to the `clustalo` program.
+For now, we also need to accept that `clustalo` expects data to be found in the `/data` directory on the container.
 
 ~~~
 $ docker run --rm -v ${PWD}:/data pegi3s/clustalomega -i /data/peptides.fasta -o /data/peptides_aligned.fasta
@@ -423,6 +426,16 @@ glucagon      HSQGTFTSDYSKYLDSRRAQDFVQWLMNT----
 ~~~
 {: .output}
 
+> ## Challenge: align more sequences.
+> How would you proceed to align the hemogloin and globin sequences contained within the file `hglob.fasta`? located in the `~/Desktop/docker-intro/peptides` you copied?
+> > ## Solution
+> >
+> > Since we cannot run (for now) the container interactively we need to provide names for the input file and output result files. We can also select an alternate output format.
+> > ~~~
+> > $ docker run --rm -v ${PWD}:/data pegi3s/clustalomega --outfmt=clu -i /data/hglob.fasta -o /data/hglob_aligned.clu
+> > ~~~
+> > {: .language-bash}
+{: .challenge}
 
 ## References
 
