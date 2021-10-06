@@ -435,6 +435,7 @@ glucagon      HSQGTFTSDYSKYLDSRRAQDFVQWLMNT----
 > > $ docker run --rm -v ${PWD}:/data pegi3s/clustalomega --outfmt=clu -i /data/hglob.fasta -o /data/hglob_aligned.clu
 > > ~~~
 > > {: .language-bash}
+> {: .solution}
 {: .challenge}
 
 ## References
