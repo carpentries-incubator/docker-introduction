@@ -444,7 +444,6 @@ glucagon      HSQGTFTSDYSKYLDSRRAQDFVQWLMNT----
 > > ~~~
 > > {: .language-bash}
 > > ~~~
-> > 
 > > Using 4 threads
 > > Read 32 sequences (type: Protein) from /data/spike_32.fa
 > > not more sequences (32) than cluster-size (100), turn off mBed
@@ -456,6 +455,26 @@ glucagon      HSQGTFTSDYSKYLDSRRAQDFVQWLMNT----
 > > {: .output}
 > {: .solution}
 {: .challenge}
+
+> ## Challenge: bypassing the entry point.
+> How would you proceed to run this container interactively
+> since adding `-it` has no effect due to the built-in entry point command?
+> This aspect was explored within an earlier lesson chapter. 
+> > ## Solution
+> > We can bypass this issue if we add `-it` and `--entrypoint` followed by a suitable command.
+> > To simply enter to container the command could be "/bin/sh" or even better with "/bin/bash". For example:
+> > ~~~
+> > $ docker run --rm -it --entrypoint "/bin/bash"  pegi3s/clustalomega
+> > ~~~
+> > {: .language-bash}
+> > ~~~
+> > root@1971dd7cc161:/#
+> > ~~~
+> > {: .output} 
+> {: .solution}
+{: .challenge}
+
+
 
 ## References
 
