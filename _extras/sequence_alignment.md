@@ -12,8 +12,9 @@ objectives:
 - "Use a Docker container to accomplish tasks."
 - "Make use of shared folder."
 keypoints:
-- "You can use existing container images and Docker instead of installing additional software."
-- "Files can be shared with the container and used by the software within."
+- "You can use existing Docker images instead of installing additional software."
+- "Files can be shared with the container and used by the installed software."
+-  "Software installed within a container can be accessed from outside the container."
 ---
 
 > ## EMBOSS 
