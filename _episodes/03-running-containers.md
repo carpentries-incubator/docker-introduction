@@ -280,7 +280,7 @@ just type `exit`.
 
 > ## Even More Options
 >
-> There are many more options, besides `-it` that can be used with the `docker run`
+> There are many more options, besides `-it` that can be used with the `docker container run`
 > command!  A few of them will be covered in [later episodes](/05b-advanced-containers)
 > and we'll share two more common ones here:
 >
