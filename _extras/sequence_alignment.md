@@ -77,10 +77,10 @@ biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   63
 ~~~
 {: .output}
 
-> ## Dockerfile: make your own EMBOSS image
+> ## Challenge: make your own updated EMBOSS image.
 >
 > During the early part of the lesson we explored creating our own image thanks to a list of instruction within a `Dockerfile` document.
-> The file for this particular image is available: [Dockerfile](https://hub.docker.com/r/pegi3s/emboss/dockerfile).   
+> The file for a different but similar image is available: [Dockerfile](https://hub.docker.com/r/pegi3s/emboss/dockerfile).  
 > This information would allow you to create your own image from a newer version of Ubuntu.   
 > How would you use this information to make your own image?   
 > Find help on an earlier section of the workshop if you need, or skip this exercise for now.   
@@ -279,7 +279,7 @@ We are now back at the prompt of the local computer.
 > ## Using EMBOSS from outside the container
 > The `docker run` command used previously started an interactive container. 
 > This time, we'll provide the EMBOSS program command on the same line, and the container will start, run the EMBOSS program, and then exit after accomplishing its task.
-> {: .callout}
+{: .callout}
 
 We can accomplish this by removing the `-it` option from the `docker run` command, and adding the complete `needle` command that includes all the mandatory parameters.
 Since the command has become quite long, we can add the continuation symbol `\` to let the shell know that the file is written on 2 lines rather than a single, long line. This time we can align different sequences: GIP.fa and GLP-2.fa.
@@ -314,11 +314,11 @@ GLP-2              1 HADGSFSDEMNTILDNLAARDFINWLIQTKITD     33
 {: .output}
 
 This can easily be turned into a loop, for example aligning all sequences to that of glucagon.
+The filename extension `.fa` is removed with the `bash` method using `basename` so that the resulting file name only has `.needle` as an extension.
 However, due to the loop nature of the command, it is not possible to use the continuation symbol as we just did previously.
 
 ~~~
-$ 
-for f in G*.fa; do  b=`basename $f .fa`; docker run --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1  needle glucagon.fa $f -outfil gluc_$b.needle  -gapopen 10 -gapextend 0.5; done
+$ for f in G*.fa; do  b=`basename $f .fa`; docker run --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1  needle glucagon.fa $f -outfil gluc_$b.needle  -gapopen 10 -gapextend 0.5; done
 ~~~
 {: .language-bash}
 ~~~
@@ -328,12 +328,31 @@ Needleman-Wunsch global alignment of two sequences
 ~~~
 {: .output}
 
+The output shows that the program ran 3 times, as expected. The resulting files can be found within the current directory that you can explore using the `cat` or `tail` shell commands for example.
+
 > ## Multiple sequence alignment
-> EMBOSS only provides a "wrapper" for an external multiple sequence alignment called `clustalw` which is an older algorithm. For protein sequences one of the recommended algorithm is `clustalomega` which will use within a different docker image.   
+> EMBOSS only provides a "wrapper" ([emma](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/emma.html)) calling an external multiple sequence alignment named `clustalw` which is an older algorithm. For protein sequences one of the recommended algorithm is a similar, newer algorithm named `clustalomega` that we will use within a different docker image.   
 > From web [clustalomega documentation](https://www.ebi.ac.uk/seqdb/confluence/display/THD/Clustal+Omega): *Clustal Omega is a multiple sequence alignment program for aligning three or more sequences together in a computationally efficient and accurate manner. It produces biologically meaningful multiple sequence alignments of divergent sequences.*
-> {: .callout}
+> (See Sievers and Higgins (2018).)
+{: .callout}
 
 One of the great advantages of Docker is the modularity that it can bring to using software that is not even installed on your own computer.
+
+We can pull the image in advance. Since the `latest` tag exists the command does not requires one. It may still be informative to explore the ["Tags"](https://hub.docker.com/r/pegi3s/clustalomega/tags) page on the hub.
+
+~~~
+$ docker image pull pegi3s/clustalomega
+~~~
+{: .language-bash}
+~~~
+Using default tag: latest
+latest: Pulling from pegi3s/clustalomega
+6abc03819f3e: Pull complete 
+[...]
+$ 
+~~~
+{: .output}
+
 
 
 
@@ -341,10 +360,9 @@ One of the great advantages of Docker is the modularity that it can bring to usi
 
 Brubaker, P. L., and D. J. Drucker. 2002. “Structure-function of the glucagon receptor family of G protein-coupled receptors: the glucagon, GIP, GLP-1, and GLP-2 receptors.” Recept. Channels 8 (3-4): 179–88. https://doi.org/10.3109/10606820213687.
 
-Park, Min Kyun. 2015. “Subchapter 17A - Glucagon.” In Handbook of Hormones: Comparative Endocrinology for Basic and Clinical Research, 129–31. Academic Press. https://doi.org/10.1016/B978-0-12-801028-0.00138-0.
-
 Needleman, S. B., and C. D. Wunsch. 1970. “A general method applicable to the search for similarities in the amino acid sequence of two proteins.” J. Mol. Biol. 48 (3): 443–53. https://doi.org/10.1016/0022-2836(70)90057-4.
 
+Park, Min Kyun. 2015. “Subchapter 17A - Glucagon.” In Handbook of Hormones: Comparative Endocrinology for Basic and Clinical Research, 129–31. Academic Press. https://doi.org/10.1016/B978-0-12-801028-0.00138-0.
 
-
+Sievers, F., and D. G. Higgins. 2018. “Clustal Omega for making accurate alignments of many protein sequences.” Protein Sci. 27 (1): 135–45.
 
