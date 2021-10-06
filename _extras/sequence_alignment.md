@@ -92,7 +92,7 @@ biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   63
 >	> apt-get install -y emboss=6.6.0+dfsg-6build1
 > > ~~~
 > > {: .source}
-> > {: .solution}
+> {: .solution}
 > > 
 > This information would allow you to create your own image from a newer version of Ubuntu.
 > How would you use this information to make your own image?
