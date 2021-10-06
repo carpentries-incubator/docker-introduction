@@ -428,6 +428,8 @@ glucagon      HSQGTFTSDYSKYLDSRRAQDFVQWLMNT----
 
 > ## Challenge: align more sequences.
 > How would you proceed to align the hemogloin and globin sequences contained within the file `hglob.fasta`? located in the `~/Desktop/docker-intro/peptides` you copied?
+> 
+> Would anything be different to align the 32 spike protein sequence found in file `spike_32.fa` within the `~/Desktop/docker-intro/covid` directory?
 > > ## Solution
 > >
 > > Since we cannot run (for now) the container interactively we need to provide names for the input file and output result files. We can also select an alternate output format.
@@ -435,6 +437,23 @@ glucagon      HSQGTFTSDYSKYLDSRRAQDFVQWLMNT----
 > > $ docker run --rm -v ${PWD}:/data pegi3s/clustalomega --outfmt=clu -i /data/hglob.fasta -o /data/hglob_aligned.clu
 > > ~~~
 > > {: .language-bash}
+> > For the larger set in `spike_32.fa` we could add `-v` (verbose) to obtain more information from `clustalo` as the software is computing the alignment. 
+> > Nothing else needs to be fundamentally different. Just remember to add `--force` to run the same command again.
+> >  ~~~
+> > $ docker run --rm -v ${PWD}:/data pegi3s/clustalomega -v --outfmt=clu -i /data/spike_32.fa -o /data/spike_32_aln.clu
+> > ~~~
+> > {: .language-bash}
+> > ~~~
+> > 
+> > Using 4 threads
+> > Read 32 sequences (type: Protein) from /data/spike_32.fa
+> > not more sequences (32) than cluster-size (100), turn off mBed
+> > Calculating pairwise ktuple-distances...
+> > Ktuple-distance calculation progress done. CPU time: 0.37u 0.01s 00:00:00.38 Elapsed: 00:00:00
+> > Guide-tree computation done.
+> > Progressive alignment progress: 64 % (20 out of 31
+> > ~~~
+> > {: .output}
 > {: .solution}
 {: .challenge}
 
