@@ -54,7 +54,7 @@ We'll use an existing container for EMBOSS version 6.6.0. The following `pull` c
 Note that the lengthy tag `v6.6.0dfsg-7b1-deb_cv1` is necessary since it is not the `latest` tag.
 
 ~~~
-$ docker pull biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1
+$ docker image pull biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1
 ~~~
 {: .language-bash}
 ~~~
@@ -76,6 +76,39 @@ REPOSITORY             TAG                      IMAGE ID        CREATED       SI
 biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   638MB
 ~~~
 {: .output}
+
+> ## Dockerfile: make your own EMBOSS image
+>
+> During the early part of the lesson we explored creating our own image thanks to a list of instruction within a `Dockerfile` document.
+> The file for this particular image is available: [Dockerfile](https://hub.docker.com/r/pegi3s/emboss/dockerfile) also reproduced below.
+> ~~~
+> FROM ubuntu:18.04
+> LABEL emboss.version="6.6.0" \
+>      emboss.web="http://emboss.sourceforge.net"
+> RUN apt-get -qq update && apt-get -y upgrade && \
+>	apt-get install -y emboss=6.6.0+dfsg-6build1
+> ~~~
+> {: .source}
+> This information would allow you to create your own image from a newer version of Ubuntu.
+> How would you use this information to make your own image?
+> Find help on an earlier section of the workshop if you need, or skip this exercise for now.
+> 
+> > ## Solution
+> > 
+> > Here are some steps that would accomplish this task:
+> > 
+> > 1. Check the latest version available for ubuntu, using the [official image](https://hub.docker.com/_/ubuntu) hub page
+> > 2. replace this new version name and tag on the Dockerfile
+> > 3. Run the `docker build -t ...` command
+> > 4. Test your image with a `docker run ...` command
+> > 5. Push the image to your own hub account for future retrieval
+> > ~~~
+> > it may also include some code
+> > ~~~
+> > {: .output}
+> {: .solution}
+
+{: .challenge}
 
 > ## Shared directory
 > We'll use the EMBOSS software on files shared from our local computer.
@@ -300,9 +333,8 @@ Needleman-Wunsch global alignment of two sequences
 {: .output}
 
 > ## Multiple sequence alignment
-> EMBOSS only provides a "wrapper" for an external multiple sequence alignment called `clustalw` which is an older algorithm. For protein sequences one of the recommended algorithm is `clustalomega` which will use within a different docker image.
-
-From web [clustalomega documentation](https://www.ebi.ac.uk/seqdb/confluence/display/THD/Clustal+Omega): *Clustal Omega is a multiple sequence alignment program for aligning three or more sequences together in a computationally efficient and accurate manner. It produces biologically meaningful multiple sequence alignments of divergent sequences.*
+> EMBOSS only provides a "wrapper" for an external multiple sequence alignment called `clustalw` which is an older algorithm. For protein sequences one of the recommended algorithm is `clustalomega` which will use within a different docker image.   
+> From web [clustalomega documentation](https://www.ebi.ac.uk/seqdb/confluence/display/THD/Clustal+Omega): *Clustal Omega is a multiple sequence alignment program for aligning three or more sequences together in a computationally efficient and accurate manner. It produces biologically meaningful multiple sequence alignments of divergent sequences.*
 > {: .callout}
 
 One of the great advantages of Docker is the modularity that it can bring to using software that is not even installed on your own computer.
