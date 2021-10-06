@@ -102,11 +102,7 @@ biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   63
 > > 3. Run the `docker build -t ...` command
 > > 4. Test your image with a `docker run ...` command
 > > 5. Push the image to your own hub account for future retrieval
-> > ~~~
-> > it may also include some code
-> > ~~~
-> > {: .output}
-> {: .solution}
+> > {: .solution}
 {: .challenge}
 
 > ## Shared directory
