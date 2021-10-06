@@ -359,7 +359,69 @@ $
 ~~~
 {: .output}
 
+This image  was constructed with an "entrypoint" statement as indicated by its [Dockerfile](https://hub.docker.com/r/pegi3s/clustalomega/dockerfile): `ENTRYPOINT ["clustalo"]`. This means that as the container is started the `clustalo` software is immediately engaged *i.e.* expecing sequence input. 
+However, can check if the container works and at the same time requesting help on `clustalo` with the command below simply adding `-h` to request the help information. (Also available online: [README](http://www.clustal.org/omega/README).)
 
+~~~
+$ docker run --rm  pegi3s/clustalomega -h
+~~~
+{: .language-bash}
+~~~
+Clustal Omega - 1.2.4 (AndreaGiacomo)
+[...]
+  --long-version            Print long version information and exit
+  --force                   Force file overwriting
+$ 
+~~~
+{: .output}
+
+We can now proceed to align sequences. As a first attempt we'll use the multiple sequence file `peptides.fasta` located in the same directory. 
+The file contains all 4 sequences we just used previously. 
+You can check its content with the  `cat` command.
+We should still be set within the `~/Desktop/docker-intro/peptides` directory as before, and we will share the current directory with the container.
+Since the container uses  `ENTRYPOINT` at this time we can only use it from outside the container *i.e.* adding `-it` 
+to make the container interactive would have no effect. We can provide the minimal mandatory input required 
+as the input and output file names with `-i` and `-o` which will pass directly to the `clustalo` program.
+
+~~~
+$ docker run --rm -v ${PWD}:/data pegi3s/clustalomega -i /data/peptides.fasta -o /data/peptides_aligned.fasta
+$ cat peptides_aligned.fasta
+~~~
+{: .language-bash}
+~~~
+>GIP
+YAEGTFISDYSIAMDKIRQQDFVNWLLAQ----
+>GLP-1
+HAEGTFTSDVSSYLEGQAAKEFIAWLVKGRG--
+>GLP-2
+HADGSFSDEMNTILDNLAARDFINWLIQTKITD
+>glucagon
+HSQGTFTSDYSKYLDSRRAQDFVQWLMNT----
+~~~
+{: .output}
+
+The `-` symbols represent the gaps. Therefore it worked. 
+
+Note: running the same command will provide an error as `clustalo` will refuse to overwrite the existing `peptides_aligned.fasta` file. 
+This is a good thing! However, it is possible to override this safety by adding `--force` to the command. `clustalo` can also output
+the alignment in other formats as detailed in the help under the optional modifier `--outfmt`. We can try the `clustal` format for a more visual output:
+
+~~~
+$ docker run --rm -v ${PWD}:/data pegi3s/clustalomega --outfmt=clu -i /data/peptides.fasta -o /data/peptides_aligned.clu
+$ cat peptides_aligned.clu
+~~~
+{: .language-bash}
+~~~
+CLUSTAL O(1.2.4) multiple sequence alignment
+
+
+GIP           YAEGTFISDYSIAMDKIRQQDFVNWLLAQ----
+GLP-1         HAEGTFTSDVSSYLEGQAAKEFIAWLVKGRG--
+GLP-2         HADGSFSDEMNTILDNLAARDFINWLIQTKITD
+glucagon      HSQGTFTSDYSKYLDSRRAQDFVQWLMNT----
+              :::*:* .: .  ::    ::*: **:      
+~~~
+{: .output}
 
 
 ## References
