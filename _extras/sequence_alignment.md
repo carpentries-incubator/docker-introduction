@@ -1,8 +1,8 @@
 ---
 title: "sequence alignment - EMBOSS, clustalomega"
 layout: episode
-teaching: 20
-exercises: 0
+teaching: 10
+exercises: 20
 questions:
 - "How can I align sequences without complex installation?"
 - "How can I use a container from within and without?"
@@ -12,28 +12,31 @@ objectives:
 - "Use a Docker container to accomplish tasks."
 - "Make use of shared folder."
 keypoints:
-- "You can use existing container images and Docker instead of installing additional software."
-- "Files can be shared with the container and used by the software within."
+- "You can use existing Docker images instead of installing additional software."
+- "Files can be shared with the container and used by the software located witin the container."
+- "Software installed within a container can be accessed from outside the container, and can accessed shared files."
 ---
 
 > ## EMBOSS 
 > “The European Molecular Biology Open Software Suite” ([EMBOSS](http://emboss.sourceforge.net/) is a free Open Source software analysis package specially developed for the needs of the molecular biology user community. 
-> EMBOSS contains a large number of sequence analysis tools, and we’ll sample a few of them via a docker method. 
+> EMBOSS contains a large number of sequence analysis tools, and we’ll use one of them using a docker method. 
 {: .callout}
 
 The purpose of this tutorial is more about learning how to use a Docker container rather than learning EMBOSS itself. 
-To learn more about EMBOSS: List of applications: [emboss_apps](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/index.html) 
-grouped by [function](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/groups.html), and [emboss tutorials](http://emboss.sourceforge.net/docs/emboss_tutorial/emboss_tutorial.html)
+To learn more about EMBOSS: 
+* List of applications: [emboss_apps](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/index.html) 
+* grouped by [function](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/groups.html), and 
+* [emboss tutorials](http://emboss.sourceforge.net/docs/emboss_tutorial/emboss_tutorial.html)
 
 
 > ## Set-up
 - **Macintosh**: Double click on `Terminal` icon in the `/Applications/Utilities directory`.   
 -  **Windows**: Open `PowerShell`.  
 - **Linux**: open a new shell terminal.  
+- If you need to create a Docker ID: go to the [Docker Hub](https://hub.docker.com) to register a free account.
 {:.prereq}
 
-In your terminal shell window login Docker with your credentials. 
-If you need to create an ID now go to the [Docker Hub](https://hub.docker.com) to register a free account.
+In your terminal shell window login Docker with your Docker credentials.
 
 ~~~
 $ docker login
@@ -50,7 +53,9 @@ $
 ~~~
 {: .output}
 
-We'll use an existing container for EMBOSS version 6.6.0. The following `pull` command will make a copy of the docker image on your local computer.
+We'll use an existing container for EMBOSS version 6.6.0. 
+
+The following `pull` command will make a copy of the docker image on your local computer.
 Note that the lengthy tag `v6.6.0dfsg-7b1-deb_cv1` is necessary since it is not the `latest` tag.
 
 ~~~
@@ -65,7 +70,7 @@ $
 ~~~
 {: .output}
 
-You can verify that the image now exists on your system:
+You can verify that the image has been copied onto your computer with a listing command:
 
 ~~~
 $ docker image ls biocontainers/emboss
@@ -79,14 +84,15 @@ biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   63
 
 > ## Challenge: make your own updated EMBOSS image.
 >
-> During the early part of the lesson we explored creating our own image thanks to a list of instruction within a `Dockerfile` document.
-> The file for a different but similar image is available: [Dockerfile](https://hub.docker.com/r/pegi3s/emboss/dockerfile).  
+> During the early part of the lesson we explored creating our own Docker images thanks to a list of instruction within a `Dockerfile` document.
+> The file for a different but similar EMBOSS Docker image is available: [Dockerfile](https://hub.docker.com/r/pegi3s/emboss/dockerfile) (also shown within "Solution" below.)  
 > This information would allow you to create your own image from a newer version of Ubuntu.   
 > How would you use this information to make your own image?   
+> Could you use another Linux distributions?  
 > Find help on an earlier section of the workshop if you need, or skip this exercise for now.   
 > 
 > > ## Solution
-> > Docker file from matching the downloaded image:
+> > The [Dockerfile](https://hub.docker.com/r/pegi3s/emboss/dockerfile) from a similar image is shown below:
 > > ~~~
 > > FROM ubuntu:18.04
 > > LABEL emboss.version="6.6.0" \
@@ -103,6 +109,8 @@ biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   63
 > > * Run the `docker build -t ...` command
 > > * Test your image with a `docker run ...` command
 > > * Push the image to your own hub account for future retrieval
+> > 
+> > This solution uses Ubuntu, but other Linux distributions could be used. However, this would also require changing the `apt-get` command to that specific to the chosen distribution such as `yum` for CentOS.
 > {: .solution}
 {: .challenge}
 
@@ -112,14 +120,19 @@ biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   63
 
 Download the [`docker-intro.zip`]({{ page.root }}/files/docker-intro.zip) file. _This file can alternatively be downloaded from the `files` directory in the [docker-introduction GitHub repository][docker-introduction repository]_. Move the downloaded file to your Desktop and unzip it. It should unzip to a folder called `docker-intro`. 
 
-These are very short peptide sequencesthe glucagon family to keep the output simple. 
-*Glucagon is the principal hyperglycemic hormone, and acts as a counterbalancing hormone to insulin. 
-Glucagon is a peptide hormone of 29 amino acids that shares the same precursor molecule, proglucagon, with GLP-1 and GLP-2. 
-By tissue-specific posttranslational processing, glucagon is secreted from pancreatic α cells whereas GLP-1 and GLP-2 are secreted from intestinal L cells. 
-All these peptides have considerable sequence similarity (Park (2015).)*   
-*GIP, a related member of the glucagon peptide superfamily, also regulates nutrient disposal via stimulation of insulin secretion (Brubaker and Drucker (2002).)*
 
-Within the `docker-intro` change to the `peptides` directory. There are 4 files in the simple "fasta" sequence format.
+> ## Sequences used: glucagon family peptides
+> These are very short peptide sequences of the glucagon family to keep the input and output simple.   
+> > ## Information on physiological role of sequences:
+> > *Glucagon is the principal hyperglycemic hormone, and acts as a counterbalancing hormone to insulin. 
+> > Glucagon is a peptide hormone of 29 amino acids that shares the same precursor molecule, proglucagon, with GLP-1 and GLP-2. 
+> > By tissue-specific posttranslational processing, glucagon is secreted from pancreatic α cells whereas GLP-1 and GLP-2 are secreted from intestinal L cells. 
+> > All these peptides have considerable sequence similarity (Park (2015).)*   
+> > *GIP, a related member of the glucagon peptide superfamily, also regulates nutrient disposal via stimulation of insulin secretion (Brubaker and Drucker (2002).)*
+> {: .solution}
+{: .challenge}
+
+Within the `docker-intro` downloaded previously change to the `peptides` directory. There are 4 files in the simple ["fasta"](https://en.wikipedia.org/wiki/FASTA_format) sequence format.
 
 ~~~
 $ cd ~/Desktop/docker-intro/peptides
@@ -131,7 +144,8 @@ GIP.fa		GLP-1.fa	GLP-2.fa	glucagon.fa
 ~~~
 {: .output}
 
-We can quickly check the content of the files with the `cat` command.
+Since they are very short, we can quickly check the content of all the files at the same time with the
+following `cat` command:
 
 ~~~
 $ cat *.fa
@@ -149,7 +163,8 @@ HSQGTFTSDYSKYLDSRRAQDFVQWLMNT
 ~~~
 {: .output}
 
-We can now start a container and share the content of the current directory with the `--mount` qualifier:
+We can now start a new container and share the content of the current directory with the container by using the `--mount` qualifier. 
+This will create the `/data` directory within the container, sharing the content of the current directory which is invoqued by `${PWD}`.
 
 ~~~
 $ run -it --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1
@@ -164,8 +179,8 @@ The prompt tells us that now we are looking **within** the container.
 
 > ## Exercise: Container checks
 >
-> What commands would you use to explore the Linux system on the container?
-> What command would you use to find "who" is the default user of this container?
+> What commands would you use to explore the Linux system on the container?     
+> What command would you use to find "who" is the default user of this container?     
 > Give it a try before checking the solution.
 >
 > > ## Solution
@@ -179,7 +194,7 @@ The prompt tells us that now we are looking **within** the container.
 > > {: .language-bash}
 > > Many containers by default are running as "root" *i.e.* administrator level.
 > > However, it is often useful (or required) to run as a "regular" user. The
-> > following commands show use the user name and the shell that is running
+> > following commands show use the user name and the shell that is running:
 > > ~~~
 > > $ whoami
 > > $ cat /etc/issue
@@ -193,17 +208,23 @@ The prompt tells us that now we are looking **within** the container.
 
 
 > ## Using EMBOSS?
-> EMBOSS consists in a series of software for the analysis of protein or nucleic acid DNA and RNA sequences (but not Next Gen sequencing.)
+> EMBOSS is a collection of specialized applications used for the analysis of protein or nucleic acid DNA and RNA sequences (but not Next Gen sequencing.)
+> (List of applications: [emboss_apps](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/index.html), 
+> grouped by [function](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/groups.html).)
 {: .callout}
 
-The program `needle` is an implementation of the Needleman-Wunsch global alignment of two sequences (Needleman and Wunsch (1970).) From the EMBOSS documentation: [`needle`](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/needle.html) reads two input sequences and writes their optimal global sequence alignment to file. It uses the Needleman-Wunsch alignment algorithm to find the optimum alignment (including gaps) of two sequences along their entire length.
+The program (or application) `needle` is an implementation of the Needleman-Wunsch global alignment of two sequences (Needleman and Wunsch (1970).)   
+From the EMBOSS documentation: *[`needle`](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/needle.html) reads two input sequences and writes their optimal global sequence alignment to file. It uses the Needleman-Wunsch alignment algorithm to find the optimum alignment (including gaps) of two sequences along their entire length.*
 
-As an example we can align glucagon and GLP-1 using default parameters: press <kbd>return</kbd> or <kbd>enter</kbd> 3 times to keep the proposed default for the gap penalty and extension, and to use the suggested name for the output file:
+As an example we can align the glucagon and GLP-1 sequences using default parameters:
 
 ~~~
 $ needle glucagon.fa GLP-1.fa 
 ~~~
 {: .language-bash}
+
+To keep the proposed defaults for the gap penalty, gap extension, and to use the suggested name for the output file: press <kbd>return</kbd> or <kbd>enter</kbd> **3 times** 
+
 ~~~
 Needleman-Wunsch global alignment of two sequences
 Gap opening penalty [10.0]: 
@@ -212,7 +233,7 @@ Output alignment [glucagon.needle]:
 ~~~
 {: .output}
 
-We can now visualize the output file on the screen:
+We can now visualize the output alignment file on the screen:
 
 ~~~
 $ cat glucagon.needle 
@@ -256,15 +277,15 @@ GLP-1              1 HAEGTFTSDVSSYLEGQAAKEFIAWLVKGRG     31
 ~~~
 {: .output}
 
-While it is nice to have an interactive interface, we can also provide all the required parameters on the comand line in order to make the alignment process non interactive. These qualifiers are detailed on the [`needle`](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/needle.html) help page.
-For the above alignment example, adding the mandatory paramters the commands would be:
+While it is nice to have an interactive interface, we can also provide all the required parameters on the comand line in order to make the alignment process *non interactive*. These qualifiers are detailed on the [`needle`](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/needle.html) help page.
+For the above alignment example, adding the **mandatory parameters** the commands would be:
 
 ~~~
 $ needle glucagon.fa GLP-1.fa -outfil glucagon.needle -gapopen 10 -gapextend 0.5
 ~~~
 {: .language-bash}
 
-This is particularly useful if we want to access and use an EMBOSS program without using an interactive shell command.
+This is particularly useful if we want to access and use an EMBOSS program without using an interactive shell command, *i.e.* from outside the container.
 
 In order to do that, we'll first exit the current container. 
 
@@ -278,12 +299,12 @@ We are now back at the prompt of the local computer.
 
 > ## Using EMBOSS from outside the container
 > The `docker run` command used previously started an interactive container. 
-> This time, we'll provide the EMBOSS program command on the same line, and the container will start, run the EMBOSS program, 
+> This time, we'll provide the  EMBOSS application `needle` command on the same line complete with all parameters, and the container will start, run the EMBOSS application, 
 > and then exit after accomplishing its task.
 {: .callout}
 
 We can accomplish this by removing the `-it` option from the `docker run` command, and adding the complete `needle` command that includes all the mandatory parameters.
-Since the command has become quite long, we can add the continuation symbol `\` to let the shell know that the file is written on 2 lines rather than a single, long line. This time we can align different sequences: GIP.fa and GLP-2.fa.
+Since the command has become quite long, we can use the continuation symbol `\` to let the shell know that the file is written on 2 lines rather than a single, long line. This time we can align different sequences, for example: GIP.fa and GLP-2.fa.
 
 ~~~
 $ docker run --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1  \
@@ -315,11 +336,14 @@ GLP-2              1 HADGSFSDEMNTILDNLAARDFINWLIQTKITD     33
 {: .output}
 
 This can easily be turned into a loop, for example aligning all sequences to that of glucagon.
-The filename extension `.fa` is removed with the `bash` method using `basename` so that the resulting file name only has `.needle` as an extension.
-However, due to the loop nature of the command, it is not possible to use the continuation symbol as we just did previously.
+The filename extension `.fa` is removed with the `bash` method using `basename` so that the resulting file name only has `.needle` as an extension.  
+Some of the loop commands, ending with `;` can be written on separate lines.
+However, due to the loop nature of the command, it is not possible to use the continuation symbol `\` as we just did previously.
 
 ~~~
-$ for f in G*.fa; do  b=`basename $f .fa`; docker run --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1  needle glucagon.fa $f -outfil gluc_$b.needle  -gapopen 10 -gapextend 0.5; done
+$ for f in G*.fa; do  b=`basename $f .fa`;    
+docker run --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1 needle glucagon.fa $f -outfil gluc_$b.needle -gapopen 10 -gapextend 0.5; 
+done
 ~~~
 {: .language-bash}
 ~~~
@@ -359,8 +383,8 @@ $
 ~~~
 {: .output}
 
-This image  was constructed with an "entrypoint" statement as indicated by its [Dockerfile](https://hub.docker.com/r/pegi3s/clustalomega/dockerfile): `ENTRYPOINT ["clustalo"]`. This means that as the container is started the `clustalo` software is immediately engaged *i.e.* expecing sequence input. 
-However, can check if the container works and at the same time requesting help on `clustalo` with the command below simply adding `-h` to request the help information. (Also available online: [README](http://www.clustal.org/omega/README).)
+This image  was constructed with an "entrypoint" statement as indicated by its [Dockerfile](https://hub.docker.com/r/pegi3s/clustalomega/dockerfile): `ENTRYPOINT ["clustalo"]`. This means that as the container is started the `clustalo` software is immediately engaged *i.e.* expecting sequence input. 
+However, we can check if the container works and at the same time request help on `clustalo` by simply adding `-h` to request the help information. (The rather long output is also online: [README](http://www.clustal.org/omega/README).)
 
 ~~~
 $ docker run --rm  pegi3s/clustalomega -h
@@ -375,16 +399,19 @@ $
 ~~~
 {: .output}
 
-We can now proceed to align sequences. As a first attempt we'll use the multiple sequence file `peptides.fasta` located in the same directory. 
-The file contains all 4 sequences we just used previously. 
-You can check its content with the  `cat` command.
+We can now proceed to align sequences. 
 We should still be set within the `~/Desktop/docker-intro/peptides` directory as before, and we will share the current directory with the container.
-Since the container uses  `ENTRYPOINT` at this time we can only use it from outside the container *i.e.* adding `-it` 
+As a first attempt we'll use the *multiple sequence file* `peptides.fasta` located in the same directory. 
+The file contains all 4 sequences we just used previously in a single document. 
+If you  wish you can check its content with the  `cat` command.
+
+Since the container uses  `ENTRYPOINT` at this time we can only use it from outside the container *i.e.* adding `-it` trying 
 to make the container interactive would have no effect. We can provide the minimal mandatory input required 
 as the input and output file names with `-i` and `-o` which will pass directly to the `clustalo` program.
+`clustalo` expects data to be found in the `/data` directory created when we spawned the container.
 
 ~~~
-$ docker run --rm -v ${PWD}:/data pegi3s/clustalomega -i /data/peptides.fasta -o /data/peptides_aligned.fasta
+$ docker run --rm --mount type=bind,source=${PWD},target=/data pegi3s/clustalomega -i /data/peptides.fasta -o /data/peptides_aligned.fasta
 $ cat peptides_aligned.fasta
 ~~~
 {: .language-bash}
@@ -403,11 +430,13 @@ HSQGTFTSDYSKYLDSRRAQDFVQWLMNT----
 The `-` symbols represent the gaps. Therefore it worked. 
 
 Note: running the same command will provide an error as `clustalo` will refuse to overwrite the existing `peptides_aligned.fasta` file. 
-This is a good thing! However, it is possible to override this safety by adding `--force` to the command. `clustalo` can also output
-the alignment in other formats as detailed in the help under the optional modifier `--outfmt`. We can try the `clustal` format for a more visual output:
+This is a good thing! However, it is possible to override this safety by adding **`--force`** to the command. 
+
+`clustalo` can also output the alignment in other formats as detailed in the help under the optional modifier 
+`--outfmt`. We can try the `clustal` format for a more visual output by adding `--outfmt=clu`:
 
 ~~~
-$ docker run --rm -v ${PWD}:/data pegi3s/clustalomega --outfmt=clu -i /data/peptides.fasta -o /data/peptides_aligned.clu
+$ docker run --rm --mount type=bind,source=${PWD},target=/data pegi3s/clustalomega --outfmt=clu -i /data/peptides.fasta -o /data/peptides_aligned.clu
 $ cat peptides_aligned.clu
 ~~~
 {: .language-bash}
@@ -423,6 +452,58 @@ glucagon      HSQGTFTSDYSKYLDSRRAQDFVQWLMNT----
 ~~~
 {: .output}
 
+> ## Challenge: align more sequences.
+> How would you proceed to align the hemogloin and globin sequences contained within the file `hglob.fasta`? located in the `~/Desktop/docker-intro/peptides` you copied?
+> 
+> Would anything be different to align the 32 spike protein sequence from virus SARS_Cov-2 found in file `spike_32.fa` within the `~/Desktop/docker-intro/covid` directory?
+> 
+> > ## Solution
+> >
+> > Since we cannot run (for now) the container interactively we need to provide names for the input file and output result files. We can also select an alternate output format.
+> > ~~~
+> > $ docker run --rm --mount type=bind,source=${PWD},target=/data pegi3s/clustalomega --outfmt=clu -i /data/hglob.fasta -o /data/hglob_aligned.clu
+> > ~~~
+> > {: .language-bash}
+> > For the larger set in `spike_32.fa` we could add `-v` (verbose) to obtain more information from `clustalo` as the software is computing the alignment. 
+> > Nothing else needs to be fundamentally different. Just remember to add `--force` to run the same command again.
+> >  ~~~
+> > $ docker run --rm --mount type=bind,source=${PWD},target=/data pegi3s/clustalomega -v --outfmt=clu -i /data/spike_32.fa -o /data/spike_32_aln.clu
+> > ~~~
+> > {: .language-bash}
+> > ~~~
+> > Using 4 threads
+> > Read 32 sequences (type: Protein) from /data/spike_32.fa
+> > not more sequences (32) than cluster-size (100), turn off mBed
+> > Calculating pairwise ktuple-distances...
+> > Ktuple-distance calculation progress done. CPU time: 0.37u 0.01s 00:00:00.38 Elapsed: 00:00:00
+> > Guide-tree computation done.
+> > Progressive alignment progress: 64 % (20 out of 31
+> > ~~~
+> > {: .output}
+> {: .solution}
+{: .challenge}
+
+> ## Challenge: bypassing the entry point.
+> How would you proceed to run this container interactively
+> since adding `-it` has no effect due to the built-in entry point command?
+> This aspect was explored within an earlier lesson chapter. 
+> > ## Solution
+> > We can bypass this issue if we add `-it` and `--entrypoint` followed by a suitable command.
+> > To simply enter to container the command could be "/bin/sh" or even better with "/bin/bash". For example:
+> > ~~~
+> > $ docker run --rm -it --entrypoint "/bin/bash"  pegi3s/clustalomega
+> > ~~~
+> > {: .language-bash}
+> > ~~~
+> > root@1971dd7cc161:/#
+> > ~~~
+> > {: .output} 
+> > From this point it is possible to explore the content of the container. For example the command `which clustalo` will provide the location of the program.
+> > There is no `/data` directory as it was created "on the fly" in previous commands when sharing a directory.
+> {: .solution}
+{: .challenge}
+
+
 
 ## References
 
@@ -433,4 +514,3 @@ Needleman, S. B., and C. D. Wunsch. 1970. “A general method applicable to the 
 Park, Min Kyun. 2015. “Subchapter 17A - Glucagon.” In Handbook of Hormones: Comparative Endocrinology for Basic and Clinical Research, 129–31. Academic Press. https://doi.org/10.1016/B978-0-12-801028-0.00138-0.
 
 Sievers, F., and D. G. Higgins. 2018. “Clustal Omega for making accurate alignments of many protein sequences.” Protein Sci. 27 (1): 135–45.
-
