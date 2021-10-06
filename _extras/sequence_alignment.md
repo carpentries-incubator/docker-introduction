@@ -387,7 +387,7 @@ as the input and output file names with `-i` and `-o` which will pass directly t
 For now, we also need to accept that `clustalo` expects data to be found in the `/data` directory on the container.
 
 ~~~
-$ docker run --rm -v ${PWD}:/data pegi3s/clustalomega -i /data/peptides.fasta -o /data/peptides_aligned.fasta
+$ docker run --rm --mount type=bind,source=${PWD},target=/data pegi3s/clustalomega -i /data/peptides.fasta -o /data/peptides_aligned.fasta
 $ cat peptides_aligned.fasta
 ~~~
 {: .language-bash}
@@ -410,7 +410,7 @@ This is a good thing! However, it is possible to override this safety by adding 
 the alignment in other formats as detailed in the help under the optional modifier `--outfmt`. We can try the `clustal` format for a more visual output:
 
 ~~~
-$ docker run --rm -v ${PWD}:/data pegi3s/clustalomega --outfmt=clu -i /data/peptides.fasta -o /data/peptides_aligned.clu
+$ docker run --rm --mount type=bind,source=${PWD},target=/data pegi3s/clustalomega --outfmt=clu -i /data/peptides.fasta -o /data/peptides_aligned.clu
 $ cat peptides_aligned.clu
 ~~~
 {: .language-bash}
@@ -434,13 +434,13 @@ glucagon      HSQGTFTSDYSKYLDSRRAQDFVQWLMNT----
 > >
 > > Since we cannot run (for now) the container interactively we need to provide names for the input file and output result files. We can also select an alternate output format.
 > > ~~~
-> > $ docker run --rm -v ${PWD}:/data pegi3s/clustalomega --outfmt=clu -i /data/hglob.fasta -o /data/hglob_aligned.clu
+> > $ docker run --rm --mount type=bind,source=${PWD},target=/data pegi3s/clustalomega --outfmt=clu -i /data/hglob.fasta -o /data/hglob_aligned.clu
 > > ~~~
 > > {: .language-bash}
 > > For the larger set in `spike_32.fa` we could add `-v` (verbose) to obtain more information from `clustalo` as the software is computing the alignment. 
 > > Nothing else needs to be fundamentally different. Just remember to add `--force` to run the same command again.
 > >  ~~~
-> > $ docker run --rm -v ${PWD}:/data pegi3s/clustalomega -v --outfmt=clu -i /data/spike_32.fa -o /data/spike_32_aln.clu
+> > $ docker run --rm --mount type=bind,source=${PWD},target=/data pegi3s/clustalomega -v --outfmt=clu -i /data/spike_32.fa -o /data/spike_32_aln.clu
 > > ~~~
 > > {: .language-bash}
 > > ~~~
@@ -471,6 +471,8 @@ glucagon      HSQGTFTSDYSKYLDSRRAQDFVQWLMNT----
 > > root@1971dd7cc161:/#
 > > ~~~
 > > {: .output} 
+> > From this point it is possible to explore the content of the container. For example the command `which clustalo` will provide the location of the program.
+> > There is no `/data` directory as it was created "on the fly" in previous commands when 
 > {: .solution}
 {: .challenge}
 
