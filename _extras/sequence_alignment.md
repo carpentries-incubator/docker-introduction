@@ -87,7 +87,7 @@ biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   63
 > Find help on an earlier section of the workshop if you need, or skip this exercise for now.
 > 
 > > ## Solution
-> > Docker file:
+> > Docker file from matching the downloaded image:
 > > ~~~
 > > FROM ubuntu:18.04
 > > LABEL emboss.version="6.6.0" \
@@ -104,7 +104,7 @@ biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   63
 > > 3. Run the `docker build -t ...` command
 > > 4. Test your image with a `docker run ...` command
 > > 5. Push the image to your own hub account for future retrieval
-> > {: .solution}
+> {: .solution}
 {: .challenge}
 
 > ## Shared directory
