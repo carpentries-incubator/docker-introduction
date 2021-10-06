@@ -27,9 +27,9 @@ grouped by [function](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps
 
 
 > ## Set-up
-- Macintosh: Double click on `Terminal` icon in the `/Applications/Utilities directory`.   
--  Windows: Open `PowerShell`.  
-- Linux: open a new shell terminal.  
+- **Macintosh**: Double click on `Terminal` icon in the `/Applications/Utilities directory`.   
+-  **Windows**: Open `PowerShell`.  
+- **Linux**: open a new shell terminal.  
 {:.prereq}
 
 In your terminal shell window login Docker with your credentials. 
@@ -80,15 +80,19 @@ biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   63
 > ## Dockerfile: make your own EMBOSS image
 >
 > During the early part of the lesson we explored creating our own image thanks to a list of instruction within a `Dockerfile` document.
-> The file for this particular image is available: [Dockerfile](https://hub.docker.com/r/pegi3s/emboss/dockerfile) also reproduced below.
-> ~~~
-> FROM ubuntu:18.04
-> LABEL emboss.version="6.6.0" \
->      emboss.web="http://emboss.sourceforge.net"
-> RUN apt-get -qq update && apt-get -y upgrade && \
->	apt-get install -y emboss=6.6.0+dfsg-6build1
-> ~~~
-> {: .source}
+> The file for this particular image is available: [Dockerfile](https://hub.docker.com/r/pegi3s/emboss/dockerfile), also reproduced below.
+> 
+> > ## Solution
+> > Docker file:
+> > ~~~
+> > FROM ubuntu:18.04
+> > LABEL emboss.version="6.6.0" \
+> >    emboss.web="http://emboss.sourceforge.net"
+> > RUN apt-get -qq update && apt-get -y upgrade && \
+>	> apt-get install -y emboss=6.6.0+dfsg-6build1
+> > ~~~
+> > {: .source}
+> > {: .solution}
 > This information would allow you to create your own image from a newer version of Ubuntu.
 > How would you use this information to make your own image?
 > Find help on an earlier section of the workshop if you need, or skip this exercise for now.
