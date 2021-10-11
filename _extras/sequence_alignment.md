@@ -1,8 +1,8 @@
 ---
 title: "sequence alignment - EMBOSS, clustalomega"
 layout: episode
-teaching: 20
-exercises: 0
+teaching: 10
+exercises: 20
 questions:
 - "How can I align sequences without complex installation?"
 - "How can I use a container from within and without?"
@@ -19,22 +19,24 @@ keypoints:
 
 > ## EMBOSS 
 > “The European Molecular Biology Open Software Suite” ([EMBOSS](http://emboss.sourceforge.net/) is a free Open Source software analysis package specially developed for the needs of the molecular biology user community. 
-> EMBOSS contains a large number of sequence analysis tools, and we’ll sample a few of them via a docker method. 
+> EMBOSS contains a large number of sequence analysis tools, and we’ll use one of them using a docker method. 
 {: .callout}
 
 The purpose of this tutorial is more about learning how to use a Docker container rather than learning EMBOSS itself. 
-To learn more about EMBOSS: List of applications: [emboss_apps](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/index.html) 
-grouped by [function](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/groups.html), and [emboss tutorials](http://emboss.sourceforge.net/docs/emboss_tutorial/emboss_tutorial.html)
+To learn more about EMBOSS: 
+* List of applications: [emboss_apps](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/index.html) 
+* grouped by [function](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/groups.html), and 
+* [emboss tutorials](http://emboss.sourceforge.net/docs/emboss_tutorial/emboss_tutorial.html)
 
 
 > ## Set-up
 - **Macintosh**: Double click on `Terminal` icon in the `/Applications/Utilities directory`.   
 -  **Windows**: Open `PowerShell`.  
 - **Linux**: open a new shell terminal.  
+- If you need to create a Docker ID: go to the [Docker Hub](https://hub.docker.com) to register a free account.
 {:.prereq}
 
-In your terminal shell window login Docker with your credentials. 
-If you need to create an ID now go to the [Docker Hub](https://hub.docker.com) to register a free account.
+In your terminal shell window login Docker with your Docker credentials.
 
 ~~~
 $ docker login
@@ -51,7 +53,9 @@ $
 ~~~
 {: .output}
 
-We'll use an existing container for EMBOSS version 6.6.0. The following `pull` command will make a copy of the docker image on your local computer.
+We'll use an existing container for EMBOSS version 6.6.0. 
+
+The following `pull` command will make a copy of the docker image on your local computer.
 Note that the lengthy tag `v6.6.0dfsg-7b1-deb_cv1` is necessary since it is not the `latest` tag.
 
 ~~~
@@ -66,7 +70,7 @@ $
 ~~~
 {: .output}
 
-You can verify that the image now exists on your system:
+You can verify that the image has been copied onto your computer with a listing command:
 
 ~~~
 $ docker image ls biocontainers/emboss
@@ -80,10 +84,11 @@ biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   63
 
 > ## Challenge: make your own updated EMBOSS image.
 >
-> During the early part of the lesson we explored creating our own image thanks to a list of instruction within a `Dockerfile` document.
-> The file for a different but similar image is available: [Dockerfile](https://hub.docker.com/r/pegi3s/emboss/dockerfile).  
+> During the early part of the lesson we explored creating our own Docker images thanks to a list of instruction within a `Dockerfile` document.
+> The file for a different but similar EMBOSS Docker image is available: [Dockerfile](https://hub.docker.com/r/pegi3s/emboss/dockerfile) (also shown within "Solution" below.)  
 > This information would allow you to create your own image from a newer version of Ubuntu.   
 > How would you use this information to make your own image?   
+> Could you use another Linux distributions?
 > Find help on an earlier section of the workshop if you need, or skip this exercise for now.   
 > 
 > > ## Solution
@@ -104,6 +109,8 @@ biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   63
 > > * Run the `docker build -t ...` command
 > > * Test your image with a `docker run ...` command
 > > * Push the image to your own hub account for future retrieval
+> > 
+> > This solution uses Ubuntu, but other Linux distributions could be used. However, this would also require changing the `apt-get` command to that specific to the chosen distribution such as `yum` for CentOS.
 > {: .solution}
 {: .challenge}
 
