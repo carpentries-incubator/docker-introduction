@@ -145,7 +145,7 @@ GIP.fa		GLP-1.fa	GLP-2.fa	glucagon.fa
 {: .output}
 
 Since they are very short, we can quickly check the content of all the files at the same time with the
-following `cat` command sending all files content on the screen:
+following `cat` command:
 
 ~~~
 $ cat *.fa
@@ -163,7 +163,8 @@ HSQGTFTSDYSKYLDSRRAQDFVQWLMNT
 ~~~
 {: .output}
 
-We can now start a new container and share the content of the current directory with the container by using the `--mount` qualifier. This will create a directory called `/data` within the container, mirroring the content of the current directory invoqued by `${PWD}`.
+We can now start a new container and share the content of the current directory with the container by using the `--mount` qualifier. 
+This will create the `/data` directory within the container, sharing the content of the current directory which is invoqued by `${PWD}`.
 
 ~~~
 $ run -it --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1
@@ -178,8 +179,8 @@ The prompt tells us that now we are looking **within** the container.
 
 > ## Exercise: Container checks
 >
-> What commands would you use to explore the Linux system on the container?
-> What command would you use to find "who" is the default user of this container?
+> What commands would you use to explore the Linux system on the container?   
+> What command would you use to find "who" is the default user of this container?   
 > Give it a try before checking the solution.
 >
 > > ## Solution
