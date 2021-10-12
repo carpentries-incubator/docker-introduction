@@ -213,14 +213,18 @@ The prompt tells us that now we are looking **within** the container.
 > grouped by [function](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/groups.html).)
 {: .callout}
 
-The program `needle` is an implementation of the Needleman-Wunsch global alignment of two sequences (Needleman and Wunsch (1970).) From the EMBOSS documentation: [`needle`](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/needle.html) reads two input sequences and writes their optimal global sequence alignment to file. It uses the Needleman-Wunsch alignment algorithm to find the optimum alignment (including gaps) of two sequences along their entire length.
+The program (or application) `needle` is an implementation of the Needleman-Wunsch global alignment of two sequences (Needleman and Wunsch (1970).)   
+From the EMBOSS documentation: *[`needle`](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/needle.html) reads two input sequences and writes their optimal global sequence alignment to file. It uses the Needleman-Wunsch alignment algorithm to find the optimum alignment (including gaps) of two sequences along their entire length.*
 
-As an example we can align glucagon and GLP-1 using default parameters: press <kbd>return</kbd> or <kbd>enter</kbd> 3 times to keep the proposed default for the gap penalty and extension, and to use the suggested name for the output file:
+As an example we can align the glucagon and GLP-1 sequences using default parameters:
 
 ~~~
 $ needle glucagon.fa GLP-1.fa 
 ~~~
 {: .language-bash}
+
+To keep the proposed defaults for the gap penalty, gap extension, and to use the suggested name for the output file: press <kbd>return</kbd> or <kbd>enter</kbd> **3 times** 
+
 ~~~
 Needleman-Wunsch global alignment of two sequences
 Gap opening penalty [10.0]: 
@@ -229,7 +233,7 @@ Output alignment [glucagon.needle]:
 ~~~
 {: .output}
 
-We can now visualize the output file on the screen:
+We can now visualize the output alignment file on the screen:
 
 ~~~
 $ cat glucagon.needle 
@@ -273,15 +277,15 @@ GLP-1              1 HAEGTFTSDVSSYLEGQAAKEFIAWLVKGRG     31
 ~~~
 {: .output}
 
-While it is nice to have an interactive interface, we can also provide all the required parameters on the comand line in order to make the alignment process non interactive. These qualifiers are detailed on the [`needle`](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/needle.html) help page.
-For the above alignment example, adding the mandatory paramters the commands would be:
+While it is nice to have an interactive interface, we can also provide all the required parameters on the comand line in order to make the alignment process *non interactive*. These qualifiers are detailed on the [`needle`](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/needle.html) help page.
+For the above alignment example, adding the **mandatory parameters** the commands would be:
 
 ~~~
 $ needle glucagon.fa GLP-1.fa -outfil glucagon.needle -gapopen 10 -gapextend 0.5
 ~~~
 {: .language-bash}
 
-This is particularly useful if we want to access and use an EMBOSS program without using an interactive shell command.
+This is particularly useful if we want to access and use an EMBOSS program without using an interactive shell command, *i.e.* from outside the container.
 
 In order to do that, we'll first exit the current container. 
 
@@ -295,12 +299,12 @@ We are now back at the prompt of the local computer.
 
 > ## Using EMBOSS from outside the container
 > The `docker run` command used previously started an interactive container. 
-> This time, we'll provide the EMBOSS program command on the same line, and the container will start, run the EMBOSS program, 
+> This time, we'll provide the  EMBOSS application `needle` command on the same line complete with all parameters, and the container will start, run the EMBOSS application, 
 > and then exit after accomplishing its task.
 {: .callout}
 
 We can accomplish this by removing the `-it` option from the `docker run` command, and adding the complete `needle` command that includes all the mandatory parameters.
-Since the command has become quite long, we can add the continuation symbol `\` to let the shell know that the file is written on 2 lines rather than a single, long line. This time we can align different sequences: GIP.fa and GLP-2.fa.
+Since the command has become quite long, we can use the continuation symbol `\` to let the shell know that the file is written on 2 lines rather than a single, long line. This time we can align different sequences, for example: GIP.fa and GLP-2.fa.
 
 ~~~
 $ docker run --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1  \
@@ -336,7 +340,9 @@ The filename extension `.fa` is removed with the `bash` method using `basename` 
 However, due to the loop nature of the command, it is not possible to use the continuation symbol as we just did previously.
 
 ~~~
-$ for f in G*.fa; do  b=`basename $f .fa`; docker run --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1  needle glucagon.fa $f -outfil gluc_$b.needle  -gapopen 10 -gapextend 0.5; done
+$ for f in G*.fa; do  b=`basename $f .fa`;    
+docker run --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1  needle glucagon.fa $f -outfil gluc_$b.needle  -gapopen 10 -gapextend 0.5;   
+done
 ~~~
 {: .language-bash}
 ~~~
