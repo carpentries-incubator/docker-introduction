@@ -131,7 +131,6 @@ Download the [`docker-intro.zip`]({{ page.root }}/files/docker-intro.zip) file. 
 > {: .solution}
 {: .challenge}
 
-
 Within the `docker-intro` change to the `peptides` directory. There are 4 files in the simple "fasta" sequence format.
 
 ~~~
