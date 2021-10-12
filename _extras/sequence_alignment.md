@@ -179,8 +179,8 @@ The prompt tells us that now we are looking **within** the container.
 
 > ## Exercise: Container checks
 >
-> What commands would you use to explore the Linux system on the container?   
-> What command would you use to find "who" is the default user of this container?   
+> What commands would you use to explore the Linux system on the container?     
+> What command would you use to find "who" is the default user of this container?     
 > Give it a try before checking the solution.
 >
 > > ## Solution
@@ -194,7 +194,7 @@ The prompt tells us that now we are looking **within** the container.
 > > {: .language-bash}
 > > Many containers by default are running as "root" *i.e.* administrator level.
 > > However, it is often useful (or required) to run as a "regular" user. The
-> > following commands show use the user name and the shell that is running
+> > following commands show use the user name and the shell that is running:
 > > ~~~
 > > $ whoami
 > > $ cat /etc/issue
