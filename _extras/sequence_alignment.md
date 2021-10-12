@@ -121,7 +121,7 @@ biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   63
 Download the [`docker-intro.zip`]({{ page.root }}/files/docker-intro.zip) file. _This file can alternatively be downloaded from the `files` directory in the [docker-introduction GitHub repository][docker-introduction repository]_. Move the downloaded file to your Desktop and unzip it. It should unzip to a folder called `docker-intro`. 
 
 
-> > ## Sequences used: hort peptide sequences of the glucagon family
+> ## Sequences used: hort peptide sequences of the glucagon family
 > > These are very short peptide sequences of the glucagon family to keep the input and output simple. 
 > > *Glucagon is the principal hyperglycemic hormone, and acts as a counterbalancing hormone to insulin. 
 > > Glucagon is a peptide hormone of 29 amino acids that shares the same precursor molecule, proglucagon, with GLP-1 and GLP-2. 
