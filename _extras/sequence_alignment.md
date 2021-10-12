@@ -92,7 +92,7 @@ biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   63
 > Find help on an earlier section of the workshop if you need, or skip this exercise for now.   
 > 
 > > ## Solution
-> > [Dockerfile](https://hub.docker.com/r/pegi3s/emboss/dockerfile) docuemnt from similar image:
+> > The [Dockerfile](https://hub.docker.com/r/pegi3s/emboss/dockerfile) from a similar image is shown below:
 > > ~~~
 > > FROM ubuntu:18.04
 > > LABEL emboss.version="6.6.0" \
@@ -123,7 +123,7 @@ Download the [`docker-intro.zip`]({{ page.root }}/files/docker-intro.zip) file. 
 
 > ## Sequences used: glucagon family peptides
 > These are very short peptide sequences of the glucagon family to keep the input and output simple.   
-> > ## Info:
+> > ## Information on physiological role of sequences:
 > > *Glucagon is the principal hyperglycemic hormone, and acts as a counterbalancing hormone to insulin. 
 > > Glucagon is a peptide hormone of 29 amino acids that shares the same precursor molecule, proglucagon, with GLP-1 and GLP-2. 
 > > By tissue-specific posttranslational processing, glucagon is secreted from pancreatic α cells whereas GLP-1 and GLP-2 are secreted from intestinal L cells. 
@@ -132,7 +132,7 @@ Download the [`docker-intro.zip`]({{ page.root }}/files/docker-intro.zip) file. 
 > {: .solution}
 {: .challenge}
 
-Within the `docker-intro` change to the `peptides` directory. There are 4 files in the simple "fasta" sequence format.
+Within the `docker-intro` downloaded previously change to the `peptides` directory. There are 4 files in the simple ["fasta"](https://en.wikipedia.org/wiki/FASTA_format) sequence format.
 
 ~~~
 $ cd ~/Desktop/docker-intro/peptides
@@ -144,7 +144,8 @@ GIP.fa		GLP-1.fa	GLP-2.fa	glucagon.fa
 ~~~
 {: .output}
 
-We can quickly check the content of the files with the `cat` command.
+Since they are very short, we can quickly check the content of all the files at the same time with the
+following `cat` command sending all files content on the screen:
 
 ~~~
 $ cat *.fa
@@ -162,7 +163,7 @@ HSQGTFTSDYSKYLDSRRAQDFVQWLMNT
 ~~~
 {: .output}
 
-We can now start a container and share the content of the current directory with the `--mount` qualifier:
+We can now start a new container and share the content of the current directory with the container by using the `--mount` qualifier. This will create a directory called `/data` within the container, mirroring the content of the current directory invoqued by `${PWD}`.
 
 ~~~
 $ run -it --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1
