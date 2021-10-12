@@ -401,14 +401,14 @@ $
 
 We can now proceed to align sequences. 
 We should still be set within the `~/Desktop/docker-intro/peptides` directory as before, and we will share the current directory with the container.
-As a first attempt we'll use the multiple sequence file `peptides.fasta` located in the same directory. 
-The file contains all 4 sequences we just used previously. 
-You can check its content with the  `cat` command.
+As a first attempt we'll use the *multiple sequence file* `peptides.fasta` located in the same directory. 
+The file contains all 4 sequences we just used previously in a single document. 
+If you  wish you can check its content with the  `cat` command.
 
-Since the container uses  `ENTRYPOINT` at this time we can only use it from outside the container *i.e.* adding `-it` 
+Since the container uses  `ENTRYPOINT` at this time we can only use it from outside the container *i.e.* adding `-it` trying 
 to make the container interactive would have no effect. We can provide the minimal mandatory input required 
 as the input and output file names with `-i` and `-o` which will pass directly to the `clustalo` program.
-For now, we also need to accept that `clustalo` expects data to be found in the `/data` directory on the container.
+`clustalo` expects data to be found in the `/data` directory created when we spawned the container.
 
 ~~~
 $ docker run --rm --mount type=bind,source=${PWD},target=/data pegi3s/clustalomega -i /data/peptides.fasta -o /data/peptides_aligned.fasta
@@ -430,8 +430,10 @@ HSQGTFTSDYSKYLDSRRAQDFVQWLMNT----
 The `-` symbols represent the gaps. Therefore it worked. 
 
 Note: running the same command will provide an error as `clustalo` will refuse to overwrite the existing `peptides_aligned.fasta` file. 
-This is a good thing! However, it is possible to override this safety by adding `--force` to the command. `clustalo` can also output
-the alignment in other formats as detailed in the help under the optional modifier `--outfmt`. We can try the `clustal` format for a more visual output:
+This is a good thing! However, it is possible to override this safety by adding **`--force`** to the command. 
+
+`clustalo` can also output the alignment in other formats as detailed in the help under the optional modifier 
+`--outfmt`. We can try the `clustal` format for a more visual output by adding `--outfmt=clu`:
 
 ~~~
 $ docker run --rm --mount type=bind,source=${PWD},target=/data pegi3s/clustalomega --outfmt=clu -i /data/peptides.fasta -o /data/peptides_aligned.clu
@@ -453,7 +455,8 @@ glucagon      HSQGTFTSDYSKYLDSRRAQDFVQWLMNT----
 > ## Challenge: align more sequences.
 > How would you proceed to align the hemogloin and globin sequences contained within the file `hglob.fasta`? located in the `~/Desktop/docker-intro/peptides` you copied?
 > 
-> Would anything be different to align the 32 spike protein sequence found in file `spike_32.fa` within the `~/Desktop/docker-intro/covid` directory?
+> Would anything be different to align the 32 spike protein sequence from virus SARS_Cov-2 found in file `spike_32.fa` within the `~/Desktop/docker-intro/covid` directory?
+> 
 > > ## Solution
 > >
 > > Since we cannot run (for now) the container interactively we need to provide names for the input file and output result files. We can also select an alternate output format.
@@ -496,7 +499,7 @@ glucagon      HSQGTFTSDYSKYLDSRRAQDFVQWLMNT----
 > > ~~~
 > > {: .output} 
 > > From this point it is possible to explore the content of the container. For example the command `which clustalo` will provide the location of the program.
-> > There is no `/data` directory as it was created "on the fly" in previous commands when 
+> > There is no `/data` directory as it was created "on the fly" in previous commands when sharing a directory.
 > {: .solution}
 {: .challenge}
 
