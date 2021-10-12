@@ -92,7 +92,7 @@ biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   63
 > Find help on an earlier section of the workshop if you need, or skip this exercise for now.   
 > 
 > > ## Solution
-> > Docker file from matching the downloaded image:
+> > [Dockerfile](https://hub.docker.com/r/pegi3s/emboss/dockerfile) docuemnt from similar image:
 > > ~~~
 > > FROM ubuntu:18.04
 > > LABEL emboss.version="6.6.0" \
@@ -123,6 +123,7 @@ Download the [`docker-intro.zip`]({{ page.root }}/files/docker-intro.zip) file. 
 
 > ## Sequences used: glucagon family
 > These are very short peptide sequences of the glucagon family to keep the input and output simple.   
+> > ## Info:
 > > *Glucagon is the principal hyperglycemic hormone, and acts as a counterbalancing hormone to insulin. 
 > > Glucagon is a peptide hormone of 29 amino acids that shares the same precursor molecule, proglucagon, with GLP-1 and GLP-2. 
 > > By tissue-specific posttranslational processing, glucagon is secreted from pancreatic α cells whereas GLP-1 and GLP-2 are secreted from intestinal L cells. 
