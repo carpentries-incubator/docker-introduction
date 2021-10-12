@@ -208,7 +208,9 @@ The prompt tells us that now we are looking **within** the container.
 
 
 > ## Using EMBOSS?
-> EMBOSS consists in a series of software for the analysis of protein or nucleic acid DNA and RNA sequences (but not Next Gen sequencing.)
+> EMBOSS is a collection of specialized applications used for the analysis of protein or nucleic acid DNA and RNA sequences (but not Next Gen sequencing.)
+> (List of applications: [emboss_apps](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/index.html), 
+> grouped by [function](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/groups.html).)
 {: .callout}
 
 The program `needle` is an implementation of the Needleman-Wunsch global alignment of two sequences (Needleman and Wunsch (1970).) From the EMBOSS documentation: [`needle`](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/needle.html) reads two input sequences and writes their optimal global sequence alignment to file. It uses the Needleman-Wunsch alignment algorithm to find the optimum alignment (including gaps) of two sequences along their entire length.
