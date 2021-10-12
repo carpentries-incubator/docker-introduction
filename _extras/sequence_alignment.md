@@ -336,12 +336,13 @@ GLP-2              1 HADGSFSDEMNTILDNLAARDFINWLIQTKITD     33
 {: .output}
 
 This can easily be turned into a loop, for example aligning all sequences to that of glucagon.
-The filename extension `.fa` is removed with the `bash` method using `basename` so that the resulting file name only has `.needle` as an extension.
-However, due to the loop nature of the command, it is not possible to use the continuation symbol as we just did previously.
+The filename extension `.fa` is removed with the `bash` method using `basename` so that the resulting file name only has `.needle` as an extension.  
+Some of the loop commands, ending with `;` can be written on separate lines.
+However, due to the loop nature of the command, it is not possible to use the continuation symbol `\` as we just did previously.
 
 ~~~
 $ for f in G*.fa; do  b=`basename $f .fa`;    
-docker run --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1  needle glucagon.fa $f -outfil gluc_$b.needle  -gapopen 10 -gapextend 0.5;   
+docker run --rm --mount type=bind,source=${PWD},target=/data biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1 needle glucagon.fa $f -outfil gluc_$b.needle -gapopen 10 -gapextend 0.5; 
 done
 ~~~
 {: .language-bash}
