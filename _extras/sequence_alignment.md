@@ -514,4 +514,3 @@ Needleman, S. B., and C. D. Wunsch. 1970. “A general method applicable to the 
 Park, Min Kyun. 2015. “Subchapter 17A - Glucagon.” In Handbook of Hormones: Comparative Endocrinology for Basic and Clinical Research, 129–31. Academic Press. https://doi.org/10.1016/B978-0-12-801028-0.00138-0.
 
 Sievers, F., and D. G. Higgins. 2018. “Clustal Omega for making accurate alignments of many protein sequences.” Protein Sci. 27 (1): 135–45.
-
