@@ -53,6 +53,47 @@ There are too many varieties of Linux to give precise instructions here, but hop
  - [Docker Engine on Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)
  - [Docker Engine on Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
+### Verify Installation
+
+To quickly check if the Docker and client and server are working run the following command in a new terminal or ssh session:
+~~~
+$ docker version
+~~~
+{: .language-bash}
+~~~
+Client:
+ Version:           20.10.2
+ API version:       1.41
+ Go version:        go1.13.8
+ Git commit:        20.10.2-0ubuntu2
+ Built:             Tue Mar  2 05:52:27 2021
+ OS/Arch:           linux/arm64
+ Context:           default
+ Experimental:      true
+
+Server:
+ Engine:
+  Version:          20.10.2
+  API version:      1.41 (minimum version 1.12)
+  Go version:       go1.13.8
+  Git commit:       20.10.2-0ubuntu2
+  Built:            Tue Mar  2 05:45:16 2021
+  OS/Arch:          linux/arm64
+  Experimental:     false
+ containerd:
+  Version:          1.4.4-0ubuntu1
+  GitCommit:        
+ runc:
+  Version:          1.0.0~rc95-0ubuntu1~21.04.1
+  GitCommit:        
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        
+~~~
+{: .output}
+
+The above output shows a successful installation and will vary based on your system.  The important part is that the "Client" and the "Server" parts are both working and returns information.  It is beyond the scope of this document to debug installation problems but common errors include the user not belonging to the `docker` group and forgetting to start a new terminal or ssh session.
+
 ### A quick tutorial on copy/pasting file contents from episodes of the lesson
 Let's say you want to copy text off the lesson website and paste it into a file named `myfile` in the current working directory of a shell window. This can be achieved in many ways, depending on your computer's operating system, but routes I have found work for me:
 - macOS and Linux: you are likely to have the `nano` editor installed, which provides you with a very straightforward way to create such a file, just run `nano myfile`, then paste text into the shell window, and press <kbd>control</kbd>+<kbd>x</kbd> to exit: you will be prompted whether you want to save changes to the file, and you can type <kbd>y</kbd> to say "yes".
