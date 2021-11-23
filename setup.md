@@ -39,7 +39,7 @@ If you already use Homebrew or MacPorts to manage your software, and would prefe
 tools rather than Docker's installer, you can do so. For Homebrew, you can run the command
 `brew install --cask docker`. Note that you still need to run the Docker graphical user interface
 once to complete the initial setup, after which time the command line functionality of Docker will
-become available. The homebrew install of Docker also requires a minimum macOS version of 10.14.
+become available. The Homebrew install of Docker also requires a minimum macOS version of 10.14.
 The MacPorts Docker port should support older, as well as the most recent, operating system
 versions (see the [port details](https://ports.macports.org/port/docker/details/)), but note that
 we have not recently tested the Docker installation process via MacPorts.
