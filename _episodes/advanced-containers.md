@@ -5,22 +5,22 @@ exercises: 30
 questions:
 - "How can I make more complex container images? "
 objectives:
-- "Explain how you can include files within Docker images when you build them."
+- "Explain how you can include files within Docker container images when you build them."
 - "Explain how you can access files on the Docker host from your Docker containers."
 keypoints:
 - Docker allows containers to read and write files from the Docker host.
-- You can include files from your Docker host into your Docker images by using the `COPY` instruction in your `Dockerfile`.
+- You can include files from your Docker host into your Docker container images by using the `COPY` instruction in your `Dockerfile`.
 ---
 
-In order to create and use your own containers, you may need more information than
+In order to create and use your own container images, you may need more information than
 our previous example. You may want to use files from outside the container, 
 that are not included within the container image, either by copying the files 
-into the container, or by making them visible within the container from their 
-existing location on your main system. You may also want to learn a little bit 
-about how to install software within a running container or an image. 
-This episode will look at these advanced aspects of running or building 
-a container. Note that the examples will get gradually
-more and more complex -- most day-to-day use of containers can be accomplished
+into the container image, or by making them visible within the container from their 
+existing location on your host system. You may also want to learn a little bit 
+about how to install software within a running container or a container image. 
+This episode will look at these advanced aspects of running a container or building 
+a container image. Note that the examples will get gradually
+more and more complex -- most day-to-day use of containers and container images can be accomplished
 using the first 1--2 sections on this page.
 
 ## Using scripts and files from outside the container
@@ -35,8 +35,8 @@ $ ls
 {: .language-bash}
 
 This folder has both a `Dockerfile` and a Python script called `sum.py`. Let's say
-we wanted to try running the script using our recently created `alpine-python`
-container.
+we wanted to try running the script using a container based on our recently created `alpine-python`
+container image.
 
 > ## Running containers
 >
@@ -64,7 +64,7 @@ python3: can't open file 'sum.py': [Errno 2] No such file or directory
 The problem here is that the container and its filesystem is separate from our
 host computer's filesystem. When the container runs, it can't see anything outside
 itself, including any of the files on our computer. In order to use Python
-(inside the container) and our script (outside the container, on our computer),
+(inside the container) and our script (outside the container, on our host computer),
 we need to create a link between the directory on our computer and the container.
 
 This link is called a "mount" and is what happens automatically when a USB drive
@@ -77,7 +77,7 @@ in our current working directory. The option will look like this
 
 `-v ${PWD}:/temp`
 
-What this means is -- link my current directory with the container, and inside the
+What this means is -- link my current directory (on the host) with the container, and inside the
 container, name the directory `/temp`
 
 Let's try running the command now:
@@ -156,11 +156,11 @@ and will stay there even when the container stops.
 > > - `docker container run`: use Docker to run a container
 > > - `-v ${PWD}:/temp`: connect my current working directory (`${PWD}`) as a folder
 > > inside the container called `/temp`
-> > - `alice/alpine-python`: name of the container to run
+> > - `alice/alpine-python`: name of the container image to use to run the container
 > > - `python3 /temp/sum.py`: what commands to run in the container
 > >
 > > More generally, every Docker command will have the form:
-> > `docker [action] [docker options] [docker image] [command to run inside]`
+> > `docker [action] [docker options] [docker container image] [command to run inside]`
 > >
 > {: .solution}
 {: .challenge}
@@ -168,7 +168,7 @@ and will stay there even when the container stops.
 > ## Exercise: Interactive jobs
 >
 > Try using the directory mount option but run the container interactively.
-> Can you find the folder that's connected to your computer? What's inside?
+> Can you find the folder that's connected to your host computer? What's inside?
 >
 > > ## Solution
 > >
@@ -179,7 +179,7 @@ and will stay there even when the container stops.
 > > {: .language-bash}
 > >
 > > Once inside, you should be able to navigate to the `/temp` folder
-> > and see that's contents are the same as the files on your computer:
+> > and see that's contents are the same as the files on your host computer:
 > > ~~~
 > > /# cd /temp
 > > /# ls
@@ -188,15 +188,15 @@ and will stay there even when the container stops.
 > {: .solution}
 {: .challenge}
 
-Mounting a folder can be very useful when you want to run the software inside your container on many different input files.
-In other situations, you may want to save or archive an authoritative version of your data by adding it to the container permanently.  That's what we will cover next.
+Mounting a directory can be very useful when you want to run the software inside your container on many different input files.
+In other situations, you may want to save or archive an authoritative version of your data by adding it to the container image permanently.  That's what we will cover next.
 
 ## Including your scripts and data within a container image
 
-Our next project will be to add our own files to a container -- something you
+Our next project will be to add our own files to a container image -- something you
 might want to do if you're sharing a finished analysis or just want to have
 an archived copy of your entire analysis including the data. Let's assume that we've finished with our `sum.py`
-script and want to add it to the container itself.
+script and want to add it to the container image itself.
 
 In your shell, you should still be in the `sum` folder in the `docker-intro` folder.
 ~~~
@@ -216,7 +216,7 @@ COPY sum.py /home
 ~~~
 
 This line will cause Docker to copy the file from your computer into the container's
-filesystem. Let's build the container like before, but give it a different name:
+filesystem. Let's build the container image like before, but give it a different name:
 
 ~~~
 $ docker image build -t alice/alpine-sum .
@@ -231,8 +231,8 @@ $ docker image build -t alice/alpine-sum .
 > commands before your `COPY` commands.
 > 
 > Docker builds the layers of commands in order.
-> This becomes important when you need to rebuild images.
-> If you change layers later in the `Dockerfile` and rebuild the image, Docker doesn't need to 
+> This becomes important when you need to rebuild container images.
+> If you change layers later in the `Dockerfile` and rebuild the container image, Docker doesn't need to 
 > rebuild the earlier layers but will instead used a stored (called "cached") version of
 > those layers.
 > 
@@ -267,20 +267,20 @@ $ docker image build -t alice/alpine-sum .
 > {: .solution}
 {: .challenge}
 
-This `COPY` keyword can be used to place your own scripts or own data into a container
+This `COPY` keyword can be used to place your own scripts or own data into a container image
 that you want to publish or use as a record. Note that it's not necessarily a good idea
-to put your scripts inside the container if you're constantly changing or editing them.
+to put your scripts inside the container image if you're constantly changing or editing them.
 Then, referencing the scripts from outside the container is a good idea, as we
 did in the previous section. You also want to think carefully about size -- if you
-run `docker image ls` you'll see the size of each image all the way on the right of
-the screen. The bigger your image becomes, the harder it will be to easily download.
+run `docker image ls` you'll see the size of each container image all the way on the right of
+the screen. The bigger your container image becomes, the harder it will be to easily download.
 
 > ## Copying alternatives
 >
-> Another trick for getting your own files into a container is by using the `RUN`
+> Another trick for getting your own files into a container image is by using the `RUN`
 > keyword and downloading the files from the internet. For example, if your code
 > is in a GitHub repository, you could include this statement in your Dockerfile
-> to download the latest version every time you build the container:
+> to download the latest version every time you build the container image:
 >
 > ~~~
 > RUN git clone https://github.com/alice/mycode
@@ -300,7 +300,7 @@ the screen. The bigger your image becomes, the harder it will be to easily downl
 
 ## More fancy `Dockerfile` options (optional, for presentation or as exercises)
 
-We can expand on the example above to make our container even more "automatic".
+We can expand on the example above to make our container image even more "automatic".
 Here are some ideas:
 
 ### Make the `sum.py` script run automatically
@@ -340,8 +340,8 @@ This is because the arguments `10 11 12` are interpreted as a
 *command* that replaces the default command given by `CMD
 ["python3", "/home/sum.py"]` in the image.
 
-To achieve the goal of having a command that *always* runs when the
-container is run *and* can be passed the arguments given on the
+To achieve the goal of having a command that *always* runs when a
+container is run from the container image *and* can be passed the arguments given on the
 command line, use the keyword `ENTRYPOINT` in the `Dockerfile`.
 
 ~~~
@@ -371,7 +371,7 @@ $ docker container run alpine-sum:v2 12 13 14
 
 > ## Overriding the ENTRYPOINT
 > Sometimes you don't want to run the
-> image's `ENTRYPOINT`. For example if you have a specialized image
+> image's `ENTRYPOINT`. For example if you have a specialized container image
 > that does only sums, but you need an interactive shell to examine
 > the container:
 > ~~~
@@ -383,7 +383,7 @@ $ docker container run alpine-sum:v2 12 13 14
 > Please supply integer arguments
 > ~~~
 > {: .output}
-> You need to override the `ENTRYPOINT` statement in the image like so:
+> You need to override the `ENTRYPOINT` statement in the container image like so:
 > ~~~
 > $ docker container run -it --entrypoint /bin/sh alpine-sum:v2
 > ~~~
