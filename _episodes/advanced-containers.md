@@ -118,7 +118,7 @@ and will stay there even when the container stops.
 > `/home/alice`.  If the directory doesn't exist in the image it will create it.
 >
 > ~~~
-> docker container run -w /home/alice/ -i -t  ubuntu pwd
+> docker container run -w /home/alice/ ubuntu pwd
 > ~~~
 >
 > The `--user`/`-u` flag lets you specify the username you would like to run the
@@ -146,7 +146,7 @@ and will stay there even when the container stops.
 > ## Exercise: Checking the options
 >
 > Our Docker command has gotten much longer! Can you go through each piece of
-> the Docker command above the explain what it does? How would you characterize
+> the Docker command above and explain what it does? How would you characterize
 > the key components of a Docker command?
 >
 > > ## Solution
