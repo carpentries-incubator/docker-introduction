@@ -395,13 +395,13 @@ $ docker container run alpine-sum:v2 12 13 14
 ~~~
 FROM alpine
 
+RUN apk add --update python3 py3-pip python3-dev
+
 COPY sum.py /home
 # set script permissions
 RUN chmod +x /home/sum.py
 # add /home folder to the PATH
 ENV PATH /home:$PATH
-
-RUN apk add --update python3 py3-pip python3-dev
 ~~~
 
 Build and test it:
