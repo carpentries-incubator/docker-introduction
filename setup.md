@@ -29,6 +29,24 @@ Note that the above installation instructions highlight a minimum version or "bu
 
 If you are unable to follow the above instructions to install Docker Desktop on your Windows system, the final release of the deprecated Docker Toolbox version of Docker for Windows can be downloaded from the [releases page of the Docker Toolbox GitHub repository](https://github.com/docker/toolbox/releases). (Download the `.exe` file for the Windows installer). _Please note that this final release of Docker Toolbox includes an old version of Docker and you are strongly advised not to attempt to use this for any production use. It will, however, enable you to follow along with the lesson material._
 
+> ## Warning: Git Bash
+> If you are using Git Bash as your terminal on Windows then you should be aware that you may run
+> into issues running some of the commands in this lesson as Git Bash will automatically re-write
+> any paths you specify at the command line into Windows versions of the paths and this will confuse
+> the Docker container you are trying to use. For example, if you enter the command:
+> ```
+> docker run alpine cat /etc/os-release
+> ```
+> Git Bash will change the `/etc/os-release` path to `C:\etc\os-release\` before passing the command
+> to the Docker container and the container will report an error. If you want to use Git Bash then you
+> can request that this path translation does not take place by adding an extra `/` to the start of the
+> path. i.e. the command would become:
+> ```
+> docker run alpine cat //etc/os-release
+> ```
+> This should suppress the path translation functionality in Git Bash.
+{: .callout}
+
 #### Apple macOS
 
 Ideally, you will be able to install the Docker Desktop software, following the
