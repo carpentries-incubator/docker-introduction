@@ -131,7 +131,7 @@ One final term: while the **container** is an alternative filesystem layer that 
 can access and run from your computer, the **container image** is the 'recipe' or template
 for a container. The container image has all the required information to start
 up a running copy of the container. A running container tends to be transient
-and can be started and shut down. The contiainer image is more long-lived, as a definition for the container.
+and can be started and shut down. The container image is more long-lived, as a definition for the container.
 You could think of the container image like a cookie cutter -- it
 can be used to create multiple copies of the same shape (or container)
 and is relatively unchanging, where cookies come and go. If you want a
@@ -168,9 +168,10 @@ a research context include:
 - Using containers solely on your own computer to use a specific software tool
   or to test out a tool (possibly to avoid a difficult and complex installation
   process, to save your time or to avoid dependency hell).
-- Setting up software in a container image and then sharing it with your collaborators
-  for use on their computers or a remote computing resource (e.g. cloud-based or HPC
-  system).
+- Creating a `Dockerfile` that generates a container image with software that you
+  specify installed, then sharing a container image generated using this Dockerfile with
+  your collaborators for use on their computers or a remote computing resource
+  (e.g. cloud-based or HPC system).
 - Archiving the container images so you can repeat analysis/modelling using the
   same software and configuration in the future -- capturing your workflow.
 

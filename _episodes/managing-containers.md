@@ -150,7 +150,7 @@ Deleted: sha256:af0b15c8625bb1938f1d7b17081031f649fd14e6b233688eea3c5483994a66a3
 {: .output}
 
 The reason that there are a few lines of output, is that a given container image may have been formed by merging multiple underlying layers.
-Any layers that are used by multiple Docker contianer images will only be stored once.
+Any layers that are used by multiple Docker container images will only be stored once.
 Now the result of `docker image ls` should no longer include the `hello-world` container image.
 
 {% include links.md %}

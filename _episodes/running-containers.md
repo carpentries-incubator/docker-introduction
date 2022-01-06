@@ -151,7 +151,7 @@ $ docker container run alpine
 ~~~
 {: .language-bash}
 
-If you never used the `alpine` Docker container image on your computer, Docker probably printed a
+If you have never used the `alpine` Docker container image on your computer, Docker probably printed a
 message that it couldn't find the container image and had to download it.
 If you used the `alpine` container image before, the command will probably show no output. That's
 because this particular container is designed for you to provide commands yourself. Try running
@@ -188,7 +188,7 @@ command and they will execute inside the running container.
 In all the examples above, Docker has started the container, run a command, and then
 immediately stopped the container. But what if we wanted to keep the container
 running so we could log into it and test drive more commands? The way to
-do this is by adding the interactive flags `-it`
+do this is by adding the interactive flags `-i` and `-t` (usually combined as `-it`)
 to the `docker container run` command and provide a shell (`bash`,`sh`, etc.)
 as our command. The `alpine` Docker container image doesn't include `bash` so we need
 to use `sh`.

@@ -15,7 +15,7 @@ keypoints:
 In order to create and use your own container images, you may need more information than
 our previous example. You may want to use files from outside the container, 
 that are not included within the container image, either by copying the files 
-into the container image, or by making them visible within the container from their 
+into the container image, or by making them visible within a running container from their 
 existing location on your host system. You may also want to learn a little bit 
 about how to install software within a running container or a container image. 
 This episode will look at these advanced aspects of running a container or building 
@@ -77,8 +77,8 @@ in our current working directory. The option will look like this
 
 `-v ${PWD}:/temp`
 
-What this means is -- link my current directory (on the host) with the container, and inside the
-container, name the directory `/temp`
+What this means is -- link my current working directory (on the host computer) with the
+container that is about to be started, and inside this container, name the directory `/temp`.
 
 Let's try running the command now:
 ~~~
