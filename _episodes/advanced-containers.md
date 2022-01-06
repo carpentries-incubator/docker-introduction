@@ -275,6 +275,12 @@ did in the previous section. You also want to think carefully about size -- if y
 run `docker image ls` you'll see the size of each container image all the way on the right of
 the screen. The bigger your container image becomes, the harder it will be to easily download.
 
+> ## Security warning
+> Login credentials including passwords, tokens, secure access tokens or other secrets
+> must never be stored in a container. If secrets are stored, they are at high risk to
+> be found and exploited when made public.
+{: .callout}
+
 > ## Copying alternatives
 >
 > Another trick for getting your own files into a container image is by using the `RUN`
@@ -395,13 +401,13 @@ $ docker container run alpine-sum:v2 12 13 14
 ~~~
 FROM alpine
 
+RUN apk add --update python3 py3-pip python3-dev
+
 COPY sum.py /home
 # set script permissions
 RUN chmod +x /home/sum.py
 # add /home folder to the PATH
 ENV PATH /home:$PATH
-
-RUN apk add --update python3 py3-pip python3-dev
 ~~~
 
 Build and test it:

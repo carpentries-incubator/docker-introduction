@@ -19,12 +19,6 @@ keypoints:
 - "Docker is just one software platform that can create containers and the resources they use."
 ---
 
-### Disclaimers
-
-1. Docker is complex software used for many different purposes. We are unlikely to give examples that suit all of your potential ideal use-cases, but would be delighted to at least open up a discussion of what those use-cases might be.
-
-2. Containers are a topic that can require a significant amount of technical background to understand in detail. Most of the time containers, particularly as provided by Docker, do not require you to have a deep technical understanding of container technology in order to make use of them, but when things go wrong, the diagnostic messages may become difficult to understand.
-
 > ## Learning about Docker Containers
 >
 > The Australian Research Data Commons has produced a short introductory video
