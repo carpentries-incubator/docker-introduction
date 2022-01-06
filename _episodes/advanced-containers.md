@@ -277,8 +277,8 @@ the screen. The bigger your image becomes, the harder it will be to easily downl
 
 > ## Security warning
 > Login credentials including passwords, tokens, secure access tokens or other secrets
-> must never be stored in a container. If secrets are stored, they will be found and
-> exploited when made public - either in the near or distant future.
+> must never be stored in a container. If secrets are stored, they are at high risk to
+> be found and exploited when made public.
 {: .callout}
 
 > ## Copying alternatives
