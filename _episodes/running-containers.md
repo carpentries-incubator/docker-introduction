@@ -3,22 +3,22 @@ title: "Exploring and Running Containers"
 teaching: 20
 exercises: 10
 questions:
-- "How do I interact with a Docker container on my computer?"
+- "How do I interact with Docker containers and container images on my computer?"
 objectives:
-- "Use the correct command to see which Docker images are on your computer."
-- "Be able to download new Docker images."
-- "Demonstrate how to start an instance of a container from an image."
+- "Use the correct command to see which Docker container images are on your computer."
+- "Be able to download new Docker container images."
+- "Demonstrate how to start an instance of a container from a container image."
 - "Describe at least two ways to execute commands inside a running Docker container."
 keypoints:
-- "The `docker image pull` command downloads Docker images from the internet."
-- "The `docker image ls` command lists Docker images that are (now) on your computer."
-- "The `docker container run` command creates running containers from images and can run commands inside them."
+- "The `docker image pull` command downloads Docker container images from the internet."
+- "The `docker image ls` command lists Docker container images that are (now) on your computer."
+- "The `docker container run` command creates running containers from container images and can run commands inside them."
 - "When using the `docker container run` command, a container can run a default action (if it
 has one), a user specified action, or a shell to be used interactively."
 ---
 
-> ## Reminder of terminology: images and containers
-> Recall that a container "image" is the template from which particular instances of containers will be created.
+> ## Reminder of terminology: container images and containers
+> Recall that a *container image* is the template from which particular instances of *containers* will be created.
 {: .callout}
 
 Let's explore our first Docker container. The Docker team provides a simple container
@@ -26,7 +26,7 @@ image online called `hello-world`. We'll start with that one.
 
 ## Downloading Docker images
 
-The `docker image` command is used to interact with Docker images.
+The `docker image` command is used to interact with Docker container images.
 You can find out what container images you have on your computer by using the following command ("ls" is short for "list"):
 ~~~
 $ docker image ls
@@ -34,9 +34,9 @@ $ docker image ls
 {: .language-bash}
 
 If you've just
-installed Docker, you won't see any images listed.
+installed Docker, you won't see any container images listed.
 
-To get a copy of the `hello-world` Docker image from the internet, run this command:
+To get a copy of the `hello-world` Docker container image from the internet, run this command:
 ~~~
 $ docker image pull hello-world
 ~~~
@@ -55,20 +55,20 @@ docker.io/library/hello-world:latest
 
 > ## Docker Hub
 >
-> Where did the `hello-world` image come from? It came from the Docker Hub
-> website, which is a place to share Docker images with other people. More on that
+> Where did the `hello-world` container image come from? It came from the Docker Hub
+> website, which is a place to share Docker container images with other people. More on that
 > in a later episode.
 {: .callout}
 
 > ## Exercise: Check on Your Images
 >
-> What command would you use to see if the `hello-world` Docker image had downloaded
+> What command would you use to see if the `hello-world` Docker container image had downloaded
 > successfully and was on your computer?
 > Give it a try before checking the solution.
 >
 > > ## Solution
 > >
-> > To see if the `hello-world` image is now on your computer, run:
+> > To see if the `hello-world` container image is now on your computer, run:
 > > ~~~
 > > $ docker image ls
 > > ~~~
@@ -76,15 +76,15 @@ docker.io/library/hello-world:latest
 > {: .solution}
 {: .challenge}
 
-Note that the downloaded `hello-world` image is not in the folder where you are in the terminal! (Run
-`ls` by itself to check.) The image is not a file like our normal programs and documents;
+Note that the downloaded `hello-world` container image is not in the folder where you are in the terminal! (Run
+`ls` by itself to check.) The container image is not a file like our normal programs and documents;
 Docker stores it in a specific location that isn't commonly accessed, so it's necessary
-to use the special `docker image` command to see what Docker images you have on your
+to use the special `docker image` command to see what Docker container images you have on your
 computer.
 
 ## Running the `hello-world` container
 
-To create and run containers from named Docker images you use the `docker container run` command. Try the following `docker container run` invocation. Note that it does not matter what your current working directory is.
+To create and run containers from named Docker container images you use the `docker container run` command. Try the following `docker container run` invocation. Note that it does not matter what your current working directory is.
 
 ~~~
 $ docker container run hello-world
@@ -118,7 +118,7 @@ What just happened? When we use the `docker container run` command, Docker does 
 
 | 1. Starts a Running Container | 2. Performs Default Action | 3. Shuts Down the Container
 | --------------------|-----------------|----------------|
-| Starts a running container, based on the image. Think of this as the "alive" or "inflated" version of the container -- it's actually doing something. | If the container has a default action set, it will perform that default action. This could be as simple as printing a message (as above) or running a whole analysis pipeline! | Once the default action is complete, the container stops running (or exits). The image is still there, but nothing is actively running. |
+| Starts a running container, based on the container image. Think of this as the "alive" or "inflated" version of the container -- it's actually doing something. | If the container has a default action set, it will perform that default action. This could be as simple as printing a message (as above) or running a whole analysis pipeline! | Once the default action is complete, the container stops running (or exits). The container image is still there, but nothing is actively running. |
 
 The `hello-world` container is set up to run an action by default --
 namely to print this message.
@@ -126,21 +126,21 @@ namely to print this message.
 > ## Using `docker container run` to get the image
 >
 > We could have skipped the `docker image pull` step; if you use the `docker container run`
-> command and you don't already have a copy of the Docker image, Docker will
-> automatically pull the image first and then run it.
+> command and you don't already have a copy of the Docker container image, Docker will
+> automatically pull the container image first and then run it.
 {: .callout}
 
 ## Running a container with a chosen command
 
 But what if we wanted to do something different with the container? The output
-just gave us a suggestion of what to do -- let's use a different Docker image
+just gave us a suggestion of what to do -- let's use a different Docker container image
 to explore what else we can do with the `docker container run` command. The suggestion above
 is to use `ubuntu`, but we're going to run a different type of Linux, `alpine`
 instead because it's quicker to download.
 
 > ## Run the Alpine Docker container
 >
-> Try downloading and running the `alpine` Docker container. You can do it in
+> Try downloading the `alpine` container image and using it to run a container. You can do it in
 > two steps, or one. What are they?
 {: .challenge}
 
@@ -151,9 +151,11 @@ $ docker container run alpine
 ~~~
 {: .language-bash}
 
-If you never used the *alpine* docker image on your computer, docker probably printed a message that it couldn't find the image and had to download it.
-If you used the alpine image before, the command will probably show no output. That's because this particular container is designed for you to
-provide commands yourself. Try running this instead:
+If you have never used the `alpine` Docker container image on your computer, Docker probably printed a
+message that it couldn't find the container image and had to download it.
+If you used the `alpine` container image before, the command will probably show no output. That's
+because this particular container is designed for you to provide commands yourself. Try running
+this instead:
 
 ~~~
 $ docker container run alpine cat /etc/os-release
@@ -164,7 +166,7 @@ You should see the output of the `cat /etc/os-release` command, which prints out
 the version of Alpine Linux that this container is using and a few additional bits of information.
 
 > ## Hello World, Part 2
-> Can you run the container and make it print a "hello world" message?
+> Can you run a copy of the `alpine` container and make it print a "hello world" message?
 >
 > Give it a try before checking the solution.
 >
@@ -184,11 +186,12 @@ command and they will execute inside the running container.
 ## Running containers interactively
 
 In all the examples above, Docker has started the container, run a command, and then
-immediately shut down the container. But what if we wanted to keep the container
+immediately stopped the container. But what if we wanted to keep the container
 running so we could log into it and test drive more commands? The way to
-do this is by adding the interactive flag `-it`
+do this is by adding the interactive flags `-i` and `-t` (usually combined as `-it`)
 to the `docker container run` command and provide a shell (`bash`,`sh`, etc.)
-as our command. The alpine docker image doesn't include `bash` so we need to use `sh`.
+as our command. The `alpine` Docker container image doesn't include `bash` so we need
+to use `sh`.
 
 ~~~
 $ docker container run -it alpine sh
@@ -199,7 +202,7 @@ $ docker container run -it alpine sh
 >
 > Technically, the interactive flag is just `-i` -- the extra `-t` (combined
 > as `-it` above) is the "pseudo-TTY" option, a fancy term that means a text interface.
-> This allows you to connect to a shell, like `bash`, using a command line. Since you usually
+> This allows you to connect to a shell, like `sh`, using a command line. Since you usually
 > want to have a command line when running interactively, it makes sense to use the two together.
 {: .callout}
 
@@ -220,7 +223,7 @@ That's because you're now inside the running container! Try these commands:
 
 All of these are being run from inside the running container, so you'll get information
 about the container itself, instead of your computer. To finish using the container,
-just type `exit`.
+type `exit`.
 
 ~~~
 / # exit
@@ -228,10 +231,10 @@ just type `exit`.
 {: .language-bash}
 
 > ## Practice Makes Perfect
-> Can you find out the version of Linux installed on the `busybox` container?
+> Can you find out the version of Linux installed on the `busybox` container image?
 > (Hint: If you search online, you'll find that there are a few different ways
 > to find out what version of Linux a computer or container is running. Because
-> the `busybox` container is very simplified, you'll want to use a command that prints out
+> the `busybox` container image is very simplified, you'll want to use a command that prints out
 > the contents of the file `/proc/version`.)
 >
 > Can you also find the `busybox` program? What does it do? (Hint: try passing `--help`
@@ -240,7 +243,7 @@ just type `exit`.
 >
 > > ## Solution 1 -- Interactive
 > >
-> > Run the busybox container interactively -- you can use `docker image pull` first, or just
+> > Run an interactive busybox container -- you can use `docker image pull` first, or just
 > > run it with this command:
 > > ~~~
 > > $ docker container run -it busybox sh
@@ -264,18 +267,18 @@ just type `exit`.
 >
 > > ## Solution 2 -- Run commands
 > >
-> > Run the busybox container, first with a command to read out the Linux version:
+> > Run a busybox container, first with a command to read out the Linux version:
 > > ~~~
 > > $ docker container run busybox cat /proc/version
 > > ~~~
 > > {: .language-bash}
 > >
-> > Then run the container again with a command to print out the busybox help:
+> > Then run a container with a command to print out the busybox help:
 > > ~~~
 > > $ docker container run busybox busybox --help
 > > ~~~
 > > {: .language-bash}
-> > Note that this command uses `busybox` twice, first for the image name and then to run the `busybox` command within the busybox container that is started.
+> > Note that this command runs a `busybox` container twice, first to retrieve the version of Linux from the running container and then to run the `busybox` command within the busybox container that is started.
 > {: .solution}
 {: .challenge}
 
@@ -288,7 +291,7 @@ just type `exit`.
 > * `--rm`: this option guarantees that any running container is completely
 > removed from your computer after the container is stopped. Without this option,
 > Docker actually keeps the "stopped" container around, which you'll see in a later
-> episode. Note that this option doesn't impact the container *images* that you've pulled,
+> episode. Note that this option doesn't impact the *container images* that you've pulled,
 > just running instances of containers.
 >
 > * `--name=`: By default, Docker assigns a random name and ID number to each container
@@ -299,9 +302,9 @@ just type `exit`.
 
 ## Conclusion
 
-So far, we've seen how to download Docker images, use them to run commands inside
+So far, we've seen how to download Docker container images, use them to run commands inside
 running containers, and even how to explore a running container from the inside.
-Next, we'll take a closer look at all the different kinds of Docker images that are out there.
+Next, we'll take a closer look at all the different kinds of Docker container images that are out there.
 
 {% include links.md %}
 

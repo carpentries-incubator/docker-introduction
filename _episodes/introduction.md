@@ -131,11 +131,11 @@ One final term: while the **container** is an alternative filesystem layer that 
 can access and run from your computer, the **container image** is the 'recipe' or template
 for a container. The container image has all the required information to start
 up a running copy of the container. A running container tends to be transient
-and can be started and shut down. The image is more long-lived, as a source file for the container.
+and can be started and shut down. The container image is more long-lived, as a definition for the container.
 You could think of the container image like a cookie cutter -- it
 can be used to create multiple copies of the same shape (or container)
 and is relatively unchanging, where cookies come and go. If you want a
-different type of container (cookie) you need a different image (cookie cutter).
+different type of container (cookie) you need a different container image (cookie cutter).
 
 
 ### Putting the Pieces Together
@@ -155,8 +155,8 @@ This solves several of our problems:
 - reproducibility -- you can use the exact same software and environment on your computer and on other resources (like a large-scale computing cluster).
 - configurability -- containers can be sized to take advantage of more resources (memory, CPU, etc.) on large systems (clusters) or less, depending on the circumstances.
 
-The rest of this workshop will show you how to download and run pre-existing containers
-on your own computer, and how to create and share your own containers.
+The rest of this workshop will show you how to download and run containers from pre-existing
+container images on your own computer, and how to create and share your own container images.
 
 ### Use cases for containers
 
@@ -168,10 +168,11 @@ a research context include:
 - Using containers solely on your own computer to use a specific software tool
   or to test out a tool (possibly to avoid a difficult and complex installation
   process, to save your time or to avoid dependency hell).
-- Setting up software in a container and then sharing it with your collaborators
-  for use on their computers or a remote computing resource (e.g. cloud-based or HPC
-  system).
-- Archiving the container(s) so you can repeat analysis/modelling using the
+- Creating a `Dockerfile` that generates a container image with software that you
+  specify installed, then sharing a container image generated using this Dockerfile with
+  your collaborators for use on their computers or a remote computing resource
+  (e.g. cloud-based or HPC system).
+- Archiving the container images so you can repeat analysis/modelling using the
   same software and configuration in the future -- capturing your workflow.
 
 {% include links.md %}
