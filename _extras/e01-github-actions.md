@@ -140,7 +140,7 @@ Now, we can run pandoc on our `README.md` file by including our current director
 the `README.md` file as part of the `docker run` command:
 
 ~~~
-docker run -v ${PWD}:/tmp pandoc/core /tmp/README.md
+docker run --mount type=bind,source=${PWD},target=/tmp pandoc/core /tmp/README.md
 ~~~
 {: .source}
 ~~~
@@ -149,7 +149,7 @@ docker run -v ${PWD}:/tmp pandoc/core /tmp/README.md
 ~~~
 {: .output}
 
-Here, the `-v ${PWD}:/tmp` flag says to take the directory at `${PWD}` and make it available inside the
+Here, the `--mount type=bind,source=${PWD},target=/tmp` flag says to take the directory at `${PWD}` and make it available inside the
 container as `/tmp`. Then `pandoc` can read the source file (`README.md`) and convert it to HTML. While this HTML
 is valid, it doesn't show the complete structure of a standalone HTML document. For that we need to
 add the `--standalone` argument to the pandoc command. Also we can redirect the output to create a HTML file in the
@@ -157,7 +157,7 @@ add the `--standalone` argument to the pandoc command. Also we can redirect the 
 
 ~~~
 mkdir -p build
-docker run -v ${PWD}:/tmp pandoc/core /tmp/README.md --standalone --output=/tmp/build/index.html
+docker run --mount type=bind,source=${PWD},target=/tmp pandoc/core /tmp/README.md --standalone --output=/tmp/build/index.html
 ~~~
 {: .source}
 ~~~
@@ -260,7 +260,7 @@ Now for the Docker bit:
 {: .source}
 
 We may recognize the command-line that we had previously. Notice that we don't need to specify the
-`-v` flag. Github Actions arranges the Docker environment such that the files are in the correct
+`--mount` flag. Github Actions arranges the Docker environment such that the files are in the correct
 location. The last step uploads the `build` directory to the `gh-pages` branch.
 
 Now we should enable Github Pages on this repository: go to the "Settings" tab and scroll down to
