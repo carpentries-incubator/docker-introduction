@@ -59,7 +59,7 @@ You can now request that a container is created that will compile the files in t
 
 For macOS, Linux and PowerShell:
 ~~~
-$ docker run --rm -it -v ${PWD}:/srv/jekyll -p 127.0.0.1:4000:4000 jekyll/jekyll:pages jekyll serve
+$ docker run --rm -it --mount type=bind,source=${PWD},target=/srv/jekyll -p 127.0.0.1:4000:4000 jekyll/jekyll:pages jekyll serve
 ~~~
 {: .language-bash}
 

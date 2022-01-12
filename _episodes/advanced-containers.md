@@ -75,14 +75,22 @@ We can create a mount between our computer and the running container by using an
 option to `docker container run`. We'll also use the variable `${PWD}` which will substitute
 in our current working directory. The option will look like this
 
-`-v ${PWD}:/temp`
+`--mount type=bind,source=${PWD},target=/temp`
 
-What this means is -- link my current working directory (on the host computer) with the
-container that is about to be started, and inside this container, name the directory `/temp`.
+What this means is: make my current working directory (on the host computer) -- the source --
+_visible_ within the container that is about to be started, and inside this container, name the
+directory `/temp` -- the target.
+
+> ## Types of mounts
+> You will notice that we set the mount `type=bind`, there are other types of mount that
+> can be used in Docker (e.g. `volume` and `tmpfs`). We do not cover other types of mounts
+> or the differences between these mount types in the course as it is more of an advanced
+> topic. You can find more information on the different mount types in
+> [the Docker documentation](https://docs.docker.com/storage/).
 
 Let's try running the command now:
 ~~~
-$ docker container run -v ${PWD}:/temp alice/alpine-python python3 sum.py
+$ docker container run --mount type=bind,source=${PWD},target=/temp alice/alpine-python python3 sum.py
 ~~~
 {: .language-bash}
 
@@ -98,7 +106,7 @@ mapped to `/temp` -- so we need to include that in the path to the script. This
 command should give us what we need:
 
 ~~~
-$ docker container run -v ${PWD}:/temp alice/alpine-python python3 /temp/sum.py
+$ docker container run --mount type=bind,source=${PWD},target=/temp alice/alpine-python python3 /temp/sum.py
 ~~~
 {: .language-bash}
 
@@ -127,7 +135,6 @@ and will stay there even when the container stops.
 > A common example of the `-u` flag is `--user $(id -u):$(id -g)` which will
 > fetch the current user's ID and group and run the container as that user.
 > 
-> 
 {: .callout}
 
 > ## Exercise: Explore the script
@@ -154,7 +161,7 @@ and will stay there even when the container stops.
 > > Here's a breakdown of each piece of the command above
 > >
 > > - `docker container run`: use Docker to run a container
-> > - `-v ${PWD}:/temp`: connect my current working directory (`${PWD}`) as a folder
+> > - `--mount type=bind,source=${PWD},target=/temp`: connect my current working directory (`${PWD}`) as a folder
 > > inside the container called `/temp`
 > > - `alice/alpine-python`: name of the container image to use to run the container
 > > - `python3 /temp/sum.py`: what commands to run in the container
@@ -174,7 +181,7 @@ and will stay there even when the container stops.
 > >
 > > The docker command to run the container interactively is:
 > > ~~~
-> > $ docker container run -v ${PWD}:/temp -it alice/alpine-python sh
+> > $ docker container run --mount type=bind,source=${PWD},target=/temp -it alice/alpine-python sh
 > > ~~~
 > > {: .language-bash}
 > >
