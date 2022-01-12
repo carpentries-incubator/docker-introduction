@@ -77,8 +77,9 @@ in our current working directory. The option will look like this
 
 `--mount type=bind,source=${PWD},target=/temp`
 
-What this means is -- link my current working directory (on the host computer) with the
-container that is about to be started, and inside this container, name the directory `/temp`.
+What this means is: make my current working directory (on the host computer) -- the source --
+_visible_ within the container that is about to be started, and inside this container, name the
+directory `/temp` -- the target.
 
 > ## Types of mounts
 > You will notice that we set the mount `type=bind`, there are other types of mount that
