@@ -231,13 +231,10 @@ type `exit`.
 {: .language-bash}
 
 > ## Practice Makes Perfect
-> Can you find out the version of Linux installed on the `busybox` container image?
-> (Hint: If you search online, you'll find that there are a few different ways
-> to find out what version of Linux a computer or container is running. Because
-> the `busybox` container image is very simplified, you'll want to use a command that prints out
-> the contents of the file `/proc/version`.)
+> Can you find out the version of Ubuntu installed on the `ubuntu` container image?
+> (Hint: You can use the same command as used to find the version of alpine.)
 >
-> Can you also find the `busybox` program? What does it do? (Hint: try passing `--help`
+> Can you also find the `apt-get` program? What does it do? (Hint: try passing `--help`
 > to almost any command will give you more information.)
 >
 >
@@ -246,15 +243,21 @@ type `exit`.
 > > Run an interactive busybox container -- you can use `docker image pull` first, or just
 > > run it with this command:
 > > ~~~
-> > $ docker container run -it busybox sh
+> > $ docker container run -it ubnutu sh
 > > ~~~
 > > {: .language-bash}
-> >
+> > 
+> > OR you can get the bash shell instead
+> > ~~~
+> > $ docker container run -it ubnutu bash
+> > ~~~
+> > {: .language-bash}
+> > 
 > > Then try, running these commands
 > >
 > > ~~~
-> > /# cat /proc/version
-> > /# busybox --help
+> > /# cat /etc/os-release
+> > /# apt-get --help
 > > ~~~
 > > {: .language-bash}
 > >
@@ -267,18 +270,17 @@ type `exit`.
 >
 > > ## Solution 2 -- Run commands
 > >
-> > Run a busybox container, first with a command to read out the Linux version:
+> > Run a ubuntu container, first with a command to read out the Linux version:
 > > ~~~
-> > $ docker container run busybox cat /proc/version
+> > $ docker container run ubuntu cat /etc/os-release
 > > ~~~
 > > {: .language-bash}
 > >
-> > Then run a container with a command to print out the busybox help:
+> > Then run a container with a command to print out the apt-get help:
 > > ~~~
-> > $ docker container run busybox busybox --help
+> > $ docker container run ubuntu apt-get --help
 > > ~~~
 > > {: .language-bash}
-> > Note that this command runs a `busybox` container twice, first to retrieve the version of Linux from the running container and then to run the `busybox` command within the busybox container that is started.
 > {: .solution}
 {: .challenge}
 
