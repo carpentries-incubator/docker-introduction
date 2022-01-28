@@ -5,12 +5,12 @@ teaching: 10
 exercises: 20
 questions:
 - "How can I align sequences without complex installation?"
-- "How can I use a container from within and without?"
+- "How can I use a container from within or outside?"
 - "How can I share/use existing sequence files residing on my computer?"
 objectives:
 - "Select Docker containers from the docker hub."
 - "Use a Docker container to accomplish tasks."
-- "Make use of shared folder."
+- "Use of shared folder."
 keypoints:
 - "You can use existing Docker images instead of installing additional software."
 - "Files can be shared with the container and used by the software located witin the container."
@@ -19,22 +19,14 @@ keypoints:
 
 > ## EMBOSS 
 > “The European Molecular Biology Open Software Suite” ([EMBOSS](http://emboss.sourceforge.net/) is a free Open Source software analysis package specially developed for the needs of the molecular biology user community. 
-> EMBOSS contains a large number of sequence analysis tools, and we’ll use one of them using a docker method. 
+> EMBOSS contains a large number of sequence analysis tools, and we’ll use one of them using a docker image. 
 {: .callout}
 
-The purpose of this tutorial is more about learning how to use a Docker container rather than learning EMBOSS itself. 
+The purpose of this tutorial is more about practicing using Docker images and containers rather than learning EMBOSS itself. 
 To learn more about EMBOSS: 
 * List of applications: [emboss_apps](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/index.html) 
 * grouped by [function](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/groups.html), and 
 * [emboss tutorials](http://emboss.sourceforge.net/docs/emboss_tutorial/emboss_tutorial.html)
-
-
-> ## Set-up
-- **Macintosh**: Double click on `Terminal` icon in the `/Applications/Utilities directory`.   
--  **Windows**: Open `PowerShell`.  
-- **Linux**: open a new shell terminal.  
-- If you need to create a Docker ID: go to the [Docker Hub](https://hub.docker.com) to register a free account.
-{:.prereq}
 
 In your terminal shell window login Docker with your Docker credentials.
 
@@ -46,17 +38,17 @@ $ docker login
 Login with your Docker ID to push and pull images from Docker Hub. 
 If you don't have a Docker ID, head over to https://hub.docker.com 
 to create one.
-Username: YOUR_DOCKER_ID_HERE
-Password: 
+Username: YOUR_DOCKERHUB_ID_HERE
+Password: YOUR_DOCKERHUB_PASSWORD_HERE # note it won't show as you type it
 Login Succeeded
 $ 
 ~~~
 {: .output}
 
-We'll use an existing container for EMBOSS version 6.6.0. 
+We'll use an existing container image for EMBOSS version 6.6.0. 
 
 The following `pull` command will make a copy of the docker image on your local computer.
-Note that the lengthy tag `v6.6.0dfsg-7b1-deb_cv1` is necessary since it is not the `latest` tag.
+Note that the lengthy tag `v6.6.0dfsg-7b1-deb_cv1` is necessary since it is not the `latest` tagged image.
 
 ~~~
 $ docker image pull biocontainers/emboss:v6.6.0dfsg-7b1-deb_cv1
@@ -89,6 +81,7 @@ biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   63
 > This information would allow you to create your own image from a newer version of Ubuntu.   
 > How would you use this information to make your own image?   
 > Could you use another Linux distributions?  
+> > Write down the steps you would use to to make this new image.  
 > Find help on an earlier section of the workshop if you need, or skip this exercise for now.   
 > 
 > > ## Solution
@@ -104,18 +97,18 @@ biocontainers/emboss   v6.6.0dfsg-7b1-deb_cv1   bc147a9dd825    2 years ago   63
 > > 
 > > Here are some steps that would accomplish this task:
 > > * create a copy of the Dockerfile document to be modified (for example use `nano` as a text editor.)
-> > * Check the latest version available for ubuntu, using the [official image](https://hub.docker.com/_/ubuntu) hub page
+> > * check the latest version available for Ubuntu, using the [official image](https://hub.docker.com/_/ubuntu) hub page
 > > * replace this new version name and tag on the Dockerfile
-> > * Run the `docker build -t ...` command
-> > * Test your image with a `docker run ...` command
-> > * Push the image to your own hub account for future retrieval
+> > * run the `docker build -t ...` command
+> > * test your image with a `docker run ...` command
+> > * push the image to your own hub account for future retrieval
 > > 
 > > This solution uses Ubuntu, but other Linux distributions could be used. However, this would also require changing the `apt-get` command to that specific to the chosen distribution such as `yum` for CentOS.
 > {: .solution}
 {: .challenge}
 
 > ## Shared directory
-> We'll use the EMBOSS software on files shared from our local computer.
+> We'll use the EMBOSS software from the container image we pulled on files shared from our local computer.
 {: .callout}
 
 Download the [`docker-intro.zip`]({{ page.root }}/files/docker-intro.zip) file. _This file can alternatively be downloaded from the `files` directory in the [docker-introduction GitHub repository][docker-introduction repository]_. Move the downloaded file to your Desktop and unzip it. It should unzip to a folder called `docker-intro`. 
@@ -130,7 +123,7 @@ Download the [`docker-intro.zip`]({{ page.root }}/files/docker-intro.zip) file. 
 > > All these peptides have considerable sequence similarity (Park (2015).)*   
 > > *GIP, a related member of the glucagon peptide superfamily, also regulates nutrient disposal via stimulation of insulin secretion (Brubaker and Drucker (2002).)*
 > {: .solution}
-{: .challenge}
+{: .callout}
 
 Within the `docker-intro` downloaded previously change to the `peptides` directory. There are 4 files in the simple ["fasta"](https://en.wikipedia.org/wiki/FASTA_format) sequence format.
 
@@ -179,8 +172,6 @@ The prompt tells us that now we are looking **within** the container.
 
 > ## Exercise: Container checks
 >
-> What commands would you use to explore the Linux system on the container?     
-> What command would you use to find "who" is the default user of this container?     
 > Give it a try before checking the solution.
 >
 > > ## Solution
@@ -277,7 +268,7 @@ GLP-1              1 HAEGTFTSDVSSYLEGQAAKEFIAWLVKGRG     31
 ~~~
 {: .output}
 
-While it is nice to have an interactive interface, we can also provide all the required parameters on the comand line in order to make the alignment process *non interactive*. These qualifiers are detailed on the [`needle`](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/needle.html) help page.
+While it is nice to have an interactive interface, we can also provide all the required parameters on the command line in order to make the alignment process *non interactive*. These qualifiers are detailed on the [`needle`](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/needle.html) help page.
 For the above alignment example, adding the **mandatory parameters** the commands would be:
 
 ~~~
@@ -316,7 +307,7 @@ needle GIP.fa GLP-2.fa -outfil gip-glp2.needle -gapopen 10 -gapextend 0.5
 ~~~
 {: .output}
 
-We can then look just at the bottom of the resulting alignment file:
+We can then look at the bottom of the resulting alignment file:
 
 ~~~
 $ tail gip-glp2.needle 
@@ -336,7 +327,7 @@ GLP-2              1 HADGSFSDEMNTILDNLAARDFINWLIQTKITD     33
 {: .output}
 
 This can easily be turned into a loop, for example aligning all sequences to that of glucagon.
-The filename extension `.fa` is removed with the `bash` method using `basename` so that the resulting file name only has `.needle` as an extension.  
+The filename extension `.fa` is removed with the `bash` method using `basename` so that the resulting file name only has `.needle` as an extension while retaining the same file name and only modifying the filename extension.  
 Some of the loop commands, ending with `;` can be written on separate lines.
 However, due to the loop nature of the command, it is not possible to use the continuation symbol `\` as we just did previously.
 
@@ -366,7 +357,7 @@ The output shows that the program ran 3 times, as expected. The resulting files 
 > 
 {: .callout}
 
-One of the great advantages of Docker is the modularity that it can bring to using software that is not even installed on your own computer.
+One of the advantages of Docker is the modularity that it can bring to using software that is not even installed on your own computer.
 
 We can pull the image in advance. Since the `latest` tag exists the command does not requires one. It may still be informative to explore the ["Tags"](https://hub.docker.com/r/pegi3s/clustalomega/tags) page on the hub.
 
@@ -455,8 +446,8 @@ glucagon      HSQGTFTSDYSKYLDSRRAQDFVQWLMNT----
 > ## Challenge: align more sequences.
 > How would you proceed to align the hemogloin and globin sequences contained within the file `hglob.fasta`? located in the `~/Desktop/docker-intro/peptides` you copied?
 > 
-> Would anything be different to align the 32 spike protein sequence from virus SARS_Cov-2 found in file `spike_32.fa` within the `~/Desktop/docker-intro/covid` directory?
-> 
+> Would anything be different to align the 32 spike protein sequence from virus SARS_Cov-2 found in file `spike_32.fa` within the `~/Desktop/docker-intro/covid` directory? Try adding the `-v` flag while aligning the `spike_32.fa` file and see what happens.
+>
 > > ## Solution
 > >
 > > Since we cannot run (for now) the container interactively we need to provide names for the input file and output result files. We can also select an alternate output format.
@@ -486,7 +477,7 @@ glucagon      HSQGTFTSDYSKYLDSRRAQDFVQWLMNT----
 > ## Challenge: bypassing the entry point.
 > How would you proceed to run this container interactively
 > since adding `-it` has no effect due to the built-in entry point command?
-> This aspect was explored within an earlier lesson chapter. 
+> This aspect was explored within an earlier episode of this lesson. 
 > > ## Solution
 > > We can bypass this issue if we add `-it` and `--entrypoint` followed by a suitable command.
 > > To simply enter to container the command could be "/bin/sh" or even better with "/bin/bash". For example:
@@ -499,18 +490,17 @@ glucagon      HSQGTFTSDYSKYLDSRRAQDFVQWLMNT----
 > > ~~~
 > > {: .output} 
 > > From this point it is possible to explore the content of the container. For example the command `which clustalo` will provide the location of the program.
-> > There is no `/data` directory as it was created "on the fly" in previous commands when sharing a directory.
+> > There is no `/data` directory as it was created "on the fly" using mounting when running the previous image containers.
 > {: .solution}
 {: .challenge}
-
 
 
 ## References
 
 Brubaker, P. L., and D. J. Drucker. 2002. “Structure-function of the glucagon receptor family of G protein-coupled receptors: the glucagon, GIP, GLP-1, and GLP-2 receptors.” Recept. Channels 8 (3-4): 179–88. https://doi.org/10.3109/10606820213687.
 
-Needleman, S. B., and C. D. Wunsch. 1970. “A general method applicable to the search for similarities in the amino acid sequence of two proteins.” J. Mol. Biol. 48 (3): 443–53. https://doi.org/10.1016/0022-2836(70)90057-4.
+Needleman, S. B., and C. D. Wunsch. 1970. “A general method applicable to the search for similarities in the amino acid sequence of two proteins.” J. Mol. Biol. 48 (3): 443–53. [https://doi.org/10.1016/0022-2836(70)90057-4](https://doi.org/10.1016/0022-2836(70)90057-4).
 
-Park, Min Kyun. 2015. “Subchapter 17A - Glucagon.” In Handbook of Hormones: Comparative Endocrinology for Basic and Clinical Research, 129–31. Academic Press. https://doi.org/10.1016/B978-0-12-801028-0.00138-0.
+Park, Min Kyun. 2015. “Subchapter 17A - Glucagon.” In Handbook of Hormones: Comparative Endocrinology for Basic and Clinical Research, 129–31. Academic Press. [https://doi.org/10.1016/B978-0-12-801028-0.00138-0](https://doi.org/10.1016/B978-0-12-801028-0.00138-0).
 
-Sievers, F., and D. G. Higgins. 2018. “Clustal Omega for making accurate alignments of many protein sequences.” Protein Sci. 27 (1): 135–45.
+Sievers, F., and D. G. Higgins. 2018. “Clustal Omega for making accurate alignments of many protein sequences.” Protein Sci. 27 (1): 135–45. [https://dx.doi.org/10.1002/pro.3290](https://dx.doi.org/10.1002/pro.3290).
