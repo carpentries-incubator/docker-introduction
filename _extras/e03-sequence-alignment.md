@@ -359,7 +359,7 @@ The output shows that the program ran 3 times, as expected. The resulting files 
 
 One of the advantages of Docker is the modularity that it can bring to using software that is not even installed on your own computer.
 
-We can pull the image in advance. Since the `latest` tag exists the command does not requires one. It may still be informative to explore the ["Tags"](https://hub.docker.com/r/pegi3s/clustalomega/tags) page on the hub.
+We can pull the image prior to running the image container. Since the `latest` tag exists the command does not requires one. It may still be informative to explore the ["Tags"](https://hub.docker.com/r/pegi3s/clustalomega/tags) page on the hub.
 
 ~~~
 $ docker image pull pegi3s/clustalomega
@@ -477,7 +477,7 @@ glucagon      HSQGTFTSDYSKYLDSRRAQDFVQWLMNT----
 > ## Challenge: bypassing the entry point.
 > How would you proceed to run this container interactively
 > since adding `-it` has no effect due to the built-in entry point command?
-> This aspect was explored within an earlier episode of this lesson. 
+> This aspect was explored within an earlier episode of this lesson ([Creating More Complex Container Images](../advanced-containers/index.html)). 
 > > ## Solution
 > > We can bypass this issue if we add `-it` and `--entrypoint` followed by a suitable command.
 > > To simply enter to container the command could be "/bin/sh" or even better with "/bin/bash". For example:
