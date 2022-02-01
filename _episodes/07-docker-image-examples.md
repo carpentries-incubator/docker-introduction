@@ -57,6 +57,14 @@ following resources show what it can look like:
 - [Introduction to Singularity](https://carpentries-incubator.github.io/singularity-introduction/): See the episode titled "Running MPI parallel jobs using Singularity containers"
 - [Container Workflows at Pawsey](https://pawseysc.github.io/container-workflows/): See the episode titled "Run containers on HPC with Shifter (and Singularity)"
 
+## Sequence Alignment Examples
+
+In these [sequence alignment examples](../e03-sequence-alignment) we explore **global, pair-wise** alignments as well as **multiple** sequence alignments of small peptide sequences, and sequences of the SARS-Cov2 Spike protein. For this we'll use 2 different images, one for the EMBOSS suite for pair-wise aligments, and one for ClustalOmega for multiple alignments. While we will use peptides and proteins, this would also apply to nucleotide sequences as well.
+
+These examples will also help us learn more about Docker methods:   
+* how to use the software from within or from outside the container.
+* how to recognize, use, or by-pass an `ENTRYPOINT` command.
+
 ## Seeking Examples
 
 Do you have another example of using Docker in a workflow related to your field?  Please [open a lesson issue] or [submit a pull request] to add it to this episode and the extras section of the lesson.
