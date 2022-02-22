@@ -82,11 +82,13 @@ _visible_ within the container that is about to be started, and inside this cont
 directory `/temp` -- the target.
 
 > ## Types of mounts
+>
 > You will notice that we set the mount `type=bind`, there are other types of mount that
 > can be used in Docker (e.g. `volume` and `tmpfs`). We do not cover other types of mounts
 > or the differences between these mount types in the course as it is more of an advanced
 > topic. You can find more information on the different mount types in
 > [the Docker documentation](https://docs.docker.com/storage/).
+{: .callout}
 
 Let's try running the command now:
 ~~~
