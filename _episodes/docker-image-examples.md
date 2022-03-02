@@ -10,7 +10,7 @@ keypoints:
 - "There are many ways you might use Docker and existing container images in your research project."
 ---
 
-Now that we have learned the basics of working with Docker images and containers,
+Now that we have learned the basics of working with Docker container images and containers,
 let's apply what we learned to an example workflow.
 
 You may choose one or more of the following examples to practice using containers.
@@ -40,14 +40,14 @@ Ask @mkuzak to make a PR to add extra for <https://github.com/escience-academy/d
 ## Using Containers on an HPC Cluster
 
 It is possible to run containers on shared computing systems run by a university or national
-computing center. As a researcher, you can build and test your container on your own
-computer and then use it to run your full-scale computing work on a shared computing
+computing center. As a researcher, you can build container images and test containers on your own
+computer and then run your full-scale computing work on a shared computing
 system like a high performance cluster or high throughput grid.
 
 The catch? Most university and national computing centers do not support *running*
 containers with Docker commands, and instead use a similar tool called Singularity or
-Shifter. However, both of these programs can be used to run Docker container images,
-so often people create their container as a Docker container image, so they can
+Shifter. However, both of these programs can be used to run containers based on Docker container images,
+so often people create their container image as a Docker container image, so they can
 run it using either of Docker or Singularity.
 
 There isn't yet a working example of how to use Docker container images on a shared

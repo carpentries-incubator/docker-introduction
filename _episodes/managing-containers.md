@@ -4,22 +4,22 @@ teaching: 10
 exercises: 0
 questions:
 - "How do I interact with a Docker container on my computer?"
-- "How do I manage my containers and images?"
+- "How do I manage my containers and container images?"
 objectives:
 - "Explain how to list running and completed containers."
 - "Know how to list and remove container images."
 keypoints:
 - "`docker container` has subcommands used to interact and manage containers."
-- "`docker image` has subcommands used to interact and manage images."
-- "`docker ps` can provide information on currently running containers."
+- "`docker image` has subcommands used to interact and manage container images."
+- "`docker container ls` or `docker ps` can provide information on currently running containers."
 ---
 
 ## Removing images
 
-The images and their corresponding containers can start to take up a lot of disk space if you don't clean them up occasionally, so it's a good idea to periodically remove container images that you won't be using anymore.
+The container images and their corresponding containers can start to take up a lot of disk space if you don't clean them up occasionally, so it's a good idea to periodically remove containers and container images that you won't be using anymore.
 
-In order to remove a specific image, you need to find out details about the image,
-specifically, the "image ID". For example, say my laptop contained the following image:
+In order to remove a specific container image, you need to find out details about the container image,
+specifically, the "Image ID". For example, say my laptop contained the following container image:
 ~~~
 $ docker image ls
 ~~~
@@ -30,13 +30,13 @@ hello-world      latest      fce289e99eb9   15 months ago    1.84kB
 ~~~
 {: .output}
 
-You can remove the image with a `docker image rm` command that includes the image ID, such as:
+You can remove the container image with a `docker image rm` command that includes the *Image ID*, such as:
 ~~~
 $ docker image rm fce289e99eb9
 ~~~
 {: .language-bash}
 
-or use the image name, like so:
+or use the container image name, like so:
 ~~~
 $ docker image rm hello-world
 ~~~
@@ -48,14 +48,14 @@ Error response from daemon: conflict: unable to remove repository reference "hel
 ~~~
 {: .output}
 
-This happens when Docker hasn't cleaned up some of the times when a container
-has been actually run. So before removing the container image, we need to be able
+This happens when Docker hasn't cleaned up some of the previously running containers
+based on this container image. So, before removing the container image, we need to be able
 to see what containers are currently running, or have been run recently, and how
 to remove these.
 
 ## What containers are running?
 
-Working with containers, we are going to shift to a new docker command: `docker container`.  Similar to `docker image`, we can list running containers by typing:
+Working with containers, we are going to shift back to the command: `docker container`.  Similar to `docker image`, we can list running containers by typing:
 
 ~~~
 $ docker container ls
@@ -91,7 +91,7 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 > ## Keeping it clean
 >
 > You might be surprised at the number of containers Docker is still keeping track of.
-> One way to prevent this from happening is to add the `--rm` flag to `docker run`. This
+> One way to prevent this from happening is to add the `--rm` flag to `docker container run`. This
 > will completely wipe out the record of the run container when it exits. If you need
 > a reference to the running container for any reason, **don't** use this flag.
 {: .callout}
@@ -110,10 +110,15 @@ $ docker container rm 9c698655416a
 ~~~
 {: .output}
 
-**Be careful** with this command.
-If you have containers you may want to reconnect to, you should not use this command.
+An alternative option for deleting exited containers is the `docker container
+prune` command. Note that this command doesn't accept a container ID as an
+option because it deletes ALL exited containers!
+**Be careful** with this command as deleting the container is **forever**.
+**Once a container is deleted you can not get it back.**
+If you have containers you may want to reconnect to, you should **not** use this command.
 It will ask you if to confirm you want to remove these containers, see output below.
-If successful it will print the full `CONTAINER ID` back to you.
+If successful it will print the full `CONTAINER ID` back to you for each container it has
+removed.
 ~~~
 $ docker container prune
 ~~~
@@ -130,7 +135,7 @@ Deleted Containers:
 ## Removing images, for real this time
 
 Now that we've removed any potentially running or stopped containers, we can try again to
-delete the `hello-world` **image**.
+delete the `hello-world` **container image**.
 
 ~~~
 $ docker image rm hello-world
@@ -144,9 +149,9 @@ Deleted: sha256:af0b15c8625bb1938f1d7b17081031f649fd14e6b233688eea3c5483994a66a3
 ~~~
 {: .output}
 
-The reason that there are a few lines of output, is that a given image may have been formed by merging multiple underlying layers.
-Any layers that are used by multiple Docker images will only be stored once.
-Now the result of `docker image ls` should no longer include the `hello-world` image.
+The reason that there are a few lines of output, is that a given container image may have been formed by merging multiple underlying layers.
+Any layers that are used by multiple Docker container images will only be stored once.
+Now the result of `docker image ls` should no longer include the `hello-world` container image.
 
 {% include links.md %}
 

@@ -14,17 +14,16 @@ keypoints:
 - "The generation of this lesson website can be effected using a container."
 ---
 
-As previously mentioned earlier in the lesson, Docker can be helpful for
+As previously mentioned earlier in the lesson, containers can be helpful for
 using software that can be difficult to install.  An example is the software
 that generates this lesson website.  The website for this lesson is generated mechanically,
 based on a set of files that specify the configuration of the site, its presentation template,
 and the content to go on this page.  When working on updates to this lesson,
 you might want to preview those changes using a local copy of the website.
-This requires installing Jekyll and depdencies such as Ruby and Gemfiles to your local computer
-which can be difficult to achieve given complexities such as needing to match specific versions of the software components. Instead you could use Docker and a pre-built Jekyll container 
-image.
+This requires installing Jekyll and dependencies such as Ruby and Gemfiles to your local computer
+which can be difficult to achieve given complexities such as needing to match specific versions of the software components. Instead you could use Docker and a pre-built Jekyll container image.
 
-First we need to get a copy of the website to work with on your computer.
+First we need to get a copy of the website source to work with on your computer.
 In your shell window, in your `docker-intro` create a new directory `build-website` and `cd` into it. We will be expanding a ZIP file into this directory later. 
 
 Now open a web browser window and:
@@ -58,20 +57,11 @@ _config.yml		bin
 
 You can now request that a container is created that will compile the files in this set into the lesson website, and will run a simple webserver to allow you to view your version of the website locally. Note that this command will be long and fiddly to type, so you probably want to copy-and-paste it into your shell window. This command will continue to (re-)generate and serve up your version of the lesson website, so you will not get your shell prompt back until you type <kbd>control</kbd>+<kbd>c</kbd>. This will stop the webserver, since it cleans away the container.
 
-> ## If you happen to have the `make` tool already installed...
-> We are taking an atypical approach in using the command that follows, since you are not required to have set up the `make` tool on your computer. However you may want to see whether you happen to have `make` installed anyway, by typing `make docker-serve` instead of the command below. At worst, this will fail and you can use the command shown below.
-{: .callout}
-
 For macOS, Linux and PowerShell:
 ~~~
-$ docker run --rm -it -v ${PWD}:/srv/jekyll -p 127.0.0.1:4000:4000 jekyll/jekyll:pages jekyll serve
+$ docker run --rm -it --mount type=bind,source=${PWD},target=/srv/jekyll -p 127.0.0.1:4000:4000 jekyll/jekyll:pages jekyll serve
 ~~~
 {: .language-bash}
-
-For `cmd.exe` shells on Microsoft Windows:
-~~~
-> docker run --rm -it -v "%CD%":/srv/jekyll -p 127.0.0.1:4000:4000 jekyll/jekyll:pages jekyll serve
-~~~
 
 When I ran the macOS command, the output was as follows:
 ~~~
@@ -99,7 +89,7 @@ Configuration file: /srv/jekyll/_config.yml
 ~~~
 {: .output}
 
-In the preceding output, you see Docker downloading the image for Jekyll, which is a tool for building websites from specification files such as those used for this lesson. The line `jekyll serve` indicates a command that runs within the Docker container instance. The output below that is from the Jekyll tool itself, highlighting that the website has been built, and indicating that there is a server running.
+In the preceding output, you see Docker downloading the container image for Jekyll, which is a tool for building websites from specification files such as those used for this lesson. The line `jekyll serve` indicates a command that runs within the Docker container instance. The output below that is from the Jekyll tool itself, highlighting that the website has been built, and indicating that there is a server running.
 
 Open a web browser window and visit the address <http://localhost:4000/>. You should see a site that looks very similar to that at <https://carpentries-incubator.github.io/docker-introduction/>.
 
