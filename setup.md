@@ -29,13 +29,38 @@ Note that the above installation instructions highlight a minimum version or "bu
 
 If you are unable to follow the above instructions to install Docker Desktop on your Windows system, the final release of the deprecated Docker Toolbox version of Docker for Windows can be downloaded from the [releases page of the Docker Toolbox GitHub repository](https://github.com/docker/toolbox/releases). (Download the `.exe` file for the Windows installer). _Please note that this final release of Docker Toolbox includes an old version of Docker and you are strongly advised not to attempt to use this for any production use. It will, however, enable you to follow along with the lesson material._
 
+> ## Warning: Git Bash
+> If you are using Git Bash as your terminal on Windows then you should be aware that you may run
+> into issues running some of the commands in this lesson as Git Bash will automatically re-write
+> any paths you specify at the command line into Windows versions of the paths and this will confuse
+> the Docker container you are trying to use. For example, if you enter the command:
+> ```
+> docker run alpine cat /etc/os-release
+> ```
+> Git Bash will change the `/etc/os-release` path to `C:\etc\os-release\` before passing the command
+> to the Docker container and the container will report an error. If you want to use Git Bash then you
+> can request that this path translation does not take place by adding an extra `/` to the start of the
+> path. i.e. the command would become:
+> ```
+> docker run alpine cat //etc/os-release
+> ```
+> This should suppress the path translation functionality in Git Bash.
+{: .callout}
+
 #### Apple macOS
 
-Ideally, you will be able to install the Docker Desktop software, following the [Docker website's documentation](https://docs.docker.com/docker-for-mac/install/).
+Ideally, you will be able to install the Docker Desktop software, following the
+[Docker website's documentation](https://docs.docker.com/docker-for-mac/install/).
+The current version of the Docker Desktop software requires macOS version 10.14 (Mojave) or later.
 
-If you already use Homebrew or MacPorts to manage your software, and would prefer to use those tools rather than Docker's installer, you can do so. For Homebrew, you can run the command `brew install --cask docker`. Note that you still need to run the Docker graphical user interface once to complete the initial setup, after which time the command line functionality of Docker will become available. We have not recently tested the installation process for the [Docker port](https://ports.macports.org/port/docker/summary) available through MacPorts, but it appears to be actively maintained.
-
-If you have an older version of macOS, you could try installing the [now deprecated Docker Toolbox](https://docs.docker.com/toolbox/toolbox_install_mac/), for the purpose of working through this material, from the [releases page of the Docker Toolbox GitHub repository](https://github.com/docker/toolbox/releases). (Download the `.pkg` file for the macOS installer). _Please note that this final release of Docker Toolbox includes an old version of Docker and you are strongly advised not to attempt to use this for any production use. It will, however, enable you to follow along with the lesson material._
+If you already use Homebrew or MacPorts to manage your software, and would prefer to use those
+tools rather than Docker's installer, you can do so. For Homebrew, you can run the command
+`brew install --cask docker`. Note that you still need to run the Docker graphical user interface
+once to complete the initial setup, after which time the command line functionality of Docker will
+become available. The Homebrew install of Docker also requires a minimum macOS version of 10.14.
+The MacPorts Docker port should support older, as well as the most recent, operating system
+versions (see the [port details](https://ports.macports.org/port/docker/details/)), but note that
+we have not recently tested the Docker installation process via MacPorts.
 
 #### Linux
 
@@ -45,6 +70,47 @@ There are too many varieties of Linux to give precise instructions here, but hop
  - [Docker Engine on Debian](https://docs.docker.com/install/linux/docker-ce/debian/)
  - [Docker Engine on Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/)
  - [Docker Engine on Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
+
+### Verify Installation
+
+To quickly check if the Docker and client and server are working run the following command in a new terminal or ssh session:
+~~~
+$ docker version
+~~~
+{: .language-bash}
+~~~
+Client:
+ Version:           20.10.2
+ API version:       1.41
+ Go version:        go1.13.8
+ Git commit:        20.10.2-0ubuntu2
+ Built:             Tue Mar  2 05:52:27 2021
+ OS/Arch:           linux/arm64
+ Context:           default
+ Experimental:      true
+
+Server:
+ Engine:
+  Version:          20.10.2
+  API version:      1.41 (minimum version 1.12)
+  Go version:       go1.13.8
+  Git commit:       20.10.2-0ubuntu2
+  Built:            Tue Mar  2 05:45:16 2021
+  OS/Arch:          linux/arm64
+  Experimental:     false
+ containerd:
+  Version:          1.4.4-0ubuntu1
+  GitCommit:        
+ runc:
+  Version:          1.0.0~rc95-0ubuntu1~21.04.1
+  GitCommit:        
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        
+~~~
+{: .output}
+
+The above output shows a successful installation and will vary based on your system.  The important part is that the "Client" and the "Server" parts are both working and returns information.  It is beyond the scope of this document to debug installation problems but common errors include the user not belonging to the `docker` group and forgetting to start a new terminal or ssh session.
 
 ### A quick tutorial on copy/pasting file contents from episodes of the lesson
 Let's say you want to copy text off the lesson website and paste it into a file named `myfile` in the current working directory of a shell window. This can be achieved in many ways, depending on your computer's operating system, but routes I have found work for me:
