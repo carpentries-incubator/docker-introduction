@@ -59,30 +59,34 @@ You can now request that a container is created that will compile the files in t
 
 For macOS, Linux and PowerShell:
 ~~~
-$ docker run --rm -it --mount type=bind,source=${PWD},target=/srv/jekyll -p 127.0.0.1:4000:4000 jekyll/jekyll:pages jekyll serve
+$ docker run --rm -it --mount type=bind,source=${PWD},target=/srv/jekyll -p 127.0.0.1:4000:4000 jekyll/jekyll:3 jekyll serve
 ~~~
 {: .language-bash}
 
 When I ran the macOS command, the output was as follows:
 ~~~
-Unable to find image 'jekyll/jekyll:pages' locally
-pages: Pulling from jekyll/jekyll
-cbdbe7a5bc2a: Already exists 
-aa8ae8202b42: Already exists 
-b21786fe7c0d: Already exists 
-68296e6645b2: Already exists 
-6b1c37303e2d: Already exists 
-4d49f4d60e44: Pull complete 
-Digest: sha256:3741cb6d48b1ed3c544db4af9e2485fba31ddb5c2deb83a93b33fd252e8e2768
-Status: Downloaded newer image for jekyll/jekyll:pages
-ruby 2.7.1p83 (2020-03-31 revision a0c7c23c9c) [x86_64-linux-musl]
+Unable to find image 'jekyll/jekyll:3' locally
+3: Pulling from jekyll/jekyll
+9d48c3bd43c5: Pull complete 
+9ce9598067e7: Pull complete 
+278f4c997324: Pull complete 
+bfca09e5fd9a: Pull complete 
+2612f15b9d22: Pull complete 
+322c093d5418: Pull complete 
+Digest: sha256:9521c8aae4739fcbc7137ead19f91841b833d671542f13e91ca40280e88d6e34
+Status: Downloaded newer image for jekyll/jekyll:3
+
+...output trimmed...
+
+ruby 2.6.3p62 (2019-04-16 revision 67580) [x86_64-linux-musl]
 Configuration file: /srv/jekyll/_config.yml
+To use retry middleware with Faraday v2.0+, install `faraday-retry` gem
             Source: /srv/jekyll
        Destination: /srv/jekyll/_site
  Incremental build: disabled. Enable with --incremental
       Generating... 
       Remote Theme: Using theme carpentries/carpentries-theme
-                    done in 2.996 seconds.
+                    done in 7.007 seconds.
  Auto-regeneration: enabled for '/srv/jekyll'
     Server address: http://0.0.0.0:4000
   Server running... press ctrl-c to stop.
