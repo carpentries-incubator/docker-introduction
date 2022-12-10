@@ -1,4 +1,5 @@
 [![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/carpentries-incubator/docker-introduction)
+[![The Carpentries Lab Review Status](http://badges.carpentries-lab.org/15_status.svg)](https://github.com/carpentries-lab/reviews/issues/15)
 
 # Reproducible computational environments using containers: Introduction to Docker
 
