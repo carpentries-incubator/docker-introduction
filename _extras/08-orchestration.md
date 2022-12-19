@@ -10,7 +10,7 @@ keypoints:
 - "Docker Compose, Kubernetes, and Docker Swarm are tools that can deploy multiple containers."
 ---
 
-### Container Orchestration
+## Container Orchestration
 
 Although you can certainly manage research workflows that use multiple containers manually, there are a number of
 container orchestration tools that you may find useful when managing workflows that use multiple containers.

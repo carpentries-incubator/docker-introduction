@@ -31,7 +31,7 @@ keypoints:
 {: .callout}
 
 
-### Scientific Software Challenges
+## Scientific Software Challenges
 
 > ## What's Your Experience?
 >
@@ -78,7 +78,7 @@ Thankfully there are ways to get underneath (a lot of) this mess: containers
 to the rescue! Containers provide a way to package up software dependencies
 and access to resources such as files and communications networks in a uniform manner.
 
-### What is a Container? What is Docker?
+## What is a Container? What is Docker?
 
 [Docker][Docker] is a tool that allows you to build what are called "containers." It's
 not the only tool that can create containers, but is the one we've chosen for
@@ -138,7 +138,7 @@ and is relatively unchanging, where cookies come and go. If you want a
 different type of container (cookie) you need a different container image (cookie cutter).
 
 
-### Putting the Pieces Together
+## Putting the Pieces Together
 
 Think back to some of the challenges we described at the beginning. The many layers
 of scientific software installations make it hard to install and re-install
@@ -158,7 +158,7 @@ This solves several of our problems:
 The rest of this workshop will show you how to download and run containers from pre-existing
 container images on your own computer, and how to create and share your own container images.
 
-### Use cases for containers
+## Use cases for containers
 
 Now that we have discussed a little bit about containers -- what they do and the
 issues they attempt to address -- you may be able to think of a few potential use

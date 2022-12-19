@@ -14,7 +14,7 @@ keypoints:
 - "You will typically interact with Docker using the command line."
 - "To learn how to run a certain Docker command, we can type the command followed by the `--help` flag."
 ---
-### Docker command line
+## Docker command line
 
 Start the Docker application that you installed in working through the setup instructions for this session. Note that this might not be necessary if your laptop is running Linux or if the installation added the Docker application to your startup process. 
 

@@ -11,7 +11,9 @@ keypoints:
 - "You can create Docker containers on cloud computing resources just using a web browser."
 - "Bitbucket is an online repository storage service that can create Docker containers to perform computation in response to files changing in your repositories."
 ---
-### Containers can be created on cloud computing platforms
+
+## Containers can be created on cloud computing platforms
+
 There are lots of ways containers can be created on cloud computing platforms (a.k.a., "in the cloud"). Most commercial cloud providers now offer a container hosting service that will connect to the Docker Hub in order to fetch the container images that you specify, and charge for the time and resources that the containers use. The container hosting will usually be significantly cheaper than full virtualisation services that might be on offer.
 
 Note also that most cloud providers will give you sign-up credit that you can use for free after you first create your account.
@@ -73,7 +75,7 @@ While it is difficult to argue that this container achieves important computatio
 
 {% comment %}
 Going further section
-### Digital Ocean hosting
+## Digital Ocean hosting
 
 Cloud providers such as Digital Ocean
 {% endcomment %}
