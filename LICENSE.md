@@ -24,11 +24,11 @@ license terms.
 Under the following terms:
 
 * **Attribution**---You must give appropriate credit (mentioning that
-  your work is derived from work that is Copyright © Software
-  Carpentry and, where practical, linking to
-  http://software-carpentry.org/), provide a [link to the
-  license][cc-by-human], and indicate if changes were made. You may do
-  so in any reasonable manner, but not in any way that suggests the
+  your work is derived from work that is Copyright © D. M. Eyers, S. L. R.
+  Stevens, A. Turner, C. Koch and J. Cohen and, where practical, linking to
+  https://github.com/carpentries-incubator/docker-introduction), provide a
+  [link to the license][cc-by-human], and indicate if changes were made. You
+  may do so in any reasonable manner, but not in any way that suggests the
   licensor endorses you or your use.
 
 **No additional restrictions**---You may not apply legal terms or
@@ -48,8 +48,7 @@ Notices:
 ## Software
 
 Except where otherwise noted, the example programs and other software
-provided by Software Carpentry and Data Carpentry are made available under the
-[OSI][osi]-approved
+provided in this lesson are made available under the [OSI][osi]-approved
 [MIT license][mit-license].
 
 Permission is hereby granted, free of charge, to any person obtaining
