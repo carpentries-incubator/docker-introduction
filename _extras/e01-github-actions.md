@@ -114,7 +114,7 @@ First, let's download a container with pandoc installed and run it to see what t
 pandoc version is.
 
 ~~~
-docker run pandoc/core --version
+docker container run pandoc/core --version
 ~~~
 {: .source}
 ~~~
@@ -137,10 +137,10 @@ warranty, not even for merchantability or fitness for a particular purpose.
 {: .output}
 
 Now, we can run pandoc on our `README.md` file by including our current directory and
-the `README.md` file as part of the `docker run` command:
+the `README.md` file as part of the `docker container run` command:
 
 ~~~
-docker run --mount type=bind,source=${PWD},target=/tmp pandoc/core /tmp/README.md
+docker container run --mount type=bind,source=${PWD},target=/tmp pandoc/core /tmp/README.md
 ~~~
 {: .source}
 ~~~
@@ -157,7 +157,7 @@ add the `--standalone` argument to the pandoc command. Also we can redirect the 
 
 ~~~
 mkdir -p build
-docker run --mount type=bind,source=${PWD},target=/tmp pandoc/core /tmp/README.md --standalone --output=/tmp/build/index.html
+docker container run --mount type=bind,source=${PWD},target=/tmp pandoc/core /tmp/README.md --standalone --output=/tmp/build/index.html
 ~~~
 {: .source}
 ~~~
