@@ -12,7 +12,7 @@ layout: reference
    <dt>Container</dt>
    <dd>A particular instance of a lightweight virtual machine derived from a <em>container image</em>. Containers are typically transient, unlike <em>container images</em> which persist.</dd>
    <dt>Container image</dt>
-   <dd>The persistent binary artefact that provides the base definition for running an instance of a <em>container</em>. Sometimes shortened to just <em>image</em></dd>
+   <dd>The persistent binary artefact that encapsulates the set of files and configuration for running an instance of a <em>container</em>. Sometimes shortened to just <em>image</em></dd>
    <dt>CPU/processor</dt>
    <dd><a href="https://glosario.carpentries.org/en/#cpu" alt="Link to Carpentries Glossario">See the Carpentries Glossario entry</a></dd>
    <dt>Dependency</dt>
