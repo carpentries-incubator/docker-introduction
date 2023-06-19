@@ -30,7 +30,7 @@ kind: "lesson"
 repository: <USERNAME>/<PROJECT>
 
 # Email address, no mailto:
-email: "team@carpentries.org"
+email: "docker-introduction+admins@lists.carpentries.org"
 
 # Sites.
 amy_site: "https://amy.software-carpentry.org/workshops"
