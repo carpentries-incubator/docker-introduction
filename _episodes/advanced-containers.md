@@ -112,6 +112,19 @@ $ docker container run --mount type=bind,source=${PWD},target=/temp alice/alpine
 ~~~
 {: .language-bash}
 
+If you are using Git Bash on Windows, you may find that the above still doesn't work; you may get the following error:
+~~~
+python3: can't open file '//C:/Program Files/Git/temp/sum.py': [Errno 2] No such file or directory
+~~~
+{: .output}
+
+If so, then run the following (the `export` command changes the way Git Bash handles filepaths for the current session only):
+~~~
+$ export MSYS_NO_PATHCONV=1
+$ docker container run --mount type=bind,source=${PWD},target=/temp alice/alpine-python python3 /temp/sum.py
+~~~
+{: .language-bash}
+
 Note that if we create any files in the `/temp` directory while the container is
 running, these files will appear on our host filesystem in the original directory
 and will stay there even when the container stops.
