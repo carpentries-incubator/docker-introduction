@@ -18,9 +18,9 @@ keypoints:
 - "The naming convention for Docker container images is: `OWNER/CONTAINER_IMAGE_NAME:TAG`"
 ---
 
-In the previous episode, we ran a few different containers derived from different 
+In the previous episode, we ran a few different containers derived from different
 container images: `hello-world`, `alpine`,
-and maybe `busybox`. Where did these container images come from?  The Docker Hub!
+and maybe `ubuntu`. Where did these container images come from?  The Docker Hub!
 
 ## Introducing the Docker Hub
 

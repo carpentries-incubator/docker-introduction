@@ -240,19 +240,19 @@ type `exit`.
 >
 > > ## Solution 1 -- Interactive
 > >
-> > Run an interactive busybox container -- you can use `docker image pull` first, or just
+> > Run an interactive ubuntu container -- you can use `docker image pull` first, or just
 > > run it with this command:
 > > ~~~
 > > $ docker container run -it ubuntu sh
 > > ~~~
 > > {: .language-bash}
-> > 
+> >
 > > OR you can get the bash shell instead
 > > ~~~
 > > $ docker container run -it ubuntu bash
 > > ~~~
 > > {: .language-bash}
-> > 
+> >
 > > Then try, running these commands
 > >
 > > ~~~
