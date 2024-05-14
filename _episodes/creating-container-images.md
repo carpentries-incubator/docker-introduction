@@ -59,12 +59,6 @@ We can test our installation by running a Python command:
 ~~~
 {: .language-bash}
 
-Once Python is installed, we can add Python packages using the pip package installer:
-~~~
-/# pip install cython
-~~~
-{: .language-bash}
-
 > ## Exercise: Searching for Help
 >
 > Can you find instructions for installing R on Alpine Linux? Do they work?
@@ -107,7 +101,6 @@ $ cat Dockerfile
 {: .language-bash}
 ~~~
 FROM <EXISTING IMAGE>
-RUN <INSTALL CMDS FROM SHELL>
 RUN <INSTALL CMDS FROM SHELL>
 CMD <CMD TO RUN BY DEFAULT>
 ~~~
@@ -153,7 +146,6 @@ to `ls -lF --color /etc`.
 > > ~~~
 > > FROM alpine
 > > RUN apk add --update python3 py3-pip python3-dev
-> > RUN pip install cython
 > > CMD ["python3", "--version"]
 > > ~~~
 > {: .solution}
