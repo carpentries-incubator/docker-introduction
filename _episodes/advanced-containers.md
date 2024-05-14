@@ -363,8 +363,8 @@ command line, use the keyword `ENTRYPOINT` in the `Dockerfile`.
 ~~~
 FROM alpine
 
-COPY sum.py /home
 RUN apk add --update python3 py3-pip python3-dev
+COPY sum.py /home
 
 # Run the sum.py script as the default command and
 # allow people to enter arguments for it
