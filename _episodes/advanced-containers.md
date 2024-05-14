@@ -13,12 +13,12 @@ keypoints:
 ---
 
 In order to create and use your own container images, you may need more information than
-our previous example. You may want to use files from outside the container, 
-that are not included within the container image, either by copying the files 
-into the container image, or by making them visible within a running container from their 
-existing location on your host system. You may also want to learn a little bit 
-about how to install software within a running container or a container image. 
-This episode will look at these advanced aspects of running a container or building 
+our previous example. You may want to use files from outside the container,
+that are not included within the container image, either by copying the files
+into the container image, or by making them visible within a running container from their
+existing location on your host system. You may also want to learn a little bit
+about how to install software within a running container or a container image.
+This episode will look at these advanced aspects of running a container or building
 a container image. Note that the examples will get gradually
 more and more complex -- most day-to-day use of containers and container images can be accomplished
 using the first 1--2 sections on this page.
@@ -50,7 +50,7 @@ $ docker container run alice/alpine-python python3 sum.py
 ~~~
 {: .language-bash}
 ~~~
-python3: can't open file 'sum.py': [Errno 2] No such file or directory
+python3: can't open file '//sum.py': [Errno 2] No such file or directory
 ~~~
 {: .output}
 
@@ -98,7 +98,7 @@ $ docker container run --mount type=bind,source=${PWD},target=/temp alice/alpine
 
 But we get the same error!
 ~~~
-python3: can't open file 'sum.py': [Errno 2] No such file or directory
+python3: can't open file '//sum.py': [Errno 2] No such file or directory
 ~~~
 {: .output}
 
@@ -120,8 +120,8 @@ and will stay there even when the container stops.
 >
 > Docker run has many other useful flags to alter its function.
 > A couple that are commonly used include `-w` and `-u`.
-> 
-> The `--workdir`/`-w` flag sets the working directory a.k.a. runs the command 
+>
+> The `--workdir`/`-w` flag sets the working directory a.k.a. runs the command
 > being executed inside the directory specified.
 > For example, the following code would run the `pwd` command in a container
 > started from the latest ubuntu image in the `/home/alice` directory and print
@@ -133,10 +133,10 @@ and will stay there even when the container stops.
 >
 > The `--user`/`-u` flag lets you specify the username you would like to run the
 > container as.  This is helpful if you'd like to write files to a mounted folder
-> and not write them as `root` but rather your own user identity and group. 
+> and not write them as `root` but rather your own user identity and group.
 > A common example of the `-u` flag is `--user $(id -u):$(id -g)` which will
 > fetch the current user's ID and group and run the container as that user.
-> 
+>
 {: .callout}
 
 > ## Exercise: Explore the script
@@ -236,21 +236,21 @@ $ docker image build -t alice/alpine-sum .
 > 
 > When you run `docker image build` it executes the build in the order specified
 > in the `Dockerfile`.
-> This order is important for rebuilding and you typically will want to put your `RUN` 
+> This order is important for rebuilding and you typically will want to put your `RUN`
 > commands before your `COPY` commands.
-> 
+>
 > Docker builds the layers of commands in order.
 > This becomes important when you need to rebuild container images.
-> If you change layers later in the `Dockerfile` and rebuild the container image, Docker doesn't need to 
+> If you change layers later in the `Dockerfile` and rebuild the container image, Docker doesn't need to
 > rebuild the earlier layers but will instead used a stored (called "cached") version of
 > those layers.
-> 
-> For example, in an instance where you wanted to copy `multiply.py` into the container 
+>
+> For example, in an instance where you wanted to copy `multiply.py` into the container
 > image instead of `sum.py`.
-> If the `COPY` line came before the `RUN` line, it would need to rebuild the whole image. 
+> If the `COPY` line came before the `RUN` line, it would need to rebuild the whole image.
 > If the `COPY` line came second then it would use the cached `RUN` layer from the previous
 > build and then only rebuild the `COPY` layer.
-> 
+>
 {: .callout}
 
 
@@ -285,7 +285,7 @@ run `docker image ls` you'll see the size of each container image all the way on
 the screen. The bigger your container image becomes, the harder it will be to easily download.
 
 > ## Security Warning
-> 
+>
 > Login credentials including passwords, tokens, secure access tokens or other secrets
 > must never be stored in a container. If secrets are stored, they are at high risk to
 > be found and exploited when made public.
@@ -309,8 +309,8 @@ the screen. The bigger your container image becomes, the harder it will be to ea
 > RUN wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.10.0/ncbi-blast-2.10.0+-x64-linux.tar.gz
 > ~~~
 >
-> Note that the above `RUN` examples depend on commands (`git` and `wget` respectively) that 
-> must be available within your container: Linux distributions such as Alpine may require you to 
+> Note that the above `RUN` examples depend on commands (`git` and `wget` respectively) that
+> must be available within your container: Linux distributions such as Alpine may require you to
 > install such commands before using them within `RUN` statements.
 {: .callout}
 
@@ -428,9 +428,9 @@ $ docker container run alpine-sum:v3 sum.py 1 2 3 4
 {: .language-bash}
 
 > ## Best practices for writing Dockerfiles
-> Take a look at Nüst et al.'s "[_Ten simple rules for writing Dockerfiles for reproducible data science_](https://doi.org/10.1371/journal.pcbi.1008316)" \[1\] 
-> for some great examples of best practices to use when writing Dockerfiles. 
-> The [GitHub repository](https://github.com/nuest/ten-simple-rules-dockerfiles) associated with the paper also has a set of [example `Dockerfile`s](https://github.com/nuest/ten-simple-rules-dockerfiles/tree/master/examples) 
+> Take a look at Nüst et al.'s "[_Ten simple rules for writing Dockerfiles for reproducible data science_](https://doi.org/10.1371/journal.pcbi.1008316)" \[1\]
+> for some great examples of best practices to use when writing Dockerfiles.
+> The [GitHub repository](https://github.com/nuest/ten-simple-rules-dockerfiles) associated with the paper also has a set of [example `Dockerfile`s](https://github.com/nuest/ten-simple-rules-dockerfiles/tree/master/examples)
 > demonstrating how the rules highlighted by the paper can be applied.
 >
 > <small>[1] Nüst D, Sochat V, Marwick B, Eglen SJ, Head T, et al. (2020) Ten simple rules for writing Dockerfiles for reproducible data science. PLOS Computational Biology 16(11): e1008316. https://doi.org/10.1371/journal.pcbi.1008316</small>
