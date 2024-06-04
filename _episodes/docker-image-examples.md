@@ -57,6 +57,33 @@ following resources show what it can look like:
 - [Introduction to Singularity](https://carpentries-incubator.github.io/singularity-introduction/): See the episode titled "Running MPI parallel jobs using Singularity containers"
 - [Container Workflows at Pawsey](https://pawseysc.github.io/container-workflows/): See the episode titled "Run containers on HPC with Shifter (and Singularity)"
 
+## Reproducible analysis with one command
+
+In this example of a published study using Docker, the user only has to run one
+command to reproduce the entire analysis:
+
+~~~
+docker run --rm -v ${PWD}:/wd -w /wd joelnitta/pleurosoriopsis:targets \
+  bash /tmp/make.sh
+~~~
+{: .language-bash}
+
+The Docker image contains a shell script, `make.sh`, which downloads the
+analysis source code using `git clone`, then runs the analysis.
+
+The source code will be downloaded to a folder called `pleurosoriopsis` that is
+created in the user's working directory. Notice that it at first does not
+contain any output. The analysis takes a few minutes to run. When it finishes,
+there will be a `ms.pdf` file created that includes all the results of the
+analysis as a manuscript. You should be able to verify that it is the same as
+the published paper.
+
+Note that the image is rather large (3.89 GB), so if internet resources are limited it may not be feasible for all participants to try the example at once.
+
+- Source code: <https://github.com/joelnitta/pleurosoriopsis>
+
+- Paper: [Ebihara et al. 2019. "Growth Dynamics of the Independent Gametophytes of *Pleurorosiopsis makinoi* (Polypodiaceae)" Bulletin of the National Science Museum Series B (Botany) 45:77-86.](https://www.kahaku.go.jp/research/publication/botany/download/45_2/L_BNMNS_B45-2_77.pdf)
+
 ## Seeking Examples
 
 Do you have another example of using Docker in a workflow related to your field?  Please [open a lesson issue] or [submit a pull request] to add it to this episode and the extras section of the lesson.
