@@ -34,16 +34,12 @@ In this [GitHub Actions example](../instructors/e01-github-actions.md), you can 
 continuous integration in the cloud and how you can use container images with GitHub to
 automate repetitive tasks like testing code or deploying websites.
 
-{% comment %}
-
 <!--- Placeholder for
 ## Geospatial Example
 
 Ask @mkuzak to make a PR to add extra for <https://github.com/escience-academy/docker-gdal-demo>
 
 -->
-
-{% endcomment %}
 
 ## Using Containers on an HPC Cluster
 
@@ -79,5 +75,3 @@ Do you have another example of using Docker in a workflow related to your field?
 - There are many ways you might use Docker and existing container images in your research project.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-

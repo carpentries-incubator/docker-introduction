@@ -163,15 +163,11 @@ Now the result of `docker image ls` should no longer include the `hello-world` c
 
 
 
-{% comment %}
-
 <!--  LocalWords:  keypoints amd64 fce289e99eb9 zen_dubinsky links.md
  -->
 
 <!--  LocalWords:  eager_engelbart endcomment
  -->
-
-{% endcomment %}
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
@@ -180,5 +176,3 @@ Now the result of `docker image ls` should no longer include the `hello-world` c
 - `docker container ls` or `docker ps` can provide information on currently running containers.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-

@@ -277,14 +277,8 @@ seconds the page should be up.
 
 
 
-{% comment %}
-
 <!--  LocalWords:  keypoints links.md endcomment Dockerfile
  -->
 
-{% endcomment %}
-
 <!--  LocalWords:  bitbucket-pipelines.yml
  -->
-
-

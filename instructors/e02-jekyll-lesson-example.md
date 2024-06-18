@@ -117,8 +117,6 @@ You have now achieved using a reproducible computational environment to reproduc
 
 
 
-{% comment %}
-
 <!--  LocalWords:  keypoints _episodes_rmd CODE_OF_CONDUCT.md aio.md
  -->
 
@@ -133,7 +131,3 @@ You have now achieved using a reproducible computational environment to reproduc
 
 <!--  LocalWords:  links.md _episodes_rmd _config.yml endcomment
  -->
-
-{% endcomment %}
-
-

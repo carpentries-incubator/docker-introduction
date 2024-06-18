@@ -81,24 +81,14 @@ Click on the `/bin/cat /root/my_message` heading, and you should see that your c
 
 While it is difficult to argue that this container achieves important computational work, you have, nonetheless, demonstrated that Docker images that you create can be run on the cloud. Moreover, many cloud organisations that are willing to create containers from your images will offer generous allowances to you to do so, even if you only have a free account.
 
-{% comment %}
-Going further section
+<!-- Going further section
 
 ## Digital Ocean hosting
 
-Cloud providers such as Digital Ocean
-{% endcomment %}
-
-
-
-{% comment %}
+Cloud providers such as Digital Ocean -->
 
 <!--  LocalWords:  keypoints links.md endcomment Dockerfile
  -->
 
-{% endcomment %}
-
 <!--  LocalWords:  bitbucket-pipelines.yml
  -->
-
-

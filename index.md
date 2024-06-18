@@ -3,11 +3,6 @@ permalink: index.html
 site: sandpaper::sandpaper_site
 ---
 
-> **ATTENTION** This is an experimental test of [The Carpentries Workbench](https://carpentries.github.io/workbench) lesson infrastructure.
-> It was automatically converted from the source lesson via [the lesson transition script](https://github.com/carpentries/lesson-transition/).
-> 
-> If anything seems off, please contact Zhian Kamvar [zkamvar@carpentries.org](mailto:zkamvar@carpentries.org)
-
 This session aims to introduce the use of Docker containers with the goal of using them to effect reproducible computational environments. Such environments are useful for ensuring reproducible research outputs, for example.
 
 ::::::::::::::::::::::::::::::::::::::  objectives
@@ -76,13 +71,7 @@ for this lesson.
 
 
 
-{% comment %}
-
-TODO: systematically check for Windows-isms
+<!-- TODO: systematically check for Windows-isms -->
 
 <!--  LocalWords:  prereq links.md endcomment
  -->
-
-{% endcomment %}
-
-

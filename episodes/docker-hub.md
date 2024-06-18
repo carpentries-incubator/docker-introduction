@@ -174,12 +174,8 @@ the container image and explore it.
 
 
 
-{% comment %}
-
 <!--  LocalWords:  keypoints links.md endcomment
  -->
-
-{% endcomment %}
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
@@ -191,5 +187,3 @@ the container image and explore it.
 - The naming convention for Docker container images is: `OWNER/CONTAINER_IMAGE_NAME:TAG`
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-

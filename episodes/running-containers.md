@@ -350,15 +350,11 @@ Next, we'll take a closer look at all the different kinds of Docker container im
 
 
 
-{% comment %}
-
 <!--  LocalWords:  keypoints amd64 fce289e99eb9 zen_dubinsky links.md
  -->
 
 <!--  LocalWords:  eager_engelbart endcomment
  -->
-
-{% endcomment %}
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
@@ -368,5 +364,3 @@ Next, we'll take a closer look at all the different kinds of Docker container im
 - When using the `docker container run` command, a container can run a default action (if it has one), a user specified action, or a shell to be used interactively.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-

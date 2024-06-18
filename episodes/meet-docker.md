@@ -346,12 +346,8 @@ Where `https://github.com/docker/rootfs.git` could be any relevant URL that supp
 
 
 
-{% comment %}
-
 <!--  LocalWords:  keypoints links.md endcomment systray
  -->
-
-{% endcomment %}
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
@@ -360,5 +356,3 @@ Where `https://github.com/docker/rootfs.git` could be any relevant URL that supp
 - To learn how to run a certain Docker command, we can type the command followed by the `--help` flag.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-

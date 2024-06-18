@@ -192,12 +192,8 @@ a research context include:
 
 
 
-{% comment %}
-
 <!--  LocalWords:  keypoints links.md endcomment
  -->
-
-{% endcomment %}
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
@@ -210,5 +206,3 @@ a research context include:
 - Docker is just one software platform that can create containers and the resources they use.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
