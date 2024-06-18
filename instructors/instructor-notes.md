@@ -1,5 +1,5 @@
 ---
-title: "Instructor Notes"
+title: Instructor Notes
 ---
 
 ## Before Teaching This Lesson
@@ -13,8 +13,8 @@ In particular, there can be differences between macOS, Windows and Linux
 platforms. Updates and changes introduced in Docker releases are highlighted
 in the [Docker release notes][Docker release notes].
 
-_You are strongly advised to run through the lesson content prior to teaching
-the lesson to ensure that everything works as expected._
+*You are strongly advised to run through the lesson content prior to teaching
+the lesson to ensure that everything works as expected.*
 
 If you experience any issues, please [open an issue][open a lesson issue] in the lesson
 repository describing the problem and platform(s) affected. The lesson maintainers will
@@ -24,32 +24,32 @@ expected with the lesson content.
 
 ## Miscellaneous Tips
 
-* **Timing**: With all the lesson episodes taken together, there's way more than three hours of material in this lesson.
-Focusing on the earlier episodes (Introduction through the first half
-of Creating Container Images) will take just about three hours if you
-also include a brief general introduction and time to check your learners'
-software installations.
-* **Install Issues**: From the feedback we have received about past lessons, computers running 
-Microsoft Windows have encountered the largest number of challenges setting up Docker.
-Consider having people check their install in advance at a separate time or come early.
-In online workshops, consider using your video conferencing software's "breakout room" functionality
-to form smaller groups within which participants can troubleshoot their installations.
-Note that you should use a more complex command than `docker --version` to test the installation, as the 
-simplest `docker` commands to not connect to the Docker backend.
-* **Virtualization Illustration**: When going through the intro to containers,
-consider demonstrating what this might look like by having two shells (or shell tabs)
-open, one on your host computer and one into a container you started before the
-workshop. Then you can demonstrate in a simple way that from the same (host) computer,
-you can access two different types of environments -- one via the shell on your
-host computer and one via the shell into a running container. Sample commands could include: 
-    * `whoami`
-    * `pwd` and `ls`
-    * something that shows the OS. On mac, this could be `sw_vers`, on linux `cat /etc/os-release`
-* **Reflection Exercise**: At the beginning and end of the workshop, give participants time to
-reflect on what they want to get out of the workshop (at the beginning) and what they
-can apply to their work (at the end). Using the shared notes doc is a great way to
-do this and a good way to make sure that you've addressed specific concerns or goals
-of the participants.
+- **Timing**: With all the lesson episodes taken together, there's way more than three hours of material in this lesson.
+  Focusing on the earlier episodes (Introduction through the first half
+  of Creating Container Images) will take just about three hours if you
+  also include a brief general introduction and time to check your learners'
+  software installations.
+- **Install Issues**: From the feedback we have received about past lessons, computers running
+  Microsoft Windows have encountered the largest number of challenges setting up Docker.
+  Consider having people check their install in advance at a separate time or come early.
+  In online workshops, consider using your video conferencing software's "breakout room" functionality
+  to form smaller groups within which participants can troubleshoot their installations.
+  Note that you should use a more complex command than `docker --version` to test the installation, as the
+  simplest `docker` commands to not connect to the Docker backend.
+- **Virtualization Illustration**: When going through the intro to containers,
+  consider demonstrating what this might look like by having two shells (or shell tabs)
+  open, one on your host computer and one into a container you started before the
+  workshop. Then you can demonstrate in a simple way that from the same (host) computer,
+  you can access two different types of environments -- one via the shell on your
+  host computer and one via the shell into a running container. Sample commands could include:
+  - `whoami`
+  - `pwd` and `ls`
+  - something that shows the OS. On mac, this could be `sw_vers`, on linux `cat /etc/os-release`
+- **Reflection Exercise**: At the beginning and end of the workshop, give participants time to
+  reflect on what they want to get out of the workshop (at the beginning) and what they
+  can apply to their work (at the end). Using the shared notes doc is a great way to
+  do this and a good way to make sure that you've addressed specific concerns or goals
+  of the participants.
 
 ## Learner Profiles and Pathways
 
@@ -72,7 +72,7 @@ that you may find among learners engaging with this material. With these
 profiles, we aim to encourage you to think about the learners attending your
 workshop(s) and which episodes it may be most useful to teach.
 
-**_Nelson is a graduate student in microbiology._** They have experience in running Unix shell
+***Nelson is a graduate student in microbiology.*** They have experience in running Unix shell
 commands and using libraries in R for the bioinformatics workflows they have developed.
 They are expanding their analysis to run on 3000 genomes in 200 samples and they have
 started to use the local cluster to run their workflows. The local research computing
@@ -82,22 +82,22 @@ have made so they want to learn how to use Docker. They would also be interested
 creating their own Docker images for other lab members and collaborators to re-use their
 workflows.
 
-**_Caitlin is a second year undergraduate in computer science examining Docker for the first
-time._** She has heard about Docker but does not really know what it achieves or why it is
+***Caitlin is a second year undergraduate in computer science examining Docker for the first
+time.*** She has heard about Docker but does not really know what it achieves or why it is
 useful. She is reasonably confident in using the Unix shell, having used it briefly in
 her first year modules. She is keen to find jump-off points to learn more about technical
 details and alternative technologies that are also popular, having heard that container
 technologies are widely used within industry.
 
-**_Xu, a materials science researcher, wants to package her software for release with
-a paper to help ensure reproducibility._** She has written some code that makes use of a
+***Xu, a materials science researcher, wants to package her software for release with
+a paper to help ensure reproducibility.*** She has written some code that makes use of a
 series of Python libraries to undertake analysis of a compound. She wants to (or is
 required to) make her software available as part of the paper submission. She
 understands why Docker is important in helping to ensure reproducibility but not the
 process and low-level detail of preparing a container and archiving it to obtain a DOI
 for inclusion with the paper submission.
 
-**_Bronwyn is a PhD student running Python/R scripts on her local laptop/workstation._**
+***Bronwyn is a PhD student running Python/R scripts on her local laptop/workstation.***
 She is having difficulty getting all the tools she needs to work because of conflicting
 dependencies and little experience with package managers. She is also keen to reduce
 the overhead of managing software so she can get on with her thesis research. She has
@@ -106,8 +106,8 @@ this on her own and does not have access to any expertise in this within her loc
 research group. She currently wants to know how to use preexisting Docker containers
 but may need to create her own containers in the future.
 
-**_Virat is a grad student who is running an obscure bioinformatics tool (from a GitHub
-repo) that depends on a number of other tools that need to be pre-installed ._** He wants to be able to
+***Virat is a grad student who is running an obscure bioinformatics tool (from a GitHub
+repo) that depends on a number of other tools that need to be pre-installed .*** He wants to be able to
 run on multiple resources and have his undergrad assistant use the same tools. Virat
 has command line experience and has struggled his way through complex installations
 but he has no formal CS background - he only knows to use containers because a departmental
@@ -123,32 +123,32 @@ we hope that highlighting these groups helps to provide an example of the
 different types of skills and expertise that learners engaging with this
 material may have:
 
- - **Researchers:** For researchers, even those based in non-computational domains, software
- is an increasingly important element of their day-to-day work. Whether they are writing
- code or installing, configuring and/or running software to support their research, they
- will eventually need to deal with the complexities of running software on different
- platforms, handling complex software dependencies and potentially submitting their code and data to
- repositories to support the reproduction of research outputs by other researchers, or to
- meet the requirements of publishers or funders. Software container technologies are valuable
- to help researchers address these challenges.
+- **Researchers:** For researchers, even those based in non-computational domains, software
+  is an increasingly important element of their day-to-day work. Whether they are writing
+  code or installing, configuring and/or running software to support their research, they
+  will eventually need to deal with the complexities of running software on different
+  platforms, handling complex software dependencies and potentially submitting their code and data to
+  repositories to support the reproduction of research outputs by other researchers, or to
+  meet the requirements of publishers or funders. Software container technologies are valuable
+  to help researchers address these challenges.
 
 - **RSEs:** RSEs -- Research Software Engineers -- provide software development, training
-and technical guidance to support the development of reliable, maintainable, sustainable
-research software. They will generally have extensive technical skills but they may not
-have experience of working with or managing software containers. In addition to working with
-researchers to help build and package software, they are likely to be interested in how
-containers can help to support best practices for the development of research software
-and aspects such as software deployment.
+  and technical guidance to support the development of reliable, maintainable, sustainable
+  research software. They will generally have extensive technical skills but they may not
+  have experience of working with or managing software containers. In addition to working with
+  researchers to help build and package software, they are likely to be interested in how
+  containers can help to support best practices for the development of research software
+  and aspects such as software deployment.
 
- - **Systems professionals:** Systems professionals represent the more technical end of
-our spectrum of learners. They may be based within a central IT services environment
-within a research institution or within individual departments or research groups.
-Their work is likely to encompass supporting researchers with effective use of
-infrastructure and they are likely to need to know about managing and orchestrating
-multiple containers in more complex environments. For example, they may need to provide
-database servers, web application servers and other services that can be deployed
-in containerized environments to support more straightforward management, maintenance
-and upgradeability.
+- **Systems professionals:** Systems professionals represent the more technical end of
+  our spectrum of learners. They may be based within a central IT services environment
+  within a research institution or within individual departments or research groups.
+  Their work is likely to encompass supporting researchers with effective use of
+  infrastructure and they are likely to need to know about managing and orchestrating
+  multiple containers in more complex environments. For example, they may need to provide
+  database servers, web application servers and other services that can be deployed
+  in containerized environments to support more straightforward management, maintenance
+  and upgradeability.
 
 ### Learner Pathways
 
@@ -166,7 +166,7 @@ to use them.
 
 Moving beyond the core features there are a number of topics that are likely
 to only be of interest to different sub-groups of learners. To support these
-different groups of learners we have developed a set of "_learner pathways_"
+different groups of learners we have developed a set of "*learner pathways*"
 that provide suggested routes through the material based on different use
 cases or areas of interest.
 
@@ -178,44 +178,48 @@ consider. Each pathway will have a slightly different emphasis on specific
 sets of topics. We highlight learner different profiles that we believe map
 well to specific pathways.
 
-_Note that the material in this lesson continues to develop and experience
+*Note that the material in this lesson continues to develop and experience
 of teaching the material is increasing. In due course we intend to offer more
 detailed pathway information including specific episode schedules that we
-think are most suited to the pathways highlighted._
+think are most suited to the pathways highlighted.*
 
 **Core content:**
 
 The Docker lesson contains a set of core content that we expect to be relevant
 for all learner pathways. This includes:
 
- - Introducing container concepts and the Docker software
- - Running through the basic use of Docker including:
-     - Core commands for listing and managing images and containers
-     - Obtaining container images from Docker Hub
-     - Running containers from container images
-     - Building container images
-     
+- Introducing container concepts and the Docker software
+- Running through the basic use of Docker including:
+  - Core commands for listing and managing images and containers
+  - Obtaining container images from Docker Hub
+  - Running containers from container images
+  - Building container images
+
 Beyond this, different pathways offer scope to bring in different episodes
 containing different lesson content to support different target audiences or
 areas of interest
 
 Some suggested pathways include:
 
- - **Reproducible research**
-     - _Common learner profiles:_ Researcher; RSE
+- **Reproducible research**
+  
+  - *Common learner profiles:* Researcher; RSE
 
- - **Cloud computing**
-     - _Common learner profiles:_ Sytems professional, RSE
+- **Cloud computing**
+  
+  - *Common learner profiles:* Sytems professional, RSE
 
- - **High performance computing**
-     - _Common learner profiles:_ Researcher; RSE; Systems professional
-
+- **High performance computing**
+  
+  - *Common learner profiles:* Researcher; RSE; Systems professional
 
 ## Common Points of Confusion
 
-* difference between a container and container image
-* what it means for a container to be stopped (but not removed)
-* differences in container behaviour between hosts that are running Linux compared to hosts running macOS or Microsoft Windows
-    * on Linux hosts there is usually only one OS kernel shared between the host and the containers, so less separation than is typical when using macOS or Windows hosts. This can lead to effects such as volume mounts behaving differently, e.g., regarding filesystem permissions, user and group mappings between the host and the container.
+- difference between a container and container image
+- what it means for a container to be stopped (but not removed)
+- differences in container behaviour between hosts that are running Linux compared to hosts running macOS or Microsoft Windows
+  - on Linux hosts there is usually only one OS kernel shared between the host and the containers, so less separation than is typical when using macOS or Windows hosts. This can lead to effects such as volume mounts behaving differently, e.g., regarding filesystem permissions, user and group mappings between the host and the container.
 
-{% include links.md %}
+
+
+

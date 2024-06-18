@@ -1,5 +1,5 @@
 ---
-layout: reference
+title: 'Glossary'
 ---
 
 ## Glossary
@@ -24,7 +24,7 @@ layout: reference
    <dt>Docker</dt>
    <dd>A software framework for creating, running and managing <em>containers</em>.</dd>
    <dt>Docker build context</dt>
-   <dd>The docker build command builds Docker images from a Dockerfile and a “context”. A build's context is the set of files located in the specified PATH or URL.</dd>
+   <dd>The docker build command builds Docker images from a Dockerfile and a "context". A build's context is the set of files located in the specified PATH or URL.</dd>
    <dt>Docker Hub</dt>
    <dd>An online library of Docker <em>container images</em>.</dd>
    <dt>Docker Hub repository</dt>
@@ -54,7 +54,9 @@ layout: reference
    <dt>Tar archive</dt>
    <dd>A file archive format commonly used in Unix-like operating systems that combines multiple files into a single file. tar archive files are used as the export format of <em>Docker images</em>.</dd>
    <dt>Virtualization</dt>
-   <dd><em>Containers</em> are an example of virtualization – having a second “virtual” computer running and accessible from a <em>host computer</em>.</dd>
+   <dd><em>Containers</em> are an example of virtualization – having a second "virtual" computer running and accessible from a <em>host computer</em>.</dd>
 </dl>
 
-{% include links.md %}
+
+
+
