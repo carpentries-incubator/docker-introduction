@@ -58,9 +58,7 @@ title: Figures
     }
   }
 </script>
-{% comment %}
-Create anchor for each one of the episodes.
-{% endcomment %}
+<!-- Create anchor for each one of the episodes. -->
 {% for episode in site.episodes %}
 <article id="{{ episode.url }}" class="figures"></article>
 {% endfor %}
