@@ -43,6 +43,9 @@
     <loc>https://preview.carpentries.org/docker-introduction/e02-jekyll-lesson-example.html</loc>
   </url>
   <url>
+    <loc>https://preview.carpentries.org/docker-introduction/images.html</loc>
+  </url>
+  <url>
     <loc>https://preview.carpentries.org/docker-introduction/index.html</loc>
   </url>
   <url>
@@ -88,10 +91,19 @@
     <loc>https://preview.carpentries.org/docker-introduction/instructor/e02-jekyll-lesson-example.html</loc>
   </url>
   <url>
+    <loc>https://preview.carpentries.org/docker-introduction/instructor/images.html</loc>
+  </url>
+  <url>
     <loc>https://preview.carpentries.org/docker-introduction/instructor/index.html</loc>
   </url>
   <url>
+    <loc>https://preview.carpentries.org/docker-introduction/instructor/instructor-notes.html</loc>
+  </url>
+  <url>
     <loc>https://preview.carpentries.org/docker-introduction/instructor/introduction.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/docker-introduction/instructor/key-points.html</loc>
   </url>
   <url>
     <loc>https://preview.carpentries.org/docker-introduction/instructor/managing-containers.html</loc>
@@ -112,7 +124,13 @@
     <loc>https://preview.carpentries.org/docker-introduction/instructor/running-containers.html</loc>
   </url>
   <url>
+    <loc>https://preview.carpentries.org/docker-introduction/instructor-notes.html</loc>
+  </url>
+  <url>
     <loc>https://preview.carpentries.org/docker-introduction/introduction.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/docker-introduction/key-points.html</loc>
   </url>
   <url>
     <loc>https://preview.carpentries.org/docker-introduction/managing-containers.html</loc>
