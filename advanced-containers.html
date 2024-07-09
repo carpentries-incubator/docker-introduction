@@ -27,7 +27,7 @@
             <span class="visually-hidden">This lesson is in the beta phase, which means that it is ready for teaching by instructors outside of the original author team.</span>
           </abbr>
         </span>
-        
+
       </div>
     </div>
     <div class="selector-container">
@@ -56,7 +56,7 @@
             </li>
           </ul></li>
       </div>
-      
+
       <div class="dropdown" id="instructor-dropdown">
         <button class="btn btn-secondary dropdown-toggle bordered-button" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
           <i aria-hidden="true" class="icon" data-feather="eye"></i> Learner View <i data-feather="chevron-down"></i>
@@ -180,7 +180,7 @@
                 </div><!--/div.accordion-flush-->
               </div><!--div.sidenav-view-selector -->
             </div><!--/div.col -->
-      
+
             <hr></div><!--/div.mobile-row -->
 
           <div class="accordion accordion-flush" id="accordionFlush11">
@@ -199,7 +199,7 @@
     <div class="accordion-header" id="flush-heading1">
         <a href="index.html">Summary and Setup</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -208,7 +208,7 @@
     <div class="accordion-header" id="flush-heading2">
         <a href="introduction.html">1. Introducing Containers</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -217,7 +217,7 @@
     <div class="accordion-header" id="flush-heading3">
         <a href="meet-docker.html">2. Introducing the Docker Command Line</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -226,7 +226,7 @@
     <div class="accordion-header" id="flush-heading4">
         <a href="running-containers.html">3. Exploring and Running Containers</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -235,7 +235,7 @@
     <div class="accordion-header" id="flush-heading5">
         <a href="managing-containers.html">4. Cleaning Up Containers</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -244,7 +244,7 @@
     <div class="accordion-header" id="flush-heading6">
         <a href="docker-hub.html">5. Finding Containers on Docker Hub</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -253,7 +253,7 @@
     <div class="accordion-header" id="flush-heading7">
         <a href="creating-container-images.html">6. Creating Your Own Container Images</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -267,7 +267,7 @@
         </span>
       </button>
     </div><!--/div.accordion-header-->
-        
+
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#using-scripts-and-files-from-outside-the-container">Using scripts and files from outside the container</a></li>
@@ -276,7 +276,7 @@
 presentation or as exercises)</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -285,7 +285,7 @@ presentation or as exercises)</a></li>
     <div class="accordion-header" id="flush-heading9">
         <a href="docker-image-examples.html">8. Examples of Using Container Images in Practice</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -294,7 +294,7 @@ presentation or as exercises)</a></li>
     <div class="accordion-header" id="flush-heading10">
         <a href="reproduciblity.html">9. Containers in Research Workflows: Reproducibility and Granularity</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -326,10 +326,10 @@ presentation or as exercises)</a></li>
               </div>
             </div>
             <hr class="half-width resources"><a href="aio.html">See all in one page</a>
-            
+
 
             <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
-            
+
             </div>
           </div><!-- /div.accordion -->
         </div><!-- /div.sidebar-inner -->
@@ -350,18 +350,18 @@ presentation or as exercises)</a></li>
           Previous: Creating Your Own
         </a>
         <a class="chapter-link float-end" href="docker-image-examples.html" rel="next">
-          Next: Examples of Using... 
+          Next: Examples of Using...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Creating More Complex Container Images</h1>
         <p>Last updated on 2024-06-27 |
-        
+
         <a href="https://github.com/fishtree-attempt/docker-introduction/edit/main/episodes/advanced-containers.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-        
-        
-        
+
+
+
         <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -404,8 +404,8 @@ container or building a container image. Note that the examples will get
 gradually more and more complex – most day-to-day use of containers and
 container images can be accomplished using the first 1–2 sections on
 this page.</p>
-<section id="using-scripts-and-files-from-outside-the-container"><h2 class="section-heading">Using scripts and files from outside the container<a class="anchor" aria-label="anchor" href="#using-scripts-and-files-from-outside-the-container"></a>
-</h2>
+<section><h2 class="section-heading" id="using-scripts-and-files-from-outside-the-container">Using scripts and files from outside the container<a class="anchor" aria-label="anchor" href="#using-scripts-and-files-from-outside-the-container"></a>
+<a class="anchor" aria-label="anchor" href="#using-scripts-and-files-from-outside-the-container"></a></h2>
 <hr class="half-width"><p>In your shell, change to the <code>sum</code> folder in the
 <code>docker-intro</code> folder and look at the files inside.</p>
 <div class="codewrapper sourceCode" id="cb1">
@@ -564,7 +564,7 @@ above and put numbers after the script name?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>This script comes from <a href="https://wiki.python.org/moin/SimplePrograms" class="external-link">the Python Wiki</a>
 and is set to add all numbers that are passed to it as arguments.</p>
@@ -591,7 +591,7 @@ you characterize the key components of a Docker command?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Here’s a breakdown of each piece of the command above</p>
 <ul><li>
@@ -633,7 +633,7 @@ computer? What’s inside?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>The docker command to run the container interactively is:</p>
 <div class="codewrapper sourceCode" id="cb8">
@@ -659,8 +659,8 @@ software inside your container on many different input files. In other
 situations, you may want to save or archive an authoritative version of
 your data by adding it to the container image permanently. That’s what
 we will cover next.</p>
-</section><section id="including-your-scripts-and-data-within-a-container-image"><h2 class="section-heading">Including your scripts and data within a container image<a class="anchor" aria-label="anchor" href="#including-your-scripts-and-data-within-a-container-image"></a>
-</h2>
+</section><section><h2 class="section-heading" id="including-your-scripts-and-data-within-a-container-image">Including your scripts and data within a container image<a class="anchor" aria-label="anchor" href="#including-your-scripts-and-data-within-a-container-image"></a>
+<a class="anchor" aria-label="anchor" href="#including-your-scripts-and-data-within-a-container-image"></a></h2>
 <hr class="half-width"><p>Our next project will be to add our own files to a container image –
 something you might want to do if you’re sharing a finished analysis or
 just want to have an archived copy of your entire analysis including the
@@ -735,7 +735,7 @@ this one. Once inside, try running the Python script.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>You can start the container interactively like so:</p>
 <div class="codewrapper sourceCode" id="cb14">
@@ -804,9 +804,9 @@ require you to install such commands before using them within
 </div>
 </div>
 </div>
-</section><section id="more-fancy-dockerfile-options-optional-for-presentation-or-as-exercises"><h2 class="section-heading">More fancy <code>Dockerfile</code> options (optional, for
+</section><section><h2 class="section-heading" id="more-fancy-dockerfile-options-optional-for-presentation-or-as-exercises">More fancy <code>Dockerfile</code> options (optional, for
 presentation or as exercises)<a class="anchor" aria-label="anchor" href="#more-fancy-dockerfile-options-optional-for-presentation-or-as-exercises"></a>
-</h2>
+<a class="anchor" aria-label="anchor" href="#more-fancy-dockerfile-options-optional-for-presentation-or-as-exercises"></a></h2>
 <hr class="half-width"><p>We can expand on the example above to make our container image even
 more “automatic”. Here are some ideas:</p>
 <div class="section level3">
@@ -971,7 +971,7 @@ container images by using the <code>COPY</code> instruction in your
           Previous: Creating Your Own
         </a>
         <a class="chapter-link float-end" href="docker-image-examples.html" rel="next">
-          Next: Examples of Using... 
+          Next: Examples of Using...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
@@ -982,18 +982,18 @@ container images by using the <code>COPY</code> instruction in your
       		<footer class="row footer mx-md-3"><hr><div class="col-md-6">
         <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
-        
+
         <a href="https://github.com/fishtree-attempt/docker-introduction/edit/main/episodes/advanced-containers.md" class="external-link">Edit on GitHub</a>
-        
+
 	
         | <a href="https://github.com/fishtree-attempt/docker-introduction/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
         | <a href="https://github.com/fishtree-attempt/docker-introduction/" class="external-link">Source</a></p>
 				<p><a href="https://github.com/fishtree-attempt/docker-introduction/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:docker-introduction+admins@lists.carpentries.org">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
-        
+
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
-        
+
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
         <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.5" class="external-link">sandpaper (0.16.5)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.6" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.3" class="external-link">varnish (1.0.3)</a></p>
 			</div>
@@ -1018,7 +1018,7 @@ container images by using the <code>COPY</code> instruction in your
   "identifier": "https://preview.carpentries.org/docker-introduction/advanced-containers.html",
   "dateCreated": "2024-06-27",
   "dateModified": "2024-06-27",
-  "datePublished": "2024-07-02"
+  "datePublished": "2024-07-09"
 }
 
   </script><script>

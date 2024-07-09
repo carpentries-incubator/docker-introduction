@@ -27,7 +27,7 @@
             <span class="visually-hidden">This lesson is in the beta phase, which means that it is ready for teaching by instructors outside of the original author team.</span>
           </abbr>
         </span>
-        
+
       </div>
     </div>
     <div class="selector-container">
@@ -56,7 +56,7 @@
             </li>
           </ul></li>
       </div>
-      
+
       <div class="dropdown" id="instructor-dropdown">
         <button class="btn btn-secondary dropdown-toggle bordered-button" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
           <i aria-hidden="true" class="icon" data-feather="eye"></i> Instructor View <i data-feather="chevron-down"></i>
@@ -180,7 +180,7 @@
                 </div><!--/div.accordion-flush-->
               </div><!--div.sidenav-view-selector -->
             </div><!--/div.col -->
-      
+
             <hr></div><!--/div.mobile-row -->
 
           <div class="accordion accordion-flush" id="accordionFlush11">
@@ -199,7 +199,7 @@
     <div class="accordion-header" id="flush-heading1">
         <a href="index.html">Summary and Schedule</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -208,7 +208,7 @@
     <div class="accordion-header" id="flush-heading2">
         <a href="introduction.html">1. Introducing Containers</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -217,7 +217,7 @@
     <div class="accordion-header" id="flush-heading3">
         <a href="meet-docker.html">2. Introducing the Docker Command Line</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -226,7 +226,7 @@
     <div class="accordion-header" id="flush-heading4">
         <a href="running-containers.html">3. Exploring and Running Containers</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -235,7 +235,7 @@
     <div class="accordion-header" id="flush-heading5">
         <a href="managing-containers.html">4. Cleaning Up Containers</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -244,7 +244,7 @@
     <div class="accordion-header" id="flush-heading6">
         <a href="docker-hub.html">5. Finding Containers on Docker Hub</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -258,7 +258,7 @@
         </span>
       </button>
     </div><!--/div.accordion-header-->
-        
+
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#interactive-installation">Interactive installation</a></li>
@@ -269,7 +269,7 @@
 <li><a href="#whats-in-a-name-again">What’s in a name? (again)</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -278,7 +278,7 @@
     <div class="accordion-header" id="flush-heading8">
         <a href="advanced-containers.html">7. Creating More Complex Container Images</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -287,7 +287,7 @@
     <div class="accordion-header" id="flush-heading9">
         <a href="docker-image-examples.html">8. Examples of Using Container Images in Practice</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -296,7 +296,7 @@
     <div class="accordion-header" id="flush-heading10">
         <a href="reproduciblity.html">9. Containers in Research Workflows: Reproducibility and Granularity</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -328,10 +328,10 @@
               </div>
             </div>
             <hr class="half-width resources"><a href="../instructor/aio.html">See all in one page</a>
-            
+
 
             <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
-            
+
             </div>
           </div><!-- /div.accordion -->
         </div><!-- /div.sidebar-inner -->
@@ -352,20 +352,20 @@
           Previous: Finding Containers
         </a>
         <a class="chapter-link float-end" href="../instructor/advanced-containers.html" rel="next">
-          Next: Creating More... 
+          Next: Creating More...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Creating Your Own Container Images</h1>
         <p>Last updated on 2024-06-27 |
-        
+
         <a href="https://github.com/fishtree-attempt/docker-introduction/edit/main/episodes/creating-container-images.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-        
-        
-        
+
+
+
         <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 35 minutes</p>
-        
+
         <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -410,8 +410,8 @@ Docker Hub.</li>
 <li>You want to have a container image to “archive” all the specific
 software versions you ran for a project.</li>
 <li>You want to share your workflow with someone else.</li>
-</ul><section id="interactive-installation"><h2 class="section-heading">Interactive installation<a class="anchor" aria-label="anchor" href="#interactive-installation"></a>
-</h2>
+</ul><section><h2 class="section-heading" id="interactive-installation">Interactive installation<a class="anchor" aria-label="anchor" href="#interactive-installation"></a>
+<a class="anchor" aria-label="anchor" href="#interactive-installation"></a></h2>
 <hr class="half-width"><p>Before creating a reproducible installation, let’s experiment with
 installing software inside a container. Start a container from the
 <code>alpine</code> container image we used before, interactively:</p>
@@ -464,7 +464,7 @@ work?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>A quick search should hopefully show that the way to install R on
 Alpine Linux is:</p>
@@ -490,8 +490,8 @@ container.</p>
 </h3>
 <pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="ex">/#</span> exit</span></code></pre>
 </div>
-</section><section id="put-installation-instructions-in-a-dockerfile"><h2 class="section-heading">Put installation instructions in a <code>Dockerfile</code><a class="anchor" aria-label="anchor" href="#put-installation-instructions-in-a-dockerfile"></a>
-</h2>
+</section><section><h2 class="section-heading" id="put-installation-instructions-in-a-dockerfile">Put installation instructions in a <code>Dockerfile</code><a class="anchor" aria-label="anchor" href="#put-installation-instructions-in-a-dockerfile"></a>
+<a class="anchor" aria-label="anchor" href="#put-installation-instructions-in-a-dockerfile"></a></h2>
 <hr class="half-width"><p>A <code>Dockerfile</code> is a plain text file with keywords and
 commands that can be used to create a new container image.</p>
 <p>From your shell, go to the folder you downloaded at the start of the
@@ -567,7 +567,7 @@ Dockerfile to replicate the installation we did above?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Solution: </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Based on our experience above, edit the <code>Dockerfile</code> (in
 your text editor of choice) to look like this:</p>
@@ -582,8 +582,8 @@ CMD ["python3", "--version"]</code></pre>
 solution to the preceding exercise will use Alpine Linux as the base
 container image, add Python 3 and the Cython library, and set a default
 command to request Python 3 to report its version information.</p>
-</section><section id="create-a-new-docker-image"><h2 class="section-heading">Create a new Docker image<a class="anchor" aria-label="anchor" href="#create-a-new-docker-image"></a>
-</h2>
+</section><section><h2 class="section-heading" id="create-a-new-docker-image">Create a new Docker image<a class="anchor" aria-label="anchor" href="#create-a-new-docker-image"></a>
+<a class="anchor" aria-label="anchor" href="#create-a-new-docker-image"></a></h2>
 <hr class="half-width"><p>So far, we only have a text file named <code>Dockerfile</code> – we
 do not yet have a container image. We want Docker to take this
 <code>Dockerfile</code>, run the installation commands contained within
@@ -664,7 +664,7 @@ world”?</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal"><li><p>To see your new image, run <code>docker image ls</code>. You
 should see the name of your new container image under the “REPOSITORY”
@@ -696,8 +696,8 @@ world” instead:</p>
 effected the combination of a lightweight Linux operating system with
 your specification to run a given command that can operate reliably on
 macOS, Microsoft Windows, Linux and on the cloud!</p>
-</section><section id="boring-but-important-notes-about-installation"><h2 class="section-heading">Boring but important notes about installation<a class="anchor" aria-label="anchor" href="#boring-but-important-notes-about-installation"></a>
-</h2>
+</section><section><h2 class="section-heading" id="boring-but-important-notes-about-installation">Boring but important notes about installation<a class="anchor" aria-label="anchor" href="#boring-but-important-notes-about-installation"></a>
+<a class="anchor" aria-label="anchor" href="#boring-but-important-notes-about-installation"></a></h2>
 <hr class="half-width"><p>There are a lot of choices when it comes to installing software –
 sometimes too many! Here are some things to consider when creating your
 own container image:</p>
@@ -752,8 +752,8 @@ first.</li>
 take notes!</li>
 <li>From your interactive installation, create a <code>Dockerfile</code>
 and then try to build the container image from that.</li>
-</ul></section><section id="share-your-new-container-image-on-docker-hub"><h2 class="section-heading">Share your new container image on Docker Hub<a class="anchor" aria-label="anchor" href="#share-your-new-container-image-on-docker-hub"></a>
-</h2>
+</ul></section><section><h2 class="section-heading" id="share-your-new-container-image-on-docker-hub">Share your new container image on Docker Hub<a class="anchor" aria-label="anchor" href="#share-your-new-container-image-on-docker-hub"></a>
+<a class="anchor" aria-label="anchor" href="#share-your-new-container-image-on-docker-hub"></a></h2>
 <hr class="half-width"><p>Container images that you release publicly can be stored on the
 Docker Hub for free. If you name your container image as described
 above, with your Docker Hub username, all you need to do is run the
@@ -784,8 +784,8 @@ password, and then try <code>docker image push</code> again.</p>
 </div>
 </div>
 </div>
-</section><section id="whats-in-a-name-again"><h2 class="section-heading">What’s in a name? (again)<a class="anchor" aria-label="anchor" href="#whats-in-a-name-again"></a>
-</h2>
+</section><section><h2 class="section-heading" id="whats-in-a-name-again">What’s in a name? (again)<a class="anchor" aria-label="anchor" href="#whats-in-a-name-again"></a>
+<a class="anchor" aria-label="anchor" href="#whats-in-a-name-again"></a></h2>
 <hr class="half-width"><p>You don’t <em>have</em> to name your containers images using the
 <code>USERNAME/CONTAINER_IMAGE_NAME:TAG</code> naming scheme. On your
 own computer, you can call container images whatever you want, and refer
@@ -836,7 +836,7 @@ images.</li>
           Previous: Finding Containers
         </a>
         <a class="chapter-link float-end" href="../instructor/advanced-containers.html" rel="next">
-          Next: Creating More... 
+          Next: Creating More...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
@@ -847,18 +847,18 @@ images.</li>
       		<footer class="row footer mx-md-3"><hr><div class="col-md-6">
         <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
-        
+
         <a href="https://github.com/fishtree-attempt/docker-introduction/edit/main/episodes/creating-container-images.md" class="external-link">Edit on GitHub</a>
-        
+
 	
         | <a href="https://github.com/fishtree-attempt/docker-introduction/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
         | <a href="https://github.com/fishtree-attempt/docker-introduction/" class="external-link">Source</a></p>
 				<p><a href="https://github.com/fishtree-attempt/docker-introduction/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:docker-introduction+admins@lists.carpentries.org">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
-        
+
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
-        
+
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
         <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.5" class="external-link">sandpaper (0.16.5)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.6" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.3" class="external-link">varnish (1.0.3)</a></p>
 			</div>
@@ -883,7 +883,7 @@ images.</li>
   "identifier": "https://preview.carpentries.org/docker-introduction/instructor/creating-container-images.html",
   "dateCreated": "2024-06-27",
   "dateModified": "2024-06-27",
-  "datePublished": "2024-07-02"
+  "datePublished": "2024-07-09"
 }
 
   </script><script>

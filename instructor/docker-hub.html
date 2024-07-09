@@ -27,7 +27,7 @@
             <span class="visually-hidden">This lesson is in the beta phase, which means that it is ready for teaching by instructors outside of the original author team.</span>
           </abbr>
         </span>
-        
+
       </div>
     </div>
     <div class="selector-container">
@@ -56,7 +56,7 @@
             </li>
           </ul></li>
       </div>
-      
+
       <div class="dropdown" id="instructor-dropdown">
         <button class="btn btn-secondary dropdown-toggle bordered-button" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
           <i aria-hidden="true" class="icon" data-feather="eye"></i> Instructor View <i data-feather="chevron-down"></i>
@@ -180,7 +180,7 @@
                 </div><!--/div.accordion-flush-->
               </div><!--div.sidenav-view-selector -->
             </div><!--/div.col -->
-      
+
             <hr></div><!--/div.mobile-row -->
 
           <div class="accordion accordion-flush" id="accordionFlush11">
@@ -199,7 +199,7 @@
     <div class="accordion-header" id="flush-heading1">
         <a href="index.html">Summary and Schedule</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -208,7 +208,7 @@
     <div class="accordion-header" id="flush-heading2">
         <a href="introduction.html">1. Introducing Containers</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -217,7 +217,7 @@
     <div class="accordion-header" id="flush-heading3">
         <a href="meet-docker.html">2. Introducing the Docker Command Line</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -226,7 +226,7 @@
     <div class="accordion-header" id="flush-heading4">
         <a href="running-containers.html">3. Exploring and Running Containers</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -235,7 +235,7 @@
     <div class="accordion-header" id="flush-heading5">
         <a href="managing-containers.html">4. Cleaning Up Containers</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -249,7 +249,7 @@
         </span>
       </button>
     </div><!--/div.accordion-header-->
-        
+
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#introducing-the-docker-hub">Introducing the Docker Hub</a></li>
@@ -258,7 +258,7 @@
 <li><a href="#finding-container-images-on-docker-hub">Finding Container Images on Docker Hub</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -267,7 +267,7 @@
     <div class="accordion-header" id="flush-heading7">
         <a href="creating-container-images.html">6. Creating Your Own Container Images</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -276,7 +276,7 @@
     <div class="accordion-header" id="flush-heading8">
         <a href="advanced-containers.html">7. Creating More Complex Container Images</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -285,7 +285,7 @@
     <div class="accordion-header" id="flush-heading9">
         <a href="docker-image-examples.html">8. Examples of Using Container Images in Practice</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -294,7 +294,7 @@
     <div class="accordion-header" id="flush-heading10">
         <a href="reproduciblity.html">9. Containers in Research Workflows: Reproducibility and Granularity</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -326,10 +326,10 @@
               </div>
             </div>
             <hr class="half-width resources"><a href="../instructor/aio.html">See all in one page</a>
-            
+
 
             <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
-            
+
             </div>
           </div><!-- /div.accordion -->
         </div><!-- /div.sidebar-inner -->
@@ -350,20 +350,20 @@
           Previous: Cleaning Up
         </a>
         <a class="chapter-link float-end" href="../instructor/creating-container-images.html" rel="next">
-          Next: Creating Your Own... 
+          Next: Creating Your Own...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Finding Containers on Docker Hub</h1>
         <p>Last updated on 2024-06-27 |
-        
+
         <a href="https://github.com/fishtree-attempt/docker-introduction/edit/main/episodes/docker-hub.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-        
-        
-        
+
+
+
         <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 20 minutes</p>
-        
+
         <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -400,8 +400,8 @@ identifier.</li>
 from different container images: <code>hello-world</code>,
 <code>alpine</code>, and maybe <code>ubuntu</code>. Where did these
 container images come from? The Docker Hub!</p>
-<section id="introducing-the-docker-hub"><h2 class="section-heading">Introducing the Docker Hub<a class="anchor" aria-label="anchor" href="#introducing-the-docker-hub"></a>
-</h2>
+<section><h2 class="section-heading" id="introducing-the-docker-hub">Introducing the Docker Hub<a class="anchor" aria-label="anchor" href="#introducing-the-docker-hub"></a>
+<a class="anchor" aria-label="anchor" href="#introducing-the-docker-hub"></a></h2>
 <hr class="half-width"><p>The Docker Hub is an online repository of container images, a vast
 number of which are publicly available. A large number of the container
 images are curated by the developers of the software that they package.
@@ -425,8 +425,8 @@ Internet.</p>
 </div>
 </div>
 </div>
-</section><section id="exploring-an-example-docker-hub-page"><h2 class="section-heading">Exploring an Example Docker Hub Page<a class="anchor" aria-label="anchor" href="#exploring-an-example-docker-hub-page"></a>
-</h2>
+</section><section><h2 class="section-heading" id="exploring-an-example-docker-hub-page">Exploring an Example Docker Hub Page<a class="anchor" aria-label="anchor" href="#exploring-an-example-docker-hub-page"></a>
+<a class="anchor" aria-label="anchor" href="#exploring-an-example-docker-hub-page"></a></h2>
 <hr class="half-width"><p>As an example of a Docker Hub page, let’s explore the page for the
 official Python language container images. The most basic form of
 containerized Python is in the <code>python</code> container image
@@ -447,8 +447,8 @@ architectures are supported, etc.;</li>
 </ul><p>The “How to use the image” section of most container images’ pages
 will provide examples that are likely to cover your intended use of the
 container image.</p>
-</section><section id="exploring-container-image-versions"><h2 class="section-heading">Exploring Container Image Versions<a class="anchor" aria-label="anchor" href="#exploring-container-image-versions"></a>
-</h2>
+</section><section><h2 class="section-heading" id="exploring-container-image-versions">Exploring Container Image Versions<a class="anchor" aria-label="anchor" href="#exploring-container-image-versions"></a>
+<a class="anchor" aria-label="anchor" href="#exploring-container-image-versions"></a></h2>
 <hr class="half-width"><p>A single Docker Hub page can have many different versions of
 container images, based on the version of the software inside. These
 versions are indicated by “tags”. When referring to the specific version
@@ -538,8 +538,8 @@ is:</p>
 </div>
 </div>
 </div>
-</section><section id="finding-container-images-on-docker-hub"><h2 class="section-heading">Finding Container Images on Docker Hub<a class="anchor" aria-label="anchor" href="#finding-container-images-on-docker-hub"></a>
-</h2>
+</section><section><h2 class="section-heading" id="finding-container-images-on-docker-hub">Finding Container Images on Docker Hub<a class="anchor" aria-label="anchor" href="#finding-container-images-on-docker-hub"></a>
+<a class="anchor" aria-label="anchor" href="#finding-container-images-on-docker-hub"></a></h2>
 <hr class="half-width"><p>There are many different container images on Docker Hub. This is
 where the real advantage of using containers shows up – each container
 image represents a complete software installation that you can use and
@@ -618,7 +618,7 @@ by tags.</li>
           Previous: Cleaning Up
         </a>
         <a class="chapter-link float-end" href="../instructor/creating-container-images.html" rel="next">
-          Next: Creating Your Own... 
+          Next: Creating Your Own...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
@@ -629,18 +629,18 @@ by tags.</li>
       		<footer class="row footer mx-md-3"><hr><div class="col-md-6">
         <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
-        
+
         <a href="https://github.com/fishtree-attempt/docker-introduction/edit/main/episodes/docker-hub.md" class="external-link">Edit on GitHub</a>
-        
+
 	
         | <a href="https://github.com/fishtree-attempt/docker-introduction/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
         | <a href="https://github.com/fishtree-attempt/docker-introduction/" class="external-link">Source</a></p>
 				<p><a href="https://github.com/fishtree-attempt/docker-introduction/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:docker-introduction+admins@lists.carpentries.org">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
-        
+
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
-        
+
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
         <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.5" class="external-link">sandpaper (0.16.5)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.6" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.3" class="external-link">varnish (1.0.3)</a></p>
 			</div>
@@ -665,7 +665,7 @@ by tags.</li>
   "identifier": "https://preview.carpentries.org/docker-introduction/instructor/docker-hub.html",
   "dateCreated": "2024-06-27",
   "dateModified": "2024-06-27",
-  "datePublished": "2024-07-02"
+  "datePublished": "2024-07-09"
 }
 
   </script><script>
