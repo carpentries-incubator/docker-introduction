@@ -27,7 +27,7 @@ life_cycle: 'beta'
 license: 'CC-BY 4.0'
 
 # Link to the source repository for this lesson
-source: 'https://github.com/fishtree-attempt/docker-introduction/'
+source: 'https://github.com/carpentries-incubator/docker-introduction/'
 
 # Default branch of your lesson
 branch: 'main'
