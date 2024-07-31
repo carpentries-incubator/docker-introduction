@@ -1,7 +1,7 @@
 ---
 title: Examples of Using Container Images in Practice
-teaching: 20
-exercises: 0
+teaching: 10
+exercises: 15
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives

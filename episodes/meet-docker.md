@@ -1,7 +1,7 @@
 ---
 title: Introducing the Docker Command Line
 teaching: 10
-exercises: 0
+exercises: 5
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
