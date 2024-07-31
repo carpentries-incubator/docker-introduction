@@ -9,6 +9,8 @@ title: 'Glossary'
    <dd><a href="https://glosario.carpentries.org/en/#command_line_argument" alt="Link to Carpentries Glossario">See the Carpentries Glossario entry</a></dd>
    <dt>Command-line interface (CLI)</dt>
    <dd><a href="https://glosario.carpentries.org/en/#cli" alt="Link to Carpentries Glossario">See the Carpentries Glossario entry</a></dd>
+   <dt>Computational pipeline</dt>
+   <dd>A combination of different software tools in a particular order that is used to perform a defined set of repeatable operations on different input data.</dd>
    <dt>Container</dt>
    <dd>A particular instance of a lightweight virtual machine derived from a <em>container image</em>. Containers are typically transient, unlike <em>container images</em> which persist.</dd>
    <dt>Container image</dt>
