@@ -153,6 +153,8 @@ can be used to create multiple copies of the same shape (or container)
 and is relatively unchanging, where cookies come and go. If you want a
 different type of container (cookie) you need a different container image (cookie cutter).
 
+![](fig/containers-cookie-cutter.png){alt='An image comparing using a cookie cutter to the container workflow'}
+
 ## Putting the Pieces Together
 
 Think back to some of the challenges we described at the beginning. The many layers
