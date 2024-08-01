@@ -64,7 +64,7 @@ to use likely depends on many, many, different other programs (including the
 operating system!), creating a very complex, and often fragile system. One change
 or missing piece may stop the whole thing from working or break something that was
 already running. It's no surprise that this situation is sometimes
-informally termed "dependency hell".
+informally termed **dependency hell**.
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -92,7 +92,7 @@ and access to resources such as files and communications networks in a uniform m
 
 ## What is a Container? What is Docker?
 
-[Docker][Docker] is a tool that allows you to build what are called "containers." It's
+[Docker][Docker] is a tool that allows you to build what are called **containers**. It's
 not the only tool that can create containers, but is the one we've chosen for
 this workshop. But what *is* a container?
 
@@ -103,7 +103,7 @@ called the hardware. One of these pieces is the CPU or processor; another is
 the amount of memory or RAM that your computer can use to store information
 temporarily while running programs; another is the hard drive, which can store
 information over the long-term. All these pieces work together to do the
-"computing" of a computer, but we don't see them because they're hidden from view (usually).
+computing of a computer, but we don't see them because they're hidden from view (usually).
 
 Instead, what we see is our desktop, program windows, different folders, and
 files. These all live in what's called the filesystem. Everything on your computer -- programs,
@@ -115,23 +115,23 @@ of making a mess of your existing system by installing a bunch of additional stu
 You don't want to buy a whole new computer because it's too expensive.
 What if, instead, you could have another independent filesystem and running operating system that you could access from your main computer, and that is actually stored within this existing computer?
 
-Or, imagine you have two tools you want to use in your groundbreaking research on cat memes: `PurrLOLing`, a tool that does AMAZINGLY well at predicting the best text for a meme based on the cat species and `WhiskerSpot`, the only tool available for identifying cat species from images.  You want to send cat pictures to `WhiskerSpot`, and then send the species output to `PurrLOLing`.  But there's a problem: `PurrLOLing` only works on Ubuntu and `WhiskerSpot` is only supported for OpenSUSE so you can't have them on the same system!  Again, we really want another filesystem (or two) on our computer that we could use to chain together `WhiskerSpot` and `PurrLOLing` in a "pipeline"...
+Or, imagine you have two tools you want to use in your groundbreaking research on cat memes: `PurrLOLing`, a tool that does AMAZINGLY well at predicting the best text for a meme based on the cat species and `WhiskerSpot`, the only tool available for identifying cat species from images.  You want to send cat pictures to `WhiskerSpot`, and then send the species output to `PurrLOLing`.  But there's a problem: `PurrLOLing` only works on Ubuntu and `WhiskerSpot` is only supported for OpenSUSE so you can't have them on the same system!  Again, we really want another filesystem (or two) on our computer that we could use to chain together `WhiskerSpot` and `PurrLOLing` in a **computational pipeline**...
 
 Container systems, like Docker, are special programs on your computer that make it possible!
-The term "container" can be usefully considered with reference to shipping
+The term container can be usefully considered with reference to shipping
 containers. Before shipping containers were developed, packing and unpacking
 cargo ships was time consuming and error prone, with high potential for
 different clients' goods to become mixed up. Just like shipping containers keep things
 together that should stay together, software containers standardize the description and
 creation of a complete software system: you can drop a container into any computer with
-the container software installed (the 'container host'), and it should "just work".
+the container software installed (the 'container host'), and it should *just work*.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## Virtualization
 
 Containers are an example of what's called **virtualization** -- having a
-second "virtual" computer running and accessible from a main or **host**
+second virtual computer running and accessible from a main or **host**
 computer. Another example of virtualization are **virtual machines** or
 VMs. A virtual machine typically contains a whole copy of an operating system in
 addition to its own filesystem and has to get booted up in the same way
@@ -152,6 +152,8 @@ You could think of the container image like a cookie cutter -- it
 can be used to create multiple copies of the same shape (or container)
 and is relatively unchanging, where cookies come and go. If you want a
 different type of container (cookie) you need a different container image (cookie cutter).
+
+![](fig/containers-cookie-cutter.png){alt='An image comparing using a cookie cutter to the container workflow'}
 
 ## Putting the Pieces Together
 
