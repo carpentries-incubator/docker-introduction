@@ -1,7 +1,7 @@
 ---
 title: 'Containers in Research Workflows: Reproducibility and Granularity'
 teaching: 20
-exercises: 0
+exercises: 5
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
