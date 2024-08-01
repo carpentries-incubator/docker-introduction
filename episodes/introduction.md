@@ -1,7 +1,7 @@
 ---
 title: Introducing Containers
 teaching: 20
-exercises: 0
+exercises: 5
 ---
 
 ::::::::::::::::::::::::::::::::::::::: objectives
