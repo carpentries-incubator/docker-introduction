@@ -13,7 +13,11 @@ exercises: 30
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How can I make more complex container images?
+- How can I add local files (e.g. data files) into container
+  images at build time?
+
+- How can I access files stored on the host system from within a running Docker
+  container?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
