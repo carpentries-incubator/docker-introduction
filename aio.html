@@ -510,8 +510,8 @@ program you want to use likely depends on many, many, different other
 programs (including the operating system!), creating a very complex, and
 often fragile system. One change or missing piece may stop the whole
 thing from working or break something that was already running. It’s no
-surprise that this situation is sometimes informally termed “dependency
-hell”.</p>
+surprise that this situation is sometimes informally termed
+<strong>dependency hell</strong>.</p>
 <div id="software-and-science" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
@@ -548,9 +548,9 @@ communications networks in a uniform manner.</p>
 </h2>
 <hr class="half-width">
 <p>[Docker][Docker] is a tool that allows you to build what are called
-“containers.” It’s not the only tool that can create containers, but is
-the one we’ve chosen for this workshop. But what <em>is</em> a
-container?</p>
+<strong>containers</strong>. It’s not the only tool that can create
+containers, but is the one we’ve chosen for this workshop. But what
+<em>is</em> a container?</p>
 <p>To understand containers, let’s first talk briefly about your
 computer.</p>
 <p>Your computer has some standard pieces that allow it to work – often
@@ -558,8 +558,8 @@ what’s called the hardware. One of these pieces is the CPU or processor;
 another is the amount of memory or RAM that your computer can use to
 store information temporarily while running programs; another is the
 hard drive, which can store information over the long-term. All these
-pieces work together to do the “computing” of a computer, but we don’t
-see them because they’re hidden from view (usually).</p>
+pieces work together to do the computing of a computer, but we don’t see
+them because they’re hidden from view (usually).</p>
 <p>Instead, what we see is our desktop, program windows, different
 folders, and files. These all live in what’s called the filesystem.
 Everything on your computer – programs, pictures, documents, the
@@ -582,9 +582,9 @@ only works on Ubuntu and <code>WhiskerSpot</code> is only supported for
 OpenSUSE so you can’t have them on the same system! Again, we really
 want another filesystem (or two) on our computer that we could use to
 chain together <code>WhiskerSpot</code> and <code>PurrLOLing</code> in a
-“pipeline”…</p>
+<strong>computational pipeline</strong>…</p>
 <p>Container systems, like Docker, are special programs on your computer
-that make it possible! The term “container” can be usefully considered
+that make it possible! The term container can be usefully considered
 with reference to shipping containers. Before shipping containers were
 developed, packing and unpacking cargo ships was time consuming and
 error prone, with high potential for different clients’ goods to become
@@ -592,7 +592,7 @@ mixed up. Just like shipping containers keep things together that should
 stay together, software containers standardize the description and
 creation of a complete software system: you can drop a container into
 any computer with the container software installed (the ‘container
-host’), and it should “just work”.</p>
+host’), and it should <em>just work</em>.</p>
 <div id="virtualization" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -602,7 +602,7 @@ host’), and it should “just work”.</p>
 </h3>
 <div class="callout-content">
 <p>Containers are an example of what’s called
-<strong>virtualization</strong> – having a second “virtual” computer
+<strong>virtualization</strong> – having a second virtual computer
 running and accessible from a main or <strong>host</strong> computer.
 Another example of virtualization are <strong>virtual machines</strong>
 or VMs. A virtual machine typically contains a whole copy of an
@@ -626,7 +626,7 @@ used to create multiple copies of the same shape (or container) and is
 relatively unchanging, where cookies come and go. If you want a
 different type of container (cookie) you need a different container
 image (cookie cutter).</p>
-</section><section><h2 class="section-heading" id="putting-the-pieces-together">Putting the Pieces Together<a class="anchor" aria-label="anchor" href="#putting-the-pieces-together"></a>
+<figure><img src="fig/containers-cookie-cutter.png" alt="An image comparing using a cookie cutter to the container workflow" class="figure mx-auto d-block"></figure></section><section><h2 class="section-heading" id="putting-the-pieces-together">Putting the Pieces Together<a class="anchor" aria-label="anchor" href="#putting-the-pieces-together"></a>
 <a class="anchor" aria-label="anchor" href="#putting-the-pieces-together"></a>
 </h2>
 <hr class="half-width">
@@ -1263,7 +1263,7 @@ computer? Give it a try before checking the solution.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>To see if the <code>hello-world</code> container image is now on your
 computer, run:</p>
@@ -1426,7 +1426,7 @@ print a “hello world” message?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Use the same command as above, but with the <code>echo</code> command
 to print a message.</p>
@@ -1522,7 +1522,7 @@ you more information.)</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Solution 1 – Interactive </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Run an interactive ubuntu container – you can use
 <code>docker image pull</code> first, or just run it with this
@@ -1560,7 +1560,7 @@ command:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Solution 2 – Run commands </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Run a ubuntu container, first with a command to read out the Linux
 version:</p>
@@ -2260,7 +2260,7 @@ work?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>A quick search should hopefully show that the way to install R on
 Alpine Linux is:</p>
@@ -2367,7 +2367,7 @@ Dockerfile to replicate the installation we did above?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Solution: </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Based on our experience above, edit the <code>Dockerfile</code> (in
 your text editor of choice) to look like this:</p>
@@ -2470,7 +2470,7 @@ world”?</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <ol style="list-style-type: decimal">
 <li><p>To see your new image, run <code>docker image ls</code>. You
