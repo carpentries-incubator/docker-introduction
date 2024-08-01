@@ -50,8 +50,39 @@ container image.
 
 ## Running containers
 
-What command would we use to run Python from the `alpine-python` container?
+Question: What command would we use to run Python from the `alpine-python` container?
 
+
+:::::::::::::::  solution
+
+## Solution
+
+We can run a container from the alpine-python container image using:
+
+```bash
+$ docker container run alice/alpine-python
+```
+
+What happens? Since the `Dockerfile` that we built this container image from
+had a `CMD` entry that specified `["python3", "--version"]`, running the above
+command simply starts a container from the image, runs the `python3 --version`
+command and exits. You should have seen the installed version of Python printed
+to the terminal.
+
+Instead, if we want to run an interactive Python terminal, we can use `docker
+container run` to override the default run command embedded within the
+container image. So we could run:
+
+```bash
+$ docker container run -it alice/alpine-python python3
+```
+
+The `-it` tells Docker to set up and interactive terminal connection to the
+running container, and then we're telling Docker to run the `python3` command
+inside the container which gives us an interactive Python interpreter prompt.
+_(type `exit()` to exit!)_
+
+:::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -69,8 +100,11 @@ python3: can't open file '//sum.py': [Errno 2] No such file or directory
 
 ## No such file or directory
 
-What does the error message mean? Why might the Python inside the container
+Question: What does the error message mean? Why might the Python inside the container
 not be able to find or open our script?
+
+This question is here for you to think about - we explore the answer to this
+question in the content below.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
