@@ -52,6 +52,24 @@ If you are looking for a lesson on using Singularity containers (instead of Dock
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
+## Target audience
+
+This lesson on the use of Docker is intended to be relevant to a wide range of
+researchers, as well as existing and prospective technical professionals. It is
+intended as a beginner level course that is suitable for people who have no
+experience of containers.
+
+We are aiming to help people who want to develop their knowledge of container
+tooling to help improve reproducibility and support their research work, or
+that of individuals or teams they are working with.
+
+We provide more detail on specific roles that might benefit from this course on
+the [Learner Profiles](/profiles.html) page.
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::  callout
+
 ## A note about Docker
 
 Docker is a mature, robust and very widely used application. Nonetheless,
