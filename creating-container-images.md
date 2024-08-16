@@ -170,7 +170,8 @@ CMD ["python3", "--version"]
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 The recipe provided by the `Dockerfile` shown in the solution to the preceding exercise will use Alpine Linux as the base container image,
-add Python 3 and the Cython library, and set a default command to request Python 3 to report its version information.
+add Python 3, the pip package management tool and some additional Python header files, and set a default command to request Python 3 to
+report its version information.
 
 ## Create a new Docker image
 
