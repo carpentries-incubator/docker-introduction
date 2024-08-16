@@ -272,7 +272,10 @@ There are a lot of choices when it comes to installing software -- sometimes too
 Here are some things to consider when creating your own container image:
 
 - **Start smart**, or, don't install everything from scratch! If you're using Python
-  as your main tool, start with a [Python container image](https://hub.docker.com/_/python). Same with [R](https://hub.docker.com/r/rocker/r-ver/). We've used Alpine Linux as an example
+  as your main tool, start with a [Python container
+  image](https://hub.docker.com/_/python). Same with the
+  [R programming language](https://hub.docker.com/r/rocker/r-ver/). We've used Alpine Linux as an
+  example
   in this lesson, but it's generally not a good container image to start with for initial development and experimentation because it is
   a less common distribution of Linux; using [Ubuntu](https://hub.docker.com/_/ubuntu), [Debian](https://hub.docker.com/_/debian) and [CentOS](https://hub.docker.com/_/centos) are all
   good options for scientific software installations. The program you're using might
