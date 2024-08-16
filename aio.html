@@ -547,10 +547,10 @@ communications networks in a uniform manner.</p>
 <a class="anchor" aria-label="anchor" href="#what-is-a-container-what-is-docker"></a>
 </h2>
 <hr class="half-width">
-<p>[Docker][Docker] is a tool that allows you to build what are called
-<strong>containers</strong>. It’s not the only tool that can create
-containers, but is the one we’ve chosen for this workshop. But what
-<em>is</em> a container?</p>
+<p><a href="https://www.docker.com/" class="external-link">Docker</a> is a tool that allows
+you to build what are called <strong>containers</strong>. It’s not the
+only tool that can create containers, but is the one we’ve chosen for
+this workshop. But what <em>is</em> a container?</p>
 <p>To understand containers, let’s first talk briefly about your
 computer.</p>
 <p>Your computer has some standard pieces that allow it to work – often
@@ -1263,7 +1263,7 @@ computer? Give it a try before checking the solution.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>To see if the <code>hello-world</code> container image is now on your
 computer, run:</p>
@@ -1426,7 +1426,7 @@ print a “hello world” message?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Use the same command as above, but with the <code>echo</code> command
 to print a message.</p>
@@ -1522,7 +1522,7 @@ you more information.)</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Solution 1 – Interactive </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Run an interactive ubuntu container – you can use
 <code>docker image pull</code> first, or just run it with this
@@ -1560,7 +1560,7 @@ command:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Solution 2 – Run commands </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Run a ubuntu container, first with a command to read out the Linux
 version:</p>
@@ -2154,7 +2154,7 @@ by tags.</li>
 </div>
 </section></section><section id="aio-creating-container-images"><p>Content from <a href="creating-container-images.html">Creating Your Own Container Images</a></p>
 <hr>
-<p>Last updated on 2024-06-27 |
+<p>Last updated on 2024-08-16 |
 
         <a href="https://github.com/carpentries-incubator/docker-introduction/edit/main/episodes/creating-container-images.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -2515,11 +2515,11 @@ own container image:</p>
 <li>
 <strong>Start smart</strong>, or, don’t install everything from
 scratch! If you’re using Python as your main tool, start with a <a href="https://hub.docker.com/_/python" class="external-link">Python container image</a>. Same
-with <a href="https://hub.docker.com/r/rocker/r-ver/" class="external-link">R</a>. We’ve used
-Alpine Linux as an example in this lesson, but it’s generally not a good
-container image to start with for initial development and
-experimentation because it is a less common distribution of Linux; using
-<a href="https://hub.docker.com/_/ubuntu" class="external-link">Ubuntu</a>, <a href="https://hub.docker.com/_/debian" class="external-link">Debian</a> and <a href="https://hub.docker.com/_/centos" class="external-link">CentOS</a> are all good options
+with the <a href="https://hub.docker.com/r/rocker/r-ver/" class="external-link">R programming
+language</a>. We’ve used Alpine Linux as an example in this lesson, but
+it’s generally not a good container image to start with for initial
+development and experimentation because it is a less common distribution
+of Linux; using <a href="https://hub.docker.com/_/ubuntu" class="external-link">Ubuntu</a>, <a href="https://hub.docker.com/_/debian" class="external-link">Debian</a> and <a href="https://hub.docker.com/_/centos" class="external-link">CentOS</a> are all good options
 for scientific software installations. The program you’re using might
 recommend a particular distribution of Linux, and if so, it may be
 useful to start with a container image for that distribution.</li>
@@ -2858,7 +2858,7 @@ above and put numbers after the script name?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>This script comes from <a href="https://wiki.python.org/moin/SimplePrograms" class="external-link">the Python Wiki</a>
 and is set to add all numbers that are passed to it as arguments.</p>
@@ -2885,7 +2885,7 @@ you characterize the key components of a Docker command?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Here’s a breakdown of each piece of the command above</p>
 <ul>
@@ -2929,7 +2929,7 @@ computer? What’s inside?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>The docker command to run the container interactively is:</p>
 <div class="codewrapper sourceCode" id="cb8">
@@ -3033,7 +3033,7 @@ this one. Once inside, try running the Python script.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>You can start the container interactively like so:</p>
 <div class="codewrapper sourceCode" id="cb14">
@@ -3361,7 +3361,8 @@ with Shifter (and Singularity)”</li>
 </h2>
 <hr class="half-width">
 <p>Do you have another example of using Docker in a workflow related to
-your field? Please [open a lesson issue] or <a href="https://github.com/carpentries-incubator/docker-introduction/pulls" class="external-link">submit
+your field? Please <a href="https://github.com/carpentries-incubator/docker-introduction/issues/new" class="external-link">open
+a lesson issue</a> or <a href="https://github.com/carpentries-incubator/docker-introduction/pulls" class="external-link">submit
 a pull request</a> to add it to this episode and the extras section of
 the lesson.</p>
 <div id="keypoints1" class="callout keypoints">
