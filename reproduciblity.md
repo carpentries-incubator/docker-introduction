@@ -35,23 +35,33 @@ Note that reproducibility aspects of software and containers are an active area 
 
 By *reproducibility* here we mean the ability of someone else (or your future self) being able to reproduce
 what you did computationally at a particular time (be this in research, analysis or something else)
-as closely as possible even if they do not have access to exactly the same hardware resources
+as closely as possible, even if they do not have access to exactly the same hardware resources
 that you had when you did the original work.
+
+What makes this especially important? With research being increasingly digital
+in nature, more and more of our research outputs are a result of the use of
+software and data processing or analysis. With complex software stacks or
+groups of dependencies often being required to run research software, we need
+approaches to ensure that we can make it as easy as possible to recreate an
+environment in which a given research process was undertaken. There many
+reasons why this matters, one example being someone wanting to reproduce
+the results of a publication in order to verify them and then build on that
+research. 
 
 Some examples of why containers are an attractive technology to help with reproducibility include:
 
-- The same computational work can be run across multiple different technologies seamlessly (e.g. Windows, macOS, Linux).
+- The same computational work can be run seamlessly on different operating systems (e.g. Windows, macOS, Linux).
 - You can save the exact process that you used for your computational work (rather than relying on potentially incomplete notes).
 - You can save the exact versions of software and their dependencies in the container image.
-- You can access legacy versions of software and underlying dependencies which may not be generally available any more.
+- You can provide access to legacy versions of software and underlying dependencies which may not be generally available any more.
 - Depending on their size, you can also potentially store a copy of key data within the container image.
-- You can archive and share the container image as well as associating a persistent identifier with a container image to allow other researchers to reproduce and build on your work.
+- You can archive and share a container image as well as associating a persistent identifier with it, to allow other researchers to reproduce and build on your work.
 
 ## Sharing images
 
 As we have already seen, the Docker Hub provides a platform for sharing container images publicly. Once you have uploaded a container image, you can point people to its public location and they can download and build upon it.
 
-This is fine for working collaboratively with container images on a day-to-day basis but the Docker Hub is not a good option for long time archive of container images in support of research and publications as:
+This is fine for working collaboratively with container images on a day-to-day basis but the Docker Hub is not a good option for long-term archiving of container images in support of research and publications as:
 
 - free accounts have a limit on how long a container image will be hosted if it is not updated
 - it does not support adding persistent identifiers to container images
@@ -87,7 +97,24 @@ Note that Zenodo is not the only option for archiving and generating persistent 
 - Make use of container images to capture the computational environment required for your work.
 - Decide on the appropriate granularity for the container images you will use for your computational work -- this will be different for each project/area. Take note of accepted practice from contemporary work in the same area. What are the right building blocks for individual container images in your work?
 - Document what you have done and why -- this can be put in comments in the `Dockerfile` and the use of the container image described in associated documentation and/or publications. Make sure that references are made in both directions so that the container image and the documentation are appropriately linked.
-- When you publish work (in whatever way) use an archiving and DOI service such as Zenodo to make sure your container image is captured as it was used for the work and that is obtains a persistent DOI to allow it to be cited and referenced properly.
+- When you publish work (in whatever way) use an archiving and DOI service such
+  as Zenodo to make sure your container image is captured as it was used for
+  the work and that it is assigned a persistent DOI to allow it to be cited and
+  referenced properly.
+- Make use of tags when naming your container images, this ensures that if you
+  update the image in future, previous versions can be retained within a
+  container repository to be easily accessed, if this is required.
+- A built and archived container image can ensure a persistently bundled set of
+  software and dependecies. However, a `Dockerfile` provides a lightweight
+  means of storing a container definition that can be used to re-create a
+  container image at a later time. If you're taking this approach, ensure that
+  you specify software package and dependency versions within your `Dockerfile`
+  rather than just specifying package names which will generally install the
+  most up-to-date version of a package. This may be incompatible with other
+  elements of your software stack. Also note that storing only a `Dockerfile`
+  presents reproducibility challenges because required versions of packages may
+  not be available indefinitely, potentially meaning that you're unable to
+  reproduce the required environment and, hence, the research results.
 
 ## Container Granularity
 
