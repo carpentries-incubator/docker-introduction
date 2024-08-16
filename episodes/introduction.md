@@ -52,7 +52,7 @@ challenges.
 ## What is a software *dependency*?
 
 We will mention software *dependencies* a lot in this section of the workshop
-so it is good to clarify this terms up front. A software dependency is a
+so it is good to clarify this term up front. A software dependency is a
 relationship between software components where one component relies on the
 other to work properly. For example, if a software application uses a library
 to query a database, the application depends on that library.
