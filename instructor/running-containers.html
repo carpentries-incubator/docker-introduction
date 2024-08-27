@@ -303,10 +303,10 @@
               </div>
             </div>
 
-            <hr class="half-width"><div class="accordion accordion-flush resources" id="accordionFlush12">
+            <hr class="half-width"><div class="accordion accordion-flush lesson-resources" id="accordionFlush12">
               <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingTwelve">
-                  <button class="accordion-button collapsed" id="resources" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
+                  <button class="accordion-button collapsed" id="lesson-resources" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
                     RESOURCES
                   </button>
                 </h2>
@@ -326,7 +326,7 @@
                 </div>
               </div>
             </div>
-            <hr class="half-width resources"><a href="../instructor/aio.html">See all in one page</a>
+            <hr class="half-width lesson-resources"><a href="../instructor/aio.html">See all in one page</a>
 
 
             <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
@@ -404,8 +404,7 @@ Docker container.</li>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="reminder-of-terminology-container-images-and-containers" class="callout-inner">
-<h3 class="callout-title">Reminder of terminology: container images and containers<a class="anchor" aria-label="anchor" href="#reminder-of-terminology-container-images-and-containers"></a>
-</h3>
+<h3 class="callout-title">Reminder of terminology: container images and containers</h3>
 <div class="callout-content">
 <p>Recall that a <em>container image</em> is the template from which
 particular instances of <em>containers</em> will be created.</p>
@@ -415,8 +414,7 @@ particular instances of <em>containers</em> will be created.</p>
 <p>Let’s explore our first Docker container. The Docker team provides a
 simple container image online called <code>hello-world</code>. We’ll
 start with that one.</p>
-<section><h2 class="section-heading" id="downloading-docker-images">Downloading Docker images<a class="anchor" aria-label="anchor" href="#downloading-docker-images"></a>
-<a class="anchor" aria-label="anchor" href="#downloading-docker-images"></a></h2>
+<section><h2 class="section-heading" id="downloading-docker-images">Downloading Docker images<a class="anchor" aria-label="anchor" href="#downloading-docker-images"></a></h2>
 <hr class="half-width"><p>The <code>docker image</code> command is used to interact with Docker
 container images. You can find out what container images you have on
 your computer by using the following command (“ls” is short for
@@ -451,8 +449,7 @@ docker.io/library/hello-world:latest</code></pre>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="docker-hub" class="callout-inner">
-<h3 class="callout-title">Docker Hub<a class="anchor" aria-label="anchor" href="#docker-hub"></a>
-</h3>
+<h3 class="callout-title">Docker Hub</h3>
 <div class="callout-content">
 <p>Where did the <code>hello-world</code> container image come from? It
 came from the Docker Hub website, which is a place to share Docker
@@ -465,8 +462,7 @@ container images with other people. More on that in a later episode.</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="exercise-check-on-your-images" class="callout-inner">
-<h3 class="callout-title">Exercise: Check on Your Images<a class="anchor" aria-label="anchor" href="#exercise-check-on-your-images"></a>
-</h3>
+<h3 class="callout-title">Exercise: Check on Your Images</h3>
 <div class="callout-content">
 <p>What command would you use to see if the <code>hello-world</code>
 Docker container image had downloaded successfully and was on your
@@ -479,7 +475,7 @@ computer? Give it a try before checking the solution.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <p>To see if the <code>hello-world</code> container image is now on your
 computer, run:</p>
@@ -499,8 +495,7 @@ programs and documents; Docker stores it in a specific location that
 isn’t commonly accessed, so it’s necessary to use the special
 <code>docker image</code> command to see what Docker container images
 you have on your computer.</p>
-</section><section><h2 class="section-heading" id="running-the-hello-world-container">Running the <code>hello-world</code> container<a class="anchor" aria-label="anchor" href="#running-the-hello-world-container"></a>
-<a class="anchor" aria-label="anchor" href="#running-the-hello-world-container"></a></h2>
+</section><section><h2 class="section-heading" id="running-the-hello-world-container">Running the <code>hello-world</code> container<a class="anchor" aria-label="anchor" href="#running-the-hello-world-container"></a></h2>
 <hr class="half-width"><p>To create and run containers from named Docker container images you
 use the <code>docker container run</code> command. Try the following
 <code>docker container run</code> invocation. Note that it does not
@@ -556,8 +551,7 @@ default – namely to print this message.</p>
 </div>
 <div id="using-docker-container-run-to-get-the-image" class="callout-inner">
 <h3 class="callout-title">Using <code>docker container run</code> to get
-the image<a class="anchor" aria-label="anchor" href="#using-docker-container-run-to-get-the-image"></a>
-</h3>
+the image</h3>
 <div class="callout-content">
 <p>We could have skipped the <code>docker image pull</code> step; if you
 use the <code>docker container run</code> command and you don’t already
@@ -566,8 +560,7 @@ pull the container image first and then run it.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="running-a-container-with-a-chosen-command">Running a container with a chosen command<a class="anchor" aria-label="anchor" href="#running-a-container-with-a-chosen-command"></a>
-<a class="anchor" aria-label="anchor" href="#running-a-container-with-a-chosen-command"></a></h2>
+</section><section><h2 class="section-heading" id="running-a-container-with-a-chosen-command">Running a container with a chosen command<a class="anchor" aria-label="anchor" href="#running-a-container-with-a-chosen-command"></a></h2>
 <hr class="half-width"><p>But what if we wanted to do something different with the container?
 The output just gave us a suggestion of what to do – let’s use a
 different Docker container image to explore what else we can do with the
@@ -579,8 +572,7 @@ Linux, <code>alpine</code> instead because it’s quicker to download.</p>
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="run-the-alpine-docker-container" class="callout-inner">
-<h3 class="callout-title">Run the Alpine Docker container<a class="anchor" aria-label="anchor" href="#run-the-alpine-docker-container"></a>
-</h3>
+<h3 class="callout-title">Run the Alpine Docker container</h3>
 <div class="callout-content">
 <p>Try downloading the <code>alpine</code> container image and using it
 to run a container. You can do it in two steps, or one. What are
@@ -613,8 +605,7 @@ container is using and a few additional bits of information.</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="hello-world-part-2" class="callout-inner">
-<h3 class="callout-title">Hello World, Part 2<a class="anchor" aria-label="anchor" href="#hello-world-part-2"></a>
-</h3>
+<h3 class="callout-title">Hello World, Part 2</h3>
 <div class="callout-content">
 <p>Can you run a copy of the <code>alpine</code> container and make it
 print a “hello world” message?</p>
@@ -627,7 +618,7 @@ print a “hello world” message?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>Use the same command as above, but with the <code>echo</code> command
 to print a message.</p>
@@ -643,8 +634,7 @@ to print a message.</p>
 <p>So here, we see another option – we can provide commands at the end
 of the <code>docker container run</code> command and they will execute
 inside the running container.</p>
-</section><section><h2 class="section-heading" id="running-containers-interactively">Running containers interactively<a class="anchor" aria-label="anchor" href="#running-containers-interactively"></a>
-<a class="anchor" aria-label="anchor" href="#running-containers-interactively"></a></h2>
+</section><section><h2 class="section-heading" id="running-containers-interactively">Running containers interactively<a class="anchor" aria-label="anchor" href="#running-containers-interactively"></a></h2>
 <hr class="half-width"><p>In all the examples above, Docker has started the container, run a
 command, and then immediately stopped the container. But what if we
 wanted to keep the container running so we could log into it and test
@@ -664,8 +654,7 @@ command. The <code>alpine</code> Docker container image doesn’t include
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="technically" class="callout-inner">
-<h3 class="callout-title">Technically…<a class="anchor" aria-label="anchor" href="#technically"></a>
-</h3>
+<h3 class="callout-title">Technically…</h3>
 <div class="callout-content">
 <p>Technically, the interactive flag is just <code>-i</code> – the extra
 <code>-t</code> (combined as <code>-it</code> above) is the “pseudo-TTY”
@@ -702,8 +691,7 @@ computer. To finish using the container, type <code>exit</code>.</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="practice-makes-perfect" class="callout-inner">
-<h3 class="callout-title">Practice Makes Perfect<a class="anchor" aria-label="anchor" href="#practice-makes-perfect"></a>
-</h3>
+<h3 class="callout-title">Practice Makes Perfect</h3>
 <div class="callout-content">
 <p>Can you find out the version of Ubuntu installed on the
 <code>ubuntu</code> container image? (Hint: You can use the same command
@@ -719,7 +707,7 @@ you more information.)</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Solution 1 – Interactive </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>Run an interactive ubuntu container – you can use
 <code>docker image pull</code> first, or just run it with this
@@ -757,7 +745,7 @@ command:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Solution 2 – Run commands </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>Run a ubuntu container, first with a command to read out the Linux
 version:</p>
@@ -782,8 +770,7 @@ help:</p>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="even-more-options" class="callout-inner">
-<h3 class="callout-title">Even More Options<a class="anchor" aria-label="anchor" href="#even-more-options"></a>
-</h3>
+<h3 class="callout-title">Even More Options</h3>
 <div class="callout-content">
 <p>There are many more options, besides <code>-it</code> that can be
 used with the <code>docker container run</code> command! A few of them
@@ -802,8 +789,7 @@ container, you can assign it a name using this option.</p></li>
 </ul></div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="conclusion">Conclusion<a class="anchor" aria-label="anchor" href="#conclusion"></a>
-<a class="anchor" aria-label="anchor" href="#conclusion"></a></h2>
+</section><section><h2 class="section-heading" id="conclusion">Conclusion<a class="anchor" aria-label="anchor" href="#conclusion"></a></h2>
 <hr class="half-width"><p>So far, we’ve seen how to download Docker container images, use them
 to run commands inside running containers, and even how to explore a
 running container from the inside. Next, we’ll take a closer look at all
@@ -817,8 +803,7 @@ the different kinds of Docker container images that are out there.</p>
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
-</h3>
+<h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul><li>The <code>docker image pull</code> command downloads Docker
 container images from the internet.</li>
@@ -868,7 +853,7 @@ action, or a shell to be used interactively.</li>
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.5" class="external-link">sandpaper (0.16.5)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.6" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.3" class="external-link">varnish (1.0.3)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.6" class="external-link">sandpaper (0.16.6)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.6" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.4" class="external-link">varnish (1.0.4)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -891,7 +876,7 @@ action, or a shell to be used interactively.</li>
   "identifier": "https://preview.carpentries.org/docker-introduction/instructor/running-containers.html",
   "dateCreated": "2024-08-16",
   "dateModified": "2024-06-27",
-  "datePublished": "2024-08-20"
+  "datePublished": "2024-08-27"
 }
 
   </script><script>

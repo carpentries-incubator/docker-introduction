@@ -302,10 +302,10 @@ presentation or as exercises)</a></li>
               </div>
             </div>
 
-            <hr class="half-width"><div class="accordion accordion-flush resources" id="accordionFlush12">
+            <hr class="half-width"><div class="accordion accordion-flush lesson-resources" id="accordionFlush12">
               <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingTwelve">
-                  <button class="accordion-button collapsed" id="resources" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
+                  <button class="accordion-button collapsed" id="lesson-resources" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
                     RESOURCES
                   </button>
                 </h2>
@@ -325,7 +325,7 @@ presentation or as exercises)</a></li>
                 </div>
               </div>
             </div>
-            <hr class="half-width resources"><a href="aio.html">See all in one page</a>
+            <hr class="half-width lesson-resources"><a href="aio.html">See all in one page</a>
 
 
             <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
@@ -407,8 +407,7 @@ container or building a container image. Note that the examples will get
 gradually more and more complex – most day-to-day use of containers and
 container images can be accomplished using the first 1–2 sections on
 this page.</p>
-<section><h2 class="section-heading" id="using-scripts-and-files-from-outside-the-container">Using scripts and files from outside the container<a class="anchor" aria-label="anchor" href="#using-scripts-and-files-from-outside-the-container"></a>
-<a class="anchor" aria-label="anchor" href="#using-scripts-and-files-from-outside-the-container"></a></h2>
+<section><h2 class="section-heading" id="using-scripts-and-files-from-outside-the-container">Using scripts and files from outside the container<a class="anchor" aria-label="anchor" href="#using-scripts-and-files-from-outside-the-container"></a></h2>
 <hr class="half-width"><p>In your shell, change to the <code>sum</code> folder in the
 <code>docker-intro</code> folder and look at the files inside.</p>
 <div class="codewrapper sourceCode" id="cb1">
@@ -426,8 +425,7 @@ script using a container based on our recently created
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="running-containers" class="callout-inner">
-<h3 class="callout-title">Running containers<a class="anchor" aria-label="anchor" href="#running-containers"></a>
-</h3>
+<h3 class="callout-title">Running containers</h3>
 <div class="callout-content">
 <p>Question: What command would we use to run Python from the
 <code>alpine-python</code> container?</p>
@@ -439,7 +437,7 @@ script using a container based on our recently created
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>We can run a container from the alpine-python container image
 using:</p>
@@ -487,8 +485,7 @@ to exit!)</em></p>
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="no-such-file-or-directory" class="callout-inner">
-<h3 class="callout-title">No such file or directory<a class="anchor" aria-label="anchor" href="#no-such-file-or-directory"></a>
-</h3>
+<h3 class="callout-title">No such file or directory</h3>
 <div class="callout-content">
 <p>Question: What does the error message mean? Why might the Python
 inside the container not be able to find or open our script?</p>
@@ -520,8 +517,7 @@ about to be started, and inside this container, name the directory
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="types-of-mounts" class="callout-inner">
-<h3 class="callout-title">Types of mounts<a class="anchor" aria-label="anchor" href="#types-of-mounts"></a>
-</h3>
+<h3 class="callout-title">Types of mounts</h3>
 <div class="callout-content">
 <p>You will notice that we set the mount <code>type=bind</code>, there
 are other types of mount that can be used in Docker
@@ -564,8 +560,7 @@ container stops.</p>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="other-commonly-used-docker-run-flags" class="callout-inner">
-<h3 class="callout-title">Other Commonly Used Docker Run Flags<a class="anchor" aria-label="anchor" href="#other-commonly-used-docker-run-flags"></a>
-</h3>
+<h3 class="callout-title">Other Commonly Used Docker Run Flags</h3>
 <div class="callout-content">
 <p>Docker run has many other useful flags to alter its function. A
 couple that are commonly used include <code>-w</code> and
@@ -593,8 +588,7 @@ user’s ID and group and run the container as that user.</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="exercise-explore-the-script" class="callout-inner">
-<h3 class="callout-title">Exercise: Explore the script<a class="anchor" aria-label="anchor" href="#exercise-explore-the-script"></a>
-</h3>
+<h3 class="callout-title">Exercise: Explore the script</h3>
 <div class="callout-content">
 <p>What happens if you use the <code>docker container run</code> command
 above and put numbers after the script name?</p>
@@ -606,7 +600,7 @@ above and put numbers after the script name?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>This script comes from <a href="https://wiki.python.org/moin/SimplePrograms" class="external-link">the Python Wiki</a>
 and is set to add all numbers that are passed to it as arguments.</p>
@@ -619,8 +613,7 @@ and is set to add all numbers that are passed to it as arguments.</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="exercise-checking-the-options" class="callout-inner">
-<h3 class="callout-title">Exercise: Checking the options<a class="anchor" aria-label="anchor" href="#exercise-checking-the-options"></a>
-</h3>
+<h3 class="callout-title">Exercise: Checking the options</h3>
 <div class="callout-content">
 <p>Our Docker command has gotten much longer! Can you go through each
 piece of the Docker command above and explain what it does? How would
@@ -633,7 +626,7 @@ you characterize the key components of a Docker command?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Show me the solution </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>Here’s a breakdown of each piece of the command above</p>
 <ul><li>
@@ -661,8 +654,7 @@ container</li>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="exercise-interactive-jobs" class="callout-inner">
-<h3 class="callout-title">Exercise: Interactive jobs<a class="anchor" aria-label="anchor" href="#exercise-interactive-jobs"></a>
-</h3>
+<h3 class="callout-title">Exercise: Interactive jobs</h3>
 <div class="callout-content">
 <p>Try using the directory mount option but run the container
 interactively. Can you find the folder that’s connected to your host
@@ -675,7 +667,7 @@ computer? What’s inside?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Show me the solution </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>The docker command to run the container interactively is:</p>
 <div class="codewrapper sourceCode" id="cb10">
@@ -701,8 +693,7 @@ software inside your container on many different input files. In other
 situations, you may want to save or archive an authoritative version of
 your data by adding it to the container image permanently. That’s what
 we will cover next.</p>
-</section><section><h2 class="section-heading" id="including-your-scripts-and-data-within-a-container-image">Including your scripts and data within a container image<a class="anchor" aria-label="anchor" href="#including-your-scripts-and-data-within-a-container-image"></a>
-<a class="anchor" aria-label="anchor" href="#including-your-scripts-and-data-within-a-container-image"></a></h2>
+</section><section><h2 class="section-heading" id="including-your-scripts-and-data-within-a-container-image">Including your scripts and data within a container image<a class="anchor" aria-label="anchor" href="#including-your-scripts-and-data-within-a-container-image"></a></h2>
 <hr class="half-width"><p>Our next project will be to add our own files to a container image –
 something you might want to do if you’re sharing a finished analysis or
 just want to have an archived copy of your entire analysis including the
@@ -737,8 +728,7 @@ but give it a different name:</p>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="the-importance-of-command-order-in-a-dockerfile" class="callout-inner">
-<h3 class="callout-title">The Importance of Command Order in a Dockerfile<a class="anchor" aria-label="anchor" href="#the-importance-of-command-order-in-a-dockerfile"></a>
-</h3>
+<h3 class="callout-title">The Importance of Command Order in a Dockerfile</h3>
 <div class="callout-content">
 <p>When you run <code>docker image build</code> it executes the build in
 the order specified in the <code>Dockerfile</code>. This order is
@@ -764,8 +754,7 @@ stored (called “cached”) version of those layers.</p>
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="exercise-did-it-work" class="callout-inner">
-<h3 class="callout-title">Exercise: Did it work?<a class="anchor" aria-label="anchor" href="#exercise-did-it-work"></a>
-</h3>
+<h3 class="callout-title">Exercise: Did it work?</h3>
 <div class="callout-content">
 <p>Can you remember how to run a container interactively? Try that with
 this one. Once inside, try running the Python script.</p>
@@ -777,7 +766,7 @@ this one. Once inside, try running the Python script.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>You can start the container interactively like so:</p>
 <div class="codewrapper sourceCode" id="cb16">
@@ -811,8 +800,7 @@ to easily download.</p>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="security-warning" class="callout-inner">
-<h3 class="callout-title">Security Warning<a class="anchor" aria-label="anchor" href="#security-warning"></a>
-</h3>
+<h3 class="callout-title">Security Warning</h3>
 <div class="callout-content">
 <p>Login credentials including passwords, tokens, secure access tokens
 or other secrets must never be stored in a container. If secrets are
@@ -826,8 +814,7 @@ public.</p>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="copying-alternatives" class="callout-inner">
-<h3 class="callout-title">Copying alternatives<a class="anchor" aria-label="anchor" href="#copying-alternatives"></a>
-</h3>
+<h3 class="callout-title">Copying alternatives</h3>
 <div class="callout-content">
 <p>Another trick for getting your own files into a container image is by
 using the <code>RUN</code> keyword and downloading the files from the
@@ -847,8 +834,7 @@ require you to install such commands before using them within
 </div>
 </div>
 </section><section><h2 class="section-heading" id="more-fancy-dockerfile-options-optional-for-presentation-or-as-exercises">More fancy <code>Dockerfile</code> options (optional, for
-presentation or as exercises)<a class="anchor" aria-label="anchor" href="#more-fancy-dockerfile-options-optional-for-presentation-or-as-exercises"></a>
-<a class="anchor" aria-label="anchor" href="#more-fancy-dockerfile-options-optional-for-presentation-or-as-exercises"></a></h2>
+presentation or as exercises)<a class="anchor" aria-label="anchor" href="#more-fancy-dockerfile-options-optional-for-presentation-or-as-exercises"></a></h2>
 <hr class="half-width"><p>We can expand on the example above to make our container image even
 more “automatic”. Here are some ideas:</p>
 <div class="section level3">
@@ -916,8 +902,7 @@ CMD ["10", "11"]</code></pre>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="overriding-the-entrypoint" class="callout-inner">
-<h3 class="callout-title">Overriding the ENTRYPOINT<a class="anchor" aria-label="anchor" href="#overriding-the-entrypoint"></a>
-</h3>
+<h3 class="callout-title">Overriding the ENTRYPOINT</h3>
 <div class="callout-content">
 <p>Sometimes you don’t want to run the image’s <code>ENTRYPOINT</code>.
 For example if you have a specialized container image that does only
@@ -968,8 +953,7 @@ ENV PATH /home:$PATH</code></pre>
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="best-practices-for-writing-dockerfiles" class="callout-inner">
-<h3 class="callout-title">Best practices for writing Dockerfiles<a class="anchor" aria-label="anchor" href="#best-practices-for-writing-dockerfiles"></a>
-</h3>
+<h3 class="callout-title">Best practices for writing Dockerfiles</h3>
 <div class="callout-content">
 <p>Take a look at Nüst et al.’s “<a href="https://doi.org/10.1371/journal.pcbi.1008316" class="external-link"><em>Ten simple rules
 for writing Dockerfiles for reproducible data science</em></a>” [1] for
@@ -989,8 +973,7 @@ data science. PLOS Computational Biology 16(11): e1008316. <a href="https://doi.
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Key Points<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
-</h3>
+<h3 class="callout-title">Key Points</h3>
 <div class="callout-content">
 <ul><li>Docker allows containers to read and write files from the Docker
 host.</li>
@@ -1037,7 +1020,7 @@ container images by using the <code>COPY</code> instruction in your
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
 
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.5" class="external-link">sandpaper (0.16.5)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.6" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.3" class="external-link">varnish (1.0.3)</a></p>
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.16.6" class="external-link">sandpaper (0.16.6)</a>, <a href="https://github.com/carpentries/pegboard/tree/0.7.6" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/carpentries/varnish/tree/1.0.4" class="external-link">varnish (1.0.4)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1060,7 +1043,7 @@ container images by using the <code>COPY</code> instruction in your
   "identifier": "https://preview.carpentries.org/docker-introduction/advanced-containers.html",
   "dateCreated": "2024-08-16",
   "dateModified": "2024-08-16",
-  "datePublished": "2024-08-20"
+  "datePublished": "2024-08-27"
 }
 
   </script><script>
