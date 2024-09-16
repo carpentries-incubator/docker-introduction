@@ -90,41 +90,21 @@ Thankfully there are ways to get underneath (a lot of) this mess: containers
 to the rescue! Containers provide a way to package up software dependencies
 and access to resources such as files and communications networks in a uniform manner.
 
-## What is a Container? What is Docker?
+## What is a Container?
 
-[Docker][Docker] is a tool that allows you to build what are called **containers**. It's
-not the only tool that can create containers, but is the one we've chosen for
-this workshop. But what *is* a container?
-
-To understand containers, let's first talk briefly about your computer.
-
-Your computer has some standard pieces that allow it to work -- often what's
-called the hardware. One of these pieces is the CPU or processor; another is
-the amount of memory or RAM that your computer can use to store information
-temporarily while running programs; another is the hard drive, which can store
-information over the long-term. All these pieces work together to do the
-computing of a computer, but we don't see them because they're hidden from view (usually).
-
-Instead, what we see is our desktop, program windows, different folders, and
-files. These all live in what's called the filesystem. Everything on your computer -- programs,
-pictures, documents, the operating system itself -- lives somewhere in the filesystem.
-
-NOW, imagine you want to install some new software but don't want to take the chance
-of making a mess of your existing system by installing a bunch of additional stuff
-(libraries/dependencies/etc.).
+Imagine you want to install some research software but don't want to take the chance of making a mess of your existing system by installing a bunch of additional stuff (libraries/dependencies/etc.).
 You don't want to buy a whole new computer because it's too expensive.
 What if, instead, you could have another independent filesystem and running operating system that you could access from your main computer, and that is actually stored within this existing computer?
 
-Or, imagine you have two tools you want to use in your groundbreaking research on cat memes: `PurrLOLing`, a tool that does AMAZINGLY well at predicting the best text for a meme based on the cat species and `WhiskerSpot`, the only tool available for identifying cat species from images.  You want to send cat pictures to `WhiskerSpot`, and then send the species output to `PurrLOLing`.  But there's a problem: `PurrLOLing` only works on Ubuntu and `WhiskerSpot` is only supported for OpenSUSE so you can't have them on the same system!  Again, we really want another filesystem (or two) on our computer that we could use to chain together `WhiskerSpot` and `PurrLOLing` in a **computational pipeline**...
+More concretely, Docker Inc use the following definition of a container:
 
-Container systems, like Docker, are special programs on your computer that make it possible!
-The term container can be usefully considered with reference to shipping
-containers. Before shipping containers were developed, packing and unpacking
-cargo ships was time consuming and error prone, with high potential for
-different clients' goods to become mixed up. Just like shipping containers keep things
-together that should stay together, software containers standardize the description and
-creation of a complete software system: you can drop a container into any computer with
-the container software installed (the 'container host'), and it should *just work*.
+> A container is a standard unit of software that packages up code and all its dependencies so the application runs reliably from one computing environment to another.
+
+<https://www.docker.com/resources/what-container/>
+
+The term container can be usefully considered with reference to shipping containers.
+Before shipping containers were developed, packing and unpacking cargo ships was time consuming and error prone, with high potential for different clients' goods to become mixed up. 
+Just like shipping containers keep things together that should stay together, software containers standardize the description and creation of a complete software system: you can drop a container into any computer with the container software installed (the 'container host'), and it should *just work*.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
@@ -142,6 +122,14 @@ flavour of Linux + the filesystem inside.
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+## What is Docker?
+
+[Docker][Docker] is a tool that allows you to build and run containers.
+It's not the only tool that can create containers, but is the one we've chosen for this workshop.
+
+## Container Images
 
 One final term: while the **container** is an alternative filesystem layer that you
 can access and run from your computer, the **container image** is the 'recipe' or template
