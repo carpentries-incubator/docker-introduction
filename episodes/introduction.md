@@ -117,6 +117,12 @@ What if, instead, you could have another independent filesystem and running oper
 
 Or, imagine you have two tools you want to use in your groundbreaking research on cat memes: `PurrLOLing`, a tool that does AMAZINGLY well at predicting the best text for a meme based on the cat species and `WhiskerSpot`, the only tool available for identifying cat species from images.  You want to send cat pictures to `WhiskerSpot`, and then send the species output to `PurrLOLing`.  But there's a problem: `PurrLOLing` only works on Ubuntu and `WhiskerSpot` is only supported for OpenSUSE so you can't have them on the same system!  Again, we really want another filesystem (or two) on our computer that we could use to chain together `WhiskerSpot` and `PurrLOLing` in a **computational pipeline**...
 
+More concretely, Docker Inc use the following definition of a container:
+
+> A container is a standard unit of software that packages up code and all its dependencies so the application runs reliably from one computing environment to another.
+
+<https://www.docker.com/resources/what-container/>
+
 Container systems, like Docker, are special programs on your computer that make it possible!
 The term container can be usefully considered with reference to shipping
 containers. Before shipping containers were developed, packing and unpacking
