@@ -129,7 +129,7 @@ flavour of Linux + the filesystem inside.
 [Docker][Docker] is a tool that allows you to build and run containers.
 It's not the only tool that can create containers, but is the one we've chosen for this workshop.
 
-## Containers and Images
+## Container Images
 
 One final term: while the **container** is an alternative filesystem layer that you
 can access and run from your computer, the **container image** is the 'recipe' or template
