@@ -1,30 +1,31 @@
 ---
-title: Using Docker with Github Actions
+title: Using Docker with GitHub Actions
 teaching: 30
 exercises: 0
-questions: How do I use Docker from Github Actions?
+questions: How do I use Docker from GitHub Actions?
 objectives:
-- Generate Github.io pages using Pandoc
-- Raise awareness of how Docker can be used in cloud services
-keypoints: You can call any Docker image from a Github action
+- Generate web content to host via GitHub Pages using Pandoc
+- Raise awareness of how Docker can be used via cloud services
+keypoints: You can call any Docker image from a GitHub action
 ---
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 This lesson can be taught as a replacement of the episode "Containers on the Cloud".
-Participants should have experience working with `git` and Github.
+Participants should have experience working with `git` and GitHub.
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Docker has become an industry standard in providing run-time environments to cloud services. This
-lesson shows how you can use Docker images inside Github Actions. Our specific
+lesson shows how you can use Docker images inside GitHub Actions. Our specific
 example will show a
 neat way to build a simple website that goes with any project you might have going.
 
-# Github Actions
+# GitHub Actions
 
-Github Actions are a means of automating repetitive task in maintaining software projects:
+GitHub Actions provide a means of automating repetitive tasks to support maintaining software projects.
+Some examples include:
 
 - Testing if your software works correctly (Continuous Integration)
 - Building components for distribution to your users (Continuous Deployment)
@@ -32,28 +33,30 @@ Github Actions are a means of automating repetitive task in maintaining software
 
 These are tasks that you could do on your own computer, but consider the following cases:
 
-- Your software works on your computer, but you forgot to mention this one crucial package for
-  correct operation.
+- Your software works on your computer, but you forgot to mention this one crucial package that
+  is required for correct operation.
 - Your software used to work, but since the last update something broke.
 - Someone else contributed to your package but didn't run the same version of the document
   converter: the documentation looks different now.
 
 These are just some of the bad things that may happen.  To address these issues,
 it is often desirable to have a consistent, controlled
-environment in which to run these tasks, collectively known as CI/CD. Github can perform these
-actions for you inside Docker containers. If your project is open source, this service is entirely
+environment in which to run these tasks, collectively known as CI/CD. GitHub can perform these
+actions for you. You configure GitHub Actions by providing a workflow configuration file (in YAML format) that 
+GitHub Actions reads and runs. The tasks are run, behind the scenes, inside Docker containers.
+If your project is open source, this service is entirely
 free of charge. Competing platforms have similar services for which the syntax may vary slightly,
 but they are all grounded in the use of some form of containers (Docker or otherwise). We will
-demonstrate the use of a Docker container in deploying a small website presenting a Github
+demonstrate the use of a Docker container in deploying a small website presenting a GitHub
 project.
 
-# Building Github.io pages with Pandoc
+# Building content for deployment via GitHub Pages with Pandoc
 
-Suppose you have a Github project with a README and would like to turn it into HTML for a
-Github.io page. A common problem in documenting and testing software is to keep relevant content in
-a single location. In a Github project this location is the README, however it will look a lot more
+Suppose you have a GitHub project with a README.md file and would like to turn it into HTML to host
+as a web page via GitHub Pages. A common problem in documenting and testing software is to keep relevant content in
+a single location. In a GitHub project this location is the README, however it will look a lot more
 professional if you also have a custom website where people can find downloads, documentation
-etc. This website could become part of a larger portfolio of all your projects on Github.
+etc. This website could become part of a larger portfolio of all your projects on GitHub.
 
 It would be nice if such a page was updated automatically every time you update other
 parts of the project.
@@ -77,32 +80,35 @@ over:
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-We take you through the process of creating a project on Github from scratch and
-convert the README to HTML and upload it to a separate `gh-pages` branch. First let's take a look at
+We take you through the process of creating a project on GitHub from scratch,
+converting the README.md file to HTML format and then uploading it to a separate
+`gh-pages` branch within the GitHub project. First let's take a look at
 what the end product will look like. We have a project ([example
-here](https://github.com/jhidding/readme-pages)) with a `main` branch that includes a README.
+here](https://github.com/jhidding/readme-pages)) with a `main` branch that includes a README.md file.
 
 ![](fig/github-main-branch.png){alt='A GitHub project with a README' width="90%"}
 
-We can use Pandoc to turn this README into a simple static website.
+We can use Pandoc to turn this README.md file into a simple static website.
 
 ![](fig/github-io-pages.png){alt='Rendered GitHub Pages' width="90%"}
 
-If we switch to `gh-pages` branch in Github we can see where this page is hosted.
+If we switch to the `gh-pages` branch in GitHub we can see where this page is hosted from.
 
 ![](fig/github-gh-pages-branch.png){alt='gh-pages branch of the project' width="90%"}
 
-Only a `index.html` and `.nojekyll` (that prevents Github from creating a Jekyll page). So how do we
-set this up?
+Only `index.html` and `.nojekyll` files are present. The .nojekyll file prevents GitHub from processing
+the repository content with Jekyll, the approach that is used by default when creating a GitHub Pages website.
+Instead, Pages skips the Jekyll processing stage and simply deploys the content in the specified branch to the
+GitHub Pages server. So how do we set this up?
 
-## Create a Github Project
+## Create a GitHub Project
 
 Create a github project with a short `README.md`. To do this:
 
 - go to `github.com` and make sure you're logged in
-- click the green "New" button at the top right
+- click the green "New" button at the top right and fill out the form to create the new project
 - clone the new project to your computer. The instructions for
-  doing so will be shown in the dialog on Github, or you can also see [Software Carpentry lesson on Version
+  doing so will be shown in the dialog on GitHub, or you can also see [Software Carpentry lesson on Version
   Control with Git](https://swcarpentry.github.io/git-novice/07-github/index.html), or
   the example below:
 
@@ -153,7 +159,7 @@ docker container run --mount type=bind,source=${PWD},target=/tmp pandoc/core /tm
 
 ```output
 <h1 id="readme-pages">readme-pages</h1>
-<p>Example for generating Github.io pages from Readme with Pandoc.</p>
+<p>Example for generating GitHub.io pages from Readme with Pandoc.</p>
 ```
 
 Here, the `--mount type=bind,source=${PWD},target=/tmp` flag says to take the directory at `${PWD}` and make it available inside the
@@ -199,61 +205,69 @@ cat build/index.html
 ```
 
 We now have tested our website deployment workflow - given the source files from
-Github, we can use a Docker container and command to generate our website. We now
-want to automate this process via Github Actions.
+GitHub, we can use a Docker container and command to generate our website. We now
+want to automate this process via GitHub Actions.
 
-## Automating Deployment on Github Actions
+## Automating Deployment on GitHub Actions
 
-Github Actions is a cloud service for automating continuous integration and deployment. This means
-we can have Github build our website and publish it on `github.io` automatically at every commit.
+GitHub Actions is a cloud service for automating continuous integration and deployment. This means
+we can have GitHub build our website and publish it on `github.io` automatically at every commit.
 
-Go to the Github project page you created earlier and click on "Actions". Because
+Go to the GitHub project page you created earlier and click on "Actions". Because
 we have no active workflows yet, we
 are taken immediately to a menu for creating a new one. We will skip the templates and click on
 "set up a workflow yourself". The configuration format is YAML.
 
 The first entry is the **name** of the workflow
 
-```source, yaml
+```yaml
 name: Deploy pages
 ```
 
 Next we specify **when** this workflow is run. In this case: every time content is pushed to the
 `main` branch
 
-```source, yaml
+```yaml
 on:
   push:
     branches:
       - main
 ```
 
-Now we tell Github **what** to do.
+Now we tell GitHub **what** to do.
 
-```source, yaml
+```yaml
 jobs:
-  deploy:                                         # a free machine-readable name for this job
-    runs-on: ubuntu-latest                        # specify the base operating system
+  # a free machine-readable name for this job
+  deploy:
+    # Set permissions for this specific job to enable it to write to the gh-pages branch
+    permissions:
+      contents: write
+    # specify the base operating system
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo content               # fetch the contents of the repository
+      # fetch the contents of the repository
+      - name: Checkout repo content
         uses: actions/checkout@v2
       - name: Prepare build environment
-        run: |                                    # multiple Bash commands follow
+        run: |   # multiple Bash commands follow
           mkdir -p build
           touch build/.nojekyll
 ```
 
 Now for the Docker bit:
 
-```source, yaml
+```yaml
       - name: Run pandoc
-        uses: docker://pandoc/core:2.12           # Always specify a version!
+        # Always specify a version!
+        uses: docker://pandoc/core:2.12
         with:
-          args: >-                                # multi-line argument
+          args: >-  # multi-line argument
             --standalone
             --output=build/index.html
             README.md
-      - name: Deploy on github pages              # Use a third-party plugin to upload the content
+      - name: Deploy on github pages
+        # Use a third-party plugin to upload the content
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           branch: gh-pages
@@ -261,10 +275,10 @@ Now for the Docker bit:
 ```
 
 We may recognize the command-line that we had previously. Notice that we don't need to specify the
-`--mount` flag. Github Actions arranges the Docker environment such that the files are in the correct
+`--mount` flag. GitHub Actions arranges the Docker environment such that the files are in the correct
 location. The last step uploads the `build` directory to the `gh-pages` branch.
 
-Now we should enable Github Pages on this repository: go to the "Settings" tab and scroll down to
+Now we should enable GitHub Pages on this repository: go to the "Settings" tab and scroll down to
 "GitHub Pages". There we select the root folder in the `gh-pages` branch. After a few (tens) of
 seconds the page should be up.
 
