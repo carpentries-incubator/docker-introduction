@@ -6,7 +6,7 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain how the Docker Hub augments Docker use.
+- Understand the importance of container registries such as Docker Hub, quay.io, etc.
 - Explore the Docker Hub webpage for a popular Docker container image.
 - Find the list of tags for a particular Docker container image.
 - Identify the three components of a container image's identifier.
