@@ -1,0 +1,52 @@
+# This template CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to replace its contents
+# with information about your lesson.
+# Remember to update this file periodically, 
+# ensuring that the author list and other fields remain accurate.
+
+cff-version: 1.2.0
+title: "Reproducible computational environments using containers: Introduction to Docker"
+message: >-
+  Please cite this lesson using the information in this file
+  when you refer to it in publications, and/or if you
+  re-use, adapt, or expand on the content in your own
+  training material.
+type: dataset
+authors:
+  - given-names: David. M.
+    family-names: Eyers
+  - given-names: Sarah L. R.
+    family-names: Stevens
+  - given-names: Andrew
+    family-names: Turner
+  - given-names: Christina
+    family-names: Koch
+  - given-names: Jeremy
+    family-names: Cohen
+repository-code: >-
+  https://github.com/carpentries-incubator/docker-introduction
+url: >-
+  https://carpentries-incubator.github.io/docker-introduction/
+abstract: >-
+  This lesson provides an introduction to the Docker and Podman
+  "container" tools. These tools support the bundling of software
+  and tools in containers that are lightweight and flexible. They
+  provide a great opportunity to support the development of
+  reproducible computational environments that are important in a
+  number of environments, including developing, running and
+  maintaining research software. Learners taking this course will
+  develop and understanding of what containers are and how to use
+  and build them. The course is undertaken using the open source
+  Podman tool but the knowledge gained is equally applicable to,
+  and transferable to, the use of Docker.
+keywords:
+  - Containers
+  - Docker
+  - Podman
+  - Reproducibility
+  - Research software
+license: CC-BY-4.0
+commit: 4a93bd67aa
+version: 2020.09a
+date-released: '2020-09-01'
+
