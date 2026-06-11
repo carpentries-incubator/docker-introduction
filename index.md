@@ -44,9 +44,8 @@ This change prompted the lesson maintainers to switch the lesson to `podman`, an
 
 ## Containers on HPC systems
 
-On HPC systems it is more likely that *Singularity* rather than Podman or Docker will be the available container technology,
-though Podman is becoming more common alongside Singularity.
-If you are looking for a lesson on using Singularity containers (instead of Podman), see this lesson:
+On HPC systems it is more likely that *Apptainer* (formerly Singularity) rather than Podman or Docker will be the available container technology.
+If you are looking for a lesson on using Apptainer containers (instead of Docker), see this lesson on Singularity:
 
 - [Reproducible Computational Environments Using Containers: Introduction to Singularity](https://carpentries-incubator.github.io/singularity-introduction/)
   
