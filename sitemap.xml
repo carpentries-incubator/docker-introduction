@@ -25,6 +25,9 @@
     <loc>https://preview.carpentries.org/docker-introduction/aio.html</loc>
   </url>
   <url>
+    <loc>https://preview.carpentries.org/docker-introduction/citation.html</loc>
+  </url>
+  <url>
     <loc>https://preview.carpentries.org/docker-introduction/creating-container-images.html</loc>
   </url>
   <url>
@@ -71,6 +74,9 @@
   </url>
   <url>
     <loc>https://preview.carpentries.org/docker-introduction/instructor/aio.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/docker-introduction/instructor/citation.html</loc>
   </url>
   <url>
     <loc>https://preview.carpentries.org/docker-introduction/instructor/creating-container-images.html</loc>
