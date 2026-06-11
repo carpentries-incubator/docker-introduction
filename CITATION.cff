@@ -17,12 +17,14 @@ authors:
     family-names: Eyers
   - given-names: Sarah L. R.
     family-names: Stevens
+    orcid: 'https://orcid.org/0000-0002-7040-548X'
   - given-names: Andrew
     family-names: Turner
   - given-names: Christina
     family-names: Koch
   - given-names: Jeremy
     family-names: Cohen
+    orcid: 'https://orcid.org/0000-0003-4312-2537'
 repository-code: >-
   https://github.com/carpentries-incubator/docker-introduction
 url: >-
