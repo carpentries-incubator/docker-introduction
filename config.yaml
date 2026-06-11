@@ -11,7 +11,7 @@
 carpentry: 'incubator'
 
 # Overall title for pages.
-title: 'Reproducible Computational Environments Using Containers: Introduction to Podman'
+title: 'Reproducible Computational Environments Using Containers: Introduction to Podman or Docker'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
 created: 

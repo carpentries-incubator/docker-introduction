@@ -265,27 +265,27 @@ all possible commands and options, it's better to learn how to effectively get h
 we can always search the web, getting the built-in help from our tool is often much faster and may provide the answer
 right away. This applies not only to Podman, but also to most command line-based tools.
 
-<!-- :::::::::::::::::::::::::::::::::::::::::  callout
+:::::::::::::::::::::::::::::::::::::::::  callout
 
-## Docker Command Line Interface (CLI) syntax
+## Podman Command Line Interface (CLI) syntax
 
-In this lesson we use the newest Docker CLI syntax
+In this lesson we use the CLI syntax
 [introduced with the Docker Engine version 1.13](https://www.docker.com/blog/whats-new-in-docker-1-13/).
 This new syntax combines commands into groups you will most often
 want to interact with. In the help example above you can see `image` and `container`
 management commands, which can be used to interact with your images and
 containers respectively. With this new syntax you issue commands using the following
-pattern `docker [command] [subcommand] [additional options]`
+pattern `podman [command] [subcommand] [additional options]`
 
 Comparing the output of two help commands above, you can
 see that the same thing can be achieved in multiple ways. For example to start a
-Docker container using the old syntax you would use `docker run`. To achieve the
-same with the new syntax, you use `docker container run` instead. Even though the old
+container using the old syntax you would use `podman run`. To achieve the
+same with the new syntax, you use `podman container run` instead. Even though the old
 approach is shorter and still officially supported, the new syntax is more descriptive, less
 error-prone and is therefore recommended.
 
 
-:::::::::::::::::::::::::::::::::::::::::::::::::: -->
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
@@ -447,8 +447,6 @@ where `https://github.com/docker/rootfs.git` could be any relevant URL that supp
 
 
 
-<!--  LocalWords:  keypoints links.md endcomment systray
- -->
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 

@@ -166,7 +166,7 @@ Untagged: quay.io/podman/hello:latest
 Deleted: 83fc7ce1224f5ed3885f6aaec0bb001c0bbb2a308e3250d7408804a720c72a32
 ```
 
-The image you delete may have been formed by merging multiple underlying layers.
+The image you deleted may have been formed by merging multiple underlying layers.
 In this case, you may see multiple lines of deletions when running `podman image
 rm` on what appears to be a single image. Any layers that are used by multiple
 container images will only be stored once. Now the result of `podman image ls`
@@ -176,8 +176,8 @@ should no longer include the `hello` container image.
 
 ## Using the GUI
 
-If you have installed the Podman Desktop GUI, you should be able to use its
-GUI to view and delete containers and container images. It will provide the same
+If you have installed the Podman Desktop GUI, you should be able to use it
+to view and delete containers and container images. It will provide the same
 information as the command line `podman` tools, and you will still need to
 delete containers before the associated container image. Nevertheless, it's still
 worth learning to use `podman` on the terminal as this underpins the rest of the

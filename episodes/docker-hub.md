@@ -144,6 +144,7 @@ Ultimately, the fully qualified form of a Docker Hub-hosted image is:
 docker.io/OWNER/REPOSITORY:TAG
 ```
 
+_While going into this in further detail is beyond the scope of this material, it's useful to note that Podman contains a registry configuration file that tells it which container registry/registries to search, and in what order, when an unqualified image name is provided. You should also be aware that using unqualified image names (i.e. providing an image name without providing the fully-qualified path to the image), can present security issues. We therefore strongly recommend always using the fully-qualified image name for any real-world work you are undertaking with containers._
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::  challenge
@@ -219,12 +220,12 @@ the container image and explore it.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- A container registry is an online repository of container images.
-- "Docker Hub is the most widely used container registry."
+- An image registry is an online repository of container images.
+- "Docker Hub is the most widely used image registry."
 - Many Docker Hub container images are public, and may be officially endorsed.
 - Each Docker Hub page about a container image provides structured information and subheadings
 - Most Docker Hub pages about container images contain sections that provide examples of how to use those container images.
 - Many Docker Hub container images have multiple versions, indicated by tags.
-- The naming convention for Docker container images when using Podman is: `docker.io/OWNER/CONTAINER_IMAGE_NAME:TAG`
+- The naming convention for referring to container images stored in Docker Hub, when using Podman, is: `docker.io/OWNER/CONTAINER_IMAGE_NAME:TAG`
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

@@ -197,7 +197,7 @@ fetch the current user's ID and group and run the container as that user.
 
 ## Exercise: Explore the script
 
-What happens if you use the `podman container run` command above to sun `sum.py`
+What happens if you use the `podman container run` command above to run `sum.py`
 and put numbers after the script name?
 
 :::::::::::::::  solution

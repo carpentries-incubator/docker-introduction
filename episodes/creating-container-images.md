@@ -223,6 +223,8 @@ this command:
 $ podman image build -t docker.io/alice/alpine-python .
 ```
 
+Note, you can always re-tag an image later if the name needs to be updated.
+
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## Build Context

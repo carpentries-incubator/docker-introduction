@@ -25,12 +25,26 @@ This session aims to introduce the use of Podman containers with the goal of usi
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 The practical work in this lesson is primarily aimed at using Podman on your own laptop. Beyond your laptop, software container technologies such as Podman can also be used in the cloud and on high performance computing (HPC) systems. Some of the material in this lesson will be applicable to those environments too.
+:::::::::::: callout
+
+## Why Podman instead of Docker
+
+This lesson was originally written to use the tool Docker and the associated Docker Desktop.
+All the commands within this lesson can be run using `docker` instead of `podman`, though the output may vary slightly.
+
+The maintainers of this lesson typically advocate for researchers using open source software.
+In the past Docker, had a free tier for research/academic software though eventually removed that option leaving only exceptions for education and open source software.
+In 2024, Docker changed their terms of service and removed their exception for open source software.
+This change prompted the lesson maintainers to switch the lesson to `podman`, an open source alternative.
+
+::::::::::::::::::::::::
+
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## Containers on HPC systems
 
-On HPC systems it is more likely that *Singularity* rather than Podman will be the available container technology,
+On HPC systems it is more likely that *Singularity* rather than Podman or Docker will be the available container technology,
 though Podman is becoming more common alongside Singularity.
 If you are looking for a lesson on using Singularity containers (instead of Podman), see this lesson:
 
