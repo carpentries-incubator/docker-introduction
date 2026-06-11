@@ -30,8 +30,8 @@ The practical work in this lesson is primarily aimed at using Docker on your own
 
 ## Containers on HPC systems
 
-On HPC systems it is more likely that *Singularity* rather than Docker will be the available container technology.
-If you are looking for a lesson on using Singularity containers (instead of Docker), see this lesson:
+On HPC systems it is more likely that *Apptainer* (formerly Singularity) rather than Docker will be the available container technology.
+If you are looking for a lesson on using Apptainer containers (instead of Docker), see this lesson on Singularity:
 
 - [Reproducible Computational Environments Using Containers: Introduction to Singularity](https://carpentries-incubator.github.io/singularity-introduction/)
   
