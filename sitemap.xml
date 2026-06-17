@@ -118,6 +118,9 @@
     <loc>https://preview.carpentries.org/docker-introduction/instructor/meet-docker.html</loc>
   </url>
   <url>
+    <loc>https://preview.carpentries.org/docker-introduction/instructor/meet-podman.html</loc>
+  </url>
+  <url>
     <loc>https://preview.carpentries.org/docker-introduction/instructor/profiles.html</loc>
   </url>
   <url>
@@ -143,6 +146,9 @@
   </url>
   <url>
     <loc>https://preview.carpentries.org/docker-introduction/meet-docker.html</loc>
+  </url>
+  <url>
+    <loc>https://preview.carpentries.org/docker-introduction/meet-podman.html</loc>
   </url>
   <url>
     <loc>https://preview.carpentries.org/docker-introduction/profiles.html</loc>

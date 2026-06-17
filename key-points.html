@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<title>Reproducible Computational Environments Using Containers: Introduction to Docker: Key Points</title>
+<title>Reproducible Computational Environments Using Containers: Introduction to Podman or Docker: Key Points</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="assets/themetoggle.js"></script><link rel="stylesheet" type="text/css" href="assets/styles.css">
 <script src="assets/scripts.js" type="text/javascript"></script><!-- mathjax --><!-- NOTE: https://docs.mathjax.org/en/latest/output/mathml.html#mathml-support --><!-- Changes from V2 to V4: https://mathjax.github.io/MathJax-demos-web/convert-configuration/convert-configuration.html
@@ -99,7 +99,7 @@
       <img class="small-logo" alt="Carpentries Incubator" src="assets/images/incubator-logo-sm.svg">
 </div>
     <div class="lesson-title-md">
-      Reproducible Computational Environments Using Containers: Introduction to Docker
+      Reproducible Computational Environments Using Containers: Introduction to Podman or Docker
     </div>
     <div class="search-icon-sm">
       <!-- TODO: do not show until we have search
@@ -110,7 +110,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 <li class="nav-item">
           <span class="lesson-title">
-            Reproducible Computational Environments Using Containers: Introduction to Docker
+            Reproducible Computational Environments Using Containers: Introduction to Podman or Docker
           </span>
         </li>
         <li class="nav-item">
@@ -252,7 +252,7 @@
 <div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
-        <a href="meet-docker.html">2. Introducing the Docker Command Line</a>
+        <a href="meet-podman.html">2. Introducing the Podman Command Line</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -288,7 +288,7 @@
 <div class="accordion accordion-flush" id="accordionFlush6">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading6">
-        <a href="docker-hub.html">5. Finding Containers on Docker Hub</a>
+        <a href="docker-hub.html">5. Finding Containers on a Registry</a>
     </div>
 <!--/div.accordion-header-->
 
@@ -421,44 +421,43 @@ storage resources.</li>
 <li>Containers are built from ‘recipes’ that define the required set of
 software components and the instructions necessary to build/install them
 within a container image.</li>
-<li>Docker is just one software platform that can create containers and
+<li>Podman is just one software platform that can create containers and
 the resources they use.</li>
-</ul></section><section id="meet-docker"><h2 class="section-heading"><a href="meet-docker.html">Introducing the Docker Command Line</a></h2>
+</ul></section><section id="meet-podman"><h2 class="section-heading"><a href="meet-podman.html">Introducing the Podman Command Line</a></h2>
 <hr class="half-width">
 <ul>
-<li>A toolbar icon indicates that Docker is ready to use (on Windows and
-macOS).</li>
-<li>You will typically interact with Docker using the command line.</li>
-<li>To learn how to run a certain Docker command, we can type the
+<li>You will typically interact with Podman using the command line.</li>
+<li>To learn how to run a certain Podman command, we can type the
 command followed by the <code>--help</code> flag.</li>
 </ul></section><section id="running-containers"><h2 class="section-heading"><a href="running-containers.html">Exploring and Running Containers</a></h2>
 <hr class="half-width">
 <ul>
-<li>The <code>docker image pull</code> command downloads Docker
-container images from the internet.</li>
-<li>The <code>docker image ls</code> command lists Docker container
+<li>The <code>podman image pull</code> command downloads container
+images from the internet.</li>
+<li>The <code>podman image ls</code> command lists Podman container
 images that are (now) on your computer.</li>
-<li>The <code>docker container run</code> command creates running
+<li>The <code>podman container run</code> command creates running
 containers from container images and can run commands inside them.</li>
-<li>When using the <code>docker container run</code> command, a
+<li>When using the <code>podman container run</code> command, a
 container can run a default action (if it has one), a user specified
 action, or a shell to be used interactively.</li>
 </ul></section><section id="managing-containers"><h2 class="section-heading"><a href="managing-containers.html">Cleaning Up Containers</a></h2>
 <hr class="half-width">
 <ul>
 <li>
-<code>docker container</code> has subcommands used to interact and
+<code>podman container</code> has subcommands used to interact and
 manage containers.</li>
 <li>
-<code>docker image</code> has subcommands used to interact and
+<code>podman image</code> has subcommands used to interact and
 manage container images.</li>
 <li>
-<code>docker container ls</code> or <code>docker ps</code> can
+<code>podman container ls</code> or <code>podman ps</code> can
 provide information on currently running containers.</li>
-</ul></section><section id="docker-hub"><h2 class="section-heading"><a href="docker-hub.html">Finding Containers on Docker Hub</a></h2>
+</ul></section><section id="docker-hub"><h2 class="section-heading"><a href="docker-hub.html">Finding Containers on a Registry</a></h2>
 <hr class="half-width">
 <ul>
-<li>The Docker Hub is an online repository of container images.</li>
+<li>An image registry is an online repository of container images.</li>
+<li>“Docker Hub is the most widely used image registry.”</li>
 <li>Many Docker Hub container images are public, and may be officially
 endorsed.</li>
 <li>Each Docker Hub page about a container image provides structured
@@ -467,27 +466,27 @@ information and subheadings</li>
 provide examples of how to use those container images.</li>
 <li>Many Docker Hub container images have multiple versions, indicated
 by tags.</li>
-<li>The naming convention for Docker container images is:
-<code>OWNER/CONTAINER_IMAGE_NAME:TAG</code>
+<li>The naming convention for referring to container images stored in
+Docker Hub, when using Podman, is:
+<code>docker.io/OWNER/CONTAINER_IMAGE_NAME:TAG</code>
 </li>
 </ul></section><section id="creating-container-images"><h2 class="section-heading"><a href="creating-container-images.html">Creating Your Own Container Images</a></h2>
 <hr class="half-width">
 <ul>
 <li>
-<code>Dockerfile</code>s specify what is within Docker container
+<code>Dockerfile</code>s specify what is within container
 images.</li>
-<li>The <code>docker image build</code> command is used to build a
+<li>The <code>podman image build</code> command is used to build a
 container image from a <code>Dockerfile</code>.</li>
-<li>You can share your Docker container images through the Docker Hub so
-that others can create Docker containers from your container
-images.</li>
+<li>You can share your container images through the Docker Hub so that
+others can create containers from your container images.</li>
 </ul></section><section id="advanced-containers"><h2 class="section-heading"><a href="advanced-containers.html">Creating More Complex Container Images</a></h2>
 <hr class="half-width">
 <ul>
-<li>Docker allows containers to read and write files from the Docker
+<li>Podman allows containers to read and write files from the Podman
 host.</li>
-<li>You can include files from your Docker host into your Docker
-container images by using the <code>COPY</code> instruction in your
+<li>You can include files from your Podman host into your container
+images by using the <code>COPY</code> instruction in your
 <code>Dockerfile</code>.</li>
 </ul></section><section id="docker-image-examples"><h2 class="section-heading"><a href="docker-image-examples.html">Examples of Using Container Images in Practice</a></h2>
 <hr class="half-width">
@@ -552,9 +551,9 @@ allows us to capture our work and enables reproducibility.</li>
   "creativeWorkStatus": "active",
   "url": "https://preview.carpentries.org/docker-introduction/key-points.html",
   "identifier": "https://preview.carpentries.org/docker-introduction/key-points.html",
-  "dateCreated": "2026-06-11",
-  "dateModified": "2026-06-16",
-  "datePublished": "2026-06-16"
+  "dateCreated": "2026-06-17",
+  "dateModified": "2026-06-17",
+  "datePublished": "2026-06-17"
 }
 
   </script><script>

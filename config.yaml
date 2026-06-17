@@ -11,7 +11,7 @@
 carpentry: 'incubator'
 
 # Overall title for pages.
-title: 'Reproducible Computational Environments Using Containers: Introduction to Docker'
+title: 'Reproducible Computational Environments Using Containers: Introduction to Podman or Docker'
 
 # Date the lesson was created (YYYY-MM-DD, this is empty by default)
 created: 
@@ -60,7 +60,7 @@ contact: 'docker-introduction+admins@lists.carpentries.org'
 # Order of episodes in your lesson
 episodes: 
 - introduction.md
-- meet-docker.md
+- meet-podman.md
 - running-containers.md
 - managing-containers.md
 - docker-hub.md
