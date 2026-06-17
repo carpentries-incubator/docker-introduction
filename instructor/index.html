@@ -187,19 +187,12 @@
                   <div class="accordion accordion-flush" id="accordionFlushcurrent">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-headingcurrent">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapsecurrent" aria-expanded="true" aria-controls="flush-collapsecurrent">
         <span class="visually-hidden">Current Chapter</span>
         <span class="current-chapter">
         Summary and Schedule
         </span>
-      </button>
+      
     </div><!--/div.accordion-header-->
-
-    <div id="flush-collapsecurrent" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushcurrent">
-      <div class="accordion-body">
-        <ul><li><a href="#why-podman-instead-of-docker">Why Podman instead of Docker</a></li>
-        </ul></div><!--/div.accordion-body-->
-    </div><!--/div.accordion-collapse-->
 
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
@@ -344,9 +337,16 @@ for example.</p>
 on your own laptop. Beyond your laptop, software container technologies
 such as Podman can also be used in the cloud and on high performance
 computing (HPC) systems. Some of the material in this lesson will be
-applicable to those environments too. :::::::::::: callout</p>
-<section><h2 class="section-heading" id="why-podman-instead-of-docker">Why Podman instead of Docker<a class="anchor" aria-label="anchor" href="#why-podman-instead-of-docker"></a></h2>
-<hr class="half-width"><p>This lesson was originally written to use the tool Docker and the
+applicable to those environments too.</p>
+<div id="why-podman-instead-of-docker" class="callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<span class="callout-header">Callout</span>
+<div id="why-podman-instead-of-docker" class="callout-inner">
+<h3 class="callout-title">Why Podman instead of Docker</h3>
+<div class="callout-content">
+<p>This lesson was originally written to use the tool Docker and the
 associated Docker Desktop. All the commands within this lesson can be
 run using <code>docker</code> instead of <code>podman</code>, though the
 output may vary slightly.</p>
@@ -357,7 +357,9 @@ only exceptions for education and open source software. In 2024, Docker
 changed their terms of service and removed their exception for open
 source software. This change prompted the lesson maintainers to switch
 the lesson to <code>podman</code>, an open source alternative.</p>
-<p>::::::::::::::::::::::::</p>
+</div>
+</div>
+</div>
 <div id="containers-on-hpc-systems" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -449,7 +451,9 @@ repository</a> for this lesson.</p>
 <!-- TODO: systematically check for Windows-isms -->
 <!--  LocalWords:  prereq links.md endcomment
  -->
-</section><section id="schedule"><table class="table table schedule table-striped" role="presentation"><tbody><tr><td></td><td><a href="#setup">Setup Instructions</a></td><td> Download files required for the lesson</td>
+
+
+      <section id="schedule"><table class="table table schedule table-striped" role="presentation"><tbody><tr><td></td><td><a href="#setup">Setup Instructions</a></td><td> Download files required for the lesson</td>
           </tr><tr><td>
 <span class="visually-hidden">Duration: </span>00h 00m
 </td>
