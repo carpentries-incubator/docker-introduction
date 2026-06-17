@@ -21,10 +21,10 @@ exercises: 5
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Learning about Docker Containers
+## Learning about software containers
 
 The Australian Research Data Commons has produced a short introductory video
-about Docker containers that covers many of the points below. Watch it before
+about containers that covers many of the points below. Watch it before
 or after you go through this section to reinforce your understanding!
 
 [How can software containers help your research?](https://www.youtube.com/watch?v=HelrQnm3v4g)
@@ -137,9 +137,9 @@ flavour of Linux + the filesystem inside.
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-## What is Docker?
+## What is Podman?
 
-[Docker][Docker] is a tool that allows you to build and run containers.
+[Podman](https://podman.io/) is a tool that allows you to build and run containers.
 It's not the only tool that can create containers, but is the one we've chosen for this workshop.
 
 ## Container Images
@@ -169,7 +169,7 @@ tools into containers?
 This solves several of our problems:
 
 - documentation -- there is a clear record of what software and software dependencies were used, from bottom to top.
-- portability -- the container can be used on any computer that has Docker installed -- it doesn't matter whether the computer is Mac, Windows or Linux-based.
+- portability -- the container can be used on any computer that has a compliant container runtime such as Podman or Docker installed -- it doesn't matter whether the computer is Mac, Windows or Linux-based.
 - reproducibility -- you can use the exact same software and environment on your computer and on other resources (like a large-scale computing cluster).
 - configurability -- containers can be sized to take advantage of more resources (memory, CPU, etc.) on large systems (clusters) or less, depending on the circumstances.
 
@@ -186,8 +186,8 @@ a research context include:
 - Using containers solely on your own computer to use a specific software tool
   or to test out a tool (possibly to avoid a difficult and complex installation
   process, to save your time or to avoid dependency hell).
-- Creating a `Dockerfile` that generates a container image with software that you
-  specify installed, then sharing a container image generated using this Dockerfile with
+- Creating a `Dockerfile` or `Containerfile` that generates a container image with software that you
+  specify installed, then sharing a container image generated using this file with
   your collaborators for use on their computers or a remote computing resource
   (e.g. cloud-based or HPC system).
 - Archiving the container images so you can repeat analysis/modelling using the
@@ -206,6 +206,6 @@ a research context include:
 - Virtualization allows multiple environments to run on a single computer.
 - Containerization improves upon the virtualization of whole computers by allowing efficient management of the host computer's memory and storage resources.
 - Containers are built from 'recipes' that define the required set of software components and the instructions necessary to build/install them within a container image.
-- Docker is just one software platform that can create containers and the resources they use.
+- Podman is just one software platform that can create containers and the resources they use.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::

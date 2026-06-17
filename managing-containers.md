@@ -13,7 +13,7 @@ exercises: 0
 
 :::::::::::::::::::::::::::::::::::::::: questions
 
-- How do I interact with a Docker container on my computer?
+- How do I interact with a container on my computer?
 - How do I manage my containers and container images?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -26,56 +26,62 @@ In order to remove a specific container image, you need to find out details abou
 specifically, the "Image ID". For example, say my laptop contained the following container image:
 
 ```bash
-$ docker image ls
+$ podman image ls
 ```
 
 ```output
-REPOSITORY       TAG         IMAGE ID       CREATED          SIZE
-hello-world      latest      fce289e99eb9   15 months ago    1.84kB
+REPOSITORY                TAG         IMAGE ID      CREATED        SIZE
+quay.io/podman/hello      latest      83fc7ce1224f  14 months ago  580 kB
 ```
 
-You can remove the container image with a `docker image rm` command that includes the *Image ID*, such as:
+You can remove the container image with a `podman image rm` command that includes the *Image ID*, such as:
 
 ```bash
-$ docker image rm fce289e99eb9
+$ podman image rm 83fc7ce1224f
 ```
 
 or use the container image name, like so:
 
 ```bash
-$ docker image rm hello-world
+$ podman image rm quay.io/podman/hello
+```
+
+You can also drop `quay.io/podman/` and only use the short name `hello` as there is no other image with this name. If you had another image called `hello` from another registry, you would need to specify the full name to distinguish between them.
+
+```bash
+podman image rm hello
 ```
 
 However, you may see this output:
 
 ```output
-Error response from daemon: conflict: unable to remove repository reference "hello-world" (must force) - container e7d3b76b00f4 is using its referenced image fce289e99eb9
+Error: image used by 2061ddb499b6e0d856cfd1d2dee2b0a365f577256ff76d6e29615f1701ddb420: image is in use by a container: consider listing external containers and force-removing image
 ```
 
-This happens when Docker hasn't cleaned up some of the previously running containers
+This happens when Podman hasn't cleaned up some of the previously running containers
 based on this container image. So, before removing the container image, we need to be able
 to see what containers are currently running, or have been run recently, and how
 to remove these.
 
 ## What containers are running?
 
-Working with containers, we are going to shift back to the command: `docker container`.  Similar to `docker image`, we can list running containers by typing:
+Working with containers, we are going to shift back to the command: `podman container`.  Similar to `podman image`, we can list running containers by typing:
 
 ```bash
-$ docker container ls
+$ podman container ls
 ```
 
 ```output
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+CONTAINER ID  IMAGE                            COMMAND               CREATED        STATUS                    PORTS       NAMES
 ```
 
 Notice that this command didn't return any containers because our containers all exited and thus stopped running after they completed their work.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## `docker ps`
+## `podman ps`
 
-The command `docker ps` serves the same purpose as `docker container ls`, and comes
+The command `podman ps` serves the same purpose as `podman container ls`, and comes
 from the Unix shell command `ps` which describes running processes.
 
 
@@ -83,24 +89,24 @@ from the Unix shell command `ps` which describes running processes.
 
 ## What containers have run recently?
 
-There is also a way to list running containers, and those that have completed recently, which is to add the `--all`/`-a` flag to the `docker container ls` command as shown below.
+There is also a way to list running containers, and those that have completed recently, which is to add the `--all`/`-a` flag to the `podman container ls` command as shown below.
 
 ```bash
-$ docker container ls --all
+$ podman container ls --all
 ```
 
 ```output
-CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                     PORTS               NAMES
-9c698655416a        hello-world         "/hello"            2 minutes ago       Exited (0) 2 minutes ago                       zen_dubinsky
-6dd822cf6ca9        hello-world         "/hello"            3 minutes ago       Exited (0) 3 minutes ago                       eager_engelbart
+CONTAINER ID  IMAGE                            COMMAND               CREATED        STATUS                    PORTS       NAMES
+2061ddb499b6  quay.io/podman/hello:latest      /usr/local/bin/po...  8 minutes ago  Exited (0) 8 minutes ago              suspicious_swanson
+6091eac31f58  quay.io/podman/hello:latest      /usr/local/bin/po...  2 seconds ago  Exited (0) 2 seconds ago              ecstatic_nash
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## Keeping it clean
 
-You might be surprised at the number of containers Docker is still keeping track of.
-One way to prevent this from happening is to add the `--rm` flag to `docker container run`. This
+You might be surprised at the number of containers Podman is still keeping track of.
+One way to prevent this from happening is to add the `--rm` flag to `podman container run`. This
 will completely wipe out the record of the run container when it exits. If you need
 a reference to the running container for any reason, **don't** use this flag.
 
@@ -113,14 +119,20 @@ To delete an exited container you can run the following command, inserting the `
 It will repeat the `CONTAINER ID` back to you, if successful.
 
 ```bash
-$ docker container rm 9c698655416a
+$ podman container rm 6091eac31f58
 ```
 
 ```output
-9c698655416a
+6091eac31f58
 ```
 
-An alternative option for deleting exited containers is the `docker container prune` command. Note that this command doesn't accept a container ID as an
+You can equivalently provide the `NAME` of the container to remove it.
+
+```bash
+$ podman container rm suspicious_swanson
+```
+
+An alternative option for deleting exited containers is the `podman container prune` command. Note that this command doesn't accept a container ID as an
 option because it deletes ALL exited containers!
 **Be careful** with this command as deleting the container is **forever**.
 **Once a container is deleted you can not get it back.**
@@ -130,37 +142,49 @@ If successful it will print the full `CONTAINER ID` back to you for each contain
 removed.
 
 ```bash
-$ docker container prune
+$ podman container prune
 ```
 
 ```output
-WARNING! This will remove all stopped containers.
+WARNING! This will remove all non running containers.
 Are you sure you want to continue? [y/N] y
-Deleted Containers:
-9c698655416a848278d16bb1352b97e72b7ea85884bff8f106877afe0210acfc
-6dd822cf6ca92f3040eaecbd26ad2af63595f30bb7e7a20eacf4554f6ccc9b2b
+400f00fc395f2e995130970dc0efe0b27e9a43a0a2bc9389aad9c62810a6573a
+670bfc78bcc54332c1d9de5e09dc3cf4478e12ebb37e9d00d6e228decbb1c25a
 ```
 
 ## Removing images, for real this time
 
 Now that we've removed any potentially running or stopped containers, we can try again to
-delete the `hello-world` **container image**.
+delete the `hello` **container image**.
 
 ```bash
-$ docker image rm hello-world
+$ podman image rm hello
 ```
 
 ```output
-Untagged: hello-world:latest
-Untagged: hello-world@sha256:5f179596a7335398b805f036f7e8561b6f0e32cd30a32f5e19d17a3cda6cc33d
-Deleted: sha256:fce289e99eb9bca977dae136fbe2a82b6b7d4c372474c9235adc1741675f587e
-Deleted: sha256:af0b15c8625bb1938f1d7b17081031f649fd14e6b233688eea3c5483994a66a3
+Untagged: quay.io/podman/hello:latest
+Deleted: 83fc7ce1224f5ed3885f6aaec0bb001c0bbb2a308e3250d7408804a720c72a32
 ```
 
-The reason that there are a few lines of output, is that a given container image may have been formed by merging multiple underlying layers.
-Any layers that are used by multiple Docker container images will only be stored once.
-Now the result of `docker image ls` should no longer include the `hello-world` container image.
+The image you deleted may have been formed by merging multiple underlying layers.
+In this case, you may see multiple lines of deletions when running `podman image
+rm` on what appears to be a single image. Any layers that are used by multiple
+container images will only be stored once. Now the result of `podman image ls`
+should no longer include the `hello` container image.
 
+:::::::::::::::::::::::::::::::::::::::::  callout
+
+## Using the GUI
+
+If you have installed the Podman Desktop GUI, you should be able to use it
+to view and delete containers and container images. It will provide the same
+information as the command line `podman` tools, and you will still need to
+delete containers before the associated container image. Nevertheless, it's still
+worth learning to use `podman` on the terminal as this underpins the rest of the
+technology and it's not guaranteed that all systems you work on will have a
+GUI to use!
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
 <!--  LocalWords:  keypoints amd64 fce289e99eb9 zen_dubinsky links.md
@@ -171,8 +195,8 @@ Now the result of `docker image ls` should no longer include the `hello-world` c
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- `docker container` has subcommands used to interact and manage containers.
-- `docker image` has subcommands used to interact and manage container images.
-- `docker container ls` or `docker ps` can provide information on currently running containers.
+- `podman container` has subcommands used to interact and manage containers.
+- `podman image` has subcommands used to interact and manage container images.
+- `podman container ls` or `podman ps` can provide information on currently running containers.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
