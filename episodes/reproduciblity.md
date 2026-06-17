@@ -19,7 +19,7 @@ exercises: 5
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Although this workshop is titled "Reproducible computational environments using containers",
-so far we have mostly covered the mechanics of using Docker with only passing reference to
+so far we have mostly covered the mechanics of using Podman with only passing reference to
 the reproducibility aspects. In this section, we discuss these aspects in more detail.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -71,10 +71,10 @@ This is fine for working collaboratively with container images on a day-to-day b
 
 When you publish your work or make it publicly available in some way it is good practice to make container images that you used for computational work available in an immutable, persistent way and to have an identifier that allows people to cite and give you credit for the work you have done. [Zenodo](https://zenodo.org/) is one service that provides this functionality.
 
-Zenodo supports the upload of *tar* archives and we can capture our Docker container images as tar archives using the `docker image save` command. For example, to export the container image we created earlier in this lesson:
+Zenodo supports the upload of *tar* archives and we can capture our container images as tar archives using the `podman image save` command. For example, to export the container image we created earlier in this lesson:
 
 ```bash
-docker image save alice/alpine-python:v1 -o alpine-python.tar
+podman image save docker.io/alice/alpine-python:v1 -o alpine-python.tar
 ```
 
 These tar container images can become quite large and Zenodo supports uploads up to 50GB so you may need to compress your archive to make it fit on Zenodo using a tool such as gzip (or zip):
@@ -85,7 +85,7 @@ gzip alpine-python.tar
 
 Once you have your archive, you can [deposit it on Zenodo](https://zenodo.org/deposit/) and this will:
 
-- Create a long-term archive snapshot of your Docker container image which people (including your future self) can download and reuse or reproduce your work.
+- Create a long-term archive snapshot of your container image which people (including your future self) can download and reuse or reproduce your work.
 - Create a persistent DOI (*Digital Object Identifier*) that you can cite in any publications or outputs to enable reproducibility and recognition of your work.
 
 In addition to the archive file itself, the deposit process will ask you to provide some basic metadata to classify the container image and the associated work.
@@ -149,7 +149,7 @@ This is not an exhaustive list but some of the advantages and disadvantages coul
   - Potentially easier to maintain (though could be opposite if working with large, distributed group)
 - Disadvantages:
   - Could get very large in size, making it more difficult to distribute
-    - Could use [Docker multi-stage build](https://docs.docker.com/develop/develop-images/multistage-build) to reduce size
+    - Could use [multi-stage build](https://docs.docker.com/build/building/multi-stage/) (described here for Docker but works equivalently with Podman) to reduce size
   - May end up with same dependency issues within the container image from different software requirements
   - Potentially more complex to test
   - Less re-useable for different, but related, work
@@ -179,7 +179,7 @@ This is not an exhaustive list but some of the advantages and disadvantages coul
 Now that we're at the end of the lesson material, take a moment to reflect on
 what you've learned, how it applies to you, and what to do next.
 
-1. In your own notes, write down or diagram your understanding of Docker containers and container images:
+1. In your own notes, write down or diagram your understanding of containers and container images:
   concepts, commands, and how they work.
 2. In the workshop's shared notes document, write down how you think you might
   use containers in your daily work. If there's something you want to try doing with

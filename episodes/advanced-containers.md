@@ -6,8 +6,8 @@ exercises: 30
 
 ::::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain how you can include files within Docker container images when you build them.
-- Explain how you can access files on the Docker host from your Docker containers.
+- Explain how you can include files within container images when you build them.
+- Explain how you can access files on the host from your containers.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -16,7 +16,7 @@ exercises: 30
 - How can I add local files (e.g. data files) into container
   images at build time?
 
-- How can I access files stored on the host system from within a running Docker
+- How can I access files stored on the host system from within a running Podman
   container?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -34,11 +34,11 @@ using the first 1--2 sections on this page.
 
 ## Using scripts and files from outside the container
 
-In your shell, change to the `sum` folder in the `docker-intro` folder and look at
+In your shell, change to the `sum` folder in the `podman-intro` folder and look at
 the files inside.
 
 ```bash
-$ cd ~/Desktop/docker-intro/sum
+$ cd ~/Desktop/podman-intro/sum
 $ ls
 ```
 
@@ -60,7 +60,7 @@ Question: What command would we use to run Python from the `alpine-python` conta
 We can run a container from the alpine-python container image using:
 
 ```bash
-$ docker container run alice/alpine-python
+$ podman container run alice/alpine-python python3 sum.py
 ```
 
 What happens? Since the `Dockerfile` that we built this container image from
@@ -69,16 +69,16 @@ command simply starts a container from the image, runs the `python3 --version`
 command and exits. You should have seen the installed version of Python printed
 to the terminal.
 
-Instead, if we want to run an interactive Python terminal, we can use `docker
+Instead, if we want to run an interactive Python terminal, we can use `podman
 container run` to override the default run command embedded within the
 container image. So we could run:
 
 ```bash
-$ docker container run -it alice/alpine-python python3
+$ podman container run -it alice/alpine-python python3
 ```
 
-The `-it` tells Docker to set up and interactive terminal connection to the
-running container, and then we're telling Docker to run the `python3` command
+The `-it` tells Podman to set up and interactive terminal connection to the
+running container, and then we're telling Podman to run the `python3` command
 inside the container which gives us an interactive Python interpreter prompt.
 _(type `exit()` to exit!)_
 
@@ -89,7 +89,7 @@ _(type `exit()` to exit!)_
 If we try running the container and Python script, what happens?
 
 ```bash
-$ docker container run alice/alpine-python python3 sum.py
+$ podman container run alice/alpine-python python3 sum.py
 ```
 
 ```output
@@ -119,7 +119,7 @@ or other external hard drive gets connected to a computer -- you can see the
 contents appear as if they were on your computer.
 
 We can create a mount between our computer and the running container by using an additional
-option to `docker container run`. We'll also use the variable `${PWD}` which will substitute
+option to `podman container run`. We'll also use the variable `${PWD}` which will substitute
 in our current working directory. The option will look like this
 
 `--mount type=bind,source=${PWD},target=/temp`
@@ -133,10 +133,11 @@ directory `/temp` -- the target.
 ## Types of mounts
 
 You will notice that we set the mount `type=bind`, there are other types of mount that
-can be used in Docker (e.g. `volume` and `tmpfs`). We do not cover other types of mounts
+can be used in Podman (e.g. `volume` and `tmpfs`). We do not cover other types of mounts
 or the differences between these mount types in the course as it is more of an advanced
 topic. You can find more information on the different mount types in
-[the Docker documentation](https://docs.docker.com/storage/).
+[the Docker documentation](https://docs.docker.com/storage/) and how to use them in
+[the Podman documentation](https://docs.podman.io/en/latest/markdown/podman-run.1.html#mount-type-type-type-specific-option).
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -144,7 +145,7 @@ topic. You can find more information on the different mount types in
 Let's try running the command now:
 
 ```bash
-$ docker container run --mount type=bind,source=${PWD},target=/temp alice/alpine-python python3 sum.py
+$ podman container run --mount type=bind,source=${PWD},target=/temp alice/alpine-python python3 sum.py
 ```
 
 But we get the same error!
@@ -159,7 +160,7 @@ mapped to `/temp` -- so we need to include that in the path to the script. This
 command should give us what we need:
 
 ```bash
-$ docker container run --mount type=bind,source=${PWD},target=/temp alice/alpine-python python3 /temp/sum.py
+$ podman container run --mount type=bind,source=${PWD},target=/temp alice/alpine-python python3 /temp/sum.py
 ```
 
 Note that if we create any files in the `/temp` directory while the container is
@@ -168,19 +169,20 @@ and will stay there even when the container stops.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
-## Other Commonly Used Docker Run Flags
+## Other Commonly Used Podman Run Flags
 
-Docker run has many other useful flags to alter its function.
+Podman run has many other useful flags to alter its function.
 A couple that are commonly used include `-w` and `-u`.
 
 The `--workdir`/`-w` flag sets the working directory a.k.a. runs the command
 being executed inside the directory specified.
 For example, the following code would run the `pwd` command in a container
-started from the latest ubuntu image in the `/home/alice` directory and print
-`/home/alice`.  If the directory doesn't exist in the image it will create it.
+started from the latest ubuntu image in the `/home/ubuntu` directory and print
+`/home/ubuntu`. Podman requires the working directory specified to already
+exist in the image.
 
 ```
-docker container run -w /home/alice/ ubuntu pwd
+podman container run -w /home/ubuntu/ ubuntu pwd
 ```
 
 The `--user`/`-u` flag lets you specify the username you would like to run the
@@ -195,7 +197,7 @@ fetch the current user's ID and group and run the container as that user.
 
 ## Exercise: Explore the script
 
-What happens if you use the `docker container run` command above
+What happens if you use the `podman container run` command above to run `sum.py`
 and put numbers after the script name?
 
 :::::::::::::::  solution
@@ -216,9 +218,9 @@ that are passed to it as arguments.
 
 ## Exercise: Checking the options
 
-Our Docker command has gotten much longer! Can you go through each piece of
-the Docker command above and explain what it does? How would you characterize
-the key components of a Docker command?
+Our Podman command has gotten much longer! Can you go through each piece of
+the Podman command above and explain what it does? How would you characterize
+the key components of a Podman command?
 
 :::::::::::::::  solution
 
@@ -226,14 +228,14 @@ the key components of a Docker command?
 
 Here's a breakdown of each piece of the command above
 
-- `docker container run`: use Docker to run a container
+- `podman container run`: use Podman to run a container
 - `--mount type=bind,source=${PWD},target=/temp`: connect my current working directory (`${PWD}`) as a folder
   inside the container called `/temp`
 - `alice/alpine-python`: name of the container image to use to run the container
 - `python3 /temp/sum.py`: what commands to run in the container
 
-More generally, every Docker command will have the form:
-`docker [action] [docker options] [docker container image] [command to run inside]`
+More generally, every Podman command will have the form:
+`podman [action] [podman options] [podman container image] [command to run inside]`
 
 :::::::::::::::::::::::::
 
@@ -250,14 +252,14 @@ Can you find the folder that's connected to your host computer? What's inside?
 
 ## Solution
 
-The docker command to run the container interactively is:
+The Podman command to run the container interactively is:
 
 ```bash
-$ docker container run --mount type=bind,source=${PWD},target=/temp -it alice/alpine-python sh
+$ podman container run --mount type=bind,source=${PWD},target=/temp -it alice/alpine-python sh
 ```
 
 Once inside, you should be able to navigate to the `/temp` folder
-and see that's contents are the same as the files on your host computer:
+and see that its contents are the same as the files on your host computer:
 
 ```bash
 /# cd /temp
@@ -278,14 +280,14 @@ might want to do if you're sharing a finished analysis or just want to have
 an archived copy of your entire analysis including the data. Let's assume that we've finished with our `sum.py`
 script and want to add it to the container image itself.
 
-In your shell, you should still be in the `sum` folder in the `docker-intro` folder.
+In your shell, you should still be in the `sum` folder in the `podman-intro` folder.
 
 ```bash
 $ pwd
 ```
 
 ```bash
-$ /Users/yourname/Desktop/docker-intro/sum
+$ /Users/yourname/Desktop/podman-intro/sum
 ```
 
 Let's add a new line to the `Dockerfile` we've been using so far to create a copy of `sum.py`.
@@ -295,25 +297,25 @@ We can do so by using the `COPY` keyword.
 COPY sum.py /home
 ```
 
-This line will cause Docker to copy the file from your computer into the container's
+This line will cause Podman to copy the file from your computer into the container's
 filesystem. Let's build the container image like before, but give it a different name:
 
 ```bash
-$ docker image build -t alice/alpine-sum .
+$ podman image build -t alice/alpine-sum .
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
 
 ## The Importance of Command Order in a Dockerfile
 
-When you run `docker image build` it executes the build in the order specified
+When you run `podman image build` it executes the build in the order specified
 in the `Dockerfile`.
 This order is important for rebuilding and you typically will want to put your `RUN`
 commands before your `COPY` commands.
 
-Docker builds the layers of commands in order.
+Podman builds the layers of commands in order.
 This becomes important when you need to rebuild container images.
-If you change layers later in the `Dockerfile` and rebuild the container image, Docker doesn't need to
+If you change layers later in the `Dockerfile` and rebuild the container image, Podman doesn't need to
 rebuild the earlier layers but will instead used a stored (called "cached") version of
 those layers.
 
@@ -339,7 +341,7 @@ Once inside, try running the Python script.
 You can start the container interactively like so:
 
 ```bash
-$ docker container run -it alice/alpine-sum sh
+$ podman container run -it alice/alpine-sum sh
 ```
 
 You should be able to run the python command inside the container like this:
@@ -357,7 +359,7 @@ that you want to publish or use as a record. Note that it's not necessarily a go
 to put your scripts inside the container image if you're constantly changing or editing them.
 Then, referencing the scripts from outside the container is a good idea, as we
 did in the previous section. You also want to think carefully about size -- if you
-run `docker image ls` you'll see the size of each container image all the way on the right of
+run `podman image ls` you'll see the size of each container image all the way on the right of
 the screen. The bigger your container image becomes, the harder it will be to easily download.
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -417,8 +419,8 @@ CMD ["python3", "/home/sum.py"]
 Build and test it:
 
 ```bash
-$ docker image build -t alpine-sum:v1 .
-$ docker container run alpine-sum:v1
+$ podman image build -t alpine-sum:v1 .
+$ podman container run alpine-sum:v1
 ```
 
 You'll notice that you can run the container without arguments just fine,
@@ -426,15 +428,15 @@ resulting in `sum = 0`, but this is boring. Supplying arguments however
 doesn't work:
 
 ```bash
-docker container run alpine-sum:v1 10 11 12
+podman container run alpine-sum:v1 10 11 12
 ```
 
 results in
 
 ```output
-docker: Error response from daemon: OCI runtime create failed:
-container_linux.go:349: starting container process caused "exec:
-\"10\": executable file not found in $PATH": unknown.
+Error: preparing container 8444a537a847f5b4d75a56fec767bfaf59a6f417277c36c0e46422f12c4fe01d for attach:
+crun: executable file `10` not found in $PATH:
+No such file or directory: OCI runtime attempted to invoke a command that was not found
 ```
 
 This is because the arguments `10 11 12` are interpreted as a
@@ -462,11 +464,11 @@ CMD ["10", "11"]
 Build and test it:
 
 ```bash
-$ docker image build -t alpine-sum:v2 .
+$ podman image build -t alpine-sum:v2 .
 # Most of the time you are interested in the sum of 10 and 11:
-$ docker container run alpine-sum:v2
+$ podman container run alpine-sum:v2
 # Sometimes you have more challenging calculations to do:
-$ docker container run alpine-sum:v2 12 13 14
+$ podman container run alpine-sum:v2 12 13 14
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -479,7 +481,7 @@ that does only sums, but you need an interactive shell to examine
 the container:
 
 ```bash
-$ docker container run -it alpine-sum:v2 /bin/sh
+$ podman container run -it alpine-sum:v2 /bin/sh
 ```
 
 will yield
@@ -491,7 +493,7 @@ Please supply integer arguments
 You need to override the `ENTRYPOINT` statement in the container image like so:
 
 ```bash
-$ docker container run -it --entrypoint /bin/sh alpine-sum:v2
+$ podman container run -it --entrypoint /bin/sh alpine-sum:v2
 ```
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -513,8 +515,8 @@ ENV PATH /home:$PATH
 Build and test it:
 
 ```bash
-$ docker image build -t alpine-sum:v3 .
-$ docker container run alpine-sum:v3 sum.py 1 2 3 4
+$ podman image build -t alpine-sum:v3 .
+$ podman container run alpine-sum:v3 sum.py 1 2 3 4
 ```
 
 :::::::::::::::::::::::::::::::::::::::::  callout
@@ -535,8 +537,8 @@ demonstrating how the rules highlighted by the paper can be applied.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Docker allows containers to read and write files from the Docker host.
-- You can include files from your Docker host into your Docker container images by using the `COPY` instruction in your `Dockerfile`.
+- Podman allows containers to read and write files from the Podman host.
+- You can include files from your Podman host into your container images by using the `COPY` instruction in your `Dockerfile`.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
