@@ -25,6 +25,7 @@ This session aims to introduce the use of Podman containers with the goal of usi
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 The practical work in this lesson is primarily aimed at using Podman on your own laptop. Beyond your laptop, software container technologies such as Podman can also be used in the cloud and on high performance computing (HPC) systems. Some of the material in this lesson will be applicable to those environments too.
+
 :::::::::::: callout
 
 ## Why Podman instead of Docker
